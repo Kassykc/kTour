@@ -8,6 +8,7 @@ import common from "@/utils/common"; // 기존 모듈 사용
 // 비동기 함수로 메시지 가져오기
 async function loadMessages() {
   const messages = {
+    ko: await import("@/locales/ko.json"),
     en: await import("@/locales/en.json"),
     id: await import("@/locales/id.json"),
   };
@@ -69,7 +70,7 @@ export function getCurrentLocale(): string {
  * @param locale - 변경할 언어 코드
  */
 export function setLocale(locale: string): void {
-  if (["en", "id"].includes(locale)) {
+  if (["en", "id", "ko"].includes(locale)) {
     composer.locale = locale;
   } else {
     console.warn(`Invalid locale: ${locale}`);
