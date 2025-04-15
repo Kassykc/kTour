@@ -1,0 +1,278 @@
+// COLOR CUSTOM
+$color-main-blue: #0047a0;
+$color-main-lightblue: #daedff;
+$color-error-red: #f22c2c;
+$color-grey-text: #505050;
+$color-grey-bg: #f5f5f5;
+$color-grey-border: #f5f5f5;
+$color-notice-bg: #f9f9f9;
+$color-category-menu-bg: #eaf3ff;
+$color-searchbar-bg: #f5f5f5;
+$color-searchbar-text: #808080;
+$color-video-item-author: #959ea9;
+$color-video-list-more-bg: #eaf3ff;
+$color-input-border: #c2c2c2;
+$color-placeholder-text: #c2c2c2;
+$color-terms-text: #8b8b8b;
+$color-disable-btn-bg: #e7e7e7;
+$color-disable-btn-text: #b0b4b9;
+$color-nav-center-bg: #f1f7ff;
+$color-subscribe-bg: #1c6cd0;
+$color-my-qr-bg: #eef5ff;
+$color-my-input-bg: #f7f8fa;
+$color-terms-text: #919191;
+$qna_complete_bg: #daedff;
+$qna_not_complete_bg: #ffe500;
+$qna_category_bg: #f4f9fe;
+$qna_capsule_bg: #f4f4f4;
+$setting_version_bg: #eaf3ff;
+$setting_toggle_bg: #eaeaea;
+$medi_qna_grey_border: #f8f8f8;
+$medi_qna_answer_grey_border: #bcbcbc;
+$medi_qna_author_bg: #f4f4f4;
+$disabled_btn_bg: #f4f4f4;
+$disabled_btn_text: #bcbcbc;
+$notice_grey_border: #bcbcbc;
+$point_icon_bg: #f7f8fa;
+$point_plus_text: #92cb65;
+$point_minus_text: #f22c2c;
+$profile_grey_border: #f5f5f5;
+$profile_grey_line: #c2c2c2;
+$signup_otp_input_bg: #fafafa;
+$signup_otp_highlight_color: #3782e0;
+$signup_password_phone_bg: #eaf3ff;
+$signup_password_phone_label: #8b8b8b;
+$signup_placeholder_text: #8b8b8b;
+$signup_referral_line: #eaf3ff;
+$info_edit_placeholder: #808080;
+$info_edit_error_bg: #ffd9d9;
+$info_edit_subtext: #9e9e9e;
+$input_focus_border: #3782e0;
+$art_buddy_btn_purple: #5e0088;
+
+// COLOR CUSTOM
+$color-main-green: #478033;
+$color-main-blue: #0047a0;
+$color-main-lightgreen: #f4ffed;
+$color-main-lightblue: #f4ffed;
+$color-main-text-blue: #00b3cd;
+$color-subtitle-color: #303030;
+$color-error-red: #f22c2c;
+$color-grey-text: #505050;
+$color-grey-bg: #f5f5f5;
+$color-notice-bg: #f9f9f9;
+$color-category_menu_bg: #eaf3ff;
+$color-searchbar-bg: #f5f5f5;
+$color-searchbar-text: #808080;
+$color-video-item-author: #959ea9;
+$color-video-list-more-bg: #eaf3ff;
+$color-input-border: #c2c2c2;
+$color-placeholder-text: #c2c2c2;
+$color-terms-text: #8b8b8b;
+$color-disable-btn-bg: #e7e7e7;
+$color-disable-btn-text: #b0b4b9;
+$color-gradient-lightgreen: #3bb112;
+$color-gradient-darkgreen: #356325;
+$color-list-background: #f8f8f8;
+$color-list-text-1: #212121;
+$color-list-text-2: #757575;
+$color-show-more-btn: #dddddd;
+$color-tab-border: #efefef;
+$color-sub-bg: #fbfbfb;
+$color-sub-text-1: #555555;
+$color-sub-subway-4: #02a5e3;
+$color-sub-subway-sb: #fabf02;
+$color_header_border: #dcdcdc;
+$color_footer_bg: #171717;
+$color_footer_txt_1: #727272;
+$color_footer_txt_2: #ababab;
+$color_kakao_map_btn: #f9e000;
+$color_naver_map_btn: #03c75a;
+$color_admin_bg: #424242;
+$color_admin_txt_1: #818181;
+$color_admin_delete_btn: #c93631;
+$color_admin_reg_btn: #0047a0;
+$color_pagination_active: #0047a0;
+$color_sub_alert: #ff0000;
+$color_search_border: #a4a4a4;
+$color_table_border: #cacaca;
+$color_login_bg: #f8f8f8;
+$color_login_border: #c8c8c8;
+$color_find_btn: #767676;
+$color_join_btn: #313131;
+$color_join_bg: #fcfcfc;
+$color_join_border: #e4e4e4;
+$color_join_agree: #6d6d6d;
+$color_privacy_gray: #656565;
+$color_admin_cancle_btn: #bfbfbf;
+$color_admin_modify_btn: #12a0dd;
+$color_reservation_01: #6e6e6e;
+$color_reservation_02: #f7f7f7;
+$color_reservation_disabled1: #f0f0f0;
+$color_reservation_disabled2: #aaaaaa;
+$color_courses_01: #e7f2fe;
+$color_courses_02: #0d57a7;
+$color_courses_03: #ccf0f5;
+$color_companion_01: #f0f7fd;
+$color_companion_02: #f0f9f6;
+
+// COLOR WHITE
+$color-white-000: #ffffff;
+$color-white-100: #ececec;
+$color-white-200: #f2f4f6;
+$color-white-300: #d9d9d9;
+$color-white-400: #a8a8a8;
+$color-white-500: #9c9c9b;
+$color-white-600: #777777;
+$color-white-700: #667085;
+
+// COLOR GRAY
+$color-gray-000: #fcfcfd;
+$color-gray-050: #f9fafb;
+$color-gray-100: #f2f4f7;
+$color-gray-200: #e4e7ec;
+$color-gray-300: #d0d5dd;
+$color-gray-350: #b6b6b6;
+$color-gray-400: #98a2b3;
+$color-gray-500: #667085;
+$color-gray-600: #475467;
+$color-gray-700: #344054;
+$color-gray-800: #1d2939;
+$color-gray-900: #101828;
+
+// COLOR ERROR
+$color-error-000: #fffbfa;
+$color-error-050: #fef3f2;
+$color-error-100: #fee4e2;
+$color-error-200: #fecdca;
+$color-error-300: #fda29b;
+$color-error-400: #f97066;
+$color-error-500: #f04438;
+$color-error-600: #d92d20;
+$color-error-700: #b4231b;
+$color-error-800: #912018;
+$color-error-900: #7a271a;
+
+// COLOR WARNING
+$color-warning-000: #fffcf5;
+$color-warning-050: #fffaeb;
+$color-warning-100: #fef0c7;
+$color-warning-200: #fedf89;
+$color-warning-300: #fec84b;
+$color-warning-400: #fdb022;
+$color-warning-500: #f79009;
+$color-warning-600: #dc6803;
+$color-warning-700: #b54708;
+$color-warning-800: #93380d;
+$color-warning-900: #7a2e0e;
+
+// COLOR SUCCESS
+$color-success-000: #f6fef9;
+$color-success-050: #ecfdf3;
+$color-success-100: #d1fadf;
+$color-success-200: #a6f4c5;
+$color-success-300: #6ce9a6;
+$color-success-400: #32d583;
+$color-success-500: #12b76a;
+$color-success-600: #039855;
+$color-success-700: #027a48;
+$color-success-800: #05603a;
+$color-success-900: #054f31;
+
+// COLOR PINK
+$color-pink-000: #fef5fb;
+$color-pink-050: #fdf2fa;
+$color-pink-100: #fce7f6;
+$color-pink-200: #fcceee;
+$color-pink-300: #faa7e0;
+$color-pink-400: #f670c7;
+$color-pink-500: #ee46bc;
+$color-pink-600: #dd2590;
+$color-pink-700: #c11574;
+$color-pink-800: #9e165f;
+$color-pink-900: #851651;
+
+// COLOR ROSE
+$color-rose-000: #fff5f6;
+$color-rose-050: #fff1f3;
+$color-rose-100: #ffe4e8;
+$color-rose-200: #fecdd6;
+$color-rose-300: #fea3b4;
+$color-rose-400: #fd6f8e;
+$color-rose-500: #f63d68;
+$color-rose-600: #e31b54;
+$color-rose-700: #c01048;
+$color-rose-800: #a11043;
+$color-rose-900: #89123e;
+
+// COLOR ORANGE
+$color-orange-000: #fffaf5;
+$color-orange-050: #fff6ed;
+$color-orange-100: #ffead5;
+$color-orange-200: #fddcab;
+$color-orange-300: #feb273;
+$color-orange-400: #fd853a;
+$color-orange-500: #fb6514;
+$color-orange-600: #ec4a0a;
+$color-orange-700: #c4320a;
+$color-orange-800: #9c2a10;
+$color-orange-900: #7e2410;
+
+// COLOR BLUE LIGHT
+$color-lightBlue-000: #f5fbff;
+$color-lightBlue-050: #f0f9ff;
+$color-lightBlue-100: #e0f2fe;
+$color-lightBlue-200: #b9e6fe;
+$color-lightBlue-300: #7cd4fd;
+$color-lightBlue-400: #36bffa;
+$color-lightBlue-500: #0ba5ec;
+$color-lightBlue-600: #0086c9;
+$color-lightBlue-700: #026aa2;
+$color-lightBlue-800: #065986;
+$color-lightBlue-900: #0b4a6f;
+
+// COLOR BLUE
+$color-blue-000: #f5faff;
+$color-blue-050: #eff8ff;
+$color-blue-100: #d1e9ff;
+$color-blue-200: #b2ddff;
+$color-blue-300: #84caff;
+$color-blue-400: #53b1fd;
+$color-blue-500: #2e90fa;
+$color-blue-600: #1570ef;
+$color-blue-700: #175cd3;
+$color-blue-800: #1849a9;
+$color-blue-900: #194185;
+
+// COLOR INDIGO
+$color-indigo-000: #f5f8ff;
+$color-indigo-050: #eef4ff;
+$color-indigo-100: #e0eaff;
+$color-indigo-200: #c7d7fe;
+$color-indigo-300: #a4bcfd;
+$color-indigo-400: #8098f9;
+$color-indigo-500: #6172f3;
+$color-indigo-600: #444ce7;
+$color-indigo-700: #3538cd;
+$color-indigo-800: #2d31a6;
+$color-indigo-900: #2d3282;
+
+// COLOR PUPPLE
+$color-pupple-000: #fafaff;
+$color-pupple-050: #f4f3ff;
+$color-pupple-100: #ebe9fe;
+$color-pupple-200: #d9d6fe;
+$color-pupple-300: #bd84fe;
+$color-pupple-350: #aaa0ff;
+$color-pupple-400: #9b8afb;
+$color-pupple-500: #7a5af8;
+$color-pupple-600: #6938ef;
+$color-pupple-700: #5925dc;
+$color-pupple-750: #6157b8;
+$color-pupple-800: #4a1fb8;
+$color-pupple-900: #3e1c96;
+
+// COLOR BLACK
+$color-black-700: #292929;
+$color-black-800: #1e1e1e;
+$color-black-900: #000000;

@@ -1,0 +1,616 @@
+{
+  "FILTERS": {
+    "ALL": "Semua",
+    "UNREPLY": "Belum dibalas",
+    "REPLIED": "Sudah dibalas"
+  },
+  "LANGS": {
+    "EN": "English",
+    "ID": "Indonesia"
+  },
+  "MainHeader": {
+    "login": "Masuk",
+    "logout": "Keluar"
+  },
+  "PageHeader": {
+    "login": "Masuk"
+  },
+  "NavMenu": {
+    "main": "Utama",
+    "serach": "Cari",
+    "promotion": "Unggulan",
+    "myvideo": "Video Saya",
+    "favorite": "Favorit",
+    "my": "Akun"
+  },
+  "CommonFilters": {
+    "sort": "Urutkan"
+  },
+  "CommonVideoList": {
+    "button": "Selanjutnya",
+    "nodata": "Anda belum memiliki"
+  },
+  "MainCopyright": {
+    "copy": "COPYRIGHT @ medicity ALL RIGHTS RESERVED."
+  },
+  "LayerLoginIntro": {
+    "text": "Selamat datang di K-Medi",
+    "subtext": "Silakan login atau daftar untuk<br />mengakses akun Anda",
+    "login": "Masuk",
+    "signup": "Saya belum terdaftar, Daftar",
+    "guide": "Cek Tips Penggunaan K-Medi",
+    "copy": "COPYRIGHT @ medicity ALL RIGHTS RESERVED."
+  },
+  "LoginView": {
+    "text": "Masuk",
+    "subtext": "Sudah menjadi pelanggan?<br />Masukkan nomor handphone."
+  },
+  "LoginIntro": {
+    "guide_phone": "Nomor bermasalah?",
+    "guide_pw": "Lupa kata sandi?",
+    "pw_placeholder": "Kata sandi",
+    "login": "Masuk"
+  },
+  "LoginAutoCheckbox": {
+    "text": "Biarkan saya tetap masuk."
+  },
+  "TermsSection": {
+    "terms_1": "Dengan masuk atau mendaftar, Anda setuju dengan",
+    "terms_2": "Ketentuan Layanan",
+    "terms_3": "dan",
+    "terms_4": "Kebijakan Privasi",
+    "terms_5": "kami."
+  },
+  "LayerTerms": {
+    "copy": "COPYRIGHT @ medicity ALL RIGHTS RESERVED."
+  },
+  "LayerLoginNotRegisteredId": {
+    "text_1": "Ini bukan",
+    "text_2": "yang terdaftar",
+    "hp": "nomor HP",
+    "button": "Masukan kembali"
+  },
+  "LayerLoginNotCorretPassword": {
+    "text": "Kata sandi tidak sesuai",
+    "button": "Oke",
+    "link": "Cari kata sandi"
+  },
+  "LayerLoginSuccess": {
+    "text_1": "Hai",
+    "text_2": "Anda telah berhasil login.",
+    "button": "Oke"
+  },
+  "LayerPasswordChangeSuccess": {
+    "text_1": "Halo",
+    "text_2": "Kata sandi berhasil diubah.",
+    "button": "Oke"
+  },
+  "SignUpIntro": {
+    "title": "Masukkan nomor handphone.",
+    "placeholder": "Email",
+    "error": "Alamat email salah",
+    "join": "Selanjutnya",
+    "login": "Sudah terdaftar di K-Medi?",
+    "loginLink": "Masuk sekarang."
+  },
+  "LayerDulicatedPhone": {
+    "title": "Nomor Anda sudah terdaftar",
+    "text": "Silakan masuk pada halaman login",
+    "button": "Masuk"
+  },
+  "LayerLogout": {
+    "title1": "Hai",
+    "title2": "Anda berhasil keluar.",
+    "button": "Kembali ke halaman utama"
+  },
+  "LayerWithdrawConfirm": {
+    "title": "Anda yakin menghapus akun?",
+    "text": "Seluruh histori penggunaan dan pembayaran<br />akan hilang secara permanen",
+    "button1": "Mempertahankan keanggotaan",
+    "button2": "Hapus akun"
+  },
+  "LayerWithdrawSuccess": {
+    "title": "Penghapusan akun telah diproses",
+    "text": "Kami selalu menunggu anda untuk bergabung kembali",
+    "button": "Kembali ke halaman utama"
+  },
+  "SignUpOTP": {
+    "title": "Masukkan kode OTP",
+    "text_1": "<span style='color: #3782e0; font-weight: 600;'>Silakan masukkan kode OTP yang</span> dikirim ke nomor telepon Anda",
+    "text_2": "melalui <span style='color: #3782e0; font-weight: 600;'>WhatsApp atau ke email</span> Anda",
+    "retry_1": "Kirim ulang kode dalam",
+    "expired": "Waktu tunggu sudah habis",
+    "retry_2": "Kirim ulang kode",
+    "success": "Kode OTP benar.",
+    "fail": "Kode OTP tidak cocok. Silakan periksa kode tersebut dan masukkan kembali.",
+    "fail2": "Kode OTP tidak cocok. Silakan periksa kode tersebut dan masukkan kembali",
+    "failOk": "Masukkan kembali",
+    "serverError": "Kesalahankomunikasiserver.<br/> Kode OTP tidak berhasil diterbitkan.",
+    "confirm": "Konfirmasi",
+    "join": "Selanjutnya"
+  },
+  "SignUpPassword": {
+    "title": "Silahkan buat kata sandi baru.",
+    "text": "Kata sandi harus terdiri dari minimal 5 karakter dan menggabungkan huruf dan angka.",
+    "phone_label": "Nomor telepon",
+    "placeholder_1": "Buat kata sandi",
+    "placeholder_2": "Ulangi kata sandi",
+    "warn": "Kata sandi harus terdiri dari minimal 5 karakter <br />dan menggabungkan huruf dan angka. <br />Silakan coba lagi.",
+    "success": "Kata sandi bisa digunakan.",
+    "alert_pw_same": "Sama dengan kata sandi sebelumnya.",
+    "join": "Selanjutnya"
+  },
+  "SignUpName": {
+    "title": "Silakan masukkan nama Anda",
+    "placeholder": "Isi Nama Lengkap",
+    "join": "Selanjutnya"
+  },
+  "SignUpRecommend": {
+    "title": "Silahkan masukkan kode referral jika ada.",
+    "text": "Jika tidak ada kode referensi yang digunakan,<br/>klik tombol untuk Lanjut.",
+    "placeholder": "Kode referral",
+    "join": "Selanjutnya",
+    "layerTitle": "P sudah didapat!",
+    "layerText": "Selamat kamu dapat poin dari kode referral teman",
+    "layerButton": "Selanjutnya"
+  },
+  "LayerSignUpRecommendConfirm": {
+    "text": "Apakah Kode referral <br />sudah benar?",
+    "row_label_1": "Kode referral",
+    "row_label_2": "Nama Anggota",
+    "ok": "Konfirmasi",
+    "close": "Batal"
+  },
+  "LayerSignUpRecommendNotFound": {
+    "title": "Kode referral tidak sesuai",
+    "text": "Kode yang kamu masukkan tidak sesuai coba ketik ulang",
+    "close": "Masukkan kembali"
+  },
+  "LayerSignUpSuccess": {
+    "title": "Selamat datang.",
+    "text": "Dapatkan keuntungan poin dengan <br />memasukkan info tambahan.",
+    "button_1": "Masukkan info tambahan",
+    "button_2": "Pergi ke Beranda"
+  },
+  "LayerSignUpRecommendSelfCode": {
+    "title": "Kode referensi tidak valid",
+    "text": "Anda tidak dapat memasukkan kode Anda sendiri, silakan masukkan kembali",
+    "close": "Masukkan kembali"
+  },
+  "LoginEmailView": {
+    "text": "Masuk dengan <br />alamat email.",
+    "subtext": "Anda tetap bisa login dengan email terdaftar <br />jika nomor telepon Anda berubah.",
+    "placeholder_1": "Alamat email",
+    "guide": "Lupa kata sandi?",
+    "placeholder_2": "Kata sandi",
+    "cs_1": "Silakan hubungi Pusat Bantuan di",
+    "cs_2": "jika Anda belum mendaftarkan email.",
+    "cs_email": "medicity.kmedi@gmail.com",
+    "login": "Masuk"
+  },
+  "FindPwView": {
+    "title": "Masuk",
+    "text": "Lupa password",
+    "subtext_1": "Silakan masukkan nomor HP yang Anda daftarkan.",
+    "subtext_2": "Silakan masukkan kode OTP",
+    "subtext_3": "Masukkan kata sandi baru.",
+    "error": "Akun ini tidak ada."
+  },
+  "SignUpView": {
+    "title": "Daftar",
+    "text": "Buat akun baru",
+    "subtext": "Buat akun baru jika Anda baru di K-Medi."
+  },
+  "AccountRecommendView": {
+    "title": "Referral",
+    "text": "Masukkan Kode Referral",
+    "subtext": "Masukkan kode referral anda dibawah<br />untuk mendapatkan poin",
+    "content_title": "Silahkan masukkan kode referral jika ada.",
+    "placeholder": "Kode referral",
+    "join": "Selanjutnya",
+    "layerTitle": "P sudah didapat!",
+    "layerText": "Selamat kamu dapat poin dari kode referral teman",
+    "layerButton": "Selanjutnya"
+  },
+  "AccountView": {
+    "title": "Informasi Pribadi"
+  },
+  "CategoryVideoView": {
+    "video": "Video"
+  },
+  "ExclusiveVideoView": {
+    "title": "Video Premium"
+  },
+  "MediQnAView": {
+    "title": "Pertanyaan Medis"
+  },
+  "MyVideoView": {
+    "video": "Video"
+  },
+  "NoAuthView": {
+    "title": "Konten tidak ditemukan!",
+    "desc": "Halaman ini belum bisa diakses.<br />Login/signup untuk mengakses halaman ini.",
+    "login": "Masuk",
+    "join": "Saya belum terdaftar, Daftar",
+    "guide": "Cek Tips Penggunaan K-Medi"
+  },
+  "NoticeView": {
+    "title": "Pemberitahuan"
+  },
+  "NotiView": {
+    "title": "Notifikasi",
+    "filter_1": "Semua",
+    "filter_2": "Belum dibaca",
+    "filter_3": "Sudah dibaca",
+    "nodata": "No Data"
+  },
+  "NotiList": {
+    "next": "Selanjutnya"
+  },
+  "PointView": {
+    "title": "Poin Saya",
+    "unit": "p"
+  },
+  "QnAView": {
+    "title": "Hubungi CS"
+  },
+  "RecommendVideoView": {
+    "title": "Video Rekomendasi"
+  },
+  "SearchView": {
+    "title": "Hasil Pencarian",
+    "search_1": "Ditemukan",
+    "search_2": "dalam pencarian",
+    "placeholder": "Cari Video Medis Korea",
+    "section_title_1": "Pencarian Terkini",
+    "clear": "Clear Searching",
+    "section_title_2": "Suggestion",
+    "nodata": "Pencaarian Anda tidak ditemukan"
+  },
+  "PromotionView": {
+    "nodata": "Konten tidak ditemukan"
+  },
+  "SettingView": {
+    "title": "Pengaturan",
+    "version": "App Version",
+    "section_title_1": "Pengaturan akun",
+    "menu_1": "Pengaturan push notifikasi",
+    "menu_2": "Pilihan bahasa",
+    "section_title_2": "Informasi",
+    "menu_3": "Terms and Conditions",
+    "menu_4": "Privacy policy",
+    "button_1": "keluar",
+    "button_2": "Hapus akun"
+  },
+  "PaymentView": {
+    "title": "Berlangganan",
+    "text": "Membership Package",
+    "subtext": "Berlangganaan sekarang untuk menikmati konten<br>premium dan bonus poin sesi tanya jawab",
+    "text2": "Anda memilih paket",
+    "unit": "Rp",
+    "button": "Beli Paket",
+    "LayerPayment_title": "Berlangganan",
+    "LayerPayment_label": "Anda memilih konten berbayar :"
+  },
+  "ContentView": {
+    "unit": "Rp",
+    "LayerPayment_title": "Beli Konten Berbayar",
+    "LayerPayment_label": "Anda memilih konten berbayar :",
+    "LayerPayment_price_label": "Konten Premium"
+  },
+  "LayerPayment": {
+    "point_label": "Tukar Poin",
+    "point_my": "Saldo Poin",
+    "point_button": "Gunakan Poin",
+    "total": "Total",
+    "use": "digunakan",
+    "next": "Selanjutnya",
+    "unit": "Rp"
+  },
+  "AccountEdit": {
+    "photo": "Ubah Foto Profil",
+    "title": "Informasi Utama",
+    "phone": "Nomer Telepon",
+    "verify": "Verifikasi",
+    "retry": "Kirim Ulang",
+    "invalid_code": "Kode verifikasi salah",
+    "code_verify": "Kode Verifikasi",
+    "name": "Nama",
+    "name_placeholder": "Isi nama lengkap",
+    "pw": "Kata Sandi",
+    "save_info": "Masukkan kata sandi Anda untuk mengubah informasi pribadi.",
+    "update_pw": "Ubah Sandi",
+    "pw_error": "Sandi salah",
+    "before_pw": "Sandi Lama",
+    "new_pw": "Sandi Baru",
+    "repeat_pw": "Ulangi Sandi",
+    "info": "Informasi Tambahan",
+    "email": "Email",
+    "email_placeholder": "ex{')'} olivia{'@'}gmail{'.'}com",
+    "partner": "Afiliasi",
+    "partner_placeholder": "ex) Bali International Medical Center",
+    "department": "Department",
+    "department_placeholder": "ex) Poli Gigi",
+    "save": "Simpan",
+    "cancel": "Batal",
+    "alertTitle": "Kode Verifikasi telah dikirim!",
+    "alertDesc": "Cek pesan email Anda.<br/> Silakan masukan kode verifikasi sebelum 01.00",
+    "alertButton": "Masukan",
+    "alert_pw_incorrect": "Kata sandi saat ini salah.",
+    "alert_pw_same": "Kata sandi baru sama dengan yang lama.",
+    "alert_pw_error": "Harap konfirmasi kata sandi Anda"
+  },
+  "AccountIntro": {
+    "membership": "Membership",
+    "subscribe": "BERLANGGANAN",
+    "due_to": "Aktif sampai",
+    "inactive": "Belum Aktif",
+    "recommend": "Referal undangan",
+    "code": "Masukan Kode Referral",
+    "info": "Informasi Penting",
+    "name": "Nama",
+    "phone": "Nomer Telepon",
+    "email": "Email",
+    "partner": "Afiliasi",
+    "department": "Department",
+    "update": "Ubah Informasi",
+    "layerTitle": "P telah terkumpul!",
+    "layerText": "Selamat kamu dapat poin dari melengkapi data pribadi",
+    "layerButton": "Oke"
+  },
+  "ContentInfos": {
+    "date": "Diperbarui",
+    "views": "Dilihat",
+    "min": "min",
+    "price": "Harga",
+    "unit": "Rp",
+    "director": "Direktur",
+    "category": "Bidang Medis",
+    "speaker": "Pembicara",
+    "affiliations": "Afiliasi",
+    "conferenceNm": "Nama Konferensi"
+  },
+  "ContentQnA": {
+    "title": "Ajukan Pertanyaan",
+    "title_placeholder": "Tulis judul pertanyaan",
+    "desc_placeholder": "Tulis isi pertanyaan",
+    "guide": "Tambahkan gambar penjelas (maks. 5)",
+    "remain_point": "Saldo Poin",
+    "unit": "p",
+    "need_point": "Poin dibutuhkan",
+    "error_message": "Poin Anda tidak mencukupi untuk mengajukan pertanyaan.",
+    "ready_message": "Pertanyaan anda akan dijawab langsung oleh staff medis",
+    "default_message": "Jika anda tidak menerima tanggapan dalam jangka waktu tertentu, poin akan dikembalikan.",
+    "submit": "Ajukan Pertanyaan"
+  },
+  "ContentPlayer": {
+    "text": "Kamu mengakses konten berbayar",
+    "preview": "Lihat preview"
+  },
+  "ContentMemebership": {
+    "text": "Anda perlu login / signup<br />untuk membeli konten",
+    "login": "Masuk",
+    "join": "Saya belum terdaftar, Daftar",
+    "buy": "Beli"
+  },
+  "LayerLanguageSelector": {
+    "name": "Pilih bahasa"
+  },
+  "LayerQnAFilter": {
+    "name": "UrutKan"
+  },
+  "LayerQR": {
+    "name": "Scan Kode Referral",
+    "close": "Tutup"
+  },
+  "SearchBanner": {
+    "text": "Cari Video Medis Korea"
+  },
+  "RecommendVideoList": {
+    "title": "Video Rekomendasi"
+  },
+  "MemberCard": {
+    "membership": "Membership",
+    "subscribe": "BERLANGGANAN",
+    "inactive": "Belum Aktif",
+    "due_to": "Aktif sampai",
+    "guide": "Berlangganan sekarang untuk akses langsung ke para dokter ahli",
+    "unit": "p",
+    "button": "Berlangganan"
+  },
+  "FlickingVideoList": {
+    "more_1": "Lihat",
+    "more_2": "Semua"
+  },
+  "FamilyGroup": {
+    "title": "Teknologi Kelas Dunia"
+  },
+  "ExclusiveVideoList": {
+    "title": "Exclusive Member"
+  },
+  "MediQnAIntro": {
+    "question": "Pertanyaan",
+    "next": "Selanjutnya",
+    "nodata": "Anda belum memiliki"
+  },
+  "MediQnAList": {
+    "edit": "Edit"
+  },
+  "MediQnADetail": {
+    "q_completed": "Sudah dijawab",
+    "q_not_completed": "Dalam Antrian",
+    "question_1": "Ajukan Pertanyaan",
+    "question_2": "Pertanyaan",
+    "photo": "Lampiran",
+    "save": "Simpan",
+    "cancel": "Batal",
+    "answer": "Jawaban",
+    "answer_not_completed": "Pertanyaan Anda <br />masih dalam antrian, mohon bersabar",
+    "category": "Bidang Medis",
+    "speaker": "Pembicara",
+    "affiliations": "Afiliasi",
+    "back": "Kembali ke daftar pertanyaan",
+    "edit": "Edit Pertanyaan",
+    "guide": "Pertanyaan tidak bisa diubah ketika sudah mendapat jawaban"
+  },
+  "MyProfile": {
+    "id": "Customer ID"
+  },
+  "MyProfileBox": {
+    "membership": "Membership",
+    "subscribe": "BERLANGGANAN",
+    "inactive": "Belum Aktif",
+    "due_to": "Aktif sampai",
+    "guide": "Berlangganan sekarang untuk akses langsung ke para dokter ahli",
+    "unit": "p",
+    "button": "Berlangganan"
+  },
+  "MyQRCode": {
+    "title": "Kode Referral",
+    "guide": "Poin akan ditambahkan saat teman Anda bergabung melalui kode referral.",
+    "copy": "Salin",
+    "share": "Bagikan"
+  },
+  "MySettingMenu": {
+    "title_1": "Aktivitas layanan",
+    "title_2": "Profil dan bantuan",
+    "menu_1": "Notifikasi",
+    "menu_2": "Pertanyaan Medis",
+    "menu_3": "Paket berlangganan",
+    "menu_4": "Riwayat berlangganan",
+    "menu_5": "Riwayat pembayaran layanan",
+    "menu_6": "Informasi pribadi",
+    "menu_7": "Poin saya",
+    "menu_8": "Pemberitahuan",
+    "menu_9": "Hubungi CS"
+  },
+  "PointList": {
+    "unit": "p",
+    "next": "Selanjutnya"
+  },
+  "PointNoData": {
+    "text": "Anda belum memiliki poin",
+    "subtext": "Undang teman untuk mendapatkan poin melalui kode referal"
+  },
+  "NoticeDetail": {
+    "photo": "Lampiran"
+  },
+  "NoticeIntro": {
+    "nodata": "No Data",
+    "next": "Selanjutnya"
+  },
+  "QnAIntro": {
+    "text_1": "Halo",
+    "text_2": "Saya ingin mendengar semua pertanyaan Anda dan komentar yang baik.",
+    "button": "Ajukan Pertanyaan",
+    "nodata": "Anda belum memiliki<br />pertanyaan ke admin CS",
+    "next": "Selanjutnya"
+  },
+  "QnADetail": {
+    "icon_complete": "Sudah dijawab",
+    "icon_not_complete": "Dalam Antrian",
+    "head_title_q": "Pertanyaaan",
+    "head_title_a": "Jawaban",
+    "button": "Kembali Ke Daftar Pertanyaan",
+    "no_answer": "Pertanyaan Anda<br />masih dalam antrian, mohon bersabar"
+  },
+  "QnAWrite": {
+    "text_1": "Halo",
+    "text_2": "Saya ingin mendengar semua pertanyaan Anda dan komentar yang baik.",
+    "button_1": "Ajukan Pertanyaan",
+    "button_2": "Kirim Pertanyaan",
+    "placeholder_1": "Tulis judul pertanyaan",
+    "placeholder_2": "Tulis isi pertanyaan"
+  },
+  "LayerQnASuccess": {
+    "title": "Pertanyaan Anda telah dikirim!",
+    "desc": "Terima kasih atas umpan balik Anda.<br />Kami akan segera menanggapi pertanyaan Anda.",
+    "button": "Oke"
+  },
+  "NoNetwork": {
+    "title": "Pertanyaan Anda telah dikirim!",
+    "desc": "Terima kasih atas umpan balik Anda.<br />Kami akan segera menanggapi pertanyaan Anda.",
+    "button": "Oke"
+  },
+  "PaymentInfoView": {
+    "title": "Tonton semua Konten Medis<br />di K-Medi.",
+    "text_1": "Konferensi Medis Offline ke Online, tonton kapan saja, di mana saja sesuai keinginan Anda.",
+    "text_2": "Rp200,000/bulan • Termasuk PPN• Dapat dibatalkan kapan saja",
+    "text_3": "Rp180,000/bulan • Tidak termasuk PPN• Dapat dibatalkan kapan saja",
+    "text_4": "/bulan",
+    "text_5": "Semua ini hanya dengan Rp 98.000/bulan (termasuk PPN).",
+    "button": "Berlangganan K-Medi",
+    "terms_text_1": "Ini adalah pembayaran berlangganan, dan dengan melanjutkan, Anda dianggap menyetujui",
+    "terms_service": "Persyaratan Layanan.",
+    "terms_text_2": "Silakan lihat Kebijakan",
+    "terms_privacy": "Privasi untuk informasi lebih lanjut.",
+    "terms_text_3": "Tidak ada pengembalian dana untuk sisa periode berlangganan.",
+    "discount": "Diskon"
+  },
+  "NoNetworkView": {
+    "title": "Koneksi jaringan tidak stabil.",
+    "desc": "Silakan periksa koneksi jaringan ponsel<br/>Anda dan coba sambungkan kembali.",
+    "button": "Refresh"
+  },
+  "LayerPlayStoreFail": {
+    "text": "Tidak dapat terhubung ke layanan pembayaran Google Play.<br/>Silahkan periksa informasi akun Anda.",
+    "button": "Oke"
+  },
+  "LayerStoreFail": {
+    "text": "Pembayaran hanya dapat dilakukan melalui pembelian dalam aplikasi.",
+    "button": "Oke"
+  },
+  "SubscriptionModal": {
+    "title": "Berlangganan K-Medi sekarang<br/>dan tonton video lengkapnya!",
+    "ok_button": "Berlangganan",
+    "close_button": "Jelajahi lebih lanjut"
+  },
+  "ProductPage": {
+    "title": "Tonton Semua Konten Medis di K-MEDI",
+    "desc": "Ubah konferensi medis offline menjadi sesi online; tonton kapan saja dan di mana saja yang Anda inginkan.",
+    "VAT": "Termasuk PPN",
+    "button": "Bayar Sekarang",
+    "month": "bulan",
+    "discount": "Diskon"
+  },
+  "ProductInfo": {
+    "paymentInformation": "Payment Information",
+    "subscriptionInformation": "Informasi Langganan",
+    "subscriptionPlan": "Paket Langganan:",
+    "expirationDate": "Tanggal Kedaluwarsa:",
+    "paymentAmount": "Jumlah Pembayaran",
+    "totalAmount": "Total Pembayaran:",
+    "orderInformation": "Informasi Pemesan",
+    "name": "Nama",
+    "email": "Email",
+    "phoneNumber": "Nomor Telepon",
+    "paymentMethods": "Metode Pembayaran",
+    "paymentQr": "Pembayaran QR",
+    "digitalWallet": "Dompet Digital",
+    "virtualAccount": "Rekening Virtual",
+    "creditCard": "Kartu Kredit",
+    "makePayment": "Bayar Sekarang Rp",
+    "vat": "* Termasuk PPN",
+    "aosProductNM": "Langganan 1 Bulan"
+  },
+  "PaySuccess": {
+    "paymentCompleted": "Pembayaran Berhasil.",
+    "startUsingKMediRightAway": "Mulai gunakan K-Medi sekarang juga!",
+    "subscriptionPlan": "Paket Langganan:",
+    "paymentDate": "Tanggal Pembayaran:",
+    "paymentAmount": "Jumlah Pembayaran:",
+    "orderInformation": "Informasi Pemesan",
+    "name": "Nama",
+    "email": "Email",
+    "phoneNumber": "Nomor Telepon",
+    "goToMain": "Kembali ke Halaman Utama",
+    "PaymentMethod": "Metode Pembayaran:",
+    "Platform": "Platform Pembayaran",
+    "Period": "Periode Langganan"
+  },
+  "PayFail": {
+    "paymentFailed": "Pembayaran Gagal.",
+    "pleaseSelectPaymentMethodAgain": "Silakan pilih metode pembayaran kembali.",
+    "tryAgain": "Coba Lagi"
+  }
+}

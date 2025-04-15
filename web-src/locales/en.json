@@ -1,0 +1,607 @@
+{
+  "FILTERS": {
+    "ALL": "ALL",
+    "UNREPLY": "Unreplied",
+    "REPLIED": "Replied"
+  },
+  "LANGS": {
+    "EN": "English",
+    "ID": "Indonesia"
+  },
+  "MainHeader": {
+    "login": "Log In",
+    "logout": "Log Out"
+  },
+  "PageHeader": {
+    "login": "Log In"
+  },
+  "NavMenu": {
+    "main": "Main",
+    "serach": "Search",
+    "promotion": "Featured",
+    "myvideo": "My Videos",
+    "favorite": "Favorite",
+    "my": "Account"
+  },
+  "CommonFilters": {
+    "sort": "Sort"
+  },
+  "CommonVideoList": {
+    "button": "Next",
+    "nodata": "You do not have"
+  },
+  "MainCopyright": {
+    "copy": "COPYRIGHT @ medicity ALL RIGHTS RESERVED."
+  },
+  "LayerLoginIntro": {
+    "text": "Welcome to K-Medi",
+    "subtext": "Please log in or register to<br />access your account",
+    "login": "Log In",
+    "signup": "I'm not registered yet, Register",
+    "guide": "Check K-Medi Usage Tips",
+    "copy": "COPYRIGHT @ medicity ALL RIGHTS RESERVED."
+  },
+  "LoginView": {
+    "text": "Log In",
+    "subtext": "Already registered?<br />Enter your phone number."
+  },
+  "LoginIntro": {
+    "guide_phone": "Problem with number?",
+    "guide_pw": "Forgot password?",
+    "pw_placeholder": "Password",
+    "login": "Log In"
+  },
+  "LoginAutoCheckbox": {
+    "text": "Keep me logged in."
+  },
+  "TermsSection": {
+    "terms_1": "By logging in or registering, you agree to our",
+    "terms_2": "Term of service",
+    "terms_3": "and",
+    "terms_4": "Privacy policy",
+    "terms_5": "."
+  },
+  "LayerTerms": {
+    "copy": "COPYRIGHT @ medicity ALL RIGHTS RESERVED."
+  },
+  "LayerLoginNotRegisteredId": {
+    "text_1": "This is not",
+    "text_2": "the registered",
+    "hp": "phone number",
+    "button": "Re-enter"
+  },
+  "LayerLoginNotCorretPassword": {
+    "text": "Password does not match",
+    "button": "OK",
+    "link": "Look for password"
+  },
+  "LayerLoginSuccess": {
+    "text_1": "Hello",
+    "text_2": "Log In Succesful.",
+    "button": "OK"
+  },
+  "LayerPasswordChangeSuccess": {
+    "text_1": "Hello",
+    "text_2": "Password changed successfully.",
+    "button": "OK"
+  },
+  "SignUpIntro": {
+    "title": "Enter phone number.",
+    "placeholder": "Email",
+    "error": "Email address incorrect",
+    "join": "Next",
+    "login": "Already registered with K-Medi?",
+    "loginLink": "Log in now."
+  },
+  "LayerDulicatedPhone": {
+    "title": "Phone number already registered",
+    "text": "Please log in at the log in page",
+    "button": "Log In"
+  },
+  "LayerLogout": {
+    "title1": "Hello",
+    "title2": "Log Out Successful.",
+    "button": "Return to homepage"
+  },
+  "LayerWithdrawConfirm": {
+    "title": "Are you sure you want to delete your account?",
+    "text": "Every usage and transaction history<br />will be erased permanently",
+    "button1": "Keep the subscription",
+    "button2": "Delete account"
+  },
+  "LayerWithdrawSuccess": {
+    "title": "Account deletion processed",
+    "text": "We will always wait for your return",
+    "button": "Return to homepage"
+  },
+  "SignUpOTP": {
+    "title": "Insert OTP code",
+    "text_1": "Please <span style='color: #3782e0; font-weight: 600;'>enter the OTP code</span> sent to your phone number",
+    "text_2": "via <span style='color: #3782e0; font-weight: 600;'>WhatsApp or to your email</span>",
+    "retry_1": "Resend code in",
+    "expired": "Waiting time is up",
+    "retry_2": "Resend code",
+    "success": "OTP code correct.",
+    "fail": "The OTP code does not match. Please check the code and enter it again.",
+    "fail2": "The OTP code does not match. Please check the code and enter it again",
+    "failOk": "Re-enter",
+    "serverError": "Server communication error.<br/> The OTP code was not issued successfully.",
+    "confirm": "Confirm",
+    "join": "Next"
+  },
+  "SignUpPassword": {
+    "title": "Please create a new password.",
+    "text": "The password must be at least 5 characters long and include a combination of letters and numbers.",
+    "phone_label": "Phone number",
+    "placeholder_1": "Create password",
+    "placeholder_2": "Re-type password",
+    "warn": "The password must be at least 5 characters long <br />and include a combination of letters and numbers. <br />Please try again.",
+    "success": "Password OK.",
+    "alert_pw_same": "Same as previous password.",
+    "join": "Next"
+  },
+  "SignUpName": {
+    "title": "Please enter your name",
+    "placeholder": "Enter your full name",
+    "join": "Next"
+  },
+  "SignUpRecommend": {
+    "title": "Please enter referral code, if any.",
+    "text": "If there is no referral code to use,<br/>click the button to Next.",
+    "placeholder": "Referral code",
+    "join": "Next",
+    "layerTitle": "P has been obtained!",
+    "layerText": "Congratulations! you've obtained points from friend referral code",
+    "layerButton": "Next"
+  },
+  "LayerSignUpRecommendConfirm": {
+    "text": "Is the referral code <br />correct?",
+    "row_label_1": "Referral code",
+    "row_label_2": "Member Name",
+    "ok": "Confirm",
+    "close": "Cancel"
+  },
+  "LayerSignUpRecommendNotFound": {
+    "title": "Referral code does not match",
+    "text": "The code does not match, please re-enter",
+    "close": "Re-enter code"
+  },
+  "LayerSignUpSuccess": {
+    "title": "Welcome.",
+    "text": "Get lucky points by <br />inserting additional infos.",
+    "button_1": "Insert additional info",
+    "button_2": "Go to Homepage"
+  },
+  "LayerSignUpRecommendSelfCode": {
+    "title": "Invalid referral code",
+    "text": "You cannot enter your own code, please re-enter",
+    "close": "Re-enter code"
+  },
+  "LoginEmailView": {
+    "text": "Log in using <br />e-mail.",
+    "subtext": "You can still log in using the e-mail registered <br />if your phone number changed.",
+    "placeholder_1": "E-mail address",
+    "guide": "Forgot password?",
+    "placeholder_2": "Password",
+    "cs_1": "Please contact Customer Service at",
+    "cs_2": "if you have not register your e-mail.",
+    "cs_email": "medicity.kmedi@gmail.com",
+    "login": "Log In"
+  },
+  "FindPwView": {
+    "title": "Log In",
+    "text": "Forgot password",
+    "subtext_1": "Please enter the registered phone number.",
+    "subtext_2": "Please enter the OTP code",
+    "subtext_3": "Enter new password.",
+    "error": "This account does not exist."
+  },
+  "SignUpView": {
+    "title": "Sign Up",
+    "text": "Create new account",
+    "subtext": "Create new account if you are new to K-Medi."
+  },
+  "AccountRecommendView": {
+    "title": "Referral",
+    "text": "Enter Referral Code",
+    "subtext": "Enter the referral code below<br />to get points",
+    "content_title": "Please enter referral code, if any.",
+    "placeholder": "Referral code",
+    "join": "Next",
+    "layerTitle": "P has been obtained!",
+    "layerText": "Congratulations! you've obtained points from friend referral code",
+    "layerButton": "Next"
+  },
+  "AccountView": {
+    "title": "Personal Information"
+  },
+  "CategoryVideoView": {
+    "video": "Video"
+  },
+  "ExclusiveVideoView": {
+    "title": "Premium Video"
+  },
+  "MediQnAView": {
+    "title": "Medical Questions"
+  },
+  "MyVideoView": {
+    "video": "Video"
+  },
+  "NoAuthView": {
+    "title": "Content not found!",
+    "desc": "This page can't be accessed yet.<br />Login/sign up to access this page.",
+    "login": "Log In",
+    "join": "I'm not registered yet, Register",
+    "guide": "Check K-Medi Usage Tips"
+  },
+  "NoticeView": {
+    "title": "Announcement"
+  },
+  "NotiView": {
+    "title": "Notification",
+    "filter_1": "All",
+    "filter_2": "Not read",
+    "filter_3": "Read",
+    "nodata": "No Data"
+  },
+  "NotiList": {
+    "next": "Next"
+  },
+  "PointView": {
+    "title": "My Points",
+    "unit": "p"
+  },
+  "QnAView": {
+    "title": "Contact CS"
+  },
+  "RecommendVideoView": {
+    "title": "Recommended Videos"
+  },
+  "SearchView": {
+    "title": "Search Result",
+    "search_1": "Found",
+    "search_2": "currently searching",
+    "placeholder": "Search Korea Medical Video",
+    "section_title_1": "Recent Searches",
+    "clear": "Clear Searching",
+    "section_title_2": "Suggestion",
+    "nodata": "Search result not found"
+  },
+  "PromotionView": {
+    "nodata": "Content not found"
+  },
+  "SettingView": {
+    "title": "Setting",
+    "version": "App Version",
+    "section_title_1": "Account setting",
+    "menu_1": "Push notification setting",
+    "menu_2": "Language options",
+    "section_title_2": "Information",
+    "menu_3": "Terms and Conditions",
+    "menu_4": "Privacy policy",
+    "button_1": "Log Out",
+    "button_2": "Delete account"
+  },
+  "PaymentView": {
+    "title": "Subscribe",
+    "text": "Membership Package",
+    "subtext": "Subscribe now to enjoy premium<br>contents and bonus points from QnA sessions",
+    "text2": "You've chose this package",
+    "unit": "Rp",
+    "button": "Purchase Package",
+    "LayerPayment_title": "Subscribe",
+    "LayerPayment_label": "You've chose paid content :"
+  },
+  "ContentView": {
+    "unit": "Rp",
+    "LayerPayment_title": "Buy Paid Content",
+    "LayerPayment_label": "You've chose paid content :",
+    "LayerPayment_price_label": "Premium content"
+  },
+  "LayerPayment": {
+    "point_label": "Exchange Point",
+    "point_my": "Point Balance",
+    "point_button": "Use Point",
+    "total": "Total",
+    "use": "used",
+    "next": "Next",
+    "unit": "Rp"
+  },
+  "AccountEdit": {
+    "photo": "Change Profile Picture",
+    "title": "Main Information",
+    "phone": "Phone Number",
+    "verify": "Verify",
+    "retry": "Retry",
+    "invalid_code": "Verification code invalid",
+    "code_verify": "Verification Code",
+    "name": "Name",
+    "name_placeholder": "Enter full name",
+    "pw": "Password",
+    "save_info": "Enter your password to update personal information.",
+    "update_pw": "Change Password",
+    "pw_error": "Incorrect password",
+    "before_pw": "Old Password",
+    "new_pw": "New Password",
+    "repeat_pw": "Re-enter Password",
+    "info": "Additional Information",
+    "email": "E-mail",
+    "email_placeholder": "ex{')'} olivia{'@'}gmail{'.'}com",
+    "partner": "Affilation",
+    "partner_placeholder": "ex) Bali International Medical Center",
+    "department": "Department",
+    "department_placeholder": "ex) Dental",
+    "save": "Save",
+    "cancel": "Cancel",
+    "alertTitle": "Verification code sent!",
+    "alertDesc": "Check your e-mail inbox.<br/> Please enter the verification code before 01.00",
+    "alertButton": "Enter",
+    "alert_pw_incorrect": "Incorrect current password",
+    "alert_pw_same": "New password matches the old one",
+    "alert_pw_error": "Please confirm your password"
+  },
+  "AccountIntro": {
+    "membership": "Membership",
+    "subscribe": "SUBSCRIBE",
+    "due_to": "Active until",
+    "inactive": "Not Active Yet",
+    "recommend": "Invite referral",
+    "code": "Enter Referral Code",
+    "info": "Important Information",
+    "name": "Name",
+    "phone": "Phone Number",
+    "email": "E-mail",
+    "partner": "Affilation",
+    "department": "Department",
+    "update": "Edit Information",
+    "layerTitle": "P has accumulated!",
+    "layerText": "Congratulations! You've obtained points from completing your personal data",
+    "layerButton": "OK"
+  },
+  "ContentInfos": {
+    "date": "Update",
+    "views": "Views",
+    "min": "min",
+    "price": "Price",
+    "unit": "Rp",
+    "director": "Director",
+    "category": "Medical Field",
+    "speaker": "Speaker",
+    "affiliations": "Affiliation",
+    "conferenceNm": "Conference Name"
+  },
+  "ContentQnA": {
+    "title": "Ask Questions",
+    "title_placeholder": "Enter question's title",
+    "desc_placeholder": "Enter question",
+    "guide": "Add reference picture (max. 5)",
+    "remain_point": "Point Balance",
+    "unit": "p",
+    "need_point": "Point needed",
+    "error_message": "Your point is not sufficient to ask question.",
+    "ready_message": "Your question will answered directly by medical staffs",
+    "default_message": "If you don't receive any feedback in a certain period of time, your point will be returned.",
+    "submit": "Ask Question"
+  },
+  "ContentPlayer": {
+    "text": "You're accessing paid content",
+    "preview": "See preview"
+  },
+  "ContentMemebership": {
+    "text": "You need to log in / sign up<br />to buy contents",
+    "login": "Log In",
+    "join": "I'm not registered yet, Register",
+    "buy": "Buy"
+  },
+  "LayerLanguageSelector": {
+    "name": "Choose language"
+  },
+  "LayerQnAFilter": {
+    "name": "Sort"
+  },
+  "LayerQR": {
+    "name": "Scan Referral Code",
+    "close": "Close"
+  },
+  "SearchBanner": {
+    "text": "Search Korea Medical Videos"
+  },
+  "RecommendVideoList": {
+    "title": "Recommended Videos"
+  },
+  "MemberCard": {
+    "membership": "Membership",
+    "subscribe": "SUBSCRIBE",
+    "inactive": "Not Active Yet",
+    "due_to": "Active until",
+    "guide": "Subscribe now for immediate access to expert doctors",
+    "unit": "p",
+    "button": "Subscribe"
+  },
+  "FlickingVideoList": {
+    "more_1": "See",
+    "more_2": "All"
+  },
+  "FamilyGroup": {
+    "title": "World Class Technology"
+  },
+  "ExclusiveVideoList": {
+    "title": "Exclusive Member"
+  },
+  "MediQnAIntro": {
+    "question": "Question",
+    "next": "Next",
+    "nodata": "You do not have"
+  },
+  "MediQnAList": {
+    "edit": "Edit"
+  },
+  "MediQnADetail": {
+    "q_completed": "Answered",
+    "q_not_completed": "In Queue",
+    "question_1": "Ask Question",
+    "question_2": "Question",
+    "photo": "Attachment",
+    "save": "Save",
+    "cancel": "Cancel",
+    "answer": "Answer",
+    "answer_not_completed": "Your question <br />is still in queue, please wait",
+    "category": "Medical Field",
+    "speaker": "Speaker",
+    "affiliations": "Affiliation",
+    "back": "Return to questions list",
+    "edit": "Edit Question",
+    "guide": "Question can not be edited once they have been answered"
+  },
+  "MyProfile": {
+    "id": "Customer ID"
+  },
+  "MyProfileBox": {
+    "membership": "Membership",
+    "subscribe": "SUBSCRIBE",
+    "inactive": "Not Active Yet",
+    "due_to": "Active until",
+    "guide": "Subscribe now for immediate access to expert doctors",
+    "unit": "p",
+    "button": "Subscribe"
+  },
+  "MyQRCode": {
+    "title": "Referral Code",
+    "guide": "Point will be added when your friends join via referral code.",
+    "copy": "Copy",
+    "share": "Share"
+  },
+  "MySettingMenu": {
+    "title_1": "Service Activity",
+    "title_2": "Profile and help",
+    "menu_1": "Notifications",
+    "menu_2": "Medical Questions",
+    "menu_3": "Subscription package",
+    "menu_4": "Subscription history",
+    "menu_5": "Subscription payment history",
+    "menu_6": "Personal information",
+    "menu_7": "My point",
+    "menu_8": "Announcement",
+    "menu_9": "Contact CS"
+  },
+  "PointList": {
+    "unit": "p",
+    "next": "Next"
+  },
+  "PointNoData": {
+    "text": "You do not have any point yet",
+    "subtext": "Invite your friends via referral code to obtain points"
+  },
+  "NoticeDetail": {
+    "photo": "Attachment"
+  },
+  "NoticeIntro": {
+    "nodata": "No Data",
+    "next": "Next"
+  },
+  "QnAIntro": {
+    "text_1": "Hello",
+    "text_2": "I want to hear all of your questions and kind feedbacks.",
+    "button": "Ask Question",
+    "nodata": "You still don't have any<br />questions for CS admin",
+    "next": "Next"
+  },
+  "QnADetail": {
+    "icon_complete": "Answered",
+    "icon_not_complete": "In Queue",
+    "head_title_q": "Question",
+    "head_title_a": "Answer",
+    "button": "Return to questions list",
+    "no_answer": "You questions<br />is still in queue, please wait"
+  },
+  "QnAWrite": {
+    "text_1": "Hello",
+    "text_2": "I want to hear all of your questions and kind feedbacks.",
+    "button_1": "Ask Question",
+    "button_2": "Send Question",
+    "placeholder_1": "Enter question's title",
+    "placeholder_2": "Enter question"
+  },
+  "LayerQnASuccess": {
+    "title": "Your question has been sent!",
+    "desc": "Thank you for your feedback.<br />We will respond to your question immediately.",
+    "button": "OK"
+  },
+  "PaymentInfoView": {
+    "title": "Watch all Medical Contents<br />on K-Medi.",
+    "text_1": "Turn offline medical conferences into online sessions, watch at your desired time and place.",
+    "text_2": "Rp200,000/month • VAT Included • Cancel anytime",
+    "text_3": "Rp180,000/month • VAT NOT Included • Cancel anytime",
+    "text_4": "/month",
+    "text_5": "All this for only Rp 98,000/month (includes VAT).",
+    "button": "K-Medi Subscription",
+    "terms_text_1": "This is a regular payment and if you continue, you will be considered to agree to the",
+    "terms_service": "Terms and Conditions of Service.",
+    "terms_text_2": "Please refer to the",
+    "terms_privacy": "Privacy Policy Terms and Conditions.",
+    "terms_text_3": "Refunds are not applicable for the remaining payment period.",
+    "discount": "Discount"
+  },
+  "NoNetworkView": {
+    "title": "The network connection is not stable.",
+    "desc": "Please check your smartphone's network<br/>connection and try reconnecting.",
+    "button": "Refresh"
+  },
+  "LayerPlayStoreFail": {
+    "text": "Unable to connect to Google Play payment service.<br/>Please check your account information.",
+    "button": "OK"
+  },
+  "LayerStoreFail": {
+    "text": "Payments can only be made through in-app purchases.",
+    "button": "OK"
+  },
+  "SubscriptionModal": {
+    "title": "Subscribe to K-Medi now<br/>and watch the full video!",
+    "ok_button": "Subscribe",
+    "close_button": "Explore more"
+  },
+  "ProductPage": {
+    "title": "Watch all Medical Contents on K-MEDI",
+    "desc": "Turn offline medical conferences into online sessions; watch at your desired time and place.",
+    "VAT": "Included VAT",
+    "button": "Make Payment",
+    "month": "month",
+    "discount": "discount"
+  },
+  "ProductInfo": {
+    "paymentInformation": "Payment Information",
+    "subscriptionInformation": "Subscription Information",
+    "subscriptionPlan": "Subscription Plan:",
+    "expirationDate": "Expiration Date:",
+    "paymentAmount": "Payment Amount",
+    "totalAmount": "Total Amount:",
+    "orderInformation": "Order Information",
+    "name": "Name",
+    "email": "Email",
+    "phoneNumber": "Phone Number",
+    "paymentMethods": "Payment Methods",
+    "makePayment": "Make Payment Rp",
+    "vat": "* Included VAT",
+    "aosProductNM": "1-Month Subscription"
+  },
+  "PaySuccess": {
+    "paymentCompleted": "Payment Completed.",
+    "startUsingKMediRightAway": "Start using K-Medi right away!",
+    "subscriptionPlan": "Subscription Plan:",
+    "paymentDate": "Payment Date:",
+    "paymentAmount": "Payment Amount: Rp",
+    "orderInformation": "Order Information",
+    "name": "Name",
+    "email": "Email",
+    "phoneNumber": "Phone Number",
+    "goToMain": "Go to Main",
+    "PaymentMethod": "Payment Method:",
+    "Platform": "Payment Platform",
+    "Period": "Subscription Period"
+  },
+  "PayFail": {
+    "paymentFailed": "Payment Failed.",
+    "pleaseSelectPaymentMethodAgain": "Please select a payment method again.",
+    "tryAgain": "Try Again"
+  }
+}
