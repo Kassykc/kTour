@@ -1,11 +1,9 @@
 <template>
-    <div class="flex items-center gap-2">
-        <button v-for="locale in availableLocales" :key="locale" :class="[
-            'px-3 py-1 rounded-md text-sm',
-            currentLocale === locale ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'
-        ]" @click="changeLanguage(locale)">
-            {{ getLabel(locale) }}
-        </button>
+    <div class="flex items-center">
+        <div v-for="locale in availableLocales" :key="locale">
+            <img :src="`/img/languageSwitch/${locale}.png`" @click="changeLanguage(locale)"
+                class="px-3 py-1 rounded-md text-sm cursor-pointer" />
+        </div>
     </div>
 </template>
 

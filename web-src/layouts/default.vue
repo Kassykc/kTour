@@ -1,11 +1,10 @@
 <template>
     <div>
-        <header
-            class="relative top-0 left-0 w-full h-[85px] bg-white shadow-md transition-transform duration-300 ease-in-out will-change-transform z-50">
+        <header class="fixed top-0 left-0 w-full h-[85px] z-50">
             <CommonHeader />
         </header>
 
-        <main class="">
+        <main>
             <div class="relative h-full flex flex-col overflow-hidden">
                 <slot></slot>
                 <CommonGoToTop />
