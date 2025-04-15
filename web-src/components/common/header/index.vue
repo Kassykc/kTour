@@ -4,7 +4,6 @@
             <div
                 class="px-[28px] sm:px-[18px] flex justify-between items-center w-full max-w-[1200px] mx-auto min-w-[320px] min-h-[85px] max-h-[85px]">
                 <!-- 좌측 끝에 배치된 헤더 -->
-                <CommonLanguageSwitch />
                 <div>
                     <CommonHeaderHome />
                 </div>
@@ -14,6 +13,9 @@
                 </div>
                 <div class="sm:hidden">
                     <CommonNavMobile />
+                </div>
+                <div>
+                    <CommonLanguageSwitch />
                 </div>
             </div>
         </div>

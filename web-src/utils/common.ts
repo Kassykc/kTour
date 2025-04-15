@@ -31,10 +31,7 @@ const common = {
   },
   setLang(lang: string) {
     if (typeof window !== "undefined") {
-      // 클라이언트에서만 쿠키 설정
-      document.cookie = `lang=${encodeURIComponent(lang)}; path=/; max-age=${
-        30 * 24 * 60 * 60
-      }`; // 30일 동안 유효
+      common.setCookie("lang", lang);
     }
   },
   removeCountryCode(phone: string) {

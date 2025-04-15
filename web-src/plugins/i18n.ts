@@ -71,6 +71,8 @@ export function getCurrentLocale(): string {
  */
 export function setLocale(locale: string): void {
   if (["en", "id", "ko"].includes(locale)) {
+    console.log(locale)
+    common.setLang(locale);
     composer.locale = locale;
   } else {
     console.warn(`Invalid locale: ${locale}`);
