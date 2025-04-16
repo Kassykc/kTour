@@ -2,29 +2,30 @@
     <div>
         <section>
             <div class="relative h-[calc(100vh-85px)] sm:h-[538px] flex items-center justify-center overflow-hidden">
+
                 <video autoplay muted loop playsinline class="absolute top-0 left-0 w-full h-full object-cover z-0">
-                    <source src="/video/banner.webm" type="video/webm" />
-                    브라우저가 video 태그를 지원하지 않습니다.
+                    <source src="/video/main/banner.webm" type="video/webm" />
                 </video>
 
+                <img src="/img/main/banner_logo.png" alt="배너로고"
+                    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-auto h-auto max-w-[60%] sm:max-w-[30%]" />
+
                 <div
-                    class="relative z-1 flex flex-col sm:gap-[28px] justify-center items-start sm:items-center w-[320px] sm:w-full max-w-[1200px] ml-[20px] mr-auto sm:mx-auto min-w-[320px] px-[28px] sm:px-[18px] h-full text-white">
+                    class="relative z-20 flex flex-col sm:gap-[28px] justify-center items-start sm:items-center w-[320px] sm:w-full max-w-[1200px] ml-[20px] mr-auto sm:mx-auto min-w-[320px] px-[28px] sm:px-[18px] h-full text-white">
                     <div
                         class="sub_title text-[16px] sm:text-[26px] sm:leading-[23px] font-[800] text-left sm:text-center">
-                        All in One, One-Stop Service
+                        Welcome To Medicity
                     </div>
                     <div
                         class="main_title text-[38px] leading-[45px] sm:leading-[100%] sm:text-[46px] font-[900] mt-[36px] mb-[32px] sm:mt-[0] sm:mb-[26px] text-left sm:text-center break-keep">
-                        ABLE CORPORATION ... Web, App, Design, MICE
-                    </div>
-                    <div
-                        class="description w-[180px] sm:w-[100%] text-[14px] leading-[22px] sm:text-[22px] sm:leading-[33px] font-[400] text-left sm:text-center">
-                        ㈜에이블은 차별화된 경쟁력을 갖춘 감각적인 마인드로<br />
-                        IT, DESIGN, MICE 분야의 확고한 자리 매김을 하고 있습니다.
+                        Global Integrated<br />
+                        Medical Platform
                     </div>
                 </div>
+
             </div>
         </section>
+
 
 
         <section>

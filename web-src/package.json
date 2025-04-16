@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "start": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 NITRO_PORT=3001 node .output/server/index.mjs",
+    "start": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0 NITRO_PORT=3002 node .output/server/index.mjs",
     "dev": "cross-env NODE_TLS_REJECT_UNAUTHORIZED=0  PORT=3000 nuxt dev"
   },
   "dependencies": {
