@@ -2,8 +2,7 @@
     <div class="flex gap-x-10 min-w-[250px]">
         <div v-for="(item, index) in menus" :key="index"
             class="flex justify-center items-center text-center cursor-pointer text-[1rem] md:text-[1rem] lg:text-[1rem] text-[#fff] pt-[0.5vh]"
-            @click="router.push(item.url)">
-            <i18n-t :keypath="item.titlePath" />
+            @click="router.push(item.url)" v-html="t(item.titlePath)">
         </div>
     </div>
 </template>
