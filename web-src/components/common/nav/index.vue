@@ -1,12 +1,13 @@
 <template>
-    <div class="flex gap-0 min-w-[250px]">
+    <div class="flex gap-x-10 min-w-[250px]">
         <div v-for="(item, index) in menus" :key="index"
-            class="flex justify-center items-center w-[97px] md:w-[110px] lg:w-[125px] h-[85px] text-center cursor-pointer font-bold text-[13px] md:text-[14px] lg:text-[18px] text-[#E61673]"
+            class="flex justify-center items-center text-center cursor-pointer text-[1rem] md:text-[1rem] lg:text-[1rem] text-[#fff] pt-[0.5vh]"
             @click="router.push(item.url)">
             <i18n-t :keypath="item.titlePath" />
         </div>
     </div>
 </template>
+
 
 <script setup lang="ts">
 import { t } from '@/plugins/i18n';

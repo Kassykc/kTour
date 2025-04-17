@@ -1,8 +1,9 @@
 <template>
     <div class="flex items-center">
+        <img src="/img/languageSwitch/language_switch_icon.png" class="pr-5 py-1 rounded-md" />
         <div v-for="locale in availableLocales" :key="locale">
             <img :src="`/img/languageSwitch/${locale}.png`" @click="changeLanguage(locale)"
-                class="px-3 py-1 rounded-md text-sm cursor-pointer" />
+                class="px-1 py-1 rounded-md text-sm cursor-pointer" />
         </div>
     </div>
 </template>
