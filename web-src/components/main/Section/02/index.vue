@@ -4,14 +4,14 @@
             <div class="font-[700] text-[#000] text-[4.5rem] pb-[1rem]">
                 Why Korea?
             </div>
-            <div class="font-[500] text-[1.5rem] pb-[3rem]">
+            <div class="font-[500] text-[1.5rem] pb-[3rem] max-h-[1.5rem]">
                 Where Medical Excellence Meets K-Culture
             </div>
             <div class="pb-[3rem]">
                 <CommonBtnViewMore />
             </div>
             <div class="font-[400] text-[1.5rem]">
-                <MainSection02ImgList />
+                <MainSection02List />
             </div>
         </div>
     </div>

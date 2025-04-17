@@ -1,8 +1,12 @@
 <template>
-    <div class="view_more w-[100%] h-auto flex items-center cursor-pointer border-b border-black pr-[1rem] pl-[1rem] pb-[0.5rem]">
+    <div
+        class="view_more w-[100%] h-auto flex items-center cursor-pointer border-b border-black pr-[1rem] pl-[1rem] pb-[0.5rem]">
         <span class="text-[1.2rem] font-[500] pr-[0.2rem]" :class="textClass">View More</span>
         <!-- <img :src=imgSrc alt="더보기 버튼" class="w-[23px] md:w-[30px]"> -->
-        <img src="/img/common/arrow_icon/arrow_outward.png" alt="더보기 버튼" class="w-[1.9rem]">
+        <!-- <img src="/img/common/arrow_icon/arrow_outward.svg" alt="더보기 버튼" class="w-[1.9rem]"> -->
+        <div class="w-[1.9rem]">
+            <CommonLinkArrow />
+        </div>
     </div>
 </template>
 
