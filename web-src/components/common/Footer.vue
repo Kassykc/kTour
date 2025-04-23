@@ -22,9 +22,9 @@
               <div class="instagram"><a href="/" target="_blank"><img src="@/assets/images/instagram.png"></a></div>
             </div>
             <div class="contact flex  gap-[0px] lg:gap-[20px] items-start sm:items-center justify-end text-white">
-              <div class="email text-[12px] sm:text-[14px] font-[400]"><span class="font-[700]">E-mail</span>ogago6747@naver.com</div>
-              <div class="tell text-[12px] sm:text-[14px] font-[400]"><span class="font-[700]">Tel</span>+82-2-2647-6747</div>
-              <div class="fax text-[12px] sm:text-[14px] font-[400]"><span class="font-[700]">Fax</span>+82-50-4019-6747</div>
+              <div class="email text-[12px] sm:text-[14px] font-[400]"><span class="font-[700] pr-[10px] mr-[10px] border-r-2 border-white">E-mail</span>ogago6747@naver.com</div>
+              <div class="tell text-[12px] sm:text-[14px] font-[400]"><span class="font-[700] pr-[10px] mr-[10px] border-r-2 border-white">Tel</span>+82-2-2647-6747</div>
+              <div class="fax text-[12px] sm:text-[14px] font-[400]"><span class="font-[700] pr-[10px] mr-[10px] border-r-2 border-white">Fax</span>+82-50-4019-6747</div>
               <div class="policy text-[12px] sm:text-[14px] font-[700]">개인정보처리방침</div>
             </div>
           </div>
