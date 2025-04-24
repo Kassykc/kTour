@@ -6,7 +6,7 @@
                     :src="isHoveredHeader 
                     ? '/img/common/logo/logo_color.png'
                     : '/img/common/logo/logo_white.png'"
-                    class="w-[7.7vw] h-auto"
+                    class="w-[150px] h-auto"
                     alt="로고"
                 >
             </NuxtLink>
