@@ -10,13 +10,13 @@ export const useAuthStore = defineStore("auth", {
     initAuth() {
       // 클라이언트 사이드에서 쿠키를 읽어와서 상태 초기화
       if (typeof window !== "undefined") {
-        this.token = this.getCookie('artToken') || null; // 쿠키에서 토큰 읽기
+        this.token = this.getCookie('medicalToken') || null; // 쿠키에서 토큰 읽기
         this.id = this.getCookie("id") || null; // 쿠키에서 ID 읽기
       }
     },
     setToken(token: string) {
       this.token = token; // 상태에 토큰 설정
-      this.setCookie('artToken', token, 30); // 토큰을 30일 동안 유지
+      this.setCookie('medicalToken', token, 30); // 토큰을 30일 동안 유지
     },
     setId(id: string) {
       this.id = id; // 상태에 ID 설정
@@ -25,7 +25,7 @@ export const useAuthStore = defineStore("auth", {
     clearAuth() {
       this.token = null; // 상태에서 토큰 제거
       this.id = null; // 상태에서 ID 제거
-      this.setCookie('artToken', "", -1); // 쿠키에서 토큰 제거
+      this.setCookie('medicalToken', "", -1); // 쿠키에서 토큰 제거
       this.setCookie("id", "", -1); // 쿠키에서 ID 제거
     },
     getCookie(name: string) {

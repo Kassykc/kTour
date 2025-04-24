@@ -1,32 +1,32 @@
 <template>
     <div class="admin_board_wrap">
-        <div class="table_board">
-            <div class="table_wrap">
+        <div class="table_board !pt-[10px] !px-[20px] !pb-[20px]">
+            <div class="table_wrap max-h-[500px] overflow-y-auto">
                 <!-- 테이블 헤더 -->
-                <div class="table_row table_head">
-                    <div class="table_cell" :style="{ flex: '2' }">
-                        <input type="checkbox" @change="(e) => toggleAllRows(e.target.checked)"
+                <div class="table_row table_head flex border font-bold bg-[#f4f4f4] border-t border-[#dcdcdc]">
+                    <div class="table_cell flex justify-center items-center relative !p-[10px] text-center border-r border-[#dcdcdc] whitespace-nowrap overflow-hidden text-ellipsis" :style="{ flex: '2' }">
+                        <input class="w-full !p-[5px]" type="checkbox" @change="(e) => toggleAllRows(e.target.checked)"
                             :checked="allSelected" />
                     </div>
-                    <div v-for="(column, index) in columns" :key="index" class="table_cell"
+                    <div v-for="(column, index) in columns" :key="index" class="table_cell flex justify-center items-center relative !p-[10px] text-center border-r border-[#dcdcdc] whitespace-nowrap overflow-hidden text-ellipsis"
                         :style="columnsWidth[index] ?? ''">
                         {{ column.label }}
                     </div>
-                    <div v-if="props.isDtl" class="table_cell" :style="{ flex: '5' }">
+                    <div v-if="props.isDtl" class="table_cell flex justify-center items-center relative !p-[10px] text-center border-r border-[#dcdcdc] whitespace-nowrap overflow-hidden text-ellipsis" :style="{ flex: '5' }">
                         상세
                     </div>
                 </div>
 
                 <!-- 테이블 데이터 -->
-                <div v-for="(item, rowIndex) in list" :key="rowIndex" class="table_row"
+                <div v-for="(item, rowIndex) in list" :key="rowIndex" class="table_row flex border border-t-0 border-[#dcdcdc]"
                     @click="movePage(item[props.rowKey])">
                     <!-- 체크박스 -->
-                    <div class="table_cell" :style="{ flex: '2' }">
-                        <input type="checkbox" @change="(e) => updateSelectedRows(e.target.checked, item[props.rowKey])"
+                    <div class="table_cell flex justify-center items-center relative !p-[10px] text-center border-r border-[#dcdcdc] whitespace-nowrap overflow-hidden text-ellipsis" :style="{ flex: '2' }">
+                        <input class="w-full !p-[5px]" type="checkbox" @change="(e) => updateSelectedRows(e.target.checked, item[props.rowKey])"
                             :checked="selections.includes(item[props.rowKey])" />
                     </div>
                     <!-- 항목 -->
-                    <div v-for="(column, colIndex) in columns" :key="colIndex" class="table_cell"
+                    <div v-for="(column, colIndex) in columns" :key="colIndex" class="table_cell flex justify-center items-center relative !p-[10px] text-center border-r border-[#dcdcdc] whitespace-nowrap overflow-hidden text-ellipsis"
                         :style="columnsWidth[colIndex] ?? ''">
                         <template v-if="column.type === 'text'">
                             <div v-if="column.key == props.rowKey">
@@ -46,10 +46,10 @@
                             </div>
                         </template>
                         <template v-if="column.type === 'input'">
-                            <input v-model="item[column.key]" />
+                            <input class="w-full !p-[5px]" v-model="item[column.key]" />
                         </template>
                         <template v-if="column.type === 'select'">
-                            <select v-model="item[column.key]">
+                            <select class="w-full !p-[5px]" v-model="item[column.key]">
                                 <option v-for="(option, optionIndex) in column.options" :key="optionIndex"
                                     :value="option.value">
                                     {{ option.label }}
@@ -57,7 +57,7 @@
                             </select>
                         </template>
                         <template v-if="column.type === 'button'">
-                            <button @click="column.action(item, rowIndex)">{{ column.label }}</button>
+                            <button class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 max-w-[64px] max-h-[34px] rounded-[8px] cursor-pointer text-white !bg-[#475467]" @click="column.action(item, rowIndex)">{{ column.label }}</button>
                         </template>
                         <template v-if="column.type === 'html'">
                             <div v-html="item[column.key]"></div>
@@ -67,23 +67,23 @@
                                 <!-- 이미지가 있는 경우만 보여줌 -->
                                 <div v-for="(set, index) in item.fileInfo.filter(set => Number(set.originTypeCd) === 100)"
                                     :key="index" class="thumb_wrap">
-                                    <div class="thumb">
-                                        <img :src="fileBaseUrl + set.filePathEnc">
+                                    <div class="thumb flex items-center justify-center w-full max-w-[100px] h-[46px]">
+                                        <img class="w-full h-full object-contain" :src="fileBaseUrl + set.filePathEnc">
                                     </div>
                                 </div>
 
                                 <!-- 이미지가 하나도 없는 경우 -->
                                 <div v-if="!item.fileInfo.some(set => Number(set.originTypeCd) === 100)"
-                                    class="no_thumb">
-                                    <img src="@/assets/images/no_image.png" alt="" />
+                                    class="no_thumb flex items-center justify-center w-full max-w-[100px] h-[46px]">
+                                    <img class="w-full h-full object-contain" src="@/assets/images/no_image.png" alt="" />
                                 </div>
                             </div>
                         </template>
                     </div>
                     <!-- 상세 -->
-                    <div class="table_cell" :style="{ flex: '5' }">
+                    <div class="table_cell flex justify-center items-center relative !p-[10px] text-center border-r border-[#dcdcdc] whitespace-nowrap overflow-hidden text-ellipsis" :style="{ flex: '5' }">
                         <template v-if="props.isDtl">
-                            <button @click="goDetail(item[props.rowKey])">상세</button>
+                            <button class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 max-w-[64px] max-h-[34px] rounded-[8px] cursor-pointer text-white !bg-[#475467]" @click="goDetail(item[props.rowKey])">상세</button>
                         </template>
                     </div>
                 </div>
@@ -202,103 +202,103 @@ const goReg = () => {
 
 <style lang="scss" scoped>
 .admin_board_wrap {
-    .delete_btn_wrap {
-        position: relative;
-        top: 34px;
-        right: 90px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        width: 100%;
-        padding: 0 20px;
-        z-index: 1;
-    }
+    // .delete_btn_wrap {
+    //     position: relative;
+    //     top: 34px;
+    //     right: 90px;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: flex-end;
+    //     width: 100%;
+    //     padding: 0 20px;
+    //     z-index: 1;
+    // }
 
-    .reg_btn_wrap {
-        position: relative;
-        top: 0;
-        right: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        width: 100%;
-    }
+    // .reg_btn_wrap {
+    //     position: relative;
+    //     top: 0;
+    //     right: 20px;
+    //     display: flex;
+    //     align-items: center;
+    //     justify-content: flex-end;
+    //     width: 100%;
+    // }
 
     .table_board {
-        padding: 10px 20px 20px;
+        // padding: 10px 20px 20px;
 
         .table_wrap {
-            max-height: 500px;
-            overflow-y: auto;
+            // max-height: 500px;
+            // overflow-y: auto;
 
             .table_row {
-                display: flex;
-                border: 1px solid $color_header_border;
-                border-top: 0;
+                // display: flex;
+                // border: 1px solid $color_header_border;
+                // border-top: 0;
 
                 &.table_head {
-                    font-weight: bold;
-                    background-color: #f4f4f4;
-                    border-top: 1px solid $color_header_border;
+                    // font-weight: bold;
+                    // background-color: #f4f4f4;
+                    // border-top: 1px solid $color_header_border;
                 }
 
                 .table_cell {
-                    @include flexCenter;
-                    position: relative;
-                    padding: 10px;
-                    text-align: center;
-                    border-right: 1px solid $color_header_border;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
+                    // @include flexCenter;
+                    // position: relative;
+                    // padding: 10px;
+                    // text-align: center;
+                    // border-right: 1px solid $color_header_border;
+                    // white-space: nowrap;
+                    // overflow: hidden;
+                    // text-overflow: ellipsis;
 
                     & *:not(img):not(button):not(a) {
-                        white-space: nowrap;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
+                        // white-space: nowrap;
+                        // overflow: hidden;
+                        // text-overflow: ellipsis;
                     }
 
                     &>button {
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        background: $color_gray_600;
-                        width: 80%;
-                        height: 80%;
-                        max-width: 64px;
-                        max-height: 34px;
-                        color: $color_white_000;
-                        border-radius: 8px;
-                        cursor: pointer;
+                        // position: absolute;
+                        // top: 50%;
+                        // left: 50%;
+                        // transform: translate(-50%, -50%);
+                        // background: $color_gray_600;
+                        // width: 80%;
+                        // height: 80%;
+                        // max-width: 64px;
+                        // max-height: 34px;
+                        // color: $color_white_000;
+                        // border-radius: 8px;
+                        // cursor: pointer;
                     }
 
                     &:last-child {
-                        border-right: 0;
+                        // border-right: 0;
                     }
 
                     input,
                     select {
-                        width: 100%;
-                        padding: 5px;
+                        // width: 100%;
+                        // padding: 5px;
                     }
 
                     .thumb_area {
 
                         // .thumb_wrap {
-                        .thumb,
-                        .no_thumb {
-                            @include flexCenter;
-                            width: 100%;
-                            max-width: 100px;
-                            height: 46px;
+                        // .thumb,
+                        // .no_thumb {
+                        //     @include flexCenter;
+                        //     width: 100%;
+                        //     max-width: 100px;
+                        //     height: 46px;
 
-                            &>img {
-                                width: 100%;
-                                height: 100%;
-                                object-fit: contain;
-                            }
-                        }
+                        //     &>img {
+                        //         width: 100%;
+                        //         height: 100%;
+                        //         object-fit: contain;
+                        //     }
+                        // }
 
                         // }
                     }

@@ -1,9 +1,9 @@
 <template>
-    <div class="pagination">
-        <button @click="goToPage(1)" :disabled="isFirstPage">
+    <div class="pagination flex justify-center items-center !mt-[30px]">
+        <button @click="goToPage(1)" :disabled="isFirstPage" class="!py-[5px] !px-[10px] !mx-[0] !my-[2px] cursor-pointer disabled:cursor-not-allowed disabled:opacity-50">
             <img src="@/assets/images/admin/front.png" alt="맨앞 아이콘" class="front_icon">
         </button>
-        <button @click="goToPage(currentIndex - 1)" :disabled="isFirstPage">
+        <button @click="goToPage(currentIndex - 1)" :disabled="isFirstPage" class="!py-[5px] !px-[10px] !mx-[0] !my-[2px] cursor-pointer disabled:cursor-not-allowed disabled:opacity-50">
             <img src="@/assets/images/admin/prev.png" alt="이전 아이콘" class="prev_icon">
         </button>
 
@@ -11,16 +11,20 @@
             v-for="page in pageRange" 
             :key="page" 
             @click="goToPage(page)" 
-            :class="{ active: page === currentIndex }"
-            class="pagination_num"
+            :class="[
+                'pagination_num rounded-[4px] !py-[5px] !px-[10px] !my-[2px] !mx-0 cursor-pointer',
+                page === currentIndex
+                ? '!bg-[#0047a0] !text-white'
+                : '!bg-[#f2f4f6] !text-black'
+            ]"
         >
             {{ page }}
         </button>
 
-        <button @click="goToPage(currentIndex + 1)" :disabled="isLastPage">
+        <button @click="goToPage(currentIndex + 1)" :disabled="isLastPage" class="!py-[5px] !px-[10px] !mx-[0] !my-[2px] cursor-pointer disabled:cursor-not-allowed disabled:opacity-50">
             <img src="@/assets/images/admin/next.png" alt="다음 아이콘" class="next_icon">
         </button>
-        <button @click="goToPage(totalPages)" :disabled="isLastPage">
+        <button @click="goToPage(totalPages)" :disabled="isLastPage" class="!py-[5px] !px-[10px] !mx-[0] !my-[2px] cursor-pointer disabled:cursor-not-allowed disabled:opacity-50">
             <img src="@/assets/images/admin/back.png" alt="맨뒤 아이콘" class="back_icon">
         </button>
     </div>
@@ -57,30 +61,30 @@ const goToPage = (page: number) => {
 
 <style lang="scss" scoped>
 .pagination {
-    @include flexCenter;
-    margin-top: 30px;
+    // @include flexCenter;
+    // margin-top: 30px;
 }
 
 .pagination .pagination_num {
-    font-weight: 400;
-    border-radius: 4px;
-    background-color: $color_white_200;
-    color: $color_black_900;
+    // font-weight: 400;
+    // border-radius: 4px;
+    // background-color: $color_white_200;
+    // color: $color_black_900;
 }
 
 .pagination button {
-    padding: 5px 10px;
-    margin: 0 2px;
-    cursor: pointer;
+    // padding: 5px 10px;
+    // margin: 0 2px;
+    // cursor: pointer;
 }
 
 .pagination button:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
+    // cursor: not-allowed;
+    // opacity: 0.5;
 }
 
 .pagination .active {
-    background-color: $color_pagination_active;
-    color: $color_white_000;
+    // background-color: $color_pagination_active; 0047a0
+    // color: $color_white_000;
 }
 </style>

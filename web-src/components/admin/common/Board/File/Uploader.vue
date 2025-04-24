@@ -1,13 +1,20 @@
 <template>
-    <div class="file-uploader">
-        <input type="file" multiple @change="handleFileChange" />
+    <div class="file-uploader input_file w-auto">
+        <input type="file" multiple @change="handleFileChange"  class="w-[170px] sm:w-full whitespace-nowrap overflow-hidden text-ellipsis"/>
     </div>
 </template>
 
 <script setup lang="ts">
-import { defineEmits } from 'vue';
+import { defineEmits, defineProps } from 'vue';
+import type { FileInfo } from '@/types/admin/board';
 
-const emit = defineEmits(['files-added']);
+const props = defineProps<{
+    modelValue: FileInfo[];
+}>();
+
+const emit = defineEmits<{
+    (e: 'update:modelValue', value: FileInfo[]): void;
+}>();
 
 const handleFileChange = (event: Event) => {
     const target = event.target as HTMLInputElement;
@@ -17,15 +24,12 @@ const handleFileChange = (event: Event) => {
             fileNameOrg: file.name,
             file
         }));
-        emit('files-added', newFiles);
+
+        // 기존 modelValue에 새 파일 추가해서 업데이트
+        emit('update:modelValue', [...props.modelValue, ...newFiles]);
     }
 };
 </script>
 
 <style lang="scss" scoped>
-.file-uploader {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
 </style>

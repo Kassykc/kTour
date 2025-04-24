@@ -25,6 +25,23 @@
                         <input type="radio" v-model="resData.showYn" value="N" />아니오
                     </label>
                 </div>
+
+                <div
+                    class="input_area board_title flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-t border-[#dcdcdc]">
+                    <label
+                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        시행기간
+                    </label>
+                    <div class="flex items-center gap-[6px] w-[calc(100%-70px)] sm:w-[calc(100%-120px)]">
+                        <input type="date" v-model="startDate"
+                            class="h-[30px] bg-white py-0 px-[10px] border border-solid border-[#dcdcdc] rounded-[6px] w-[30%] min-w-[150px]" />
+                        <span class="text-[#888]">~</span>
+                        <input type="date" v-model="endDate"
+                            class="h-[30px] bg-white py-0 px-[10px] border border-solid border-[#dcdcdc] rounded-[6px] w-[30%] min-w-[150px]" />
+                    </div>
+                </div>
+
+
                 <div
                     class="input_area content flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
                     <label
@@ -103,7 +120,7 @@ const resData = ref<ResultInfo>({
     modDttm: '',
     boardIdx: 0,
     boardType: '',
-    boardTypeCd: boardType.notice,
+    boardTypeCd: boardType.research,
     categoryType: '',
     categoryTypeCd: '900',
     processStatus: '',
@@ -139,11 +156,13 @@ const resData = ref<ResultInfo>({
     commentInfo: {},
 });
 
+const startDate = ref(null);
+const endDate = ref(null);
 
-const thumbnails = ref<File[]>([]);
+const files = ref<FileInfo[]>([]);
+const thumbnails = ref<FileInfo[]>([]);
+
 const fileDownPath = COMMON_API_URLS.FILE_URL;
-
-const files = ref<File[]>([]);
 
 const emit = defineEmits();
 
@@ -191,10 +210,19 @@ const goReg = async () => {
     params.boardType = params.boardTypeCd;
     params.processStatus = params.processStatusCd;
     params.categoryType = params.categoryTypeCd;
+    params.subTitle = JSON.stringify({
+        startDate: startDate.value,
+        endDate: endDate.value
+    })
 
     if (files.value.length > 0) {
-        params.file = files.value;
+        params.file = files.value.map(f => f.file);
     }
+
+    if (thumbnails.value.length > 0) {
+        params.thumbnail = thumbnails.value.map(f => f.file);
+    }
+
 
 
     try {
@@ -227,8 +255,13 @@ const goUpdate = async () => {
     params.gender = params.genderCd;
 
     if (files.value.length > 0) {
-        params.file = files.value;
+        params.file = files.value.map(f => f.file);
     }
+
+    if (thumbnails.value.length > 0) {
+        params.thumbnail = thumbnails.value.map(f => f.file);
+    }
+
 
 
     try {
@@ -268,8 +301,16 @@ onMounted(async () => {
         const response = await boardMngStore.dtlBoard(params);
         if (response) {
             resData.value = response.resultInfo;
-            files.value = response.resultInfo.fileInfo.filter((file: any) => file.originTypeCd != 100);
-            thumbnail.value = response.resultInfo.fileInfo.filter((file: any) => file.originTypeCd == 100);
+            const durations = JSON.parse(response.resultInfo.subTitle)
+            startDate.value = durations.startDate;
+            endDate.value = durations.endDate;
+            
+            files.value = response.resultInfo.fileInfo
+                .filter((file: any) => file.originTypeCd != 100)
+                .map((f: any) => ({ ...f, file: new File([], f.fileName) }));
+            thumbnails.value = response.resultInfo.fileInfo
+                .filter((file: any) => file.originTypeCd == 100)
+                .map((f: any) => ({ ...f, file: new File([], f.fileName) }));
         }
     }
 });

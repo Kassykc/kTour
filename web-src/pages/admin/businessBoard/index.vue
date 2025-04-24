@@ -80,7 +80,7 @@ const getBoardList = async (pageNum: number, pageSize: number, word: string) => 
         pageNum: pageNum,
         pageSize: pageSize,
         searchKeyword: word ? word : searchKeyword.value,
-        boardType: boardType.notice,
+        boardType: boardType.business,
     };
 
     const response = await noticeMngStore.getBoardList(data);
@@ -100,7 +100,7 @@ const goExcel = async () => {
     const params = {
         pageNum: 1,
         pageSize: 9999,
-        boardType: boardType.notice,
+        boardType: boardType.business,
         searchKeyword: searchKeyword.value,
     }
 

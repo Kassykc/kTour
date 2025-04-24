@@ -1,11 +1,13 @@
 <template>
     <div class="adminBoardWrap">
-        <AdminCommonBoardTableDelBtn @delete="deleteItems" />
-        <AdminCommonBoardTableExceldownBtn v-if="useExcelDown" @download="goExcel" />
-        <AdminCommonBoardTableRegBtn @register="goReg" />
+        <div class="btns_wrap pr-[20px] flex justify-end items-center gap-[10px]">
+            <AdminCommonBoardTableDelBtn @delete="deleteItems" />
+            <AdminCommonBoardTableExceldownBtn v-if="useExcelDown" @download="goExcel" />
+            <AdminCommonBoardTableRegBtn @register="goReg" />
+        </div>
         <AdminCommonBoardTable :list="list" :columns="columns" :columnsWidth="columnsWidth" :rowKey="rowKey"
             :paging="paging" :fileBaseUrl="fileBaseUrl" :isDtl="isDtl" @select="updateSelectedRows" @goDetail="goDetail"
-            :popupComp="popupComp" @update:selectedRows="updateSelectedRows" />
+            :getBoardList="props.getBoardList" :popupComp="popupComp" @update:selectedRows="updateSelectedRows" />
         <AdminCommonBoardTablePagination v-if="list && list.length != 0" :pageSize="pageSize"
             :currentIndex="paging.pageNum" :totalRows="paging.total" :totalPages="paging.pages" :pagesToShow="5"
             @update:currentIndex="updatePage" />

@@ -16,13 +16,4 @@ const getPreviewUrl = (fileInfo: FileInfo) => {
 </script>
 
 <style lang="scss" scoped>
-.thumbnail-preview {
-    margin-left: 10px;
-}
-
-.thumbnail-img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-}
 </style>

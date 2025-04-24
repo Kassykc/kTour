@@ -12,13 +12,13 @@ export function handleError(error: any) {
       break;
     case "R401":
       errorMessage = "인증이 필요합니다. 로그인 후 다시 시도해주세요.";
-      if (common.getCookie('artToken')) {
-        common.setCookie('artToken', "");
+      if (common.getCookie('medicalToken')) {
+        common.setCookie('medicalToken', "");
         common.setCookie("user", "");
         common.setCookie("autoLoginToken", "");
         router.push("/");
       } else {
-        common.setCookie('artToken', "");
+        common.setCookie('medicalToken', "");
         common.setCookie("user", "");
         common.setCookie("autoLoginToken", "");
         router.push("/no-auth");

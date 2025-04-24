@@ -2,8 +2,8 @@
     <!-- 공지사항 -->
     <AdminCommonBoardTableBoard :list="boardList" :paging="pageInfo" :columns="columns" :columnsWidth="columnsWidth"
         :pageSize="10" @update:currentIndex="handlePageChange" :isDtl="true" @update:selectedRows="handleDeleteItems"
-        :popupComp="BoardReg" :rowKey="'boardIdx'" :getBoardList="setBoardList" :useExcelDown="false"
-        @excelDown="goExcel" :keyword="searchKeyword" />
+        :popupComp="DesignReg" :rowKey="'boardIdx'" :getBoardList="setBoardList" :useExcelDown="false" @excelDown="goExcel"
+        :keyword="searchKeyword" :fileBaseUrl="fileBaseUrl" />
 </template>
 
 <script setup lang="ts">
@@ -12,10 +12,13 @@ import { boardType } from "@/assets/js/static";
 import type { ResultInfo } from '@/types/admin/board';
 import type { PageInfo } from '@/types/admin/page';
 import BoardReg from '@/components/layer/admin/BoardReg.vue';
+import DesignReg from '~/components/layer/admin/DesignReg.vue';
 
 definePageMeta({
     layout: 'admin',
 });
+
+const fileBaseUrl = apiBase.url() + "/_file/000/";
 
 const noticeMngStore = useBoardMngStore('notice');
 const router = useRouter();
@@ -33,6 +36,7 @@ const searchKeyword = ref('');
 const columns = ref([
     { label: 'No.', key: 'boardIdx', type: 'text' },
     { label: '제목', key: 'subject', type: 'text' },
+    { label: '썸네일', key: 'thumbnail', type: 'img' },
     { label: '내용', key: 'content', type: 'html' },
     { label: '등록자', key: 'regUserNameKo', type: 'text' },
     { label: '등록일', key: 'regDttm', type: 'text' },
@@ -42,6 +46,7 @@ const columns = ref([
 const columnsWidth = [
     { flex: '5' },
     { flex: '30' },
+    { flex: '15' },
     { flex: '35' },
     { flex: '10' },
     { flex: '10' },
@@ -80,7 +85,7 @@ const getBoardList = async (pageNum: number, pageSize: number, word: string) => 
         pageNum: pageNum,
         pageSize: pageSize,
         searchKeyword: word ? word : searchKeyword.value,
-        boardType: boardType.notice,
+        boardType: boardType.design,
     };
 
     const response = await noticeMngStore.getBoardList(data);
@@ -100,7 +105,7 @@ const goExcel = async () => {
     const params = {
         pageNum: 1,
         pageSize: 9999,
-        boardType: boardType.notice,
+        boardType: boardType.design,
         searchKeyword: searchKeyword.value,
     }
 

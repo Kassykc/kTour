@@ -1,93 +1,93 @@
 <template>
     <div class="profile_reg_area">
-        <div class="profile_reg_wrap">
-            <div class="overflow_wrap">
-                <h2 class="registration">Profile Registration</h2>
-                <div class="user_id input_area">
-                    <label>ID</label>
-                    <input type="text" v-model="resData.userId" autocomplete="off" v-if="props.mode == 'mod'"
+        <div class="profile_reg_wrap text-[12px] sm:text-[14px] flex justify-start items-start flex-col w-full max-h-[586px] bg-white overflow-x-hidden overflow-y-auto ">
+            <div class="overflow_wrap w-full">
+                <h2 class="registration !mb-[20px]">Profile Registration</h2>
+                <div class="user_id input_area flex justifiy-start items-center gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <label class="w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-[59px] font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5] flex justify-center items-center text-center break-keep">ID</label>
+                    <input type="text" class="w-[calc(100%-70px)] sm:w-[clac(100%-120px)] h-[30px] text-[#a8a8a8] bg-[#f5f5f5] !py-0 !px-[10px] !border !border-solid !border-[#dddddd] rounded-[6px] !my-auto !mx-0 cursor-not-allowed" v-model="resData.userId" autocomplete="off" v-if="props.mode == 'mod'"
                         readonly />
-                    <input type="text" v-model="resData.userId" autocomplete="off" v-else />
+                    <input type="text" class="w-[calc(100%-70px)] sm:w-[clac(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] !border !border-solid !border-[#dcdcdc] rounded-[6px] !my-auto !mx-0" v-model="resData.userId" autocomplete="off" v-else />
                 </div>
-                <div class="user_pw input_area">
-                    <label>사용자 비밀번호</label>
+                <div class="user_pw input_area flex justifiy-start items-center gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <label class="w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-[59px] font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5] flex justify-center items-center text-center break-keep">사용자 비밀번호</label>
                     <input type="password" v-model="resData.userPwd" autocomplete="off"
-                        :readonly="isPasswordEditable" />
-                    <button @click="enablePasswordEdit" type="button" class="pw_change_btn" v-if="isPasswordEditable">
+                        :readonly="isPasswordEditable" class="w-[calc(100%-70px)] sm:w-[clac(100%-120px)] h-[30px] text-[#a8a8a8] bg-[#f5f5f5] !py-0 !px-[10px] !border !border-solid !border-[#dddddd] rounded-[6px] !my-auto !mx-0 cursor-not-allowed"/>
+                    <button @click="enablePasswordEdit" type="button" class="pw_change_btn text-[12px] w-[110px] h-[30px] font-bold text-white !bg-[#0047a0] border-0 rounded-[5px] !py-[5px] !px-[10px] cursor-pointer " v-if="isPasswordEditable">
                         비밀번호 변경
                     </button>
                 </div>
-                <div class="user_last_name user_last_name_ko input_area">
-                    <label>성(한글)</label>
-                    <input type="text" v-model="resData.userNameFirstKo" autocomplete="off" />
+                <div class="user_last_name user_last_name_ko input_area flex justifiy-start items-center gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <label class="w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-[59px] font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5] flex justify-center items-center text-center break-keep">성(한글)</label>
+                    <input type="text" class="w-[calc(100%-70px)] sm:w-[clac(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] !border !border-solid !border-[#dcdcdc] rounded-[6px] !my-auto !mx-0" v-model="resData.userNameFirstKo" autocomplete="off" />
                 </div>
-                <div class="user_first_name user_first_name_ko input_area">
-                    <label>이름(한글)</label>
-                    <input type="text" v-model="resData.userNameLastKo" autocomplete="off" />
+                <div class="user_first_name user_first_name_ko input_area flex justifiy-start items-center gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <label class="w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-[59px] font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5] flex justify-center items-center text-center break-keep">이름(한글)</label>
+                    <input type="text" class="w-[calc(100%-70px)] sm:w-[clac(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] !border !border-solid !border-[#dcdcdc] rounded-[6px] !my-auto !mx-0" v-model="resData.userNameLastKo" autocomplete="off" />
                 </div>
-                <div class="user_email input_area">
-                    <label>이메일</label>
-                    <input type="text" v-model="resData.email" autocomplete="off" />
+                <div class="user_email input_area flex justifiy-start items-center gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <label class="w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-[59px] font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5] flex justify-center items-center text-center break-keep">이메일</label>
+                    <input type="text" class="w-[calc(100%-70px)] sm:w-[clac(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] !border !border-solid !border-[#dcdcdc] rounded-[6px] !my-auto !mx-0" v-model="resData.email" autocomplete="off" />
                 </div>
-                <div class="user_gender input_area">
-                    <label>성별</label>
-                    <label>
+                <div class="user_gender input_area flex justifiy-start items-center gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <label class="w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-[59px] font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5] flex justify-center items-center text-center break-keep">성별</label>
+                    <label class="w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-[59px] font-[600] gap-[10px] flex justify-center items-center text-center break-keep ">
                         <input type="radio" v-model="resData.genderCd" value="0" />남성
                     </label>
-                    <label>
+                    <label class="w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-[59px] font-[600] gap-[10px] flex justify-center items-center text-center break-keep ">
                         <input type="radio" v-model="resData.genderCd" value="1" />여성
                     </label>
                 </div>
-                <div class="user_birth_date input_area">
-                    <label>생년월일</label>
-                    <input type="text" v-model="resData.birthYyyy" autocomplete="off" /> 년
-                    <input type="text" v-model="resData.birthMm" autocomplete="off" /> 월
-                    <input type="text" v-model="resData.birthDd" autocomplete="off" /> 일
+                <div class="user_birth_date input_area flex justifiy-start items-center gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <label class="w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-[59px] font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5] flex justify-center items-center text-center break-keep">생년월일</label>
+                    <input type="text" class="w-[calc(100%-70px)] sm:w-[clac(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] !border !border-solid !border-[#dcdcdc] rounded-[6px] !my-auto !mx-0" v-model="resData.birthYyyy" autocomplete="off" /> 년
+                    <input type="text" class="w-[calc(100%-70px)] sm:w-[clac(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] !border !border-solid !border-[#dcdcdc] rounded-[6px] !my-auto !mx-0" v-model="resData.birthMm" autocomplete="off" /> 월
+                    <input type="text" class="w-[calc(100%-70px)] sm:w-[clac(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] !border !border-solid !border-[#dcdcdc] rounded-[6px] !my-auto !mx-0" v-model="resData.birthDd" autocomplete="off" /> 일
                 </div>
-                <div class="user_contact_info input_area">
-                    <label>연락처</label>
-                    <input type="text" v-model="resData.mobile1" autocomplete="off" /> -
-                    <input type="text" v-model="resData.mobile2" autocomplete="off" /> -
-                    <input type="text" v-model="resData.mobile3" autocomplete="off" />
+                <div class="user_contact_info input_area flex justifiy-start items-center gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <label class="w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-[59px] font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5] flex justify-center items-center text-center break-keep">연락처</label>
+                    <input type="text" class="w-[calc(100%-70px)] sm:w-[clac(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] !border !border-solid !border-[#dcdcdc] rounded-[6px] !my-auto !mx-0" v-model="resData.mobile1" autocomplete="off" /> -
+                    <input type="text" class="w-[calc(100%-70px)] sm:w-[clac(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] !border !border-solid !border-[#dcdcdc] rounded-[6px] !my-auto !mx-0" v-model="resData.mobile2" autocomplete="off" /> -
+                    <input type="text" class="w-[calc(100%-70px)] sm:w-[clac(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] !border !border-solid !border-[#dcdcdc] rounded-[6px] !my-auto !mx-0" v-model="resData.mobile3" autocomplete="off" />
                 </div>
-                <div class="user_role input_area">
-                    <label>사용자 역할</label>
-                    <select v-model="resData.userRoleCd">
+                <div class="user_role input_area flex justifiy-start items-center gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <label class="w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-[59px] font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5] flex justify-center items-center text-center break-keep">사용자 역할</label>
+                    <select class="min-h-[28px] w-[100px] !px-[10px]" v-model="resData.userRoleCd">
                         <option v-for="role in roleOptions" :key="role.key" :value="role.key">
                             {{ role.value }}
                         </option>
                     </select>
                 </div>
 
-                <div class="user_type input_area">
-                    <label>사용자 타입</label>
-                    <select v-model="resData.userTypeCd">
+                <div class="user_type input_area flex justifiy-start items-center gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <label class="w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-[59px] font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5] flex justify-center items-center text-center break-keep">사용자 타입</label>
+                    <select class="min-h-[28px] w-[100px] !px-[10px]" v-model="resData.userTypeCd">
                         <option v-for="role in typeOptions" :key="role.key" :value="role.key">
                             {{ role.value }}
                         </option>
                     </select>
                 </div>
 
-                <div class="user_status input_area">
-                    <label>사용자 상태</label>
-                    <select v-model="resData.userStatusCd">
+                <div class="user_status input_area flex justifiy-start items-center gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <label class="w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-[59px] font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5] flex justify-center items-center text-center break-keep">사용자 상태</label>
+                    <select class="min-h-[28px] w-[100px] !px-[10px]" v-model="resData.userStatusCd">
                         <option v-for="role in statusOptions" :key="role.key" :value="role.key">
                             {{ role.value }}
                         </option>
                     </select>
                 </div>
-                <div class="user_memo input_area">
-                    <label>사용자 메모</label>
-                    <input type="text" v-model="resData.userMemo" autocomplete="off" />
+                <div class="user_memo input_area flex justifiy-start items-center gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <label class="w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-[59px] font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5] flex justify-center items-center text-center break-keep">사용자 메모</label>
+                    <input type="text" class="w-[calc(100%-70px)] sm:w-[clac(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] !border !border-solid !border-[#dcdcdc] rounded-[6px] !my-auto !mx-0" v-model="resData.userMemo" autocomplete="off" />
                 </div>
             </div>
         </div>
 
-        <div class="btn_wrap">
-            <div class="common_btn reg_btn" @click="goReg" v-if="props.mode == 'reg'">등록</div>
-            <div class="common_btn modify_btn" @click="goUpdate" v-if="props.mode == 'mod'">수정</div>
-            <div class="common_btn delete_btn" @click="goDelete" v-if="props.mode == 'mod'">삭제</div>
-            <div class="common_btn cancle_btn" @click="emit('close')">취소</div>
+        <div class="btn_wrap flex items-center justify-end gap-[6px]">
+            <div class="common_btn reg_btn text-[14px] !py-[10px] !px-[20px] !mt-[20px] rounded-[10px] cursor-pointer text-white bg-[#0047A0]" @click="goReg" v-if="props.mode == 'reg'">등록</div>
+            <div class="common_btn delete_btn text-[14px] !py-[10px] !px-[20px] !mt-[20px] rounded-[10px] cursor-pointer text-white bg-[#C93631]" @click="goDelete" v-if="props.mode == 'mod'">삭제</div>
+            <div class="common_btn modify_btn text-[14px] !py-[10px] !px-[20px] !mt-[20px] rounded-[10px] cursor-pointer text-white bg-[#12A0DD]" @click="goUpdate" v-if="props.mode == 'mod'">수정</div>
+            <div class="common_btn cancle_btn text-[14px] !py-[10px] !px-[20px] !mt-[20px] rounded-[10px] cursor-pointer text-white bg-[#bfbfbf]" @click="emit('close')">취소</div>
         </div>
     </div>
 </template>
@@ -417,140 +417,4 @@ onMounted(async () => {
 </script>
 
 <style lang="scss" scoped>
-.profile_reg_area {
-
-    .profile_reg_wrap {
-        @include flexbox(flex-start, flex-start);
-        flex-direction: column;
-        width: 100%;
-        max-height: 586px;
-        background: $color_white_000;
-        font-size: 14px;
-        overflow-y: auto;
-        overflow-x: hidden;
-
-        .overflow_wrap {
-            width: 100%;
-            
-            .registration {
-                margin-bottom: 20px;
-            }
-
-            .input_area {
-                @include flexbox(center, flex-start);
-                gap: 10px;
-                width: 100%;
-                height: auto;
-                min-height: 60px;
-                border-bottom: 1px solid $color_header_border;
-
-                &>label {
-                    @include flexCenter;
-                    width: 120px;
-                    min-width: 120px;
-                    height: auto;
-                    min-height: 59px;
-                    font-weight: 600;
-                    border-right: 1px solid $color_header_border;
-                    background: $color_searchbar_bg;
-                }
-
-                &>input {
-                    width: calc(100% - 120px);
-                    height: 30px;
-                    background: $color_white_000;
-                    padding: 0 10px;
-                    border: 1px solid $color_header_border;
-                    border-radius: 6px;
-                    margin: auto 0;
-
-                    &[readonly] {
-                        background-color: $color-grey-bg;
-                        color: $color-white-400;
-                        border-color: $color-show-more-btn;
-                        cursor: not-allowed;
-
-                        &:focus {
-                            outline: none;
-                            box-shadow: none;
-                        }
-                    }
-
-                }
-
-                &>select {
-                    min-height: 28px;
-                }
-
-                &:first-of-type {
-                    border-top: 1px solid $color_header_border;
-                }
-
-                &.user_gender {
-                    &>label:nth-child(n+2) {
-                        background: none;
-                        border: none;
-                        gap: 10px;
-                    }
-                }
-            }
-        }
-    }
-
-    @media (max-width: 480px) {
-        .profile_reg_wrap {
-            font-size: 12px;
-
-            .overflow_wrap {
-
-                .input_area {
-
-                    &>label {
-                        width: 70px;
-                        min-width: 70px;
-                        text-align: center;
-                        word-break: keep-all;
-                    }
-
-                    &>input[type=text] {
-                        width: calc(100% - 70px);
-                    }
-                }
-            }
-        }
-
-        .pw_change_btn {
-            font-size: 10px;
-        }
-    }
-}
-
-
-.pw_wrap {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.pw_wrap input {
-    flex: 1;
-}
-
-.pw_change_btn {
-    width: 110px;
-    height: 30px;
-    font-family: "MinSans-L", "Noto Sans KR", "Noto Sans", sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-    color: $color_white_000;
-    background-color: $color_admin_reg_btn;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.pw_change_btn:hover {
-    background-color: #0056b3;
-}
 </style>

@@ -27,7 +27,7 @@ export function useApi() {
         };
 
         if (isAuthRequired) {
-          token.value = common.getCookie('artToken');
+          token.value = common.getCookie('medicalToken');
           if (token.value) {
             headers["Hicomp-Src"] = ``;
             headers["Hicomp-Token"] = `${token.value}`;

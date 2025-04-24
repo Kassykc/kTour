@@ -34,13 +34,40 @@
                     </ClientOnly>
                 </div>
 
-
+                <!-- 
                 <div
                     class="input_area attach_file flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
                     <label
-                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">첨부파일</label>
-                    <AdminCommonBoardFileContainer v-model="files" :isThumbnail="false" />
+                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">로고첨부</label>
+                    <div
+                        class="input_file_wrap flex flex-row md:flex-col items-start md:items-center justify-start gap-0 md:gap-[10px] !p-[10px] md:!py-[10px] md:!px-0">
+                        <AdminCommonBoardFileUploader v-model="companyLogo" :isThumbnail="false" />
+                    </div>
                 </div>
+<div v-for="(fileGroup, index) in filesList" :key="fileGroup.id"
+                    class="input_area attach_file flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc] relative">
+                    <label
+                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        컨텐츠이미지 {{ index + 1 }}번
+                    </label>
+
+                    <AdminCommonBoardFileContainer v-model="fileGroup.files" :isThumbnail="false" />
+                    
+                    <div v-if="filesList && filesList.length > 0" class="flex gap-4 flex-wrap">
+                        <div
+                            class="w-[200px] h-[200px] border border-gray-300 flex items-center justify-center bg-white p-2">
+                            <img :src="URL.createObjectURL(filesList[index].file)"
+                                class="max-w-full max-h-full object-contain" />
+                            {{ URL.createObjectURL(fileGroup.files[0].file) }}
+                        </div>
+                    </div>
+
+                    <button class="absolute right-[40px] top-[10px] text-blue-500 font-bold"
+                        @click="addFileGroup(index + 1)" title="아래에 추가">+</button>
+
+                    <button v-if="filesList.length > 1" class="absolute right-[10px] top-[10px] text-red-500 font-bold"
+                        @click="removeFileGroup(index)" title="삭제">-</button>
+                </div> -->
 
                 <div
                     class="input_area attach_file flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
@@ -73,6 +100,7 @@ import { useBoardMngStore } from '@/stores/admin/boardStore';
 import type { ResultInfo, FileInfo } from '@/types/admin/board';
 import { boardType } from "@/assets/js/static";
 import { COMMON_API_URLS } from "@/apis/admin/common/urls";
+import CompanyReg from './CompanyReg.vue';
 
 const boardMngStore = useBoardMngStore('dtl');
 
@@ -103,7 +131,7 @@ const resData = ref<ResultInfo>({
     modDttm: '',
     boardIdx: 0,
     boardType: '',
-    boardTypeCd: boardType.notice,
+    boardTypeCd: boardType.mice,
     categoryType: '',
     categoryTypeCd: '900',
     processStatus: '',
@@ -139,29 +167,38 @@ const resData = ref<ResultInfo>({
     commentInfo: {},
 });
 
+const thumbnails = ref<FileInfo[]>([]);
+const companyLogo = ref<FileInfo[]>([]);
 
-const thumbnails = ref<File[]>([]);
-const fileDownPath = COMMON_API_URLS.FILE_URL;
+interface FileGroup {
+    id: number;             // 고유 ID
+    files: FileInfo[];      // 파일들
+}
 
-const files = ref<File[]>([]);
+const filesList = ref<FileGroup[]>([
+    { id: Date.now(), files: [] }
+]);
 
-const emit = defineEmits();
+const addFileGroup = (insertIndex: number) => {
+    const newId = Date.now() + Math.random();  // 유니크한 ID 생성
+    filesList.value.splice(insertIndex, 0, {
+        id: newId,
+        files: []
+    });
+};
 
-// 파일 변경 처리
-const handleFileChange = (event: Event) => {
-    const target = event.target as HTMLInputElement;
-    if (target.files && target.files.length > 0) {
-        Array.from(target.files).forEach((file) => {
-            files.value.push(file);
-        });
+const removeFileGroup = (index: number) => {
+    if (filesList.value.length > 1) {
+        filesList.value.splice(index, 1);
     }
 };
 
-// 파일 제거 처리
-const removeFile = (index: number) => {
-    files.value.splice(index, 1);
-    resData.value.fileInfo.splice(index, 1);
-};
+
+
+
+const fileDownPath = COMMON_API_URLS.FILE_URL;
+
+const emit = defineEmits();
 
 const validation = (params: any) => {
     const validationRules = [
@@ -192,10 +229,26 @@ const goReg = async () => {
     params.processStatus = params.processStatusCd;
     params.categoryType = params.categoryTypeCd;
 
-    if (files.value.length > 0) {
-        params.file = files.value;
-    }
 
+    // if (companyLogo.value.length > 0) {
+    //     if (filesList.value.length === 0) {
+    //         filesList.value.push({
+    //             id: Date.now(),
+    //             files: []
+    //         });
+    //     }
+    //     filesList.value[0].files.unshift(...companyLogo.value);
+    // }
+
+    // if (filesList.value.length > 0) {
+    //     params.file = filesList.value.flatMap(group =>
+    //         group.files.map(f => f.file) // 실제 File 객체만 추출
+    //     );
+    // }
+
+    if (thumbnails.value.length > 0) {
+        params.thumbnail = thumbnails.value;
+    }
 
     try {
         const response = await boardMngStore.insertBoard(params);
@@ -226,10 +279,25 @@ const goUpdate = async () => {
     params.importantType = params.importantTypeCd;
     params.gender = params.genderCd;
 
-    if (files.value.length > 0) {
-        params.file = files.value;
-    }
+    // if (companyLogo.value.length > 0) {
+    //     if (filesList.value.length === 0) {
+    //         filesList.value.push({
+    //             id: Date.now(),
+    //             files: []
+    //         });
+    //     }
+    //     filesList.value[0].files.unshift(...companyLogo.value);
+    // }
 
+    // if (filesList.value.length > 0) {
+    //     params.file = filesList.value.flatMap(group =>
+    //         group.files.map(f => f.file) // 실제 File 객체만 추출
+    //     );
+    // }
+
+    if (thumbnails.value.length > 0) {
+        params.thumbnail = thumbnails.value.map(f => f.file);
+    }
 
     try {
         const response = await boardMngStore.uptBoard(params);
@@ -256,23 +324,33 @@ const goDelete = () => {
 
 // 내용 변경 처리
 const handleContent = (content: any) => {
-    
+
     resData.value.content = content;
 }
-
 onMounted(async () => {
     if (props.mode == 'mod') {
         const params = {
             boardIdx: props.idx,
-        }
+        };
         const response = await boardMngStore.dtlBoard(params);
         if (response) {
             resData.value = response.resultInfo;
-            files.value = response.resultInfo.fileInfo.filter((file: any) => file.originTypeCd != 100);
-            thumbnail.value = response.resultInfo.fileInfo.filter((file: any) => file.originTypeCd == 100);
+
+            // thumbnails.value = response.resultInfo.fileInfo.filter((file: any) => file.originTypeCd == 100);
+
+            const normalFiles = response.resultInfo.fileInfo.filter((file: any) => file.originTypeCd != 100);
+
+            if (normalFiles.length > 0) {
+                companyLogo.value = normalFiles[0]; // 첫 번째는 로고
+                filesList.value = normalFiles.slice(1); // 나머지는 일반 파일
+            } else {
+                companyLogo.value = null;
+                filesList.value = [];
+            }
         }
     }
 });
+
 </script>
 
 <style lang="scss" scoped></style>

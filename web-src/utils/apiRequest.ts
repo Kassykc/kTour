@@ -11,7 +11,7 @@ const apiRequest = {
     console.log("key : " + key);
     console.log("isServer : " + import.meta.server);
     
-    const token = common.getCookie('artToken');
+    const token = common.getCookie('medicalToken');
     const createHeaders = async () => {
       let headers: Record<string, string> = {
         "Accept-Language": common.getLang(),

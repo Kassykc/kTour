@@ -103,7 +103,7 @@ const resData = ref<ResultInfo>({
     modDttm: '',
     boardIdx: 0,
     boardType: '',
-    boardTypeCd: boardType.notice,
+    boardTypeCd: boardType.company,
     categoryType: '',
     categoryTypeCd: '900',
     processStatus: '',
@@ -140,10 +140,10 @@ const resData = ref<ResultInfo>({
 });
 
 
-const thumbnails = ref<File[]>([]);
-const fileDownPath = COMMON_API_URLS.FILE_URL;
+const files = ref<FileInfo[]>([]);
+const thumbnails = ref<FileInfo[]>([]);
 
-const files = ref<File[]>([]);
+const fileDownPath = COMMON_API_URLS.FILE_URL;
 
 const emit = defineEmits();
 
@@ -193,8 +193,13 @@ const goReg = async () => {
     params.categoryType = params.categoryTypeCd;
 
     if (files.value.length > 0) {
-        params.file = files.value;
+        params.file = files.value.map(f => f.file);
     }
+
+    if (thumbnails.value.length > 0) {
+        params.thumbnail = thumbnails.value.map(f => f.file);
+    }
+
 
 
     try {
@@ -227,8 +232,13 @@ const goUpdate = async () => {
     params.gender = params.genderCd;
 
     if (files.value.length > 0) {
-        params.file = files.value;
+        params.file = files.value.map(f => f.file);
     }
+
+    if (thumbnails.value.length > 0) {
+        params.thumbnail = thumbnails.value.map(f => f.file);
+    }
+
 
 
     try {
@@ -268,8 +278,12 @@ onMounted(async () => {
         const response = await boardMngStore.dtlBoard(params);
         if (response) {
             resData.value = response.resultInfo;
-            files.value = response.resultInfo.fileInfo.filter((file: any) => file.originTypeCd != 100);
-            thumbnail.value = response.resultInfo.fileInfo.filter((file: any) => file.originTypeCd == 100);
+            files.value = response.resultInfo.fileInfo
+                .filter((file: any) => file.originTypeCd != 100)
+                .map((f: any) => ({ ...f, file: new File([], f.fileName) }));
+            thumbnails.value = response.resultInfo.fileInfo
+                .filter((file: any) => file.originTypeCd == 100)
+                .map((f: any) => ({ ...f, file: new File([], f.fileName) }));
         }
     }
 });

@@ -2,7 +2,7 @@
     <!-- 공지사항 -->
     <AdminCommonBoardTableBoard :list="boardList" :paging="pageInfo" :columns="columns" :columnsWidth="columnsWidth"
         :pageSize="10" @update:currentIndex="handlePageChange" :isDtl="true" @update:selectedRows="handleDeleteItems"
-        :popupComp="BoardReg" :rowKey="'boardIdx'" :getBoardList="setBoardList" :useExcelDown="false"
+        :popupComp="CompanyReg" :rowKey="'boardIdx'" :getBoardList="setBoardList" :useExcelDown="false"
         @excelDown="goExcel" :keyword="searchKeyword" />
 </template>
 
@@ -11,7 +11,7 @@ import { useBoardMngStore } from '~/stores/admin/boardStore';
 import { boardType } from "@/assets/js/static";
 import type { ResultInfo } from '@/types/admin/board';
 import type { PageInfo } from '@/types/admin/page';
-import BoardReg from '@/components/layer/admin/BoardReg.vue';
+import CompanyReg from '~/components/layer/admin/CompanyReg.vue';
 
 definePageMeta({
     layout: 'admin',
@@ -80,7 +80,7 @@ const getBoardList = async (pageNum: number, pageSize: number, word: string) => 
         pageNum: pageNum,
         pageSize: pageSize,
         searchKeyword: word ? word : searchKeyword.value,
-        boardType: boardType.notice,
+        boardType: boardType.company,
     };
 
     const response = await noticeMngStore.getBoardList(data);
@@ -100,7 +100,7 @@ const goExcel = async () => {
     const params = {
         pageNum: 1,
         pageSize: 9999,
-        boardType: boardType.notice,
+        boardType: boardType.company,
         searchKeyword: searchKeyword.value,
     }
 

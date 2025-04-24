@@ -33,7 +33,7 @@ export const useUserStore = defineStore("user", {
       };
 
       const user = getCookie("user");
-      const token = getCookie('artToken');
+      const token = getCookie('medicalToken');
 
       if (user && token) {
         this.user = JSON.parse(decodeURIComponent(user)); // 쿠키에서 사용자 정보 가져오기

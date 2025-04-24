@@ -1,195 +1,101 @@
 <template>
-    <div class="admin-layout">
-        <aside class="gnb open">
-            <div class="page_title">Art Medi 관리자 페이지</div>
+    <div class="admin-layout h-[100vh]">
+        <aside 
+        :class="[
+            'gnb flex flex-col justify-start items-center absolute top-0 w-[140px] h-[100vh] bg-[#424242] text-white !pt-[54px] transition-[left] duration-500 ease-in-out z-[2]',
+            isOpen ? 'left-0' : 'left-[-130px]'
+        ]"
+        >
+            <div class="page_title text-[14px] font-[500] text-center !mb-[34px] !px-[14px] !py-0">Art Medi 관리자 페이지</div>
 
-            <div class="admin_name">
+            <div class="admin_name w-full text-[14px] font-[500] text-center !mb-[14px] !px-[14px] !py-0">
                 관리자 :<br />
                 {{ adminNm }}
             </div>
 
-            <div @click="goHome" class="homepage_btn">
+            <div @click="goHome" class="homepage_btn flex flex-col items-center justify-center gap-[4px] w-full h-[40px] text-[12px] text-[#818181] cursor-pointer text-center">
                 <img src="@/assets/images/admin/home.png" alt="홈페이지 아이콘" class="home_icon">
                 <span>Homepage</span>
             </div>
-            <div @click="logout" class="logout_btn">로그아웃</div>
-            <nav class="nav">
+            <div @click="logout" class="logout_btn flex flex-col items-center justify-center !mb-[18px] w-full h-[40px] text-[12px] text-[#818181] cursor-pointer text-center">로그아웃</div>
+            <nav class="nav w-full">
                 <!-- 사이드바 영역 -->
                 <AdminCommonSidebar @update-title="updatePageTitle" v-if="true"/>
             </nav>
-            <div class="sidebar_btn"></div>
+            <div class="sidebar_btn" @click="toggleSidebar"
+            :class="[
+                'absolute top-[50%] left-[139px] w-[15px] h-[38px] cursor-pointer transition-[left] duration-500 ease-in-out z-[1] translate-y-[-50%]',
+                isOpen
+                    ? 'bg-[url(@/assets/images/admin/menu_close.png)]'
+                    : 'bg-[url(@/assets/images/admin/menu_open.png)]'
+                ]"
+            ></div>
         </aside>
-        <div class="admin-content">
-            <header class="current_page_name">{{ currentPageTitle }}</header>
+        <div :class="['admin-content transition-[padding] duration-500 ease-in-out',
+            isOpen
+                ? '!pl-[140px]'
+                : '!pl-0'
+        ]">
+            <header class="current_page_name text-[12px] md:text-[20px] font-[600] !pt-[80px] !pb-[16px] !pl-[20px]">{{ currentPageTitle }}</header>
             <main>
-                <slot />
+                <slot></slot>
             </main>
         </div>
     </div>
 </template>
+
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 import { useLoginStore } from "@/stores/admin/common/loginStore";
+
+const isOpen = ref(true); // 사이드바 상태
+
+const toggleSidebar = () => {
+    isOpen.value = !isOpen.value;
+};
 
 const router = useRouter();
 const logoutStore = useLoginStore('logout');
 
 const adminNm = ref('');
-
-const goto = (route: string) => {
-    router.push('/admin/' + route);
-};
+const currentPageTitle = ref("Administration");
+const isSidebarOpen = ref(true);
 
 const logout = async () => {
     const response = await logoutStore.goLogout();
     if (response) {
-        common.setCookie('userNm', '');
-        common.setCookie('artToken', '');
-        common.setCookie('isLogin', 'N');
+        document.cookie.split(";").forEach(cookie => {
+            const eqPos = cookie.indexOf("=");
+            const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+            document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+        });
 
         SysAlert({
             type: 'alert',
             message: '로그아웃되었습니다.',
             callback: () => router.push('/admin'),
-        })
+        });
     }
 };
 
-const goHome = () => {
-    router.push('/');
-};
-
-const currentPageTitle = ref("Administration");
+const goHome = () => router.push('/');
 
 const updatePageTitle = (title: string) => {
     currentPageTitle.value = title;
 };
 
 onMounted(() => {
-    const gnb = document.querySelector('.gnb');
-    const sidebar_btn = document.querySelector('.sidebar_btn');
-    const content = document.querySelector('.admin-content');
-
-    if (sidebar_btn && gnb) { // 요소가 존재하는지 확인
-        sidebar_btn.addEventListener('click', () => {
-            if (gnb.classList.contains('open')) {
-                gnb.classList.remove('open');
-                content.classList.add('wide');
-            } else {
-                gnb.classList.add('open');
-                content.classList.remove('wide');
-            }
-        });
+    const storedMenu = sessionStorage.getItem('nowMenu');
+    if (storedMenu) {
+        currentPageTitle.value = storedMenu;
     }
 
-    if (sessionStorage.getItem('nowMenu') != null || sessionStorage.getItem('nowMenu') != '') {
-        currentPageTitle.value = sessionStorage.getItem('nowMenu');
-    }
-
-
-    const islogin = common.getCookie('isLogin');
-    if (islogin == 'Y') {
-        adminNm.value = common.getCookie('userNm')
+    const isLogin = common.getCookie('isLogin');
+    if (isLogin === 'Y') {
+        adminNm.value = common.getCookie('userNm');
     }
 });
 </script>
 <style lang="scss" scoped>
-.admin-layout {
-
-    .gnb {
-        @include flexbox(center, flex-start);
-        flex-direction: column;
-        position: absolute;
-        top: 0;
-        left: -130px;
-        width: 140px;
-        height: 100vh;
-        background: $color_admin_bg;
-        color: $color_white_000;
-        padding-top: 54px;
-        transition: left 0.5s ease-in-out;
-        z-index: 2;
-
-        &.open {
-            left: 0;
-
-            .sidebar_btn {
-                background: url('@/assets/images/admin/menu_close.png') 0 0 no-repeat;
-            }
-        }
-
-
-        .page_title {
-            font-size: 14px;
-            font-weight: 500;
-            text-align: center;
-            margin-bottom: 34px;
-            padding: 0 14px;
-        }
-
-        .admin_name {
-            width: 100%;
-            font-size: 14px;
-            font-weight: 500;
-            text-align: center;
-            margin-bottom: 14px;
-            padding: 0 14px;
-        }
-
-        .logout_btn,
-        .homepage_btn {
-            width: 100%;
-            height: 40px;
-            font-size: 12px;
-            color: $color_admin_txt_1;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .homepage_btn {
-            @include flexCenter;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .logout_btn {
-            @include flexCenter;
-            flex-direction: column;
-            margin-bottom: 18px;
-        }
-
-        .nav {
-            width: 100%;
-        }
-
-        .sidebar_btn {
-            position: absolute;
-            top: 50%;
-            left: 139px;
-            transform: translateY(-50%);
-            width: 15px;
-            height: 38px;
-            background: url('@/assets/images/admin/menu_open.png') 0 0 no-repeat;
-            cursor: pointer;
-            transition: left 0.5s ease-in-out;
-            z-index: 1;
-        }
-
-    }
-
-    .admin-content {
-        padding-left: 140px;
-        transition: padding 0.5s ease-in-out;
-
-        &.wide {
-            padding-left: 0;
-        }
-
-        .current_page_name {
-            font-size: 22px;
-            font-weight: 600;
-            padding: 88px 0 16px 20px;
-        }
-    }
-}
 </style>

@@ -1,23 +1,31 @@
 <template>
-    <div class="admin_bg">
-        <div class="login_wrap">
-            <div class="logo_area">
-                <img src="@/assets/images/logo_color.png" alt="한국공학대학교 로고" class="logo_img">
-                <h1 class="login_title">로그인을 해주세요.</h1>
+    <div class="w-full h-screen bg-gray-100 flex items-center justify-center">
+        <div class="bg-white w-[90%] max-w-[600px] p-8 rounded-xl shadow-md">
+            <div class="flex flex-col items-center gap-4 mb-10">
+                <img src="@/assets/images/logo_color.png" alt="한국공학대학교 로고" class="w-64 mb-4" />
+                <h1 class="text-xl font-semibold">로그인을 해주세요.</h1>
             </div>
-            <div class="login_fill_area">
-                <div class="input_id_area">
-                    <h5>아이디</h5>
-                    <input type="text" v-model="loginId" class="input_id" placeholder="아이디를 입력해주세요."
-                        @keydown.enter="fetchLogin" />
+
+            <div class="space-y-6">
+                <div>
+                    <label for="loginId" class="block text-sm font-medium text-gray-700 mb-1">아이디</label>
+                    <input id="loginId" type="text" v-model="loginId" placeholder="아이디를 입력해주세요."
+                        class="w-full border border-black px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        tabindex="0" @keydown.enter="fetchLogin" />
                 </div>
-                <div class="input_pw_area">
-                    <h5>비밀번호</h5>
-                    <input type="password" v-model="loginPw" class="input_pw" placeholder="비밀번호를 입력해주세요."
-                        @keydown.enter="fetchLogin" />
+
+                <div>
+                    <label for="loginPw" class="block text-sm font-medium text-gray-700 mb-1">비밀번호</label>
+                    <input id="loginPw" type="password" v-model="loginPw" placeholder="비밀번호를 입력해주세요."
+                        class="w-full border border-black px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        tabindex="1" @keydown.enter="fetchLogin" />
                 </div>
-                <div class="btn_area">
-                    <div @click="fetchLogin" class="login_btn">로그인</div>
+
+                <div class="pt-4 flex justify-center">
+                    <button @click="fetchLogin"
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-2 rounded-lg transition">
+                        로그인
+                    </button>
                 </div>
             </div>
         </div>
@@ -29,6 +37,10 @@ import { useLoginStore } from "@/stores/admin/common/loginStore";
 import type { ApiResponse } from "@/types/admin/login"
 import { useMenuStore } from "@/stores/admin/common/menuStore";
 
+definePageMeta({
+    layout: "login"
+});
+
 const loginStore = useLoginStore('login');
 const codeStore = useMenuStore('code');
 const router = useRouter();
@@ -38,12 +50,12 @@ const loginPw = ref();
 
 const fetchLogin = async () => {
     const data = {
-        user_id: loginId.value,
-        user_pwd: loginPw.value,
-        admin_yn: 'Y',
+        userId: loginId.value,
+        userPwd: loginPw.value,
+        adminYn: 'Y',
     }
     const response = await loginStore.goLogin(data);
-    if (response.resultInfo) {
+    if (response != null) {
         const params = {
             page_num: 1,
             page_size: 999
@@ -53,7 +65,7 @@ const fetchLogin = async () => {
 
         const response2 = await codeStore.setCodes(params);
         common.setCookie('userNm', userNm);
-        common.setCookie('artToken', response.resultInfo.token);
+        common.setCookie('medicalToken', response.resultInfo.token);
         common.setCookie('isLogin', 'Y');
         sessionStorage.setItem('codes', JSON.stringify(response2));
         sessionStorage.setItem('nowMenu', '공지사항');
@@ -75,98 +87,14 @@ const fetchLogin = async () => {
         )
         return;
     }
+
 };
+
 
 onMounted(() => {
     const islogin = common.getCookie('isLogin');
-    if (islogin == 'Y') {
+    if (islogin === 'Y') {
         router.push('/admin/noticeBoard');
     }
-})
+});
 </script>
-
-<style lang="scss" scoped>
-.admin_bg {
-    width: 100%;
-    height: 100%;
-    background: $color_gray_100;
-
-    .login_wrap {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        @include flexCenter;
-        flex-direction: column;
-        width: 600px;
-        padding: 80px 60px;
-        background: $color_white_000;
-
-        .logo_area {
-            @include flexCenter;
-            flex-direction: column;
-            gap: 30px;
-            margin-bottom: 40px;
-
-            .logo_img {
-                width: 300px;
-                margin-bottom: 20px;
-            }
-
-            .login_title {
-                font-size: 22px;
-                font-weight: 600;
-            }
-        }
-
-        .login_fill_area {
-            @include flexCenter;
-            flex-direction: column;
-            width: 100%;
-            gap: 20px;
-
-            .input_id_area,
-            .input_pw_area {
-                @include flexbox(flex-start, center);
-                flex-direction: column;
-                width: 100%;
-
-                &>h5 {
-                    font-size: 16px;
-                    font-weight: 400;
-                    margin-bottom: 8px;
-                }
-
-                .input_id,
-                .input_pw {
-                    width: 100%;
-                    height: 40px;
-                    border: 1px solid $color_black_900;
-                    padding: 0 10px;
-                }
-            }
-        }
-
-        .btn_area {
-            width: 100%;
-            @include flexCenter;
-            margin-top: 20px;
-
-            .login_btn {
-                @include flexCenter;
-                color: $color_white_000;
-                background: $color_main_blue;
-                cursor: pointer;
-                padding: 10px 20px;
-                border-radius: 8px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            width: 100%;
-            height: 100%;
-            padding: 50px 30px;
-        }
-    }
-}
-</style>

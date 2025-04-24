@@ -1,7 +1,8 @@
 <template>
-    <AdminCommonBoard :list="boardList" :paging="pageInfo" :columns="columns" :columnsWidth="columnsWidth"
+    <AdminCommonBoardTableBoard :list="boardList" :paging="pageInfo" :columns="columns" :columnsWidth="columnsWidth"
         :pageSize="10" @update:currentIndex="handlePageChange" :isDtl="true" @update:selectedRows="handleDeleteItems"
-        :popupComp="MemberReg" :rowKey="'user_idx'" :getBoardList="setBoardList" />
+        :useExcelDown="true"
+        :popupComp="MemberReg" :rowKey="'userIdx'" :getBoardList="setBoardList" />
 </template>
 
 <script setup lang="ts">
@@ -22,10 +23,10 @@ const pageInfo = ref({} as PageInfo);
 const selections = ref([]);
 
 const columns = ref([
-    { label: 'No.', key: 'user_idx', type: 'text' },
-    { label: '구분', key: 'user_role', type: 'text' },
-    { label: '이름', key: 'user_name_ko', type: 'text' },
-    { label: 'ID', key: 'user_id', type: 'text' },
+    { label: 'No.', key: 'userIdx', type: 'text' },
+    { label: '구분', key: 'userRole', type: 'text' },
+    { label: '이름', key: 'userNameKo', type: 'text' },
+    { label: 'ID', key: 'userId', type: 'text' },
 ]);
 
 const columnsWidth = [
@@ -57,17 +58,17 @@ const goDel = async (selectedRows: number[]) => {
 
 const getBoardList = async (pageNum: number, pageSize: number, searchKeyword: string) => {
     const data = {
-        show_yn: 'Y',
-        page_num: pageNum,
-        page_size: pageSize,
-        search_keyword: searchKeyword,
+        showYn: 'Y',
+        pageNum: pageNum,
+        pageSize: pageSize,
+        searchKeyword: searchKeyword,
     };
 
     const response = await memberMngStore.getBoardList(data);
 
     if (response) {
-        boardList.value = response.result_info;
-        pageInfo.value = response.page_info;
+        boardList.value = response.resultInfo;
+        pageInfo.value = response.pageInfo;
     }
 };
 

@@ -48,6 +48,28 @@ onMounted(() => {
 
         // 🔹 BlotFormatter 적용
         new BlotFormatter(quill); // BlotFormatter를 Quill에 적용
+
+        // 🔹 이미지 정렬 기능 추가
+        quill.getModule("toolbar").addHandler("align", (alignValue: any) => {
+            console.log('fdfd')
+            const range = quill.getSelection();
+            if (range) {
+                const [leaf] = quill.getLeaf(range.index);
+                if (leaf.domNode.tagName == "IMG" && alignValue == 'center') {
+                    leaf.domNode.style.marginLeft = ''
+                    leaf.domNode.style.marginRight = ''
+                    leaf.domNode.style.margin = '0 auto';  // 이미지 정렬 적용
+                } else if (leaf.domNode.tagName == "IMG" && alignValue == 'right') {
+                    leaf.domNode.style.margin = ''
+                    leaf.domNode.style.marginRight = ''
+                    leaf.domNode.style.marginLeft = 'auto';  // 이미지 정렬 적용
+                } else {
+                    leaf.domNode.style.margin = ''
+                    leaf.domNode.style.marginLeft = ''
+                    leaf.domNode.style.marginRight = 'auto';  // 이미지 정렬 적용
+                }
+            }
+        });
     }
 });
 
@@ -58,18 +80,33 @@ defineExpose({
 </script>
 
 <template>
-    <QuillEditor ref="editor" v-model:content="props.content" :contentType="'html'" :theme="'snow'" :toolbar="[
-        ['bold', 'italic', 'underline'],
-        [{ header: 1 }, { header: 2 }],
-        [{ list: 'ordered' }, { list: 'bullet' }],
-        [{ script: 'sub' }, { script: 'super' }],
-        [{ indent: '-1' }, { indent: '+1' }],
-        [{ align: [] }],
-        ['clean'],
-        ['image']
-    ]" :placeholder="placeholder" @update:content="emit('update:content', $event)" />
+    <div class="editor-area !py-[10px] !px-0 !m-auto w-full">
+        <QuillEditor ref="editor" v-model:content="props.content" :contentType="'html'" :theme="'snow'" :toolbar="[
+            ['bold', 'italic', 'underline'],
+            [{ header: 1 }, { header: 2 }],
+            [{ list: 'ordered' }, { list: 'bullet' }],
+            [{ script: 'sub' }, { script: 'super' }],
+            [{ indent: '-1' }, { indent: '+1' }],
+            [{ align: [] }],  // 정렬 버튼 그룹
+            ['clean'],
+            ['image']
+        ]" :placeholder="placeholder" @update:content="emit('update:content', $event)" />
+    </div>
 </template>
 
 <style scoped>
 /* 퀼 에디터 스타일 */
+:deep(.ql-toolbar) {
+    text-align: left;
+}
+
+:deep(.ql-editor) {
+    height: 300px;
+}
+
+@media (max-width: 480px) {
+    :deep(.ql-editor) {
+        height: 200px;
+    }
+}
 </style>
