@@ -34,7 +34,7 @@ const searchKeyword = ref('');
 const columns = ref([
     { label: 'No.', key: 'boardIdx', type: 'text' },
     { label: '제목', key: 'subject', type: 'text' },
-    { label: '내용', key: 'content', type: 'html' },
+    { label: '시행기간', key: 'subTitle', type: 'html' },
     { label: '등록자', key: 'regUserNameKo', type: 'text' },
     { label: '등록일', key: 'regDttm', type: 'text' },
     { label: '노출여부', key: 'showYn', type: 'text' },

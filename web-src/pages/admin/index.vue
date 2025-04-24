@@ -65,7 +65,7 @@ const fetchLogin = async () => {
 
         const response2 = await codeStore.setCodes(params);
         common.setCookie('userNm', userNm);
-        common.setCookie('medicalToken', response.resultInfo.token);
+        common.setCookie('ableToken', response.resultInfo.token);
         common.setCookie('isLogin', 'Y');
         sessionStorage.setItem('codes', JSON.stringify(response2));
         sessionStorage.setItem('nowMenu', '공지사항');

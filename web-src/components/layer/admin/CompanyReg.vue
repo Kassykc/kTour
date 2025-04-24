@@ -48,7 +48,7 @@
                         class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">썸네일</label>
                     <div
                         class="input_file_wrap flex flex-row md:flex-col items-start md:items-center justify-start gap-0 md:gap-[10px] !p-[10px] md:!py-[10px] md:!px-0">
-                        <AdminCommonBoardFileUploader v-model="thumbnails" :isThumbnail="true" />
+                        <AdminCommonBoardFileContainer v-model="thumbnails" :isThumbnail="true" />
                     </div>
                 </div>
             </div>
@@ -266,7 +266,7 @@ const goDelete = () => {
 
 // 내용 변경 처리
 const handleContent = (content: any) => {
-    
+
     resData.value.content = content;
 }
 
@@ -278,12 +278,8 @@ onMounted(async () => {
         const response = await boardMngStore.dtlBoard(params);
         if (response) {
             resData.value = response.resultInfo;
-            files.value = response.resultInfo.fileInfo
-                .filter((file: any) => file.originTypeCd != 100)
-                .map((f: any) => ({ ...f, file: new File([], f.fileName) }));
-            thumbnails.value = response.resultInfo.fileInfo
-                .filter((file: any) => file.originTypeCd == 100)
-                .map((f: any) => ({ ...f, file: new File([], f.fileName) }));
+            files.value = response.resultInfo.fileInfo.filter(file => file.originTypeCd == '000');
+            thumbnails.value = response.resultInfo.fileInfo.filter(file => file.originTypeCd == '100');
         }
     }
 });

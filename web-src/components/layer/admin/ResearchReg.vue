@@ -25,23 +25,17 @@
                         <input type="radio" v-model="resData.showYn" value="N" />아니오
                     </label>
                 </div>
-
                 <div
                     class="input_area board_title flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-t border-[#dcdcdc]">
                     <label
-                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
-                        시행기간
-                    </label>
-                    <div class="flex items-center gap-[6px] w-[calc(100%-70px)] sm:w-[calc(100%-120px)]">
-                        <input type="date" v-model="startDate"
-                            class="h-[30px] bg-white py-0 px-[10px] border border-solid border-[#dcdcdc] rounded-[6px] w-[30%] min-w-[150px]" />
-                        <span class="text-[#888]">~</span>
-                        <input type="date" v-model="endDate"
-                            class="h-[30px] bg-white py-0 px-[10px] border border-solid border-[#dcdcdc] rounded-[6px] w-[30%] min-w-[150px]" />
-                    </div>
+                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        시행기간</label>
+                    <input type="date" v-model="startDate"
+                        class="w-[calc(100%-70px)] sm:w-[calc(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] border border-solid border-[#dcdcdc] rounded-[6px] !my-auto !mx-0" />
+                    ~
+                    <input type="date" v-model="endDate"
+                        class="w-[calc(100%-70px)] sm:w-[calc(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] border border-solid border-[#dcdcdc] rounded-[6px] !my-auto !mx-0" />
                 </div>
-
-
                 <div
                     class="input_area content flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
                     <label
@@ -51,22 +45,21 @@
                     </ClientOnly>
                 </div>
 
-
                 <div
-                    class="input_area attach_file flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    class="input_area board_title flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-t border-[#dcdcdc]">
                     <label
-                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">첨부파일</label>
-                    <AdminCommonBoardFileContainer v-model="files" :isThumbnail="false" />
+                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        첨부파일</label>
+                    <AdminCommonBoardFileContainer :files="files" @update:files="updateFiles" :isAttFile="true" />
                 </div>
 
                 <div
-                    class="input_area attach_file flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    class="input_area board_title flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-t border-[#dcdcdc]">
                     <label
-                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">썸네일</label>
-                    <div
-                        class="input_file_wrap flex flex-row md:flex-col items-start md:items-center justify-start gap-0 md:gap-[10px] !p-[10px] md:!py-[10px] md:!px-0">
-                        <AdminCommonBoardFileUploader v-model="thumbnails" :isThumbnail="true" />
-                    </div>
+                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        썸네일</label>
+                    <AdminCommonBoardFileContainer :files="thumbnails" @update:files="updateThumbnails"
+                        :isAttFile="false" />
                 </div>
             </div>
         </div>
@@ -90,6 +83,9 @@ import { useBoardMngStore } from '@/stores/admin/boardStore';
 import type { ResultInfo, FileInfo } from '@/types/admin/board';
 import { boardType } from "@/assets/js/static";
 import { COMMON_API_URLS } from "@/apis/admin/common/urls";
+import { AdminCommonBoardFileContainer } from '#components';
+import Draggable from 'vue3-draggable-next';
+
 
 const boardMngStore = useBoardMngStore('dtl');
 
@@ -156,30 +152,21 @@ const resData = ref<ResultInfo>({
     commentInfo: {},
 });
 
-const startDate = ref(null);
-const endDate = ref(null);
-
-const files = ref<FileInfo[]>([]);
-const thumbnails = ref<FileInfo[]>([]);
-
+const files = ref<File[]>([]);
+const thumbnails = ref<File[]>([]);
 const fileDownPath = COMMON_API_URLS.FILE_URL;
+
+const startDate = ref('');
+const endDate = ref('');
 
 const emit = defineEmits();
 
-// 파일 변경 처리
-const handleFileChange = (event: Event) => {
-    const target = event.target as HTMLInputElement;
-    if (target.files && target.files.length > 0) {
-        Array.from(target.files).forEach((file) => {
-            files.value.push(file);
-        });
-    }
+const updateFiles = (updatedFiles: File[]) => {
+    files.value = updatedFiles;
 };
 
-// 파일 제거 처리
-const removeFile = (index: number) => {
-    files.value.splice(index, 1);
-    resData.value.fileInfo.splice(index, 1);
+const updateThumbnails = (updatedFiles: File[]) => {
+    thumbnails.value = updatedFiles;
 };
 
 const validation = (params: any) => {
@@ -210,20 +197,15 @@ const goReg = async () => {
     params.boardType = params.boardTypeCd;
     params.processStatus = params.processStatusCd;
     params.categoryType = params.categoryTypeCd;
-    params.subTitle = JSON.stringify({
-        startDate: startDate.value,
-        endDate: endDate.value
-    })
+    params.subTitle = startDate.value + " ~ " + endDate.value;
 
     if (files.value.length > 0) {
-        params.file = files.value.map(f => f.file);
+        params.file = files.value;
     }
 
     if (thumbnails.value.length > 0) {
-        params.thumbnail = thumbnails.value.map(f => f.file);
+        params.thumbnail = thumbnails.value;
     }
-
-
 
     try {
         const response = await boardMngStore.insertBoard(params);
@@ -253,16 +235,15 @@ const goUpdate = async () => {
     params.categoryType = params.categoryTypeCd;
     params.importantType = params.importantTypeCd;
     params.gender = params.genderCd;
+    params.subTitle = startDate.value + " ~ " + endDate.value;
 
     if (files.value.length > 0) {
-        params.file = files.value.map(f => f.file);
+        params.file = files.value;
     }
 
     if (thumbnails.value.length > 0) {
-        params.thumbnail = thumbnails.value.map(f => f.file);
+        params.thumbnail = thumbnails.value;
     }
-
-
 
     try {
         const response = await boardMngStore.uptBoard(params);
@@ -289,7 +270,7 @@ const goDelete = () => {
 
 // 내용 변경 처리
 const handleContent = (content: any) => {
-    
+
     resData.value.content = content;
 }
 
@@ -301,16 +282,8 @@ onMounted(async () => {
         const response = await boardMngStore.dtlBoard(params);
         if (response) {
             resData.value = response.resultInfo;
-            const durations = JSON.parse(response.resultInfo.subTitle)
-            startDate.value = durations.startDate;
-            endDate.value = durations.endDate;
-            
-            files.value = response.resultInfo.fileInfo
-                .filter((file: any) => file.originTypeCd != 100)
-                .map((f: any) => ({ ...f, file: new File([], f.fileName) }));
-            thumbnails.value = response.resultInfo.fileInfo
-                .filter((file: any) => file.originTypeCd == 100)
-                .map((f: any) => ({ ...f, file: new File([], f.fileName) }));
+            files.value = response.resultInfo.fileInfo.filter(file => file.originTypeCd == '000');
+            thumbnails.value = response.resultInfo.fileInfo.filter(file => file.originTypeCd == '100');
         }
     }
 });
