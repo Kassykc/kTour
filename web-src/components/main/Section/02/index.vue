@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col justify-center items-center h-[85vh] max-h-[1200px] bg-[#FAFAFA]">
-        <div class="flex flex-col justify-center items-center max-w-[1400px]">
+        <div class="flex flex-col justify-center items-center max-w-[1340px]">
             <div class="font-[700] text-[#000] text-[4.5rem] pb-[1rem]">
                 Why Korea?
             </div>

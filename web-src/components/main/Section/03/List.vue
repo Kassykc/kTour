@@ -1,6 +1,6 @@
 <template>
-    <div class="flex flex-wrap justify-center gap-6">
-        <div v-for="(item, index) in props.list" :key="index" class="flex flex-col items-start">
+    <div class="flex flex-wrap justify-center gap-x-[16px] gap-y-[110px]">
+        <div v-for="(item, index) in props.list" :key="index" class="flex flex-col items-start w-[436px]">
             <div>
                 <img :src="item.img" alt="img" />
             </div>

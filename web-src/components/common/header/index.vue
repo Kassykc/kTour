@@ -11,7 +11,7 @@
         @mouseleave="handleHeaderLeave"
         >
         <div
-            class="px-[28px] sm:px-[18px] flex justify-between items-center w-full max-w-[1400px] mx-auto min-w-[320px] min-h-[85px] max-h-[85px]">
+            class="px-[28px] sm:px-[18px] flex justify-between items-center w-full max-w-[1340px] mx-auto min-w-[320px] min-h-[85px] max-h-[85px]">
             <div>
             <CommonHeaderHome :isHoveredHeader="isHeaderHover" />
             </div>

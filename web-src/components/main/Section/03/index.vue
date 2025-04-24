@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col pt-[10rem] items-center h-[100%] max-h-[2400px]">
-        <div class="flex flex-col items-start w-[100vw] max-w-[1400px] pb-12 pl-6">
+        <div class="flex flex-col items-start w-[100vw] max-w-[1340px] pb-12 pl-6">
             <div class="text-[500] text-[1.65rem] pb-[1rem]">
                 메디씨티는 이런 서비스를 제공합니다.
             </div>
@@ -15,7 +15,7 @@
             </div>
         </div>
 
-        <div class="max-w-[1400px] pt-[6rem] pb-12 border-t border-black">
+        <div class="max-w-[1340px] pt-[6rem] pb-12 border-t border-black">
             <MainSection03List :list="list" />
         </div>
 

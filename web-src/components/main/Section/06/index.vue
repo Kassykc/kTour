@@ -1,12 +1,12 @@
 <template>
     <div class="flex flex-col pt-[5rem] items-center h-[100%] max-h-[2400px] bg-[#fff] pb-[5rem]">
-        <div class="flex flex-col items-start w-[100vw] max-w-[1400px] pb-10 border-b border-black">
+        <div class="flex flex-col items-start w-[100vw] max-w-[1340px] pb-10 border-b border-black">
             <div class="pb-[2rem]">
                 <MainSectionLinkTitle :title="'PARTNERS'" :color="'#7A5083'" />
             </div>
         </div>
 
-        <div class="w-[100vw] max-w-[1400px]">
+        <div class="w-[100vw] max-w-[1340px]">
             <MainSection06List :list="list" />
         </div>
 
