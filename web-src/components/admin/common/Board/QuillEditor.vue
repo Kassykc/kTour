@@ -30,20 +30,34 @@ onMounted(() => {
             input.setAttribute("accept", "image/*");
             input.click();
 
-            // 파일 선택 후 실행되는 부분
             input.onchange = () => {
                 const file = input.files ? input.files[0] : null;
                 if (file) {
-                    // 파일을 URL로 변환하여 에디터에 삽입
                     const reader = new FileReader();
+
                     reader.onload = () => {
-                        const imageUrl = reader.result as string;
-                        const range = quill.getSelection();
-                        quill.insertEmbed(range.index, "image", imageUrl); // 이미지 삽입
+                        const img = new Image();
+                        img.onload = () => {
+                            const canvas = document.createElement("canvas");
+                            canvas.width = img.width;
+                            canvas.height = img.height;
+                            const ctx = canvas.getContext("2d");
+                            if (ctx) {
+                                ctx.drawImage(img, 0, 0);
+                                const webpUrl = canvas.toDataURL("image/webp", 0.8);
+                                const range = quill.getSelection();
+                                if (range) {
+                                    quill.insertEmbed(range.index, "image", webpUrl);
+                                }
+                            }
+                        };
+                        img.src = reader.result as string;
                     };
-                    reader.readAsDataURL(file); // 파일을 DataURL로 변환
+
+                    reader.readAsDataURL(file);
                 }
             };
+
         });
 
         // 🔹 BlotFormatter 적용
