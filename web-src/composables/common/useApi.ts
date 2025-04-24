@@ -29,8 +29,8 @@ export function useApi() {
         if (isAuthRequired) {
           token.value = common.getCookie('artToken');
           if (token.value) {
-            headers["Showcase-Src"] = ``;
-            headers["Showcase-Token"] = `${token.value}`;
+            headers["Hicomp-Src"] = ``;
+            headers["Hicomp-Token"] = `${token.value}`;
           }
           if (url.includes("xendit")) {
             headers[

@@ -45,10 +45,10 @@ export default defineNuxtConfig({
     // Static 설정 제거
     routeRules: {
       "/_file/000/**": {
-        proxy: "https://gateway.hicompint.com:60000/showcase/v1/_file/000/**",
+        proxy: "https://gateway.hicompint.com:60000/medical/v1/_file/000/**",
       },
       "/api/v1/**": {
-        proxy: "https://gateway.hicompint.com:60000/showcase/v1/**",
+        proxy: "https://gateway.hicompint.com:60000/medical/v1/**",
       },
     },
   },
