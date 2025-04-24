@@ -19,8 +19,9 @@
             <CommonNav
                 :isHoveredHeader="isHeaderHover"
                 :activeNav="activeNav"
-                @select="selectNav"
-            />
+                @hover="handleNavHover"
+                @leave="handleNavLeave"
+                />
             </div>
             <div class="sm:hidden">
             <CommonNavMobile />
@@ -33,27 +34,61 @@
 
         <CommonNavSub
         class="hidden sm:block"
-        :visible="isSubVisible"
         :activeNav="activeNav"
+        :visible="activeNav !== null"
+        @submenu-enter="handleSubmenuEnter"
+        @submenu-leave="handleSubmenuLeave"
         />
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const isHeaderHover = ref(false)
-const isSubVisible = ref(false)
 const activeNav = ref<number | null>(null)
+const submenuHover = ref(false)
 
-const selectNav = (index: number) => {
+const isSubVisible = computed(() => activeNav.value !== null || submenuHover.value)
+
+let hideTimer: number
+
+const handleNavHover = (index: number) => {
+  clearTimeout(hideTimer)
   activeNav.value = index
-  isSubVisible.value = true
+}
+
+const handleNavLeave = () => {
+  hideTimer = window.setTimeout(() => {
+    if (!submenuHover.value) {
+      resetHeaderState()
+    }
+  }, 200)
+}
+
+const handleSubmenuEnter = () => {
+  clearTimeout(hideTimer)
+  submenuHover.value = true
+}
+
+const handleSubmenuLeave = () => {
+  submenuHover.value = false
+  hideTimer = window.setTimeout(() => {
+    resetHeaderState()
+  }, 200)
+}
+
+const resetHeaderState = () => {
+  isHeaderHover.value = false
+  activeNav.value = null
 }
 
 const handleHeaderLeave = () => {
-  if (!isSubVisible.value) {
-    isHeaderHover.value = false
-  }
+  hideTimer = window.setTimeout(() => {
+    if (!submenuHover.value && activeNav.value === null) {
+      resetHeaderState()
+    }
+  }, 200)
 }
+
 </script>

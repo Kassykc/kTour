@@ -4,6 +4,8 @@
         v-for="(item, index) in menus"
         :key="index"
         class="flex items-center justify-center cursor-pointer text-[1rem] pt-[5px] h-full border-b-[3px] font-[600]"
+        @mouseenter="$emit('hover', index)"
+        @mouseleave="$emit('leave')"
         :class="[
         activeNav === index
             ? 'text-[#F57E1F] border-[#F57E1F]'
