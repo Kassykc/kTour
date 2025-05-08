@@ -76,6 +76,14 @@
                     From initial consultation to post-treatment follow-up, Medi-City coordinates every detail—so you can focus on what matters most: your health, recovery, and memorable experiences in Korea.
                 </div>
             </div>
+            <div id="works" class="works w-full max-w-[1340px] py-[120px] my-0 mx-auto">
+                <p class="description text-[40px] font-[700] mb-[34px]">
+                    🔄 How It Works
+                </p>
+                <p class="text-[24px] mb-[86px]">
+                    Our streamlined process ensures a hassle-free experience from start to finish.
+                </p>
+            </div>
         </div>
     </div>
 </template>

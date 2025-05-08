@@ -9,7 +9,7 @@
                 'text-white border-white': activeTab === tab.key,
                 'text-[#FFFFFF99] border-transparent': activeTab !== tab.key
                 }"
-                @click="selectTab(tab.key)"
+                @click="handleClick(tab.key)"
             >
                 {{ tab.label }}
             </div>
@@ -50,9 +50,14 @@ watch(() => props.modelValue, (val) => {
     activeTab.value = val
 })
 
-const selectTab = (key: string) => {
+const handleClick = (key: string) => {
     activeTab.value = key
     emit('update:modelValue', key)
+
+    const target = document.getElementById(key)
+    if (target) {
+        target.scrollIntoView({ behavior: 'smooth' })
+    }
 }
 </script>
 
