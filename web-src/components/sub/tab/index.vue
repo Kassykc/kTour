@@ -34,6 +34,7 @@ const allTabs = {
         { key: 'korea', label: 'Why Korea' },
         { key: 'meditour', label: 'K-MediTour' },
     ],
+    // 페이지 이름, 메뉴명 추가 및 변경 해야 됨
     info: [
         { key: 'info', label: 'Info' },
         { key: 'text', label: 'Text' },
