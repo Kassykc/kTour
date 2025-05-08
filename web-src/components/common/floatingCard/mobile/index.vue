@@ -1,9 +1,9 @@
 <template>
     <div class="block">
         <div @click="router.push('/')" class="cursor-pointer">
-            <div class="floating flex flex-col justify-center items-center gap-[8px] w-[110px] h-[110px] rounded-full shadow-[0_3px_14px_rgba(0,0,0,0.25)]"
+            <div class="floating flex flex-col justify-center items-center gap-[8px] w-[80px] h-[80px] rounded-full shadow-[0_3px_14px_rgba(0,0,0,0.25)]"
                 :class="[textClass, bgClass]">
-                <img class="w-[42px]" :src=iconSrc alt="아이콘 이미지">
+                <img class="w-[40px]" :src=iconSrc alt="아이콘 이미지">
             </div>
         </div>
     </div>

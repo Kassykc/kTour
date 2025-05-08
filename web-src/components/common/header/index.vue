@@ -61,7 +61,7 @@ const handleNavHover = (index: number) => {
 const handleNavLeave = () => {
   hideTimer = window.setTimeout(() => {
     if (!submenuHover.value) {
-      resetHeaderState()
+      activeNav.value = null  // ✅ nav만 초기화, 헤더 hover는 유지
     }
   }, 200)
 }

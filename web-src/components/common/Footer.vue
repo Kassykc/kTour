@@ -2,7 +2,7 @@
   <div>
     <!-- Footer -->
     <div id="footer" class="bg-[#001181]">
-      <div id="footer_content" class="w-full max-w-[1200px] h-[535px] md:h-[354px] ml-[0] mr-[auto] sm:mx-auto min-w-[320px] min-h-[354px] sm:max-h-[354px] px-[28px] sm:px-[18px]">
+      <div id="footer_content" class="w-full max-w-[1340px] h-[535px] md:h-[354px] ml-[0] mr-[auto] sm:mx-auto min-w-[320px] min-h-[354px] sm:max-h-[354px] px-[28px] sm:px-[18px]">
         <address class="flex justify-center flex-col sm:justify-around sm:flex-row lg:justify-between items-start sm:items-center h-[535px] sm:h-[354px] min-h-[354px] gap-[10px]">
           <div class="brand_info flex flex-col gap-[24px] items-start">
             <img src="/img/common/logo/footer_logo.png" class="w-[90px] h-auto min-w-[90px] md:w-[220px]">
