@@ -58,6 +58,25 @@
                 </div>
             </div>
         </div>
+        <div id="service">
+            <div id="program" class="program w-full max-w-[1340px] py-[120px] my-0 mx-auto">
+                <h2 class="area_name text-[65px] font-[700] mb-[120px]">
+                    Service
+                </h2>
+                <p class="description text-[40px] font-[700] mb-[34px]">
+                    ✈️ K-MediTour Program
+                </p>
+                <p class="text-[24px] mb-[86px]">
+                    K-MediTour Program is a fully integrated medical travel program designed to make both your treatment and travel in South Korea smooth, safe, and unforgettable.
+                </p>
+                <div class="tour_program w-full flex justify-center items-center mb-[46px]">
+                    <img src="@/assets/images/sub/about/medi_tour.png" alt="Medi Tour" class="">
+                </div>
+                <div class="w-full max-w-[1128px] h-[166px] p-[40px] flex justify-center items-center text-white font-[600] text-[22px] bg-[#001181] mx-auto">
+                    From initial consultation to post-treatment follow-up, Medi-City coordinates every detail—so you can focus on what matters most: your health, recovery, and memorable experiences in Korea.
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
