@@ -83,6 +83,42 @@
                 <p class="text-[24px] mb-[86px]">
                     Our streamlined process ensures a hassle-free experience from start to finish.
                 </p>
+                <table class="table-auto border-collapse w-full">
+                    <thead>
+                        <tr>
+                            <th class="font-[700] text-[18px] bg-[#CCD7FB] border border-white h-[50px]">STEP</th>
+                            <th class="font-[700] text-[18px] bg-[#DFE6FF] border border-white h-[50px]">Your Step (Client)</th>
+                            <th class="font-[700] text-[18px] bg-[#E8F3FF] border border-white h-[50px]">Our Support (Medi-City)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center py-[30px] px-[60px] border border-white bg-[#A5B2E0] font-[800] text-[18px] text-white"><span class="text-[26px]">Step 01</span><br/><span class="text-[18px] leading-[24px]">Request & Document Submission</span></td>
+                            <td class="text-center py-[30px] px-[60px] border border-white bg-[#EDF1FF] text-[18px]">Please click the ‘Contact Us’ button to begin your consultation and submit the required documents as guided.</td>
+                            <td class="text-center py-[30px] px-[60px] border border-white bg-[#F2F8FF] text-[18px]">Please click the ‘Contact Us’ button to begin your consultation and submit the required documents as guided.</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center py-[30px] px-[60px] border border-white bg-[#8594CF] font-[800] text-[18px] text-white"><span class="text-[26px]">Step 02</span><br/><span class="text-[18px] leading-[24px]">Schedule & Cost Confirmation</span></td>
+                            <td class="text-center py-[30px] px-[60px] border border-white bg-[#E4EAFF] text-[18px]">Review the suggested treatment and tour schedule, and confirm your availability.</td>
+                            <td class="text-center py-[30px] px-[60px] border border-white bg-[#E8F4FF] text-[18px]">Provide a customized itinerary including treatment, accommodation, and tour options, along with a detailed cost estimate.</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center py-[30px] px-[60px] border border-white bg-[#6779BC] font-[800] text-[18px] text-white"><span class="text-[26px]">Step 03</span><br/><span class="text-[18px] leading-[24px]">Make Payment & Pre-departure Preparation</span></td>
+                            <td class="text-center py-[30px] px-[60px] border border-white bg-[#DBE3FF] text-[18px]">Complete the payment and get ready for departure.</td>
+                            <td class="text-center py-[30px] px-[60px] border border-white bg-[#DBECFF] text-[18px]">Arrange visa, book flights and accommodation, and finalize all pre-departure preparations.</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center py-[30px] px-[60px] border border-white bg-[#4A5FA5] font-[800] text-[18px] text-white"><span class="text-[26px]">Step 04</span><br/><span class="text-[18px] leading-[24px]">Travel & Receive Treatment</span></td>
+                            <td class="text-center py-[30px] px-[60px] border border-white bg-[#D0DBFF] text-[18px]">Travel to Korea and receive medical treatment, enjoy the tour.</td>
+                            <td class="text-center py-[30px] px-[60px] border border-white bg-[#CFE6FF] text-[18px]">Pick you up at the airport, escort to hospital, support interpretation and tour activities.</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center py-[30px] px-[60px] border border-white bg-[#364C95] font-[800] text-[18px] text-white"><span class="text-[26px]">Step 05</span><br/><span class="text-[18px] leading-[24px]">Return & Aftercare Support</span></td>
+                            <td class="text-center py-[30px] px-[60px] border border-white bg-[#BECDFF] text-[18px]">Return home and join follow-up care if needed.</td>
+                            <td class="text-center py-[30px] px-[60px] border border-white bg-[#B8D8FF] text-[18px]">Arrange airport drop-off, coordinate rehab and check-up schedules.</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

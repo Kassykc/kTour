@@ -14,9 +14,10 @@
             <div class="sub_title text-[1.7rem] font-[500] text-left">
                 Welcome To Medicity
             </div>
-            <div class="main_title text-[6rem] text-left break-keep leading-[6.5rem] font-[700]">
-                Global Integrated<br />
-                Medical Platform
+            <div class="main_title text-[75px] text-left break-keep leading-[85px] font-[700]">
+                An all-in-one medical &<br/>
+                healing travel service to South<br/>
+                Korea, by MediCity Co., Ltd.
             </div>
         </div>
 
