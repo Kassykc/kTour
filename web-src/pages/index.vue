@@ -21,7 +21,7 @@
         </section>
 
         <seiction>
-            <LazyMainSection07 />
+            <MainSection07 />
         </seiction>
 
         <section>
