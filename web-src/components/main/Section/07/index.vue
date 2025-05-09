@@ -44,10 +44,10 @@
                     </Swiper>
                     <!-- <div class="flex justify-between items-center w-[1580px] max-w-[1580px] mb-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                         <div class="swiper-button-prev-custom">
-                            <img src="@/assets/images/main/committee/prev.png" alt="이전 버튼" class="cursor-pointer" />
+                            <img src="@/assets/images/main/section07/slide01.png" alt="이전 버튼" class="cursor-pointer" />
                             </div>
                         <div class="swiper-button-next-custom">
-                            <img src="@/assets/images/main/committee/next.png" alt="다음 버튼" class="cursor-pointer" />
+                            <img src="@/assets/images/main/section07/slide01.png" alt="다음 버튼" class="cursor-pointer" />
                         </div>
                     </div> -->
                 </div>
