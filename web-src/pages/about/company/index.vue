@@ -307,6 +307,39 @@
                 </div>
             </div>
 
+            <div id="meditour" class="mt-[160px] mb-[60px]">
+                <div class="w-full max-w-[1340px] py-[120px] my-0 mx-auto">
+                    <h2 class="area_name text-[65px] font-[700] mb-[200px]">
+                        Why K-MediTour?<br/>
+                        Total Care, Trusted Network
+                    </h2>
+                    <p class="description text-[40px] font-[700] mb-[34px]">
+                        🧭 From Indonesia to Korea—Every Step, Fully Supported
+                    </p>
+                    <p class="text-[24px] mb-[83px]">
+                        We go beyond just medical appointments. Our service offers personalized care before, during, and after treatment,<br/>
+                        starting from your departure in Indonesia to your safe return—so you can focus on healing while we handle the rest.
+                    </p>
+                    <div class="flex justify-center items-center gap-[8px]">
+                        <div>
+                            <img src="@/assets/images/sub/about/meditour01.png" alt="MediTour">
+                        </div>
+                        <div>
+                            <img src="@/assets/images/main/section01/arrow.png" alt="화살표">
+                        </div>
+                        <div>
+                            <img src="@/assets/images/sub/about/meditour02.png" alt="MediTour">
+                        </div>
+                        <div>
+                            <img src="@/assets/images/main/section01/arrow.png" alt="화살표">
+                        </div>
+                        <div>
+                            <img src="@/assets/images/sub/about/meditour03.png" alt="MediTour">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
     </div>
