@@ -1,10 +1,158 @@
 {
   "menu": {
-    "1": "About Us id ",
-    "2": "Medical Treatment Service",
-    "3": "Medi Tour",
-    "4": "Reviews",
-    "5": "Shop",
-    "6": "Inquiry"
+    "1": {
+      "name": "About Us",
+      "2depth": {
+        "1": { "name": "About Company" },
+        "2": { "name": "About Service - K-MediTour Program" },
+        "3": { "name": "Why Korea?" },
+        "4": { "name": "Why K-MediTour?" }
+      }
+    },
+    "2": {
+      "name": "Medical Treatment Service",
+      "2depth": {
+        "1": {
+          "name": "Medical Treatment Field",
+          "3depth": {
+            "1": { "name": "Health Check-up" },
+            "2": { "name": "Stem Cell Therapy" },
+            "3": {
+              "name": "Internal Medicine",
+              "4depth": {
+                "1": "Gastroenterology",
+                "2": "Nephrology (Kidney)",
+                "3": "Cardiology",
+                "4": "Endocrinology"
+              }
+            },
+            "4": {
+              "name": "Obstetrics & Gynecology",
+              "4depth": {
+                "1": "Obstetrics (Pregnancy & Maternity Care)",
+                "2": "Fertility & Infertility Clinics",
+                "3": "Gynecology (Female Reproductive Health)"
+              }
+            },
+            "5": {
+              "name": "Ophthalmology",
+              "4depth": {
+                "1": "Cataract, Glaucoma, Vision Correction"
+              }
+            },
+            "6": {
+              "name": "Dentistry",
+              "4depth": {
+                "1": "General Dentistry",
+                "2": "Orthodontics",
+                "3": "Periodontics",
+                "4": "Implants & Laminates"
+              }
+            },
+            "7": {
+              "name": "Oncology",
+              "4depth": {
+                "1": "Cancer Diagnosis & Treatment"
+              }
+            },
+            "8": {
+              "name": "Oriental Medicine & Alternative Therapies",
+              "4depth": {
+                "1": "Acupuncture, Herbal Medicine"
+              }
+            },
+            "9": {
+              "name": "Plastic Surgery",
+              "4depth": {
+                "1": "Skin Treatments & Laser Therapy",
+                "2": "Hair Loss Treatment & Hair Transplant",
+                "3": "Cosmetic Procedures"
+              }
+            },
+            "10": { "name": "Varicose Veins Clinic" },
+            "11": { "name": "Others" }
+          }
+        },
+        "2": {
+          "name": "Affiliated Treatment Centers",
+          "3depth": {
+            "1": { "name": "Health Check-up" },
+            "2": { "name": "Stem Cell Therapy" },
+            "3": {
+              "name": "Internal Medicine",
+              "4depth": {
+                "1": "Gastroenterology",
+                "2": "Nephrology (Kidney)",
+                "3": "Cardiology",
+                "4": "Endocrinology"
+              }
+            },
+            "4": {
+              "name": "Obstetrics & Gynecology",
+              "4depth": {
+                "1": "Obstetrics (Pregnancy & Maternity Care)",
+                "2": "Fertility & Infertility Clinics",
+                "3": "Gynecology (Female Reproductive Health)"
+              }
+            },
+            "5": {
+              "name": "Ophthalmology",
+              "4depth": {
+                "1": "Cataract, Glaucoma, Vision Correction"
+              }
+            },
+            "6": {
+              "name": "Dentistry",
+              "4depth": {
+                "1": "General Dentistry",
+                "2": "Orthodontics",
+                "3": "Periodontics",
+                "4": "Implants & Laminates"
+              }
+            },
+            "7": {
+              "name": "Oncology",
+              "4depth": {
+                "1": "Cancer Diagnosis & Treatment"
+              }
+            },
+            "8": {
+              "name": "Oriental Medicine & Alternative Therapies",
+              "4depth": {
+                "1": "Acupuncture, Herbal Medicine"
+              }
+            },
+            "9": {
+              "name": "Plastic Surgery",
+              "4depth": {
+                "1": "Skin Treatments & Laser Therapy",
+                "2": "Hair Loss Treatment & Hair Transplant",
+                "3": "Cosmetic Procedures"
+              }
+            },
+            "10": { "name": "Varicose Veins Clinic" },
+            "11": { "name": "Others" }
+          }
+        }
+      }
+    },
+    "3": {
+      "name": "Medi Tour",
+      "2depth": {
+        "1": { "name": "Seoul Tour" },
+        "2": { "name": "Gangwon Tour" }
+      }
+    },
+    "4": { "name": "Reviews" },
+    "5": { "name": "Shop" },
+    "6": {
+      "name": "Inquiry",
+      "2depth": {
+        "1": { "name": "News & Updates" },
+        "2": { "name": "FAQ" },
+        "3": { "name": "Contact Us" },
+        "4": { "name": "Request for Consultation" }
+      }
+    }
   }
 }
