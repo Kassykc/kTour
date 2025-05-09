@@ -10,17 +10,17 @@
                 <li v-for="(item, index) in menuItems" :key="index">
                     <div v-if="item.link.startsWith('http')">
                         <a :href="item.link" :id="'nav' + index" target="_blank" rel="noopener noreferrer">
-                            {{ item.title }}
+                            {{ t(item.title) }}
                         </a>
                     </div>
                     <div v-else>
                         <NuxtLink :to="item.link" :id="'nav' + index" @click="menuDepth($event, index)" :class="{ selected: item.isOpen }">
-                            {{ item.title }}
+                            {{ t(item.title) }}
                         </NuxtLink>
                     </div>
                     <ul v-if="item.submenu" :id="'nav' + index + '_s'" class="nav_2depth" v-show="item.isOpen">
                         <li v-for="(subItem, subIndex) in item.submenu" :key="subIndex">
-                            <NuxtLink :to="subItem.link">{{ subItem.title }}</NuxtLink>
+                            <NuxtLink :to="subItem.link">{{ t(subItem.title) }}</NuxtLink>
                         </li>
                     </ul>
                 </li>
@@ -30,8 +30,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
+import { t } from '@/plugins/i18n'
 
 const routerPath = '';
 
@@ -49,53 +48,41 @@ interface MenuItem {
 
 const menuItems = ref<MenuItem[]>([
     {
-        title: 'WE ARE',
+        title: 'menu.1.name',
         link: '',
         submenu: [
-            { title: '회사소개', link:'/' },
-            { title: '조직구성', link:'/' },
-            { title: '연혁', link:'/' },
-            { title: '대표이사 경력사항', link:'/' },
+            { title: 'menu.1.2depth.1.name', link:'/' },
+            { title: 'menu.1.2depth.2.name', link:'/' },
+            { title: 'menu.1.2depth.3.name', link:'/' },
+            { title: 'menu.1.2depth.4.name', link:'/' },
         ],
     },
     {
-        title: 'IT',
+        title: 'menu.2.name',
         link: '',
         submenu: [
-            { title: '업무분야', link:'/' },
-            { title: 'PORTFOLIO', link:'/' },
+            { title: 'menu.2.2depth.1.name', link:'/' },
+            { title: 'menu.2.2depth.2.name', link:'/' },
         ],
     },
     {
-        title: 'DESIGN',
+        title: 'menu.3.name',
         link: '',
         submenu: [
-            { title: '업무분야', link:'/' },
-            { title: 'PORTFOLIO', link:'/' },
+            { title: 'menu.3.2depth.1.name', link:'/' },
+            { title: 'menu.1.2depth.2.name', link:'/' },
         ],
     },
     {
-        title: 'MICE',
+        title: 'menu.6.name',
         link: '',
         submenu: [
-            { title: '업무분야', link:'/' },
-            { title: 'PORTFOLIO', link:'/' },
+            { title: 'menu.6.2depth.1.name', link:'/' },
+            { title: 'menu.6.2depth.2.name', link:'/' },
+            { title: 'menu.6.2depth.3.name', link:'/' },
+            { title: 'menu.6.2depth.4.name', link:'/' },
         ],
     },
-    {
-        title: 'INFORMATION',
-        link: '',
-        submenu: [
-            { title: '공지사항', link: '/' },
-            { title: '견적/상담문의', link: '/' },
-            { title: '연구비 및 사업공고', link: '/' },
-            { title: '기업관련 공고', link: '/' },
-            { title: '고객센터', link: '/' },
-        ],
-    },
-    // { title: 'Gallery', link: '/' },
-    // { title: 'Artist', link: '/artist-list' },
-    // { title: 'Global-Medicity.com', link: 'https://global-medicity.com/' },
 ]);
 
 const menuClick = () => {
