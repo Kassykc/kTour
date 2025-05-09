@@ -20,6 +20,10 @@
             <MainSection04 />
         </section>
 
+        <seiction>
+            <LazyMainSection07 />
+        </seiction>
+
         <section>
             <MainSection05 />
         </section>
