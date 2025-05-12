@@ -227,5 +227,168 @@
         "subtitle": "Sharing news from K-MediTour"
       }
     }
+  },
+  "about": {
+    "part1": {
+      "title": "MediCity",
+      "content1": {
+        "title": "🌐 MediCity Co., Ltd. - A Global Integrated Medical Platform"
+      },
+      "content2": {
+        "title": "📍 Location",
+        "1": {
+          "title": "Indonesia Branch Office",
+          "desc1": "Prosperity Tower, Lt. 56, Jl. Jend. Sudirman No.Kav. 52-53,",
+          "desc2": "Jakarta Selatan 12190 "
+        },
+        "2": {
+          "title": "Korea Headquarters",
+          "desc1": "43-55 Mugunghwa-ro, Ilsandong-gu, Goyang-si,",
+          "desc2": "Gyeonggi-do, South Korea"
+        }
+      },
+      "content3": {
+        "title": "✅ Certification Status ",
+        "1": "MediCity Gangwon Co., Ltd. Business Registration Certificate",
+        "2": "MediCity Co., Ltd. Business Registration Certificate",
+        "3": "Establishment of Corporation in Indonesia",
+        "4": "Trademark Registration Application",
+        "5": "Patent Application",
+        "6": "Patent Application",
+        "7": "Tourism Business Registration Certificate",
+        "8": "Foreign Patient Invitation Business Registration Certificate",
+        "9": "Small and Medium-Sized Enterprise Certification",
+        "10": "International Patent Application(PCT)",
+        "11": "Trademark Registration in Indonesia",
+        "12": "ARSPTN Sponsor Certification",
+        "btn": "Contact Us"
+      }
+    },
+    "part2": {
+      "title": "Service",
+      "content1": {
+        "title": "✈️ K-MediTour Program",
+        "desc1": "K-MediTour Program is a fully integrated medical travel program designed to make both your treatment and travel in South Korea smooth, safe, and unforgettable.",
+        "desc2": "From initial consultation to post-treatment follow-up, Medi-City coordinates every detail—so you can focus on what matters most: your health, recovery, and memorable experiences in Korea."
+      },
+      "content2": {
+        "title": "🔄 How It Works",
+        "desc": "Our streamlined process ensures a hassle-free experience from start to finish.",
+        "grid": {
+          "header": {
+            "1": "STEP",
+            "2": "Your Step (Client)",
+            "3": "Our Support (Medi-City)"
+          },
+          "step1": {
+            "title": "Request & Document Submission",
+            "1": "Please click the ‘Contact Us’ button to begin your consultation and submit the required documents as guided.",
+            "2": "Guide you to the right program based on your needs and assist you through the required documentation."
+          },
+          "step2": {
+            "title": "Schedule & Cost Confirmation",
+            "1": "Please click the ‘Contact Us’ button to begin your consultation and submit the required documents as guided.",
+            "2": "Provide a customized itinerary including treatment, accommodation, and tour options, along with a detailed cost estimate."
+          },
+          "step3": {
+            "title": "Make Payment & Pre-departure Preparation",
+            "1": "Review the suggested treatment and tour schedule, and confirm your availability.",
+            "2": "Arrange visa, book flights and accommodation, and finalize all pre-departure preparations."
+          },
+          "step4": {
+            "title": "Travel & Receive Treatment",
+            "1": "Travel to Korea and receive medical treatment, enjoy the tour.",
+            "2": "Pick you up at the airport, escort to hospital, support interpretation and tour activities."
+          },
+          "step5": {
+            "title": "Return & Aftercare Support",
+            "1": "Return home and join follow-up care if needed.",
+            "2": "Arrange airport drop-off, coordinate rehab and check-up schedules.."
+          }
+        }
+      },
+      "content3": {
+        "title": "🩺 Medical Treatment Program Overview",
+        "desc1": "We offer a wide range of medical specialties through our partnered hospitals,",
+        "desc2": "ensuring personalized care tailored to each patient’s needs.",
+        "sub": {
+          "title": "Medical Treatment Field",
+          "1": "Health Check-up",
+          "2": "Stem Cell Therapy",
+          "3": "Internal Medicine",
+          "4": "Obstetrics & Gynecology",
+          "5": "Ophthalmology",
+          "6": "Dentistry",
+          "7": "Oncology",
+          "8": "Oriental Medicine & Alternative Therapies",
+          "9": "Plastic Surgery",
+          "10": "Varicose Veins Clinic",
+          "btn": "Explore Medical Treatment Program"
+        }
+      },
+      "content4": {
+        "title": "🏞️ Tour(Seoul Tour, Gangwon Tour) Overview",
+        "desc1": "More than just treatment—immerse yourself in the charm of Korea with Drako,",
+        "desc2": "by visiting the most iconic K-drama and K-pop landmarks.",
+        "desc3": "- K-drama filming locations: “Business Proposal”, “Our Beloved Summer”, “Guardian: The Lonely and Great God”",
+        "desc4": "- K-pop spots: BLACKPINK & BTS MV locations, idol-favorite hot places",
+        "btn": "Explore K-MediTour"
+      }
+    },
+    "part3": {
+      "title": "Why Korea?",
+      "subtitle": "World-Class Medical Excellence",
+      "desc1": "South Korea is globally recognized for its world-class healthcare system,",
+      "desc2": "advanced medical technology, and increasing trust from international patients.",
+      "content1": {
+        "title": "🏆 World-Class Healthcare, Globally Recognized",
+        "desc1": "Korea has been ranked as the country with the second best healthcare system in the world.",
+        "desc2": "This index ranks 110 countries based on various factors contributing to overall health.",
+        "1": "Countries With The Best Health Care Systems, 2024"
+      },
+      "content2": {
+        "title": "🖥️ Leading in Early Diagnosis & Medical Tech",
+        "desc": " Korea leads globally in the availability of mammographs and maintains above-OECD-average access to CT scanners"
+      },
+      "content3": {
+        "title": "🧳 Asia’s Rising Star in Medical Tourism",
+        "desc": "The number of foreign patients in Korea surged to 1.17 million in 2024, marking a 93.2% increase from the previous year",
+        "1": "Number of Foreign Patients Visiting South Korea (2021-2024)"
+      },
+      "content4": {
+        "title": "🗺️ Unique Travel Experiences",
+        "desc1": "Beyond treatment, Korea offers unforgettable cultural and travel experiences",
+        "desc2": "—blending the vibrant charm of Seoul and the natural beauty of Gangwon into a healing experience like no other.",
+        "1": {
+          "title": "🎬 Be the Star of Your Own K-Drama",
+          "desc1": "From the romantic views of Namsan Tower to the peaceful scenery of Gangwon’s beaches, walk through the iconic filming locations of your favorite K-dramas.",
+          "desc2": "Imagine recovering while enjoying the same sights you've seen on screen."
+        },
+        "2": {
+          "title": "🎤 K-Pop & K-Lifestyle Experiences ",
+          "desc1": "Explore the heart of K-pop culture—visit entertainment agencies and the hotspots your favorite idols have visited.",
+          "desc2": "Feel closer to the stars you love while getting the care you need."
+        },
+        "3": {
+          "title": "💄 K-Beauty & Wellness",
+          "desc1": "Korea is also the birthplace of the world-renowned K-beauty trend.",
+          "desc2": "Enjoy personalized skincare consultations, aesthetic treatments, and wellness retreats that blend modern science with traditional Korean techniques."
+        },
+        "banner": {
+          "1": "K-MediTour brings you",
+          "2": "Healing Korea—where body",
+          "3": "and mind find peace."
+        }
+      }
+    },
+    "part4": {
+      "title1": "Why K-MediTour?",
+      "title2": "Total Care, Trusted Network",
+      "content1": {
+        "title": "🧭 From Indonesia to Korea—Every Step, Fully Supported",
+        "desc1": "We go beyond just medical appointments. Our service offers personalized care before, during, and after treatment,",
+        "desc2": "starting from your departure in Indonesia to your safe return—so you can focus on healing while we handle the rest."
+      }
+    }
   }
 }

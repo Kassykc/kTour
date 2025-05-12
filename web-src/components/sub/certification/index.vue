@@ -1,13 +1,11 @@
 <template>
     <div>
-        <div class="certification_area w-full max-w-[1340px] my-0 mx-auto pb-[100px] flex justify-start items-center flex-wrap gap-x-[8px] gap-y-[38px]">
-            <div
-                v-for="(item, index) in certifications"
-                :key="index"
-                class="w-[216px] flex flex-col gap-[8px]"
-            >
+        <div
+            class="certification_area w-full max-w-[1340px] my-0 mx-auto pb-[100px] flex justify-start items-center flex-wrap gap-x-[8px] gap-y-[38px]">
+            <div v-for="(item, index) in certifications" :key="index" class="w-[216px] flex flex-col gap-[8px]">
                 <img :src="item.image" alt="certification" />
-                <div class="w-full h-[66px] bg-[#EAE8DD] flex justify-center items-center font-[500] text-[14px] text-center">
+                <div
+                    class="w-full h-[66px] bg-[#EAE8DD] flex justify-center items-center font-[500] text-[14px] text-center">
                     {{ item.text }}
                 </div>
             </div>
@@ -16,6 +14,7 @@
 </template>
 
 <script setup lang="ts">
+import { t } from '@/plugins/i18n'
 import certification01 from "@/assets/images/sub/about/certification01.png";
 import certification02 from "@/assets/images/sub/about/certification02.png";
 import certification03 from "@/assets/images/sub/about/certification03.png";
@@ -29,58 +28,56 @@ import certification10 from "@/assets/images/sub/about/certification10.png";
 import certification11 from "@/assets/images/sub/about/certification11.png";
 import certification12 from "@/assets/images/sub/about/certification12.png";
 
-const certifications  = [
+const certifications = [
     {
         image: certification01,
-        text: 'MediCity Co., Ltd. Business Registration Certificate',
+        text: t('about.part1.content3.1'),
     },
     {
         image: certification02,
-        text: 'MediCity Co., Ltd. Business Registration Certificate',
+        text: t('about.part1.content3.2'),
     },
     {
         image: certification03,
-        text: 'Establishment of Corporation in Indonesia',
+        text: t('about.part1.content3.3'),
     },
     {
         image: certification04,
-        text: 'Trademark Registration Application',
+        text: t('about.part1.content3.4'),
     },
     {
         image: certification05,
-        text: 'Patent Application',
+        text: t('about.part1.content3.5'),
     },
     {
         image: certification06,
-        text: 'Patent Application',
+        text: t('about.part1.content3.6'),
     },
     {
         image: certification07,
-        text: 'Tourism Business Registration Certificate',
+        text: t('about.part1.content3.7'),
     },
     {
         image: certification08,
-        text: 'Foreign Patient Invitation Business Registration Certificate',
+        text: t('about.part1.content3.8'),
     },
     {
         image: certification09,
-        text: 'Small and Medium-Sized Enterprise Certification',
+        text: t('about.part1.content3.9'),
     },
     {
         image: certification10,
-        text: 'International Patent Application (PCT)',
+        text: t('about.part1.content3.10'),
     },
     {
         image: certification11,
-        text: 'Trademark Registration in Indonesia',
+        text: t('about.part1.content3.11'),
     },
     {
         image: certification12,
-        text: 'ARSPTN Sponsor Certification',
+        text: t('about.part1.content3.12'),
     },
 ]
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
