@@ -14,7 +14,8 @@
                         </a>
                     </div>
                     <div v-else>
-                        <NuxtLink :to="item.link" :id="'nav' + index" @click="menuDepth($event, index)" :class="{ selected: item.isOpen }">
+                        <NuxtLink :to="item.link" :id="'nav' + index" @click="menuDepth($event, index)"
+                            :class="{ selected: item.isOpen }">
                             {{ t(item.title) }}
                         </NuxtLink>
                     </div>
@@ -48,39 +49,39 @@ interface MenuItem {
 
 const menuItems = ref<MenuItem[]>([
     {
-        title: 'menu.1.name',
+        title: t('menu.1.name'),
         link: '',
         submenu: [
-            { title: 'menu.1.2depth.1.name', link:'/' },
-            { title: 'menu.1.2depth.2.name', link:'/' },
-            { title: 'menu.1.2depth.3.name', link:'/' },
-            { title: 'menu.1.2depth.4.name', link:'/' },
+            { title: t('menu.1.2depth.1.name'), link: '/' },
+            { title: t('menu.1.2depth.2.name'), link: '/' },
+            { title: t('menu.1.2depth.3.name'), link: '/' },
+            { title: t('menu.1.2depth.4.name'), link: '/' },
         ],
     },
     {
-        title: 'menu.2.name',
+        title: t('menu.2.name'),
         link: '',
         submenu: [
-            { title: 'menu.2.2depth.1.name', link:'/' },
-            { title: 'menu.2.2depth.2.name', link:'/' },
+            { title: t('menu.2.2depth.1.name'), link: '/' },
+            { title: t('menu.2.2depth.2.name'), link: '/' },
         ],
     },
     {
-        title: 'menu.3.name',
+        title: t('menu.3.name'),
         link: '',
         submenu: [
-            { title: 'menu.3.2depth.1.name', link:'/' },
-            { title: 'menu.1.2depth.2.name', link:'/' },
+            { title: t('menu.3.2depth.1.name'), link: '/' },
+            { title: t('menu.1.2depth.2.name'), link: '/' },
         ],
     },
     {
-        title: 'menu.6.name',
+        title: t('menu.6.name'),
         link: '',
         submenu: [
-            { title: 'menu.6.2depth.1.name', link:'/' },
-            { title: 'menu.6.2depth.2.name', link:'/' },
-            { title: 'menu.6.2depth.3.name', link:'/' },
-            { title: 'menu.6.2depth.4.name', link:'/' },
+            { title: t('menu.6.2depth.1.name'), link: '/' },
+            { title: t('menu.6.2depth.2.name'), link: '/' },
+            { title: t('menu.6.2depth.3.name'), link: '/' },
+            { title: t('menu.6.2depth.4.name'), link: '/' },
         ],
     },
 ]);

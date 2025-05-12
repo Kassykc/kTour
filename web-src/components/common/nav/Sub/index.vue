@@ -33,12 +33,12 @@ const props = defineProps<{
 const router = useRouter()
 
 const menus = [
-  { title: 'menu.1.name', url: '/' },
-  { title: 'menu.2.name', url: '/' },
-  { title: 'menu.3.name', url: '/' },
-  // { title: 'menu.4.name', url: '/' },
-  // { title: 'menu.5.name', url: '/' },
-  { title: 'menu.6.name', url: '/' },
+  { title: t('menu.1.name'), url: '/' },
+  { title: t('menu.2.name'), url: '/' },
+  { title: t('menu.3.name'), url: '/' },
+  // { title: t('menu.4.name'), url: '/' },
+  // { title: t('menu.5.name'), url: '/' },
+  { title: t('menu.6.name'), url: '/' },
 ]
 
 // 각 nav에 대응하는 서브메뉴 데이터
