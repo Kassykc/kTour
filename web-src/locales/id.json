@@ -3,8 +3,8 @@
     "1": {
       "name": "About Us",
       "2depth": {
-        "1": { "name": "About Company" },
-        "2": { "name": "About Service - K-MediTour Program" },
+        "1": { "name": "Tentang Perusahaan" },
+        "2": { "name": "Tentang Layanan – Program K-MediTour" },
         "3": { "name": "Why Korea?" },
         "4": { "name": "Why K-MediTour?" }
       }
@@ -15,10 +15,10 @@
         "1": {
           "name": "Medical Treatment Field",
           "3depth": {
-            "1": { "name": "Health Check-up" },
-            "2": { "name": "Stem Cell Therapy" },
+            "1": { "name": "Pemeriksaan Kesehatan" },
+            "2": { "name": "Terapi Sel Punca" },
             "3": {
-              "name": "Internal Medicine",
+              "name": "Penyakit Dalam",
               "4depth": {
                 "1": "Gastroenterology",
                 "2": "Nephrology (Kidney)",
@@ -27,7 +27,7 @@
               }
             },
             "4": {
-              "name": "Obstetrics & Gynecology",
+              "name": "Kebidanan & Kandungan",
               "4depth": {
                 "1": "Obstetrics (Pregnancy & Maternity Care)",
                 "2": "Fertility & Infertility Clinics",
@@ -35,7 +35,7 @@
               }
             },
             "5": {
-              "name": "Ophthalmology",
+              "name": "Oftalmologi",
               "4depth": {
                 "1": "Cataract, Glaucoma, Vision Correction"
               }
@@ -50,36 +50,36 @@
               }
             },
             "7": {
-              "name": "Oncology",
+              "name": "Onkologi",
               "4depth": {
                 "1": "Cancer Diagnosis & Treatment"
               }
             },
             "8": {
-              "name": "Oriental Medicine & Alternative Therapies",
+              "name": "Pengobatan Alternatif",
               "4depth": {
                 "1": "Acupuncture, Herbal Medicine"
               }
             },
             "9": {
-              "name": "Plastic Surgery",
+              "name": "Bedah Plastik",
               "4depth": {
                 "1": "Skin Treatments & Laser Therapy",
                 "2": "Hair Loss Treatment & Hair Transplant",
                 "3": "Cosmetic Procedures"
               }
             },
-            "10": { "name": "Varicose Veins Clinic" },
+            "10": { "name": "Klinik Varises" },
             "11": { "name": "Others" }
           }
         },
         "2": {
           "name": "Affiliated Treatment Centers",
           "3depth": {
-            "1": { "name": "Health Check-up" },
-            "2": { "name": "Stem Cell Therapy" },
+            "1": { "name": "Pemeriksaan Kesehatan" },
+            "2": { "name": "Terapi Sel Punca" },
             "3": {
-              "name": "Internal Medicine",
+              "name": "Penyakit Dalam",
               "4depth": {
                 "1": "Gastroenterology",
                 "2": "Nephrology (Kidney)",
@@ -88,7 +88,7 @@
               }
             },
             "4": {
-              "name": "Obstetrics & Gynecology",
+              "name": "Kebidanan & Kandungan",
               "4depth": {
                 "1": "Obstetrics (Pregnancy & Maternity Care)",
                 "2": "Fertility & Infertility Clinics",
@@ -96,7 +96,7 @@
               }
             },
             "5": {
-              "name": "Ophthalmology",
+              "name": "Oftalmologi",
               "4depth": {
                 "1": "Cataract, Glaucoma, Vision Correction"
               }
@@ -111,26 +111,26 @@
               }
             },
             "7": {
-              "name": "Oncology",
+              "name": "Onkologi",
               "4depth": {
                 "1": "Cancer Diagnosis & Treatment"
               }
             },
             "8": {
-              "name": "Oriental Medicine & Alternative Therapies",
+              "name": "Pengobatan Alternatif",
               "4depth": {
                 "1": "Acupuncture, Herbal Medicine"
               }
             },
             "9": {
-              "name": "Plastic Surgery",
+              "name": "Bedah Plastik",
               "4depth": {
                 "1": "Skin Treatments & Laser Therapy",
                 "2": "Hair Loss Treatment & Hair Transplant",
                 "3": "Cosmetic Procedures"
               }
             },
-            "10": { "name": "Varicose Veins Clinic" },
+            "10": { "name": "Klinik Varises" },
             "11": { "name": "Others" }
           }
         }
@@ -152,6 +152,247 @@
         "2": { "name": "FAQ" },
         "3": { "name": "Contact Us" },
         "4": { "name": "Request for Consultation" }
+      }
+    }
+  },
+  "main": {
+    "banner": {
+      "text1": "Welcome To Medicity",
+      "text2": "An all-in-one medical &<br />healing travel service to South<br />Korea, by MediCity Co., Ltd."
+    },
+    "section1": {
+      "part1": {
+        "title": "About Service",
+        "subtitle": "✈️ K-MediTour Program",
+        "desc": "K-MediTour Program is a fully integrated medical travel program designed to make both your treatment and travel in South Korea smooth, safe, and unforgettable."
+      },
+      "part2": {
+        "title": "How It Works",
+        "desc": "From initial consultation to post-treatment follow-up, Medi-City coordinates every detail."
+      }
+    },
+    "section2": {
+      "part1": {
+        "title": "Why Korea?",
+        "subtitle": "Where Medical Excellence Meets K-Culture",
+        "desc": {
+          "1": {
+            "title": "🏆 World-Class Healthcare, Globally Recognized",
+            "desc": "Countries With The Best Health Care Systems, 2024"
+          },
+          "2": {
+            "title": "🧳 Asia’s Rising Star in Medical Tourism",
+            "desc": "Number of Foreign Patients Visiting South Korea (2021–2024)"
+          },
+          "3": {
+            "title": "🗺️ Unique Travel Experiences",
+            "desc": "Number of Foreign Patients Visiting South Korea (2021–2024)",
+            "content": {
+              "1": { "title": "🎬 K-Drama Filming Spots" },
+              "2": { "title": "🎤 K-Pop Landmarks" },
+              "3": { "title": "🥢 K-Lifestyle Experiences" },
+              "4": { "title": "🗺️ Unique Travel Experiences " }
+            }
+          }
+        }
+      }
+    },
+    "section3": {
+      "part1": {
+        "title": "Medical Treatment Sevice",
+        "desc1": "We offer a wide range of medical specialties through our partnered hospitals,",
+        "desc2": "ensuring personalized care tailored to each patient’s needs."
+      }
+    },
+    "section4": {
+      "part1": {
+        "title": "Medi Tour",
+        "desc1": "Our service offers personalized care before, during, and after treatment, starting from your departure",
+        "desc2": "in Indonesia to your safe return—so you can focus on healing while we handle the rest.",
+        "content1": "Seoul Tour",
+        "content2": "Gangwon Tour"
+      }
+    },
+    "section4-1": {
+      "part1": {
+        "title": "Affiliated Treatment Centers",
+        "desc": "A nationwide network of reliable care.",
+        "content1": "Seoul Tour",
+        "content2": "Gangwon Tour"
+      }
+    },
+    "section5": {
+      "part1": {
+        "title": "News & Updates",
+        "subtitle": "Sharing news from K-MediTour"
+      }
+    }
+  },
+  "about": {
+    "part1": {
+      "title": "MediCity",
+      "content1": {
+        "title": "🌐 MediCity Co., Ltd.Platform Medis Terpadu Global"
+      },
+      "content2": {
+        "title": "📍 Lokasi",
+        "1": {
+          "title": "Kantor Cabang Indonesia",
+          "desc1": "Prosperity Tower, Lt. 56, KOSME(GBC) Room 4.1. Jl. Jend. Sudirman No.Kav. 52-53,",
+          "desc2": "Jakarta Selatan 12190 "
+        },
+        "2": {
+          "title": "Kantor Pusat Korea",
+          "desc1": "43-55 Mugunghwa-ro, Ilsandong-gu, Goyang-si,",
+          "desc2": "Gyeonggi-do, South Korea"
+        }
+      },
+      "content3": {
+        "title": "✅ Status sertifikasi",
+        "1": "Sertifikat Pendaftaran Bisnis Cabang Gangwon",
+        "2": "Lisensi perusahaan MEDI-CITY",
+        "3": "Pendirian Perusahaan di Indonesia",
+        "4": "Lisensi merek dagang",
+        "5": "Pengajuan Paten (10-2023-0015587)",
+        "6": "Pengajuan Paten (10-2023-0070316)",
+        "7": "Lisensi Usaha Pariwisata",
+        "8": "Kartu Pendaftaran untuk Menarik Pasien Orang Asing",
+        "9": "Sertifikat Usaha Kecil dan Menengah",
+        "10": "Lisensi Hak Paten Luar Negeri (PCT)",
+        "11": "Lisensi Merek terdaftar di Indonesia",
+        "12": "Sertifikat Sponsor ARSPTN",
+        "btn": "Hubungi Kami"
+      }
+    },
+    "part2": {
+      "title": "Service",
+      "content1": {
+        "title": "✈️ Program K-MediTour",
+        "desc1": "Program K-MediTour adalah layanan perjalanan medis terpadu yang dirancang untuk membuat perjalanan dan perawatan Anda di Korea Selatan lebih mudah, aman, dan tak terlupakan.]",
+        "desc2": "Medi-City mengoordinasikan semua detail, dari konsultasi awal hingga tindak lanjut pasca perawatan—sehingga Anda bisa fokus pada hal yang paling penting: kesehatan, pemulihan, dan pengalaman berkesan di Korea."
+      },
+      "content2": {
+        "title": "🔄 Bagaimana Prosesnya?",
+        "desc": "Proses kami yang efisien menjamin pengalaman yang mudah dan tanpa ribet dari awal hingga akhir.",
+        "grid": {
+          "header": {
+            "1": "Tahapan",
+            "2": "Yang Anda Lakukan (Klien)",
+            "3": "Layanan Kami (Medi-City)"
+          },
+          "step1": {
+            "title": "Permintaan & Pengumpulan Dokumen",
+            "1": "Klik tombol ‘Hubungi Kami’ untuk memulai konsultasi dan unggah dokumen yang diminta.",
+            "2": "Memandu Anda ke program yang sesuai dan membantu pengisian dokumen."
+          },
+          "step2": {
+            "title": "Penjadwalan & Konfirmasi Biaya",
+            "1": "Tinjau rencana perawatan dan jadwal tur yang disarankan, lalu konfirmasi ketersediaan Anda.",
+            "2": "Menyediakan itinerary yang disesuaikan  mencakup perawatan, akomodasi, dan pilihan wisata, lengkap dengan estimasi biaya."
+          },
+          "step3": {
+            "title": "Pembayaran & Persiapan Keberangkatan",
+            "1": "Selesaikan pembayaran dan persiapkan keberangkatan.",
+            "2": "Mengurus visa, memesan tiket pesawat dan akomodasi, serta persiapan pra-keberangkatan lainnya."
+          },
+          "step4": {
+            "title": "Perjalanan & Perawatan",
+            "1": "Perjalanan ke Korea, menerima perawatan medis, dan menikmati tur.",
+            "2": "Penjemputan di bandara, pendampingan ke rumah sakit, dukungan penerjemah dan tur."
+          },
+          "step5": {
+            "title": "Kepulangan & Perawatan Lanjutan",
+            "1": "Kembali ke rumah dan lanjutkan perawatan jika diperlukan.",
+            "2": "Pengantaran ke bandara, jadwal rehabilitasi & pemeriksaan lanjutan."
+          }
+        }
+      },
+      "content3": {
+        "title": "🩺 Gambaran Umum Program Perawatan Medis",
+        "desc1": "Kami menyediakan berbagai layanan medis spesialis melalui rumah sakit mitra kami",
+        "desc2": "untuk memastikan perawatan yang disesuaikan dengan kebutuhan Anda.",
+        "sub": {
+          "title": "Medical Treatment Field",
+          "1": "Pemeriksaan Kesehatan",
+          "2": "Terapi Sel Punca",
+          "3": "Penyakit Dalam",
+          "4": "Kebidanan & Kandungan",
+          "5": "Oftalmologi",
+          "6": "Dentistry",
+          "7": "Onkologi",
+          "8": "Pengobatan Alternatif",
+          "9": "Bedah Plastik",
+          "10": "Klinik Varises",
+          "btn": "Jelajahi Program Perawatan Medis"
+        }
+      },
+      "content4": {
+        "title": "🏞️ Gambaran Umum Wisata (Seoul & Gangwon)",
+        "desc1": "Lebih dari sekadar perawatan—nikmati pesona Korea bersama Drakor",
+        "desc2": "dengan mengunjungi tempat-tempat ikonik K-Drama dan K-Pop.",
+        "desc3": "- Lokasi syuting K-drama: “Business Proposal”, “Our Beloved Summer”, “Guardian: The Lonely and Great God”",
+        "desc4": "- Spot K-Pop: lokasi MV BLACKPINK & BTS, tempat nongkrong favorit para idol",
+        "btn": "Jelajahi K-MediTour"
+      }
+    },
+    "part3": {
+      "title": "Mengapa Korea?",
+      "subtitle": "Tempat Di Mana Keunggulan Medis Bertemu dengan Budaya K-Culture",
+      "desc1": "Korea Selatan diakui secara global atas sistem layanan kesehatannya yang unggul, teknologi medis mutakhir,",
+      "desc2": "dan meningkatnya kepercayaan dari pasien internasional.",
+      "content1": {
+        "title": "🏆 Keunggulan Medis Kelas Dunia",
+        "desc1": "Korea menempati peringkat kedua sebagai negara dengan sistem kesehatan terbaik di dunia.",
+        "desc2": "Peringkat ini didasarkan pada penilaian terhadap 110 negara, dengan mempertimbangkan berbagai faktor yang memengaruhi kualitas kesehatan secara keseluruhan.",
+        "1": "Negara dengan Sistem Kesehatan Terbaik, 2024",
+        "source": "Sumber: CEOWORLD magazine Health Care Index"
+      },
+      "content2": {
+        "title": "🖥️ Terdepan dalam Diagnosis Dini & Teknologi Medis",
+        "desc1": "Korea berada di garis depan dalam ketersediaan alat mammografi Memiliki akses terhadap CT scan,",
+        "desc2": "dan MRI yang melebihi rata-rata negara OECD— menunjukkan keunggulannya  dalam diagnosis dini dan infrastruktur medis yang canggih.",
+        "source": "Sumber: OECD Health Statistics 2024; WHO Global atlas of medical devices 2022."
+      },
+      "content3": {
+        "title": "🧳 Bintang Baru Wisata Medis Asia",
+        "desc": "Jumlah pasien internasional yang berobat ke Korea melonjak hingga 1,17 juta orang pada tahun 2024—naik 93,2% dari tahun sebelumnya.",
+        "desc2": "Hal ini semakin memperkuat posisi Korea sebagai pusat wisata medis terkemuka di Asia.",
+        "1": "Jumlah Pasien Asing yang Berkunjung ke Korea Selatan (2021–2024)",
+        "source": "Sumber: Ministry of Health and Welfare, Republic of Korea"
+      },
+      "content4": {
+        "title": "🗺️ Pengalaman Perjalanan Unik",
+        "desc1": "Selain perawatan medis, Korea menawarkan pengalaman budaya dan perjalanan yang tak terlupakan",
+        "desc2": "Nikmati pesona kota Seoul dan keindahan alam Gangwon dalam perjalanan penyembuhan yang menyentuh jiwa.",
+        "1": {
+          "title": "🎬 Jalani Kisah K-Drama-mu Sendiri",
+          "desc1": "Mulai dari pemandangan romantis di Menara Namsan hingga keindahan pantai Gangwon, rasakan sendiri lokasi syuting K-Drama favoritmu.",
+          "desc2": "Bayangkan proses pemulihan sambil menikmati tempat-tempat yang pernah kamu lihat di layar kaca."
+        },
+        "2": {
+          "title": "🎤 Pengalaman K-Pop & K-Lifestyle",
+          "desc1": "Kunjungi agensi hiburan ternama, tempat-tempat yang pernah didatangi idol favoritmu,",
+          "desc2": "dan rasakan budaya K-pop dari dekat—sambil menjalani perawatan terbaik untuk dirimu."
+        },
+        "3": {
+          "title": "💄 K-Beauty & Wellness",
+          "desc1": "Korea adalah tempat lahirnya tren K-beauty yang mendunia.",
+          "desc2": "Nikmati konsultasi perawatan kulit, perawatan estetika, dan retreat wellness yang menggabungkan sains modern dengan teknik tradisional Korea."
+        },
+        "banner": {
+          "1": "K-MediTour mempersembahkan",
+          "2": "Healing Korea—tempat tubuh",
+          "3": "dan jiwa menemukan ketenangan."
+        }
+      }
+    },
+    "part4": {
+      "title1": "Mengapa K-MediTour?",
+      "title2": "Total Care, Jaringan Terpercaya",
+      "content1": {
+        "title": "🧭 Dari Indonesia ke Korea—Kami Dukung Setiap Langkah Anda",
+        "desc1": "Kami bukan hanya mengatur janji medis, kami menemani Anda dari awal keberangkatan di Indonesia hingga kepulangan dengan aman—",
+        "desc2": "agar Anda bisa fokus pada proses penyembuhan, sementara kami mengurus semuanya."
       }
     }
   }

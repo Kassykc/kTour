@@ -348,12 +348,16 @@
       },
       "content2": {
         "title": "🖥️ Leading in Early Diagnosis & Medical Tech",
-        "desc": " Korea leads globally in the availability of mammographs and maintains above-OECD-average access to CT scanners"
+        "desc1": "Korea leads globally in the availability of mammographs and maintains above-OECD-average access to CT scanners",
+        "desc2": "and MRI units, underscoring its strength in early diagnosis and advanced medical infrastructure.",
+        "source": "Source: OECD Health Statistics 2024; WHO Global atlas of medical devices 2022."
       },
       "content3": {
         "title": "🧳 Asia’s Rising Star in Medical Tourism",
-        "desc": "The number of foreign patients in Korea surged to 1.17 million in 2024, marking a 93.2% increase from the previous year",
-        "1": "Number of Foreign Patients Visiting South Korea (2021-2024)"
+        "desc1": "The number of foreign patients in Korea surged to 1.17 million in 2024, marking a 93.2% increase from the previous year",
+        "desc2": "and solidifying the country's status as a leading medical tourism hub in Asia.",
+        "1": "Number of Foreign Patients Visiting South Korea (2021-2024)",
+        "source": "Source: Ministry of Health and Welfare, Republic of Korea"
       },
       "content4": {
         "title": "🗺️ Unique Travel Experiences",

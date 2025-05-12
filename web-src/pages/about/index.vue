@@ -276,6 +276,9 @@
                                 <img src="@/assets/images/sub/about/ranking_table.png" alt=""
                                     class="w-full h-full object-cover">
                             </div>
+                            <p class="text-right text-[14px] mb-[250px]">
+                                <i>{{ t('about.part3.content1.source') }}</i>
+                            </p>
                         </div>
                     </div>
 
@@ -302,7 +305,7 @@
                             </div>
                         </div>
                         <p class="text-right text-[14px] mb-[250px]">
-                            <i>Source: OECD Health Statistics 2024; WHO Global atlas of medical devices 2022.</i>
+                            <i>{{ t('about.part3.content2.source') }}</i>
                         </p>
                     </div>
 
@@ -324,7 +327,7 @@
                             </div>
                         </div>
                         <p class="text-right text-[14px] mb-[100px]">
-                            <i>Source: Ministry of Health and Welfare, Republic of Korea</i>
+                            <i>{{ t('about.part3.content3.source') }}</i>
                         </p>
                     </div>
 
