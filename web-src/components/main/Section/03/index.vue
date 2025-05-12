@@ -5,13 +5,11 @@
                 메디씨티는 이런 서비스를 제공합니다.
             </div> -->
             <div class="pb-[2rem]">
-                <MainSectionLinkTitle :title="'Medical Treatment Sevice'" :color="'#5C8F3F'" :link="true" />
+                <MainSectionLinkTitle :title="t('main.section3.part1.title')" :color="'#5C8F3F'" :link="true" />
             </div>
             <div class="font-[400] text-[1.5rem] text-[#717171]">
-                We offer a wide range of medical specialties through our partnered hospitals,
-            </div>
-            <div class="font-[400] text-[1.5rem] text-[#717171]">
-                ensuring personalized care tailored to each patient’s needs.
+                {{ t('main.section3.part1.desc1') }}<br />
+                {{ t('main.section3.part1.desc2') }}
             </div>
         </div>
 
@@ -23,6 +21,7 @@
 </template>
 
 <script setup lang="ts">
+import { t } from '@/plugins/i18n';
 import img1 from '@/assets/images/main/section03/img1.png';
 import img2 from '@/assets/images/main/section03/img2.png';
 import img3 from '@/assets/images/main/section03/img3.png';
@@ -37,52 +36,52 @@ import img10 from '@/assets/images/main/section03/img10.png';
 const list = [
     {
         img: img1,
-        title: 'Health Check-up',
+        title: t('menu.2.2depth.1.3depth.1.name'),
         url: '/'
     },
     {
         img: img2,
-        title: 'Stem Cell Therapy',
+        title: t('menu.2.2depth.1.3depth.2.name'),
         url: '/'
     },
     {
         img: img3,
-        title: 'Internal Medicine',
+        title: t('menu.2.2depth.1.3depth.3.name'),
         url: '/'
     },
     {
         img: img4,
-        title: 'Obstetrics & Gynecology',
+        title: t('menu.2.2depth.1.3depth.4.name'),
         url: '/'
     },
     {
         img: img5,
-        title: 'Ophthalmology',
+        title: t('menu.2.2depth.1.3depth.5.name'),
         url: '/'
     },
     {
         img: img6,
-        title: 'Dentistry',
+        title: t('menu.2.2depth.1.3depth.6.name'),
         url: '/'
     },
     {
         img: img7,
-        title: 'Oncology',
+        title: t('menu.2.2depth.1.3depth.7.name'),
         url: '/'
     },
     {
         img: img8,
-        title: 'Oriental Medicine & Alternative Therapies',
+        title: t('menu.2.2depth.1.3depth.8.name'),
         url: '/'
     },
     {
         img: img9,
-        title: 'Plastic Surgery',
+        title: t('menu.2.2depth.1.3depth.9.name'),
         url: '/'
     },
     {
         img: img10,
-        title: 'Varicose Veins Clinic',
+        title: t('menu.2.2depth.1.3depth.10.name'),
         url: '/'
     }
 ]

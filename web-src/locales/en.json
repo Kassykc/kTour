@@ -154,5 +154,78 @@
         "4": { "name": "Request for Consultation" }
       }
     }
+  },
+  "main": {
+    "banner": {
+      "text1": "Welcome To Medicity",
+      "text2": "An all-in-one medical &<br />healing travel service to South<br />Korea, by MediCity Co., Ltd."
+    },
+    "section1": {
+      "part1": {
+        "title": "About Service",
+        "subtitle": "✈️ K-MediTour Program",
+        "desc": "K-MediTour Program is a fully integrated medical travel program designed to make both your treatment and travel in South Korea smooth, safe, and unforgettable."
+      },
+      "part2": {
+        "title": "How It Works",
+        "desc": "From initial consultation to post-treatment follow-up, Medi-City coordinates every detail."
+      }
+    },
+    "section2": {
+      "part1": {
+        "title": "Why Korea?",
+        "subtitle": "Where Medical Excellence Meets K-Culture",
+        "desc": {
+          "1": {
+            "title": "🏆 World-Class Healthcare, Globally Recognized",
+            "desc": "Countries With The Best Health Care Systems, 2024"
+          },
+          "2": {
+            "title": "🧳 Asia’s Rising Star in Medical Tourism",
+            "desc": "Number of Foreign Patients Visiting South Korea (2021–2024)"
+          },
+          "3": {
+            "title": "🗺️ Unique Travel Experiences",
+            "desc": "Number of Foreign Patients Visiting South Korea (2021–2024)",
+            "content": {
+              "1": { "title": "🎬 K-Drama Filming Spots" },
+              "2": { "title": "🎤 K-Pop Landmarks" },
+              "3": { "title": "🥢 K-Lifestyle Experiences" },
+              "4": { "title": "🗺️ Unique Travel Experiences " }
+            }
+          }
+        }
+      }
+    },
+    "section3": {
+      "part1": {
+        "title": "Medical Treatment Sevice",
+        "desc1": "We offer a wide range of medical specialties through our partnered hospitals,",
+        "desc2": "ensuring personalized care tailored to each patient’s needs."
+      }
+    },
+    "section4": {
+      "part1": {
+        "title": "Medi Tour",
+        "desc1": "Our service offers personalized care before, during, and after treatment, starting from your departure",
+        "desc2": "in Indonesia to your safe return—so you can focus on healing while we handle the rest.",
+        "content1": "Seoul Tour",
+        "content2": "Gangwon Tour"
+      }
+    },
+    "section4-1": {
+      "part1": {
+        "title": "Affiliated Treatment Centers",
+        "desc": "A nationwide network of reliable care.",
+        "content1": "Seoul Tour",
+        "content2": "Gangwon Tour"
+      }
+    },
+    "section5": {
+      "part1": {
+        "title": "News & Updates",
+        "subtitle": "Sharing news from K-MediTour"
+      }
+    }
   }
 }

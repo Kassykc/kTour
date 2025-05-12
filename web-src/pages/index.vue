@@ -16,13 +16,13 @@
             <MainSection03 />
         </section>
 
+        <seiction>
+            <MainSection04-1 />
+        </seiction>
+
         <section>
             <MainSection04 />
         </section>
-
-        <seiction>
-            <MainSection07 />
-        </seiction>
 
         <section>
             <MainSection05 />

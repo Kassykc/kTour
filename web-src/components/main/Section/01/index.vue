@@ -17,14 +17,15 @@
         <div class="about_service w-full max-w-[1340px] my-0 mx-auto py-[136px]">
             <div class="service_area mb-[240px]">
                 <h1 class="title font-[700] text-[60px] text-center mb-[64px]">
-                    About Service
+                    {{ t('main.section1.part1.title') }}
                 </h1>
-                <div class="program w-full max-w-[884px] flex flex-col justify-center items-center gap-[25px] mx-auto mb-[90px]">
+                <div
+                    class="program w-full max-w-[884px] flex flex-col justify-center items-center gap-[25px] mx-auto mb-[90px]">
                     <h3 class="font-[600] text-[26px] text-center">
-                        ✈️ K-MediTour Program
+                        {{ t('main.section1.part1.subtitle') }}
                     </h3>
                     <p class="text-[22px] text-center">
-                        K-MediTour Program is a fully integrated medical travel program designed to make both your treatment and travel in South Korea smooth, safe, and unforgettable.
+                        {{ t('main.section1.part1.desc') }}
                     </p>
                 </div>
                 <div class="w-full max-w-[884px] flex justify-center items-center mx-auto">
@@ -33,10 +34,10 @@
             </div>
             <div class="works_area">
                 <h1 class="title font-[700] text-[60px] text-center mb-[64px]">
-                    How It Works
+                     {{ t('main.section1.part2.title') }}
                 </h1>
                 <h3 class="font-[600] text-[26px] text-center px-[250px] mb-[70px]">
-                    From initial consultation to post-treatment follow-up, Medi-City coordinates every detail.
+                    {{ t('main.section1.part2.desc') }}
                 </h3>
                 <div class="step_area flex justify-center items-center mb-[60px]">
                     <img src="@/assets/images/main/section01/step01.png" alt="step">
@@ -52,10 +53,11 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
 </template>
 
 <script setup lang="ts">
+import { t } from '@/plugins/i18n';
 
 </script>
 

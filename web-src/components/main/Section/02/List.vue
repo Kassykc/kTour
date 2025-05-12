@@ -8,6 +8,7 @@
 </template>
 
 <script setup lang="ts">
+import { t } from '@/plugins/i18n'
 import img01 from '@/assets/images/main/section02/drama.png'
 import img02 from '@/assets/images/main/section02/pop.png'
 import img03 from '@/assets/images/main/section02/life.png'
@@ -16,16 +17,16 @@ import img04 from '@/assets/images/main/section02/travel.png'
 const imgList = [
     {
         img: img01,
-        title: '🎬 ' + 'K-Drama',
+        title: t('main.section2.part1.desc.3.content.1.title'),
     }, {
         img: img02,
-        title: '🎤 ' + 'K-Pop',
+        title: t('main.section2.part1.desc.3.content.2.title'),
     }, {
         img: img03,
-        title: '🥢 ' + 'K-Lifestyle Experiences',
+        title: t('main.section2.part1.desc.3.content.3.title'),
     }, {
         img: img04,
-        title: '🗺️ ' + 'Unique Travel',
+        title: t('main.section2.part1.desc.3.content.4.title'),
     },
 ];
 
