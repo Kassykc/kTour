@@ -41,7 +41,7 @@
               }
             },
             "6": {
-              "name": "Dentistry",
+              "name": "Kedokteran Gigi",
               "4depth": {
                 "1": "General Dentistry",
                 "2": "Orthodontics",
@@ -74,7 +74,7 @@
           }
         },
         "2": {
-          "name": "Affiliated Treatment Centers",
+          "name": "Pusat Perawatan Mitra",
           "3depth": {
             "1": { "name": "Pemeriksaan Kesehatan" },
             "2": { "name": "Terapi Sel Punca" },
@@ -102,7 +102,7 @@
               }
             },
             "6": {
-              "name": "Dentistry",
+              "name": "Kedokteran Gigi",
               "4depth": {
                 "1": "General Dentistry",
                 "2": "Orthodontics",
@@ -139,8 +139,8 @@
     "3": {
       "name": "Medi Tour",
       "2depth": {
-        "1": { "name": "Seoul Tour" },
-        "2": { "name": "Gangwon Tour" }
+        "1": { "name": "Tur Seoul" },
+        "2": { "name": "Tur Gangwon" }
       }
     },
     "4": { "name": "Reviews" },
@@ -157,41 +157,42 @@
   },
   "main": {
     "banner": {
-      "text1": "Welcome To Medicity",
-      "text2": "An all-in-one medical &<br />healing travel service to South<br />Korea, by MediCity Co., Ltd."
+      "text1": "Selamat Datang di Medicity",
+      "text2": "Layanan perjalanan medis &",
+      "text3": "penyembuhan terpadu ke Korea",
+      "text4": "Selatan, oleh Medicity Co., Ltd."
     },
     "section1": {
       "part1": {
-        "title": "About Service",
-        "subtitle": "✈️ K-MediTour Program",
-        "desc": "K-MediTour Program is a fully integrated medical travel program designed to make both your treatment and travel in South Korea smooth, safe, and unforgettable."
+        "title": "Tentang Layanan",
+        "subtitle": "✈️ Program K-MediTour",
+        "desc": "K-MediTour adalah program wisata medis terintegrasi yang dirancang untuk memastikan perawatan dan perjalanan Anda di Korea berjalan lancar, aman, dan tak terlupakan."
       },
       "part2": {
-        "title": "How It Works",
-        "desc": "From initial consultation to post-treatment follow-up, Medi-City coordinates every detail."
+        "title": "Bagaimana Prosesnya",
+        "desc": "Dari konsultasi awal hingga tindak lanjut pasca perawatan, Medi-City mengoordinasikan setiap detailnya."
       }
     },
     "section2": {
       "part1": {
-        "title": "Why Korea?",
-        "subtitle": "Where Medical Excellence Meets K-Culture",
+        "title": "Mengapa Korea?",
+        "subtitle": "Tempat Di Mana Keunggulan Medis Bertemu dengan Budaya K-Culture",
         "desc": {
           "1": {
-            "title": "🏆 World-Class Healthcare, Globally Recognized",
-            "desc": "Countries With The Best Health Care Systems, 2024"
+            "title": "🏆 Layanan Kesehatan Kelas Dunia, Diakui Secara Global",
+            "desc": "Negara dengan Sistem Kesehatan Terbaik, 2024"
           },
           "2": {
-            "title": "🧳 Asia’s Rising Star in Medical Tourism",
-            "desc": "Number of Foreign Patients Visiting South Korea (2021–2024)"
+            "title": "🧳 Bintang Baru Wisata Medis Asia",
+            "desc": "Jumlah Pasien Asing yang Berkunjung ke Korea Selatan (2021–2024)"
           },
           "3": {
-            "title": "🗺️ Unique Travel Experiences",
-            "desc": "Number of Foreign Patients Visiting South Korea (2021–2024)",
+            "title": "🗺️ Pengalaman Perjalanan Unik",
             "content": {
-              "1": { "title": "🎬 K-Drama Filming Spots" },
-              "2": { "title": "🎤 K-Pop Landmarks" },
-              "3": { "title": "🥢 K-Lifestyle Experiences" },
-              "4": { "title": "🗺️ Unique Travel Experiences " }
+              "1": { "title": "🎬 Lokasi Syuting K-Drama" },
+              "2": { "title": "🎤 Landmark K-Pop" },
+              "3": { "title": "🥢 Pengalaman K-Lifestyle" },
+              "4": { "title": "🗺️ Perjalanan Tak Terlupakan" }
             }
           }
         }
@@ -199,9 +200,9 @@
     },
     "section3": {
       "part1": {
-        "title": "Medical Treatment Sevice",
-        "desc1": "We offer a wide range of medical specialties through our partnered hospitals,",
-        "desc2": "ensuring personalized care tailored to each patient’s needs."
+        "title": "Layanan Pengobatan Medis",
+        "desc1": "Kami menyediakan berbagai spesialisasi medis melalui rumah sakit mitra kami,",
+        "desc2": "dengan layanan yang dipersonalisasi sesuai kebutuhan pasien."
       }
     },
     "section4": {
@@ -209,22 +210,27 @@
         "title": "Medi Tour",
         "desc1": "Our service offers personalized care before, during, and after treatment, starting from your departure",
         "desc2": "in Indonesia to your safe return—so you can focus on healing while we handle the rest.",
-        "content1": "Seoul Tour",
-        "content2": "Gangwon Tour"
+        "content1": "Tur Seoul",
+        "content2": "Tur Gangwon"
       }
     },
     "section4-1": {
       "part1": {
-        "title": "Affiliated Treatment Centers",
-        "desc": "A nationwide network of reliable care.",
-        "content1": "Seoul Tour",
-        "content2": "Gangwon Tour"
+        "title": "Pusat Perawatan Mitra",
+        "desc": "Jaringan layanan terpercaya di seluruh Korea",
+        "content1": "Tur Seoul",
+        "content2": "Tur Gangwon"
       }
     },
     "section5": {
       "part1": {
-        "title": "News & Updates",
-        "subtitle": "Sharing news from K-MediTour"
+        "title": "Berita & Pembaruan",
+        "subtitle": "Berbagi berita dari K-MediTour"
+      }
+    },
+    "section6": {
+      "part1": {
+        "title": "Mitra Kami"
       }
     }
   },
@@ -318,7 +324,7 @@
           "3": "Penyakit Dalam",
           "4": "Kebidanan & Kandungan",
           "5": "Oftalmologi",
-          "6": "Dentistry",
+          "6": "Kedokteran Gigi",
           "7": "Onkologi",
           "8": "Pengobatan Alternatif",
           "9": "Bedah Plastik",
@@ -394,6 +400,28 @@
         "desc1": "Kami bukan hanya mengatur janji medis, kami menemani Anda dari awal keberangkatan di Indonesia hingga kepulangan dengan aman—",
         "desc2": "agar Anda bisa fokus pada proses penyembuhan, sementara kami mengurus semuanya."
       }
+    }
+  },
+  "footer": {
+    "koreaBranch": {
+      "name": "Kantor Cabang Korea",
+      "registrated": "Perwakilan: Medi-City Co. Ltd.",
+      "owner": "Nama Pemilik: Park Jong-in",
+      "registNumber": "No. Registrasi Bisnis: 588-86-02555",
+      "address": "Alamat: 43-55, Mugunghwa-ro, Ilsandong-gu, Goyang-si, Gyeonggi-do"
+    },
+    "inniBranch": {
+      "name": "Kantor Cabang Indonesia",
+      "registrated": "Perwakilan: Medi-City Co. Ltd.",
+      "owner": "Nama Pemilik: Park Sung-min",
+      "registNumber": "No. Registrasi Bisnis: 2305230037834",
+      "address": "Alamat: Prosperity Tower, Lt. 56, KOSME(GBC) Room 4.1, JL. Jend. Sudirman No.Kav. 52-53, Jakarta Selatan 12190"
+    }
+  },
+  "utils": {
+    "btn": {
+      "viewMore": "Lihat Selengkapnya",
+      "viewMore2": "Lihat Selengkapnya"
     }
   }
 }

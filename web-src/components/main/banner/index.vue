@@ -11,9 +11,13 @@
 
         <div
             class="relative z-20 flex flex-col sm:gap-[28px] justify-center items-start w-[320px] sm:w-full max-w-[1340px] ml-[20px] mr-auto sm:mx-auto min-w-[320px] px-[28px] sm:px-[18px] h-full text-white">
-            <div class="sub_title text-[1.7rem] font-[500] text-left" v-html="bannerText1">
+            <div class="sub_title text-[1.7rem] font-[500] text-left">
+                {{ t("main.banner.text1") }}
             </div>
-            <div class="main_title text-[75px] text-left break-keep leading-[85px] font-[700]" v-html="bannerText2">
+            <div class="main_title text-[75px] text-left break-keep leading-[85px] font-[700]">
+                {{ t("main.banner.text2") }} <br />
+                {{ t("main.banner.text3") }} <br />
+                {{ t("main.banner.text4") }}
             </div>
         </div>
 
@@ -22,9 +26,6 @@
 
 <script setup lang="ts">
 import { t } from '@/plugins/i18n'
-
-const bannerText1 = t("main.banner.text1");
-const bannerText2 = t("main.banner.text2");
 </script>
 
 <style scoped></style>

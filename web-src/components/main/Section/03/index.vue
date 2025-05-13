@@ -33,7 +33,7 @@ import img8 from '@/assets/images/main/section03/img8.png';
 import img9 from '@/assets/images/main/section03/img9.png';
 import img10 from '@/assets/images/main/section03/img10.png';
 
-const list = [
+const list = computed(() => [
     {
         img: img1,
         title: t('menu.2.2depth.1.3depth.1.name'),
@@ -84,7 +84,7 @@ const list = [
         title: t('menu.2.2depth.1.3depth.10.name'),
         url: '/'
     }
-]
+])
 
 </script>
 

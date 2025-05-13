@@ -158,7 +158,9 @@
   "main": {
     "banner": {
       "text1": "Welcome To Medicity",
-      "text2": "An all-in-one medical &<br />healing travel service to South<br />Korea, by MediCity Co., Ltd."
+      "text2": "An all-in-one medical &",
+      "text3": "healing travel service to South",
+      "text4": "by MediCity Co., Ltd."
     },
     "section1": {
       "part1": {
@@ -225,6 +227,11 @@
       "part1": {
         "title": "News & Updates",
         "subtitle": "Sharing news from K-MediTour"
+      }
+    },
+    "section6": {
+      "part1": {
+        "title": "PARTNERS"
       }
     }
   },
@@ -393,6 +400,28 @@
         "desc1": "We go beyond just medical appointments. Our service offers personalized care before, during, and after treatment,",
         "desc2": "starting from your departure in Indonesia to your safe return—so you can focus on healing while we handle the rest."
       }
+    }
+  },
+  "footer": {
+    "koreaBranch": {
+      "name": "Korea Branch",
+      "registrated": "Registrated business: Medi-City Co., Ltd.",
+      "owner": "Owner's name: Park Jong-In",
+      "registNumber": "Business Registration Number: 588-86-02555",
+      "address": "Address: 43-55, Mugunghwa-ro, Ilsandong-gu, Goyang-si, Gyeonggi-do"
+    },
+    "inniBranch": {
+      "name": "Indonesia Branch",
+      "registrated": "Registrated business: MediCity Co., Ltd.",
+      "owner": "Owner's name: Sungmin Park",
+      "registNumber": "Business Registration Number : 2305230037834",
+      "address": "Address: Prosperity Tower, Lt. 56, KOSME(GBC) Room 4.1. Jl. Jend. Sudirman No.Kav. 52-53, Jakarta Selatan 12190"
+    }
+  },
+  "utils": {
+    "btn": {
+      "viewMore": "View More",
+      "viewMore2": "VIEW MORE"
     }
   }
 }

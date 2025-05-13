@@ -171,16 +171,16 @@ const handleCancel = () => {
 @import "@/assets/css/style.css";
 @import "@/assets/css/default.css";
 
-.MainView {
-    width: 100%;
-    min-width: 100%;
-    min-height: -webkit-fill-available;
-    font-size: 16px;
-    position: relative;
-    // overflow: hidden;
-    overflow-x: hidden;
-    overflow-y: auto;
-    overscroll-behavior: none;
-    touch-action: none;
-}
+// .MainView {
+//     width: 100%;
+//     min-width: 100%;
+//     min-height: -webkit-fill-available;
+//     font-size: 16px;
+//     position: relative;
+//     // overflow: hidden;
+//     overflow-x: hidden;
+//     overflow-y: auto;
+//     overscroll-behavior: none;
+//     touch-action: none;
+// }
 </style>
