@@ -5,7 +5,7 @@
             'border-b',
             isHeaderHover || isSubVisible
             ? 'bg-white/90 border-[#ADADAD]'
-            : 'border-[#D9D9D9]'
+            : 'border-[transparent]'
         ]"
         @mouseenter="isHeaderHover = true"
         @mouseleave="handleHeaderLeave"
