@@ -15,13 +15,16 @@
 <script setup lang="ts">
 import { t } from '@/plugins/i18n'
 
+// Props 받기
 const props = defineProps<{
     modelValue: string
     category: 'about' | 'info'
 }>()
 
+// Emit으로 부모와 동기화
 const emit = defineEmits(['update:modelValue'])
 
+// 카테고리별 탭 리스트
 const allTabs = {
     about: [
         { key: 'company', label: 'tabs.about.company' },
@@ -29,29 +32,34 @@ const allTabs = {
         { key: 'korea', label: 'tabs.about.korea' },
         { key: 'meditour', label: 'tabs.about.meditour' },
     ],
-    // 페이지 이름, 메뉴명 추가 및 변경 해야 됨
-    info: [
-        { key: 'info', label: 'tabs.about.info' },
-        { key: 'text', label: 'tabs.about.text' },
-        { key: 'login', label: 'tabs.about.login' },
+    tour: [
+        { key: 'seoul', label: 'Seoul Tour', url: '/tour/seoul' },
+        { key: 'gangwon', label: 'Gangwon Tour', url: '/tour/gangwon' },
     ]
 }
 
+// 카테고리에 맞는 탭만 필터링
 const filteredTabs = computed(() => allTabs[props.category] ?? [])
 
+// 선택된 탭
 const activeTab = ref(props.modelValue)
-
-watch(() => props.modelValue, (val) => {
-    activeTab.value = val
-})
 
 const handleClick = (key: string) => {
     activeTab.value = key
     emit('update:modelValue', key)
 
-    const target = document.getElementById(key)
-    if (target) {
-        target.scrollIntoView({ behavior: 'smooth' })
+    // 만약 카테고리가 'tour'이면 URL로 이동
+    if (props.category === 'tour') {
+        const selectedTab = filteredTabs.value.find(tab => tab.key === key);
+        if (selectedTab && selectedTab.url) {
+            window.location.href = selectedTab.url;
+        }
+    } else {
+        // 그렇지 않으면 스크롤 이동
+        const target = document.getElementById(key)
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' })
+        }
     }
 }
 </script>

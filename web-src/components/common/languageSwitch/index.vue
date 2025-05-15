@@ -13,7 +13,8 @@ import { ref, computed } from 'vue'
 import { getCurrentLocale, setLocale } from '@/plugins/i18n'
 
 // 지원 언어 목록
-const availableLocales = ['ko', 'en', 'id']
+// const availableLocales = ['ko', 'en', 'id']
+const availableLocales = ['en', 'id']
 
 // 현재 언어
 const currentLocale = computed(() => getCurrentLocale())
@@ -21,7 +22,7 @@ const currentLocale = computed(() => getCurrentLocale())
 // 언어 이름 표시용 레이블
 const getLabel = (locale: string): string => {
     switch (locale) {
-        case 'ko': return '한국어'
+        // case 'ko': return '한국어'
         case 'en': return 'English'
         case 'id': return 'Bahasa'
         default: return locale
