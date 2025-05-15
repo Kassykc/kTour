@@ -4,7 +4,7 @@
 
         <div class="content_area">
             <div id="company">
-                <div class="company medicity w-full max-w-[1340px] py-[120px] my-0 mx-auto">
+                <div class="company medicity w-full max-w-[1340px] pt-[160px] pb-[120px] my-0 mx-auto">
                     <h2 class="area_name text-[65px] font-[700] mb-[120px]">
                         {{ t('about.part1.title') }}
                     </h2>
