@@ -402,26 +402,218 @@
       }
     }
   },
-  "footer": {
-    "koreaBranch": {
-      "name": "Korea Branch",
-      "registrated": "Registrated business: Medi-City Co., Ltd.",
-      "owner": "Owner's name: Park Jong-In",
-      "registNumber": "Business Registration Number: 588-86-02555",
-      "address": "Address: 43-55, Mugunghwa-ro, Ilsandong-gu, Goyang-si, Gyeonggi-do"
+  "mts": {
+    "title": "Medical Treatment Field",
+    "tab": {
+      "1": "Health Check-up",
+      "2": "Stem Cell Therapy",
+      "3": "Internal Medicine",
+      "4": "Obstetrics & Gynecology",
+      "5": "Ophthalmology",
+      "6": "Dentistry",
+      "7": "Oncology",
+      "8": "Oriental Medicine & Alternative Therapies",
+      "9": "Plastic Surgery",
+      "10": "Varicose Veins Clinic",
+      "other": "other"
+    }
+  },
+  "seoulTour": {
+    "title": "Seoul is the heart of Hallyu",
+    "subtitle": "where Korean entertainment, fashion, and tradition come together.",
+    "desc1": "Explore historic landmarks like Gyeongbokgung Palace, then dive into Gangnam’s trendsetting streets.",
+    "desc2": " Whether you're here for the culture, the content, or the cuisine, Seoul is a city that always inspires.",
+    "part1": {
+      "title": "🎬 Hallyu Tour: Explore Seoul Through Drakor & K-Pop",
+      "desc1": "Experience Korea’s hottest K-Drama filming locations and K-Pop idol hotspots with our 1-night, 2-day Drakor & K-Pop",
+      "desc2": "Seoul Tour. Walk in the footsteps of your favorite stars while enjoying authentic Korean culture and food."
     },
-    "inniBranch": {
-      "name": "Indonesia Branch",
-      "registrated": "Registrated business: MediCity Co., Ltd.",
-      "owner": "Owner's name: Sungmin Park",
-      "registNumber": "Business Registration Number : 2305230037834",
-      "address": "Address: Prosperity Tower, Lt. 56, KOSME(GBC) Room 4.1. Jl. Jend. Sudirman No.Kav. 52-53, Jakarta Selatan 12190"
+    "part2": {
+      "title": "📅 Sample Itinerary: 1-Night 2-Day Seoul Drakor & K-Pop Tour",
+      "day1": {
+        "day": "DAY1",
+        "title": "K-Drama ‘Business Proposal’ Tour",
+        "desc": {
+          "1": {
+            "time": "👑 Morning",
+            "title": "Gwanghwamun & Samcheong-dong Walk",
+            "desc": "Walk the streets where Tae-moo & Ha-ri’s date scenes were filmed. Enjoy traditional hanok cafés and alleys."
+          },
+          "2": {
+            "time": "🍽️ Lunch",
+            "title": "Luxury Korean Dining",
+            "desc": "Dine at a high-end restaurant featured in the drama."
+          },
+          "3": {
+            "time": "🎥 Afternoon",
+            "title": "Han River Tour (Ichon & Banpo)",
+            "desc": "Visit riverside filming spots. Optional: bike rental or picnic."
+          },
+          "4": {
+            "time": "🌆 Evening",
+            "title": "Namsan Tower Night View",
+            "desc": "End the day with a romantic city view at one of the most iconic K-Drama landmarks."
+          }
+        }
+      },
+      "day2": {
+        "day": "DAY2",
+        "title": "BLACKPINK K-Pop Hotspots",
+        "desc": {
+          "1": {
+            "time": "🏢 Morning",
+            "title": "| YG HQ & BLACKPINK Café",
+            "desc": "Photo stop at YG Entertainment HQ and visit the fan-favorite YG café & store."
+          },
+          "2": {
+            "time": "🍜 Lunch",
+            "title": "Gangnam Hotspot",
+            "desc": "Eat where Jennie & Rosé often dine."
+          },
+          "3": {
+            "time": "🎤 Afternoon",
+            "title": "‘Pink Venom’ M/V Filming Site",
+            "desc": "Visit filming locations blending tradition with modern flair."
+          },
+          "4": {
+            "time": "🛍️ Evening",
+            "title": "The Hyundai Seoul Shopping",
+            "desc": "Shop fashion & beauty brands visited by BLACKPINK members, then head to the airport."
+          }
+        }
+      }
+    }
+  },
+  "gangwonTour": {
+    "title": "Gangwon,located in eastern South Korea",
+    "subtitle": "is renowned for its breathtaking landscapes, from majestic mountains to serene beaches.",
+    "desc1": "Whether you're seeking relaxation or adventure, Gangwon offers a perfect blend of nature, culture, and Hallyu experiences.",
+    "desc2": "Famous for both K-Drama filming locations and as a favorite spot for K-Pop idols, it’s an ideal destination for fans of Korean entertainment and",
+    "desc3": "those looking to recharge.",
+    "part1": {
+      "title": "🎬 Hallyu Tour: Explore Gangwon Through Drakor & K-Pop",
+      "desc1": "Experience Korea’s hottest K-Drama filming locations and K-Pop idol hotspots with our 1-night, 2-day Drakor & K-Pop",
+      "desc2": "Gangwon Tour. Walk in the footsteps of your favorite stars while enjoying authentic Korean culture and food."
+    },
+    "part2": {
+      "title": "📅 Sample Itinerary: 1-Night 2-Day Gangwon Drakor & K-Pop Tour",
+      "day1": {
+        "day": "DAY1",
+        "title": "K-Drama ‘Business Proposal’ Tour",
+        "desc": {
+          "1": {
+            "time": "☕ Morning",
+            "title": "Gangneung BTS 'Spring Day' MV Location & Anmok Beach",
+            "desc": "Visit the BTS 'Spring Day' MV location and enjoy coffee by the ocean."
+          },
+          "2": {
+            "time": "🍲 Lunch",
+            "title": "Gangneung Chodang Tofu Village",
+            "desc": "Dine at a high-end restaurant featured in the drama."
+          },
+          "3": {
+            "time": "🌊 Afternoon",
+            "title": "Jumunjin & Yeongjin Beach ('Goblin' Filming Locations)",
+            "desc": "Step into iconic scenes from 'Goblin', where Gong Yoo and Kim Go-eun created unforgettable moments."
+          },
+          "4": {
+            "time": "🍽️ Evening",
+            "title": "Sokcho Ocean View Hotel & Korean Dinner",
+            "desc": "Enjoy dinner at a popular spot for Hallyu stars with a view of Sokcho beach."
+          }
+        }
+      },
+      "day2": {
+        "day": "DAY2",
+        "title": "BLACKPINK Filming Location Tour & Nature Healing",
+        "desc": {
+          "1": {
+            "time": "🐑 Morning",
+            "title": "Pyeongchang Daegwallyeong Sheep Farm",
+            "desc": "Visit the scenic farm, featured in 'Our Beloved Summer' and Summer Vacation, as well as BLACKPINK's filming spots."
+          },
+          "2": {
+            "time": "🍚 Lunch",
+            "title": "Yongpyong Resort & Korean Restaurant",
+            "desc": "Dine at 'Winter Sonata' filming location, with a view of the ski slopes."
+          },
+          "3": {
+            "time": "✈️ Afternoon",
+            "title": "Free Time in Gangneung & Sokcho",
+            "desc": "Enjoy some free time to explore, then travel back to Seoul for your flight."
+          }
+        }
+      }
+    }
+  },
+  "news": {
+    "subtitle": "Sharing news from K-MediTour",
+    "title": "News & Updates"
+  },
+  "contactUs": {
+    "title": "Contact Us",
+    "subtitle": "Don’t hesitate to reach out! we’ll get back to you as soon as possible.",
+    "inquiries": "Inquiries",
+    "location": "Location",
+    "Inquiries": {
+      "inni": {
+        "title": "🇮🇩 For Indonesia",
+        "manager": "Park Sung-min",
+        "phone": "+62-811-8881-0374",
+        "email": "ceo@medi-city.co.kr",
+        "site": {
+          "name": "Indonesia Branch Office",
+          "address": "Prosperity Tower, Lt. 56, KOSME(GBC) Room 4.1. Jl. Jend. Sudirman No.Kav. 52-53, Jakarta Selatan 12190"
+        }
+      },
+      "korea": {
+        "title": "🇰🇷 For Korea",
+        "manager": "Eunah Kim",
+        "phone": "+82-10-9262-2315",
+        "email": "ea.kim@medi-city.co.kr",
+        "site": {
+          "name": "Korea Headquarters",
+          "address": "43-55 Mugunghwa-ro, Ilsandong-gu, Goyang-si, Gyeonggi-do, South Korea"
+        }
+      }
+    },
+    "footer": {
+      "koreaBranch": {
+        "name": "Korea Branch",
+        "registrated": "Registrated business: Medi-City Co., Ltd.",
+        "owner": "Owner's name: Park Jong-In",
+        "registNumber": "Business Registration Number: 588-86-02555",
+        "address": "Address: 43-55, Mugunghwa-ro, Ilsandong-gu, Goyang-si, Gyeonggi-do"
+      },
+      "inniBranch": {
+        "name": "Indonesia Branch",
+        "registrated": "Registrated business: MediCity Co., Ltd.",
+        "owner": "Owner's name: Sungmin Park",
+        "registNumber": "Business Registration Number : 2305230037834",
+        "address": "Address: Prosperity Tower, Lt. 56, KOSME(GBC) Room 4.1. Jl. Jend. Sudirman No.Kav. 52-53, Jakarta Selatan 12190"
+      }
     }
   },
   "utils": {
     "btn": {
       "viewMore": "View More",
       "viewMore2": "VIEW MORE"
+    },
+    "text": {
+      "sourceImg": "Images are for reference only."
+    }
+  },
+  "tabs": {
+    "about": {
+      "company": "Company",
+      "service": "Service",
+      "korea": "Why Korea",
+      "meditour": "K-MediTour"
+    },
+    "info": {
+      "info": "Info",
+      "text": "Text",
+      "login": "Login"
     }
   }
 }

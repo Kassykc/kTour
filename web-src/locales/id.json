@@ -5,8 +5,8 @@
       "2depth": {
         "1": { "name": "Tentang Perusahaan" },
         "2": { "name": "Tentang Layanan – Program K-MediTour" },
-        "3": { "name": "Why Korea?" },
-        "4": { "name": "Why K-MediTour?" }
+        "3": { "name": "Mengapa Korea?" },
+        "4": { "name": "Mengapa K-MediTour?" }
       }
     },
     "2": {
@@ -20,53 +20,53 @@
             "3": {
               "name": "Penyakit Dalam",
               "4depth": {
-                "1": "Gastroenterology",
-                "2": "Nephrology (Kidney)",
-                "3": "Cardiology",
-                "4": "Endocrinology"
+                "1": "Gastroenterologi (Ginjal)",
+                "2": "Nefrologi",
+                "3": "Kardiologi",
+                "4": "Endokrinologi"
               }
             },
             "4": {
               "name": "Kebidanan & Kandungan",
               "4depth": {
-                "1": "Obstetrics (Pregnancy & Maternity Care)",
-                "2": "Fertility & Infertility Clinics",
-                "3": "Gynecology (Female Reproductive Health)"
+                "1": "Obstetri (Kebidanan)",
+                "2": "Klinik fertilitas & Infertilitas",
+                "3": "Ginekologi (Kandungan)"
               }
             },
             "5": {
               "name": "Oftalmologi",
               "4depth": {
-                "1": "Cataract, Glaucoma, Vision Correction"
+                "1": "Katrak, Glaukoma, Koreksi Penglihatan"
               }
             },
             "6": {
               "name": "Kedokteran Gigi",
               "4depth": {
-                "1": "General Dentistry",
-                "2": "Orthodontics",
-                "3": "Periodontics",
-                "4": "Implants & Laminates"
+                "1": "Gigi Umum",
+                "2": "Ortodonti",
+                "3": "Periodonsia",
+                "4": "Implan gigi, Laminasi gigi (Veneer)"
               }
             },
             "7": {
               "name": "Onkologi",
               "4depth": {
-                "1": "Cancer Diagnosis & Treatment"
+                "1": "Diagnosa & Pengobatan Kanker"
               }
             },
             "8": {
               "name": "Pengobatan Alternatif",
               "4depth": {
-                "1": "Acupuncture, Herbal Medicine"
+                "1": "Akupunktur & Obat Herbal"
               }
             },
             "9": {
               "name": "Bedah Plastik",
               "4depth": {
-                "1": "Skin Treatments & Laser Therapy",
-                "2": "Hair Loss Treatment & Hair Transplant",
-                "3": "Cosmetic Procedures"
+                "1": "Perawatan Kulit & Terapi Laser",
+                "2": "Perawatan Rambut Rontok & Transplantasi Rambut",
+                "3": "Prosedur Estetika"
               }
             },
             "10": { "name": "Klinik Varises" },
@@ -81,53 +81,53 @@
             "3": {
               "name": "Penyakit Dalam",
               "4depth": {
-                "1": "Gastroenterology",
-                "2": "Nephrology (Kidney)",
-                "3": "Cardiology",
-                "4": "Endocrinology"
+                "1": "Gastroenterologi (Ginjal)",
+                "2": "Nefrologi",
+                "3": "Kardiologi",
+                "4": "Endokrinologi"
               }
             },
             "4": {
               "name": "Kebidanan & Kandungan",
               "4depth": {
-                "1": "Obstetrics (Pregnancy & Maternity Care)",
-                "2": "Fertility & Infertility Clinics",
-                "3": "Gynecology (Female Reproductive Health)"
+                "1": "Obstetri (Kebidanan)",
+                "2": "Klinik fertilitas & Infertilitas",
+                "3": "Ginekologi (Kandungan)"
               }
             },
             "5": {
               "name": "Oftalmologi",
               "4depth": {
-                "1": "Cataract, Glaucoma, Vision Correction"
+                "1": "Katrak, Glaukoma, Koreksi Penglihatan"
               }
             },
             "6": {
               "name": "Kedokteran Gigi",
               "4depth": {
-                "1": "General Dentistry",
-                "2": "Orthodontics",
-                "3": "Periodontics",
-                "4": "Implants & Laminates"
+                "1": "Gigi Umum",
+                "2": "Ortodonti",
+                "3": "Periodonsia",
+                "4": "Implan gigi, Laminasi gigi (Veneer)"
               }
             },
             "7": {
               "name": "Onkologi",
               "4depth": {
-                "1": "Cancer Diagnosis & Treatment"
+                "1": "Diagnosa & Pengobatan Kanker"
               }
             },
             "8": {
               "name": "Pengobatan Alternatif",
               "4depth": {
-                "1": "Acupuncture, Herbal Medicine"
+                "1": "Akupunktur & Obat Herbal"
               }
             },
             "9": {
               "name": "Bedah Plastik",
               "4depth": {
-                "1": "Skin Treatments & Laser Therapy",
-                "2": "Hair Loss Treatment & Hair Transplant",
-                "3": "Cosmetic Procedures"
+                "1": "Perawatan Kulit & Terapi Laser",
+                "2": "Perawatan Rambut Rontok & Transplantasi Rambut",
+                "3": "Prosedur Estetika"
               }
             },
             "10": { "name": "Klinik Varises" },
@@ -402,26 +402,218 @@
       }
     }
   },
-  "footer": {
-    "koreaBranch": {
-      "name": "Kantor Cabang Korea",
-      "registrated": "Perwakilan: Medi-City Co. Ltd.",
-      "owner": "Nama Pemilik: Park Jong-in",
-      "registNumber": "No. Registrasi Bisnis: 588-86-02555",
-      "address": "Alamat: 43-55, Mugunghwa-ro, Ilsandong-gu, Goyang-si, Gyeonggi-do"
+  "mts": {
+    "title": "Medical Treatment Field",
+    "tab": {
+      "1": "Pemeriksaan Kesehatan",
+      "2": "Terapi Sel Punca",
+      "3": "Penyakit Dalam",
+      "4": "Kebidanan & Kandungan",
+      "5": "Oftalmologi",
+      "6": "Kedokteran Gigi",
+      "7": "Onkologi",
+      "8": "Pengobatan Alternatif",
+      "9": "Bedah Plastik",
+      "10": "Klinik Varises",
+      "other": "other"
+    }
+  },
+  "seoulTour": {
+    "title": "Tur Hallyu: Jelajahi Seoul Lewat Drakor & K-Pop",
+    "subtitle": "di mana hiburan Korea, fashion, dan tradisi menyatu.",
+    "desc1": "Jelajahi landmark bersejarah seperti Istana Gyeongbokgung dan nikmati suasana modern ke jalanan trendi di Gangnam.",
+    "desc2": " Baik pengalaman budaya, hiburan, maupun kuliner—Seoul selalu punya sesuatu yangmenginspirasi.",
+    "part1": {
+      "title": "🎬 Tur Hallyu: Jelajahi Seoul Lewat Drakor & K-Pop",
+      "desc1": "Rasakan serunya mengunjungi lokasi syuting K-Drama populer dan tempat favorit para idola K-Pop",
+      "desc2": "lewat tur Seoul 2 hari 1 malam kami. Ikuti jejak bintang favoritmu sambil menikmati budaya dan kuliner Korea yang otentik."
     },
-    "inniBranch": {
-      "name": "Kantor Cabang Indonesia",
-      "registrated": "Perwakilan: Medi-City Co. Ltd.",
-      "owner": "Nama Pemilik: Park Sung-min",
-      "registNumber": "No. Registrasi Bisnis: 2305230037834",
-      "address": "Alamat: Prosperity Tower, Lt. 56, KOSME(GBC) Room 4.1, JL. Jend. Sudirman No.Kav. 52-53, Jakarta Selatan 12190"
+    "part2": {
+      "title": "📅 Sample Itinerary: 1-Night 2-Day Seoul Drakor & K-Pop Tour ",
+      "day1": {
+        "day": "DAY1",
+        "title": "K-Drama ‘Business Proposal’ Tour",
+        "desc": {
+          "1": {
+            "time": "👑 Pagi",
+            "title": "Jalan-jalan di Gwanghwamun & Samcheong-dong",
+            "desc": "Telusuri lokasi kencan Tae-moo dan Ha-ri dalam drama. Nikmati suasana khas gang-gang kecil dan kafe hanok tradisional."
+          },
+          "2": {
+            "time": "🍽️ Siang",
+            "title": "Luxury Korean Dining",
+            "desc": "Santap siang di restoran kelas atas yang tampil dalam adegan drama."
+          },
+          "3": {
+            "time": "🎥 Sore",
+            "title": "Tur Sungai Han (Ichon & Banpo)",
+            "desc": "Kunjungi lokasi syuting di tepi Sungai Han. Bisa juga menyewa sepeda atau piknik santai."
+          },
+          "4": {
+            "time": "🌆 Malam",
+            "title": "Pemandangan Malam dari Namsan Tower",
+            "desc": "Tutup hari dengan pemandangan kota yang romantis dari salah satu landmark K-Drama paling ikonik."
+          }
+        }
+      },
+      "day2": {
+        "day": "DAY2",
+        "title": "BLACKPINK K-Pop Hotspots",
+        "desc": {
+          "1": {
+            "time": "🏢 Pagi",
+            "title": "| YG HQ & BLACKPINK Café",
+            "desc": "Berfoto di depan kantor YG Entertainment dan ke YG café & store."
+          },
+          "2": {
+            "time": "🍜 Siang",
+            "title": "Gangnam Hotspot",
+            "desc": "Makan di restoran yang sering dikunjungi Jennie dan Rosé."
+          },
+          "3": {
+            "time": "🎤 Sore",
+            "title": "‘Pink Venom’ M/V Filming Site",
+            "desc": "Mengunjungi lokasi syuting video klip yang memadukan nuansa tradisional dan modern."
+          },
+          "4": {
+            "time": "🛍️ Malam",
+            "title": "The Hyundai Seoul Shopping",
+            "desc": "Sebelum menuju bandara., erbelanja fashion dan produk kecantikan yang juga dikunjungi oleh member BLACKPINK."
+          }
+        }
+      }
+    }
+  },
+  "gangwonTour": {
+    "title": "Gangwon terletak di bagian timur Korea Selatan, terkenal dengan pemandangan menakjubkan",
+    "subtitle": "dari pegunungan megah hingga pantai yang tenan",
+    "desc1": "Destinasi ideal untuk relaksasi, petualangan,",
+    "desc2": "dan penggemar hiburan Korea.",
+    "desc3": "Gangwon juga jadi favorit idol K-Pop dan lokasi K-Drama.",
+    "part1": {
+      "title": "🎬 Hallyu Tour: Jelajahi Gangwon Lewat Drakor & K-Pop",
+      "desc1": "Ikuti Gangwon Tour 1 malam 2 hari untuk merasakan lokasi syuting K-Drama dan tempat favorit para idol K-Pop.",
+      "desc2": "Nikmati budaya lokal dan kuliner Korea sambil menyatu dengan alam.      "
+    },
+    "part2": {
+      "title": "📅 Itinerary Contoh: 1-Night 2-Day Gangwon Drakor & K-Pop Tour",
+      "day1": {
+        "day": "DAY1",
+        "title": "Tur K-Drama & Healing",
+        "desc": {
+          "1": {
+            "time": "☕ Pagi",
+            "title": "Lokasi MV BTS ‘Spring Day’ & Pantai Anmok",
+            "desc": "VisMengunjungi lokasi syuting MV BTS dan nikmati kopi di tepi pantai."
+          },
+          "2": {
+            "time": "🍲 Siang",
+            "title": "Desa Tahu Chodang Gangneung",
+            "desc": "Nikmati kuliner tradisional Korea di desa tahu terkenal."
+          },
+          "3": {
+            "time": "🌊 Sore",
+            "title": "Pantai Jumunjin & Yeongjin (‘Goblin’)",
+            "desc": "Rasakan suasana ikonik dari ‘Goblin’ bersama Gong Yoo dan Kim Go-eun."
+          },
+          "4": {
+            "time": "🍽️ Malam",
+            "title": "Hotel View Laut Sokcho & Makan Malam Korea",
+            "desc": "Makan malam di tempat favorit para bintang Hallyu dengan pemandangan pantai."
+          }
+        }
+      },
+      "day2": {
+        "day": "DAY2",
+        "title": "Lokasi BLACKPINK & Healing di Alam",
+        "desc": {
+          "1": {
+            "time": "🐑 Pagi",
+            "title": "Peternakan Domba Daegwallyeong Pyeongchang",
+            "desc": "Lokasi syuting ‘Our Beloved Summer’ dan program BLACKPINK."
+          },
+          "2": {
+            "time": "🍚 Siang",
+            "title": "Resor Yongpyong",
+            "desc": "Makan di lokasi syuting ‘Winter Sonata’, menghadap ke lereng ski."
+          },
+          "3": {
+            "time": "✈️ Sore",
+            "title": "Waktu Bebas di Gangneung & Sokcho",
+            "desc": "Nikmati waktu bebas sebelum kembali ke Seoul dan menuju bandara."
+          }
+        }
+      }
+    }
+  },
+  "news": {
+    "subtitle": "Berbagi berita dari K-MediTour",
+    "title": "Berita & Pembaruan"
+  },
+  "contactUs": {
+    "title": "Hubungi Kami",
+    "subtitle": "Jangan ragu untuk menghubungi kami! Kami akan segera membalas pesan Anda.",
+    "inquiries": "Pertanyaan",
+    "location": "Lokasi",
+    "Inquiries": {
+      "inni": {
+        "title": "🇮🇩 Untuk Indonesia",
+        "manager": "Park Sung-min",
+        "phone": "+62-811-8881-0374",
+        "email": "ceo@medi-city.co.kr",
+        "site": {
+          "name": "Kantor Cabang Indonesia",
+          "address": "Prosperity Tower, Lt. 56, KOSME(GBC) Room 4.1. Jl. Jend. Sudirman No.Kav. 52-53, Jakarta Selatan 12190"
+        }
+      },
+      "korea": {
+        "title": "🇰🇷 Untuk Korea",
+        "manager": "Eunah Kim",
+        "phone": "+82-10-9262-2315",
+        "email": "ea.kim@medi-city.co.kr",
+        "site": {
+          "name": "Kantor Pusat Korea",
+          "address": "43-55 Mugunghwa-ro, Ilsandong-gu, Goyang-si, Gyeonggi-do, South Korea"
+        }
+      }
+    },
+    "footer": {
+      "koreaBranch": {
+        "name": "Kantor Cabang Korea",
+        "registrated": "Perwakilan: Medi-City Co. Ltd.",
+        "owner": "Nama Pemilik: Park Jong-in",
+        "registNumber": "No. Registrasi Bisnis: 588-86-02555",
+        "address": "Alamat: 43-55, Mugunghwa-ro, Ilsandong-gu, Goyang-si, Gyeonggi-do"
+      },
+      "inniBranch": {
+        "name": "Kantor Cabang Indonesia",
+        "registrated": "Perwakilan: Medi-City Co. Ltd.",
+        "owner": "Nama Pemilik: Park Sung-min",
+        "registNumber": "No. Registrasi Bisnis: 2305230037834",
+        "address": "Alamat: Prosperity Tower, Lt. 56, KOSME(GBC) Room 4.1, JL. Jend. Sudirman No.Kav. 52-53, Jakarta Selatan 12190"
+      }
     }
   },
   "utils": {
     "btn": {
       "viewMore": "Lihat Selengkapnya",
       "viewMore2": "Lihat Selengkapnya"
+    },
+    "text": {
+      "sourceImg": "Gambar hanya sebagai referensi."
+    }
+  },
+  "tabs": {
+    "about": {
+      "company": "Company",
+      "service": "Service",
+      "korea": "Mengapa Korea",
+      "meditour": "K-MediTour"
+    },
+    "info": {
+      "info": "Info",
+      "text": "Text",
+      "login": "Login"
     }
   }
 }
