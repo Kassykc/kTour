@@ -12,6 +12,10 @@
                     <SubCategoryTab />
                 </div>
 
+                <div class="search_area w-full bg-[#FAFAFA] mb-[74px]">
+                    <SubSearchBar />
+                </div>
+
             </div>
         </div>
     </div>
