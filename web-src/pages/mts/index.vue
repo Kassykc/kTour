@@ -17,8 +17,12 @@
                 </div>
 
                 <div class="sub_tit w-full max-w-[1340px] mb-[32px] mx-auto text-[55px] font-[700]">
-                    <input type="text" v-model="selectedCategory">
+                    {{ selectedCategory }}
                 </div>
+
+                <div class="search_list_tab w-full max-w-[1340px] mb-[116px] mx-auto ">
+                    <SubSearchListTab :selectedCategory="selectedCategory" />
+                </div> 
 
             </div>
         </div>
@@ -34,13 +38,12 @@ const bannerTitle = ref('MTS');
 const bannerBgImage = ref(mts_bg); // 배경 이미지 경로
 const category = ref('mts');
 const selectedTab = ref('mts');
-const selectedCategory = ref(''); // 선택된 카테고리 이름을 저장
+const selectedCategory = ref(t('mts.tab.1')); // 선택된 카테고리 이름을 저장
 
 const updateSelectedCategory = (categoryName: string) => {
-    console.log("Category received in parent:", categoryName);  // 카테고리 이름 확인
     selectedCategory.value = categoryName;  // selectedCategory 업데이트
-    console.log("Updated selectedCategory:", selectedCategory.value);  // 값 확인
 };
+
 </script>
 
 <style scoped></style>

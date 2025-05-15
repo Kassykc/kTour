@@ -18,7 +18,7 @@ import { t } from '@/plugins/i18n'
 // Props 받기
 const props = defineProps<{
     modelValue: string
-    category: 'about' | 'info'
+    category: 'about' | 'tour' | 'mts'
 }>()
 
 // Emit으로 부모와 동기화

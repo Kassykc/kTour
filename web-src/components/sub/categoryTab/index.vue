@@ -24,10 +24,8 @@ const selectedIndex = ref(0);
 
 // 카테고리 클릭 시 해당 인덱스를 selectedIndex에 할당
 const selectCategory = (index: number, categoryName: string) => {
-    console.log("Category Selected:", categoryName); // 카테고리 이름 확인
     selectedIndex.value = index;
     emit('update:selectedCategory', categoryName); // 카테고리 이름을 부모에게 전달
-    console.log("Emitted category:", categoryName); // emit 후에 호출되는지 확인
 };
 
 const categories = ref([
