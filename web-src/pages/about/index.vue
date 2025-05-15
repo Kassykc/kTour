@@ -1,12 +1,6 @@
 <template>
     <div>
-        <div class="banner_area w-full h-[435px] bg-[url('@/assets/images/sub/banner_bg.png')] bg-cover bg-center">
-            <div
-                class="title_area max-w-[1340px] w-full h-[435px] flex flex-col justify-center items-center my-0 mx-auto">
-                <div class="title text-white font-[700] text-[80px] mt-[100px]">About Us</div>
-                <SubTab v-model="selectedTab" category="about" />
-            </div>
-        </div>
+        <Banner :title="bannerTitle" :bgImage="bannerBgImage" :category="category" :selectedTab="selectedTab" />
 
         <div class="content_area">
             <div id="company">
@@ -451,7 +445,12 @@
 <script setup lang="ts">
 import { t } from '@/plugins/i18n'
 
-const selectedTab = ref('company')
+import about_bg from "@/assets/images/sub/about/banner_bg.png";
+
+const bannerTitle = ref('About Us');
+const bannerBgImage = ref(about_bg); // 배경 이미지 경로
+const category = ref('about');
+const selectedTab = ref('company');
 </script>
 
 <style scoped></style>
