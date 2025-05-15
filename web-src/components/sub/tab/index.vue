@@ -35,6 +35,9 @@ const allTabs = {
     tour: [
         { key: 'seoul', label: 'Seoul Tour', url: '/tour/seoul' },
         { key: 'gangwon', label: 'Gangwon Tour', url: '/tour/gangwon' },
+    ],
+    mts: [
+        { key: 'mts', label: 'Medical Treatment Field' },
     ]
 }
 
