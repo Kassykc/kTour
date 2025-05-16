@@ -20,6 +20,8 @@
                 <SubSearchListTab class="mb-[116px]" />
 
                 <SubSearchList />
+                <SubSearchList />
+                <SubSearchList />
 
             </div>
         </div>
