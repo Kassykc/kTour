@@ -19,7 +19,7 @@
                 <!-- <SubSearchListTab :selectedCategory="selectedCategory" /> -->
                 <SubSearchListTab class="mb-[116px]" />
 
-                <div class="search_list"></div>
+                <SubSearchList />
 
             </div>
         </div>
