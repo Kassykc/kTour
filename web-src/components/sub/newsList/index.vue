@@ -2,7 +2,7 @@
     <div>
         <div class="news_list_area w-full max-w-[1340px] mx-auto flex justify-start items-start pb-[270px] gap-x-[25px] gap-y-[25px] flex-wrap">
             <!-- v-for로 news_list 반복 -->
-            <div v-for="(item, index) in newsList" :key="index" class="new_list w-[428px] h-[528px] shadow-xl">
+            <div v-for="(item, index) in newsList" :key="index" class="new_list w-[428px] h-[528px] shadow-[0_4px_15px_rgba(0,0,0,0.2)]">
                 <div class="img_wrap w-full h-[320px]">
                     <img :src="item.img" alt="" class="w-full h-full object-cover">
                 </div>

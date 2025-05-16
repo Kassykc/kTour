@@ -2,13 +2,22 @@
     <div>
         <Banner :title="bannerTitle" :bgImage="bannerBgImage" :category="category" :selectedTab="selectedTab" />
 
-        <div class="content_area">
-            <div id="news">
+        <div class="content_area pb-[260px]">
+            <div id="faq">
                 <div class="main_tit text-[65px] font-[700] w-full max-w-[1340px] pt-[160px] my-0 mx-auto text-center">
                     {{ t('faq.title') }}
                 </div>
             
-                <SubCategoryTab class="py-[60px]"/>
+                <SubCategoryTab class="py-[60px] mb-[100px]" @update:selectedCategory="updateSelectedCategory"/>
+
+                <div class="faq_content_area w-full max-w-[1340px] mx-auto text-[55px] font-[700]">
+                    <div class="title mb-[62px]">
+                        {{ selectedCategory }}
+                    </div>
+
+                    <SubFaqContent />
+                </div>
+
 
             </div>
         </div>
@@ -23,6 +32,11 @@ const bannerTitle = ref('Inquiry');
 const bannerBgImage = ref(inquiry_bg); // 배경 이미지 경로
 const category = ref('inquiry');
 const selectedTab = ref('faq');
+const selectedCategory = ref(t('faq.tab.1')); // 선택된 카테고리 이름을 저장
+
+const updateSelectedCategory = (categoryName: string) => {
+    selectedCategory.value = categoryName;  // selectedCategory 업데이트
+};
 
 </script>
 <style lang="">

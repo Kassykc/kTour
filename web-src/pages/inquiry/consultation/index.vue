@@ -3,7 +3,7 @@
         <Banner :title="bannerTitle" :bgImage="bannerBgImage" :category="category" :selectedTab="selectedTab" />
 
         <div class="content_area">
-            <div id="news">
+            <div id="consultation">
                 <div class="main_tit text-[65px] font-[700] w-full max-w-[1340px] pt-[160px] my-0 mx-auto text-center">
                     {{ t('consultation.title') }}
                 </div>
