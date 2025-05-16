@@ -91,9 +91,9 @@ onMounted(() => {
         currentPageTitle.value = storedMenu;
     }
 
-    const isLogin = common.getCookie('isLogin');
+    const isLogin = common.getCookie('medicalIsLogin');
     if (isLogin === 'Y') {
-        adminNm.value = common.getCookie('userNm');
+        adminNm.value = common.getCookie('medicalUserNm');
     }
 });
 </script>

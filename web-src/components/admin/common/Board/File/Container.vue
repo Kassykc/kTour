@@ -1,6 +1,6 @@
 <template>
     <div class="flex justify-center">
-        <div class="w-full max-w-md space-y-4">
+        <div class="w-full max-w-md space-y-4 self-center">
             <input type="file" :multiple="isAttFile" @change="handleFileChange"
                 :accept="isAttFile ? '*' : '.jpg,.jpeg,.png,.webp'" />
 

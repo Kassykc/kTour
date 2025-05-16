@@ -28,6 +28,19 @@
                 <div
                     class="input_area content flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
                     <label
+                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        언어
+                    </label> 
+                    <select v-model="resData.mobileAgencyCd"
+                        class="w-[150px] h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white text-sm self-center">
+                        <option key="1" value="id">id</option>
+                        <option key="2" value="en">en</option>
+                    </select>
+                </div>
+
+                <div
+                    class="input_area content flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <label
                         class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">내용</label>
                     <ClientOnly>
                         <AdminCommonBoardQuillEditor :content="resData.content" @update:content="handleContent" />
@@ -47,7 +60,8 @@
                     <label
                         class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
                         썸네일</label>
-                    <AdminCommonBoardFileContainer :files="thumbnails" @update:files="updateThumbnails" :isAttFile="false" />
+                    <AdminCommonBoardFileContainer :files="thumbnails" @update:files="updateThumbnails"
+                        :isAttFile="false" />
                 </div>
             </div>
         </div>
@@ -135,7 +149,7 @@ const resData = ref<ResultInfo>({
     mobile2: '',
     mobile3: '',
     mobileAgency: '',
-    mobileAgencyCd: '',
+    mobileAgencyCd: 'id',
     fileInfo: [],
     commentInfo: {},
 });
@@ -182,6 +196,7 @@ const goReg = async () => {
     params.boardType = params.boardTypeCd;
     params.processStatus = params.processStatusCd;
     params.categoryType = params.categoryTypeCd;
+    params.mobileAgency = params.mobileAgencyCd;
 
     if (files.value.length > 0) {
         params.file = files.value;
@@ -219,6 +234,7 @@ const goUpdate = async () => {
     params.categoryType = params.categoryTypeCd;
     params.importantType = params.importantTypeCd;
     params.gender = params.genderCd;
+    params.mobileAgency = params.mobileAgencyCd;
 
     if (files.value.length > 0) {
         params.file = files.value;

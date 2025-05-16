@@ -1,5 +1,5 @@
 <template>
-    <!-- 공지사항 -->
+    <!-- news -->
     <AdminCommonBoardTableBoard :list="boardList" :paging="pageInfo" :columns="columns" :columnsWidth="columnsWidth"
         :pageSize="10" @update:currentIndex="handlePageChange" :isDtl="true" @update:selectedRows="handleDeleteItems"
         :popupComp="BoardReg" :rowKey="'boardIdx'" :getBoardList="setBoardList" :useExcelDown="false"
@@ -32,6 +32,7 @@ const searchKeyword = ref('');
 
 const columns = ref([
     { label: 'No.', key: 'boardIdx', type: 'text' },
+    { label: '언어', key: 'mobileAgencyCd', type: 'text' },
     { label: '제목', key: 'subject', type: 'text' },
     { label: '내용', key: 'content', type: 'html' },
     { label: '등록자', key: 'regUserNameKo', type: 'text' },
@@ -40,6 +41,7 @@ const columns = ref([
 ]);
 
 const columnsWidth = [
+    { flex: '5' },
     { flex: '5' },
     { flex: '30' },
     { flex: '35' },

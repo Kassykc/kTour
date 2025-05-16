@@ -64,16 +64,16 @@ const fetchLogin = async () => {
         const userNm = response.resultInfo.regUserNameKo;
 
         const response2 = await codeStore.setCodes(params);
-        common.setCookie('userNm', userNm);
-        common.setCookie('ableToken', response.resultInfo.token);
-        common.setCookie('isLogin', 'Y');
+        common.setCookie('medicalUserNm', userNm);
+        common.setCookie('medicalToken', response.resultInfo.token);
+        common.setCookie('mediCalIsLogin', 'Y');
         sessionStorage.setItem('codes', JSON.stringify(response2));
         sessionStorage.setItem('nowMenu', '공지사항');
 
         if (response.resultInfo.userRoleCd == '000') {
-            common.setCookie('admin', 'Y')
+            common.setCookie('medicalAdmin', 'Y')
         } else {
-            common.setCookie('admin', 'N')
+            common.setCookie('medicalAdmin', 'N')
         }
 
         router.push("/admin/noticeBoard");
@@ -92,7 +92,7 @@ const fetchLogin = async () => {
 
 
 onMounted(() => {
-    const islogin = common.getCookie('isLogin');
+    const islogin = common.getCookie('medicalIsLogin');
     if (islogin === 'Y') {
         router.push('/admin/noticeBoard');
     }

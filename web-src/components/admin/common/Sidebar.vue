@@ -105,7 +105,7 @@ const isActive = (menu: any) => {
 };
 
 onMounted(async () => {
-    const isLogin = common.getCookie('isLogin') == 'Y';
+    const isLogin = common.getCookie('mediCalIsLogin') == 'Y';
     if (isLogin) {
         const response: ApiResponse = await menuStore.setMenus();
 
