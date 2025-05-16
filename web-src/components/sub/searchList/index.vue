@@ -18,8 +18,8 @@
             </div>
         </div>
         <div class="info flex-1 h-[424px] flex flex-col justify-between items-start gap-[8px]">
-            <div class="info_wrap w-full px-[26px] border flex-1">
-                <div class="tab_name w-fit text-[#1F78FF] font-[700] border border-[#1F78FF] py-[14px] px-[20px] rounded-[100px]">Gastroenterology</div>
+            <div class="info_wrap w-full px-[26px] flex-1 flex flex-col justify-centr items-start gap-[10px]">
+                <div class="tab_name w-fit text-[#1F78FF] font-[700] border-[2px] border-[#1F78FF] py-[14px] px-[20px] rounded-[100px] mb-[10px]">Gastroenterology</div>
                 <div class="tags flex justify-start items-center gap-[10px]">
                     <div class="tag text-[15px] text-[#838383]">
                         #Skin Treatments & Laser Therapy 
@@ -28,27 +28,28 @@
                         #Cosmetic Procedures
                     </div>
                 </div>
-                <div class="title">Design Plastic Surgery</div>
-                <div class="slogan">
+                <div class="title text-[36px] font-[700] mb-[20px] text-[#313131]">Design Plastic Surgery</div>
+                <div class="slogan w-full h-auto py-[14px] border-t border-black font-[700] text-[22px] text-[#313131] relative">
                     Plastic Surgery Begins with Great Design.
+                    <span class="mark absolute top-[-16px] left-[-10px] bg-white text-[14px] font-[700] text-[#313131] px-[8px] py-[4px]">Slogan.</span>
                 </div>
-                <div class="contact_info">
-                    <div class="pone">
+                <div class="contact_info flex flex-col justify-center items-start gap-[8px]">
+                    <div class="pone flex justify-start items-center text-[18px] text-[#313131] gap-[20px]">
                         <img src="@/assets/images/sub/mts/phone.png" alt="">
                         +82)051-807-0259
                     </div>
-                    <div class="address">
+                    <div class="address flex justify-start items-center text-[18px] text-[#313131] gap-[20px]">
                         <img src="@/assets/images/sub/mts/distance.png" alt="">
                         10F, 785, Gaya-daero, Busanjin-gu, Busan, Republic of Korea
                     </div>
                 </div>
             </div>
             <div class="btns w-full flex justify-center items-center gap-[8px]">
-                <a href="" download="" class="brochure flex justify-center items-center gap-[5px] w-full bg-[#3F3F3F] !text-white px-[20px] py-[12px] h-[54px]">
+                <a href="" download="" class="brochure flex justify-center items-center gap-[5px] w-full bg-[#3F3F3F] !text-white px-[20px] py-[12px] h-[54px] cursor-pointer">
                         Brochure
                         <img src="@/assets/images/sub/mts/down_icon.png" alt="">
                 </a>
-                <div class="view_details flex justify-center items-center gap-[5px] w-full bg-[#1F78FF] text-white px-[20px] py-[12px] h-[54px]">
+                <div class="view_details flex justify-center items-center gap-[5px] w-full bg-[#1F78FF] text-white px-[20px] py-[12px] h-[54px] cursor-pointer">
                     View Details
                     <img src="@/assets/images/sub/mts/move_icon.png" alt="">
                 </div>
