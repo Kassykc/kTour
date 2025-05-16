@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="search_list_tab w-full max-w-[1340px] mx-auto ">
         <div class="tab_area w-full flex border-b border-[#afafaf]">
             <div 
                 v-for="(tab, index) in tabs" 

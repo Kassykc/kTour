@@ -8,21 +8,18 @@
                     {{ t('mts.title') }}
                 </div>
 
-                <div class="category_tab w-full max-w-[1340px] my-0 mx-auto py-[60px]">
-                    <SubCategoryTab @update:selectedCategory="updateSelectedCategory"/>
-                </div>
+                <SubCategoryTab @update:selectedCategory="updateSelectedCategory" class="py-[60px]"/>
 
-                <div class="search_area w-full bg-[#FAFAFA] mb-[74px]">
-                    <SubSearchBar  />
-                </div>
+                <SubSearchBar class="mb-[74px]" />
 
                 <div class="sub_tit w-full max-w-[1340px] mb-[32px] mx-auto text-[55px] font-[700]">
                     {{ selectedCategory }}
                 </div>
 
-                <div class="search_list_tab w-full max-w-[1340px] mb-[116px] mx-auto ">
-                    <SubSearchListTab :selectedCategory="selectedCategory" />
-                </div> 
+                <!-- <SubSearchListTab :selectedCategory="selectedCategory" /> -->
+                <SubSearchListTab class="mb-[116px]" />
+
+                <div class="search_list"></div>
 
             </div>
         </div>
