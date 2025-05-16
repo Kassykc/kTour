@@ -18,7 +18,7 @@ import { t } from '@/plugins/i18n'
 // Props 받기
 const props = defineProps<{
     modelValue: string
-    category: 'about' | 'tour' | 'mts'
+    category: 'about' | 'tour' | 'mtc' | 'inquiry'
 }>()
 
 // Emit으로 부모와 동기화
@@ -36,9 +36,15 @@ const allTabs = {
         { key: 'seoul', label: 'Seoul Tour', url: '/tour/seoul' },
         { key: 'gangwon', label: 'Gangwon Tour', url: '/tour/gangwon' },
     ],
-    mts: [
-        { key: 'mts', label: 'Medical Treatment Field' },
-    ]
+    mtc: [
+        { key: 'mts', label: 'Medical Treatment Center' },
+    ],
+    inquiry: [
+        { key: 'news', label: 'News & Updates', url: '/inquiry/news' },
+        { key: 'faq', label: 'FAQ', url: '/inquiry/faq' },
+        { key: 'contact', label: 'Contact Us', url: '/inquiry/contact' },
+        { key: 'consultation', label: 'Request for Consultation', url: '/inquiry/consultation' },
+    ],
 }
 
 // 카테고리에 맞는 탭만 필터링
@@ -52,7 +58,7 @@ const handleClick = (key: string) => {
     emit('update:modelValue', key)
 
     // 만약 카테고리가 'tour'이면 URL로 이동
-    if (props.category === 'tour') {
+    if (props.category === 'tour' || props.category === 'inquiry' ) {
         const selectedTab = filteredTabs.value.find(tab => tab.key === key);
         if (selectedTab && selectedTab.url) {
             window.location.href = selectedTab.url;
