@@ -31,9 +31,9 @@
             </div>
         </div>
 
-        <div class="info flex-1 h-[424px] flex flex-col justify-between items-start gap-[8px]">
+        <div class="info_area flex-1 h-[424px] flex flex-col justify-between items-start gap-[8px]">
 
-            <div class="info_wrap w-full px-[26px] flex-1 flex flex-col justify-centr items-start gap-[10px]">
+            <div class="info w-full px-[26px] flex-1 flex flex-col justify-centr items-start gap-[10px]">
 
                 <div class="tab_name w-fit text-[#1F78FF] font-[700] border-[2px] border-[#1F78FF] py-[14px] px-[20px] rounded-[100px] mb-[10px]">Gastroenterology</div>
                 <div class="tags flex justify-start items-center gap-[10px]">
