@@ -17,6 +17,11 @@
 import { t } from '@/plugins/i18n'
 import { defineEmits, ref } from 'vue';
 
+import { useRoute } from 'vue-router';
+
+// 현재 경로 가져오기
+const route = useRoute();
+
 // const router = useRouter();
 const emit = defineEmits(); // 부모에게 전달할 이벤트 정의
 const selectedIndex = ref(0);
@@ -28,42 +33,84 @@ const selectCategory = (index: number, categoryName: string) => {
     emit('update:selectedCategory', categoryName); // 카테고리 이름을 부모에게 전달
 };
 
-const categories = ref([
-    {
-        category_name: t('mts.tab.1'),
-    },
-    {
-        category_name: t('mts.tab.2'),
-    },
-    {
-        category_name: t('mts.tab.3'),
-    },
-    {
-        category_name: t('mts.tab.4'),
-    },
-    {
-        category_name: t('mts.tab.5'),
-    },
-    {
-        category_name: t('mts.tab.6'),
-    },
-    {
-        category_name: t('mts.tab.7'),
-    },
-    {
-        category_name: t('mts.tab.8'),
-    },
-    {
-        category_name: t('mts.tab.9'),
-    },
-    {
-        category_name: t('mts.tab.10'),
-    },
-    {
-        category_name: t('mts.tab.other'),
-    },
+const categories = ref([]);
+// 카테고리 배열 설정 함수
+const setCategories = () => {
+    if (route.path === '/mtc') {
+        categories.value = [
+            { category_name: t('mts.tab.1') },
+            { category_name: t('mts.tab.2') },
+            { category_name: t('mts.tab.3') },
+            { category_name: t('mts.tab.4') },
+            { category_name: t('mts.tab.5') },
+            { category_name: t('mts.tab.6') },
+            { category_name: t('mts.tab.7') },
+            { category_name: t('mts.tab.8') },
+            { category_name: t('mts.tab.9') },
+            { category_name: t('mts.tab.10') },
+            { category_name: t('mts.tab.other') },
+        ];
+    } else if (route.path === '/inquiry/news') {
+        categories.value = [
+            { category_name: t('news.tab.1') },
+            { category_name: t('news.tab.2') },
+            { category_name: t('news.tab.3') },
+        ];
+    } else if (route.path === '/inquiry/faq') {
+        categories.value = [
+            { category_name: t('faq.tab.1') },
+            { category_name: t('faq.tab.2') },
+            { category_name: t('faq.tab.3') },
+            { category_name: t('faq.tab.4') },
+            { category_name: t('faq.tab.5') },
+            { category_name: t('faq.tab.6') },
+            { category_name: t('faq.tab.7') },
+        ];
+    } else {
+        categories.value = []; // 기본값 설정 (필요에 따라 다른 설정 가능)
+    }
+};
 
-])
+// 컴포넌트 마운트 시 경로에 따라 카테고리 설정
+onMounted(() => {
+    setCategories();
+});
+// const categories = ref([
+//     {
+//         category_name: t('mts.tab.1'),
+//     },
+//     {
+//         category_name: t('mts.tab.2'),
+//     },
+//     {
+//         category_name: t('mts.tab.3'),
+//     },
+//     {
+//         category_name: t('mts.tab.4'),
+//     },
+//     {
+//         category_name: t('mts.tab.5'),
+//     },
+//     {
+//         category_name: t('mts.tab.6'),
+//     },
+//     {
+//         category_name: t('mts.tab.7'),
+//     },
+//     {
+//         category_name: t('mts.tab.8'),
+//     },
+//     {
+//         category_name: t('mts.tab.9'),
+//     },
+//     {
+//         category_name: t('mts.tab.10'),
+//     },
+//     {
+//         category_name: t('mts.tab.other'),
+//     },
+
+// ])
 </script>
 
 <style scoped>

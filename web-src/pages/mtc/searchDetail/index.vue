@@ -126,14 +126,8 @@
                 </div>
 
                 <!-- 리스트 버튼 -->
-                <div 
-                    class="go_list flex justify-center items-center gap-[12px] w-[246px] h-[60px] py-[16px] border border-[#1F78FF] text-[#1F78FF] bg-white hover:border-white hover:text-white hover:bg-[#1F78FF] mx-auto text-[18px] font-[600] cursor-pointer"
-                    @mouseover="isHovered = true" 
-                    @mouseleave="isHovered = false"
-                >
-                    <img :src="isHovered ? list_w : list_b" alt="" />
-                    List
-                </div>
+                <SubListBtn />
+
             </div>
         </div>
     </div>
@@ -147,8 +141,6 @@ import { ref, onMounted } from 'vue'
 
 import img01 from '@/assets/images/sub/mtc/interior01_detail.png'
 import mts_bg from "@/assets/images/sub/mtc/banner_bg.png";
-import list_b from '@/assets/images/sub/mtc/list_b.png'
-import list_w from '@/assets/images/sub/mtc/list_w.png'
 
 const router = useRouter();
 
@@ -157,12 +149,10 @@ const movePage = (page: string) => {
     router.push(page);
 };
 
-const isHovered = ref(false);
-
 const bannerTitle = ref('MTC');
 const bannerBgImage = ref(mts_bg); // 배경 이미지 경로
-const category = ref('mts');
-const selectedTab = ref('mts');
+const category = ref('mtc');
+const selectedTab = ref('mtc');
 
 const slide = [
     { img: img01 },

@@ -34,8 +34,8 @@ import mts_bg from "@/assets/images/sub/mtc/banner_bg.png";
 
 const bannerTitle = ref('MTC');
 const bannerBgImage = ref(mts_bg); // 배경 이미지 경로
-const category = ref('mts');
-const selectedTab = ref('mts');
+const category = ref('mtc');
+const selectedTab = ref('mtc');
 const selectedCategory = ref(t('mts.tab.1')); // 선택된 카테고리 이름을 저장
 
 const updateSelectedCategory = (categoryName: string) => {
