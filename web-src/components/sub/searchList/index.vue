@@ -19,13 +19,13 @@
 
             <div class="sns flex justify-start items-center gap-[20px] w-full h-[52px] bg-[#F3F3F3] px-[20px] py-[12px]">
                 <a href="" target="blank">
-                    <img src="@/assets/images/sub/mts/insta.png" alt="">
+                    <img src="@/assets/images/sub/mtc/insta.png" alt="">
                 </a>
                 <a href="" target="blank">
-                    <img src="@/assets/images/sub/mts/youtube.png" alt="">
+                    <img src="@/assets/images/sub/mtc/youtube.png" alt="">
                 </a>
                 <a href="" target="blank" class="flex justify-start items-center gap-[20px]">
-                    <img src="@/assets/images/sub/mts/language.png" alt="">
+                    <img src="@/assets/images/sub/mtc/language.png" alt="">
                     <span class="text-[#313131]">http://www.designprsglobal.com/</span>
                 </a>
             </div>
@@ -55,12 +55,12 @@
                 <div class="contact_info flex flex-col justify-center items-start gap-[8px]">
 
                     <div class="pone flex justify-start items-center text-[18px] text-[#313131] gap-[20px]">
-                        <img src="@/assets/images/sub/mts/phone.png" alt="">
+                        <img src="@/assets/images/sub/mtc/phone.png" alt="">
                         +82)051-807-0259
                     </div>
 
                     <div class="address flex justify-start items-center text-[18px] text-[#313131] gap-[20px]">
-                        <img src="@/assets/images/sub/mts/distance.png" alt="">
+                        <img src="@/assets/images/sub/mtc/distance.png" alt="">
                         10F, 785, Gaya-daero, Busanjin-gu, Busan, Republic of Korea
                     </div>
                 </div>
@@ -71,12 +71,14 @@
 
                 <a href="" download="" class="brochure flex justify-center items-center gap-[5px] w-full bg-[#3F3F3F] !text-white px-[20px] py-[12px] h-[54px] cursor-pointer">
                         Brochure
-                        <img src="@/assets/images/sub/mts/down_icon.png" alt="">
+                        <img src="@/assets/images/sub/mtc/down_icon.png" alt="">
                 </a>
 
-                <div class="view_details flex justify-center items-center gap-[5px] w-full bg-[#1F78FF] text-white px-[20px] py-[12px] h-[54px] cursor-pointer">
+                <div class="view_details flex justify-center items-center gap-[5px] w-full bg-[#1F78FF] text-white px-[20px] py-[12px] h-[54px] cursor-pointer"
+                    @click="movePage('/mtc/searchDetail/')"
+                >
                     View Details
-                    <img src="@/assets/images/sub/mts/move_icon.png" alt="">
+                    <img src="@/assets/images/sub/mtc/move_icon.png" alt="">
                 </div>
 
             </div>
@@ -90,7 +92,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { ref, onMounted } from 'vue'
 
-import img01 from '@/assets/images/sub/mts/interior01.png'
+import img01 from '@/assets/images/sub/mtc/interior01.png'
 
 const slide = [
     { img: img01 },
@@ -99,13 +101,15 @@ const slide = [
     { img: img01 },
 ];
 
+const router = useRouter();
+
+const movePage = (page: string) => {
+
+    router.push(page);
+};
+
+
 </script>
 <style lang="">
-/* .swiper-pagination-bullet {
-    background-color: white !important;
-}
 
-.swiper-pagination-bullet-active {
-    background-color: white !important;
-} */
 </style>

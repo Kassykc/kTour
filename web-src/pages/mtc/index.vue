@@ -21,7 +21,6 @@
 
                 <SubSearchList />
                 <SubSearchList />
-                <SubSearchList />
 
             </div>
         </div>
@@ -31,9 +30,9 @@
 <script setup lang="ts">
 import { t } from '@/plugins/i18n'
 
-import mts_bg from "@/assets/images/sub/mts/banner_bg.png";
+import mts_bg from "@/assets/images/sub/mtc/banner_bg.png";
 
-const bannerTitle = ref('MTS');
+const bannerTitle = ref('MTC');
 const bannerBgImage = ref(mts_bg); // 배경 이미지 경로
 const category = ref('mts');
 const selectedTab = ref('mts');
