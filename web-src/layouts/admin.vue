@@ -6,7 +6,7 @@
             isOpen ? 'left-0' : 'left-[-130px]'
         ]"
         >
-            <div class="page_title text-[14px] font-[500] text-center !mb-[34px] !px-[14px] !py-0">Art Medi 관리자 페이지</div>
+            <div class="page_title text-[14px] font-[500] text-center !mb-[34px] !px-[14px] !py-0">외국인환자유치 관리자 페이지</div>
 
             <div class="admin_name w-full text-[14px] font-[500] text-center !mb-[14px] !px-[14px] !py-0">
                 관리자 :<br />

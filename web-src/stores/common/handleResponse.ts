@@ -4,6 +4,7 @@ export const errorMessage = ref<string | null>(null);
 export const handleResponse = (response: any) => {
   if (response && response.data) {
     apiResponse.value = response.data;
+    return response.data;
     console.log("Updated apiResponse");
   } else if (response.error) {
     errorMessage.value = response.error;
