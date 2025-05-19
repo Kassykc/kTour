@@ -15,7 +15,7 @@ definePageMeta({
     layout: 'admin',
 });
 
-const memberMngStore = useMemberMngStore('people');
+const memberMngStore = useMemberMngStore('people-adm');
 const router = useRouter();
 
 const boardList = ref([] as ResultInfo[]);

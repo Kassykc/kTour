@@ -1,7 +1,6 @@
 <template>
     <div class="search_list_tab w-full max-w-[1340px] mx-auto ">
         <div class="tab_area w-full flex border-b border-[#afafaf]">
-            {{ props.list }}
             <div v-for="(tab, index) in tabs" :key="index"
                 class="tab w-full text-[20px] font-[700] text-center py-[22px] cursor-pointer"
                 :class="index === selectedIndex ? 'text-[#1F78FF] border-b-[2px] border-[#1F78FF]' : 'text-[#afafaf]'"

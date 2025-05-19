@@ -19,8 +19,11 @@
                 <!-- <SubSearchListTab :selectedCategory="selectedCategory" /> -->
                 <SubSearchListTab class="mb-[116px]" :depth2List="depth2List" />
 
-                <SubSearchList />
-                <SubSearchList />
+                <div v-for="(item, index) in listData" :key="index">
+                    <SubSearchList :data="item" :selectedCategory="selectedCategory" />
+                </div>
+
+                <!-- <SubSearchList /> -->
 
             </div>
         </div>
@@ -29,8 +32,10 @@
 
 <script setup lang="ts">
 import { t } from '@/plugins/i18n'
-
 import mts_bg from "@/assets/images/sub/mtc/banner_bg.png";
+import { useMemberMngStore } from '~/stores/admin/peopleStore';
+
+const memberMngStore = useMemberMngStore('people-adm');
 
 const bannerTitle = ref('MTC');
 const bannerBgImage = ref(mts_bg); // 배경 이미지 경로
@@ -38,13 +43,29 @@ const category = ref('mtc');
 const selectedTab = ref('mtc');
 const selectedCategory = ref(t('mts.tab.1')); // 선택된 카테고리 이름을 저장
 const depth2List = ref();
+const listData = ref();
 
-const updateSelectedCategory = (categoryName: string, depth2?: any) => {
+const updateSelectedCategory = async (categoryName: string, depth2?: any, idx?: any) => {
     selectedCategory.value = categoryName;  // selectedCategory 업데이트
 
     if (depth2) {
         depth2List.value = [];
         depth2List.value = depth2;
+    }
+
+    if (idx) {
+        const data = {
+            showYn: 'Y',
+            pageNum: 1,
+            pageSize: 9999,
+            searchKeyword: '',
+            categoryIdx: idx,
+        };
+
+        const response = await memberMngStore.getPeopleList(data);
+        if (response) {
+            listData.value = response.resultInfo;
+        }
     }
 };
 

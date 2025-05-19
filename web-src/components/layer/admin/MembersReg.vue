@@ -74,14 +74,24 @@
                         <input type="text" placeholder="공식홈페이지" v-model="site" class="input_firstName input_area">
                     </div>
                 </div>
-                <div class="name_wrap cont_wrap">
+                <div class="name_wrap cont_wrap" ref="dropdownRef">
                     <div class="category_tit">해시태그<span class="necessary">*</span></div>
                     <div class="cont_area">
-                        <select class="slect_area" v-if="hospitalDepth2" v-model="hashtag" multiple>
-                            <option v-for="child in hospitalDepth2" :value="child">
-                                {{ child.codeValue }}
-                            </option>
-                        </select>
+                        <div class="dropdown-toggle" @click="toggleDropdown">
+                            <span v-if="selectedHashtags.length > 0">
+                                {{selectedHashtags.map(item => item.codeValue).join(', ')}}
+                            </span>
+                            <span v-else class="placeholder">해시태그 선택</span>
+                            <span class="arrow">▼</span>
+                        </div>
+
+                        <div v-if="isOpen" class="dropdown-list">
+                            <div class="dropdown-item" v-for="item in hospitalDepth2" :key="item.codeKey"
+                                @click="toggleItem(item)">
+                                <input type="checkbox" :checked="isSelected(item)" readonly />
+                                {{ item.codeValue }}
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="sort_wrap cont_wrap">
@@ -217,7 +227,41 @@ const resData = ref<ResultInfo>({
     categoryType: '',
 });
 
-const changedData = ref<Record<string, any>>({});
+const selectedHashtags = ref([])
+const isOpen = ref(false)
+
+const toggleDropdown = () => {
+    isOpen.value = !isOpen.value
+}
+
+const isSelected = (item: any) => {
+    return selectedHashtags.value.some(tag => tag.codeKey === item.codeKey)
+}
+
+const toggleItem = (item: any) => {
+    const index = selectedHashtags.value.findIndex(tag => tag.codeKey === item.codeKey)
+    if (index > -1) {
+        selectedHashtags.value.splice(index, 1)
+    } else {
+        selectedHashtags.value.push(item)
+    }
+}
+
+const dropdownRef = ref<HTMLElement | null>(null)
+
+const handleClickOutside = (e: MouseEvent) => {
+    if (dropdownRef.value && !dropdownRef.value.contains(e.target as Node)) {
+        isOpen.value = false
+    }
+}
+
+onMounted(() => {
+    document.addEventListener('click', handleClickOutside)
+})
+
+onBeforeUnmount(() => {
+    document.removeEventListener('click', handleClickOutside)
+})
 
 const files = ref<File[]>([]);
 const thumbnails = ref<File[]>([]);
@@ -286,7 +330,7 @@ const goReg = async () => {
         site: site.value,
         contentEn: contentEn.value,
         contentId: contentId.value,
-        hashtag: hashtag.value,
+        hashtag: selectedHashtags.value,
     }
 
     params.peopleMemo = JSON.stringify(memo);
@@ -299,6 +343,7 @@ const goReg = async () => {
         params.thumbnail = thumbnails.value;
     }
 
+    params.profileInfo = [];
     try {
         const response = await memberMngStore.insertPeople(params);
 
@@ -338,7 +383,7 @@ const goUpdate = async () => {
         site: site.value,
         contentEn: contentEn.value,
         contentId: contentId.value,
-        hashtag: hashtag.value,
+        hashtag: selectedHashtags.value,
     }
     params.peopleMemo = JSON.stringify(memo)
 

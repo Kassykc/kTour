@@ -46,7 +46,7 @@ const selectCategory = (index: number, categoryName: string, codeKey?: number) =
     } else {
         selectedChildren.value = []; // 없으면 초기화
     }
-    emit('update:selectedCategory', categoryName, selectedChildren.value); // 카테고리 이름을 부모에게 전달
+    emit('update:selectedCategory', categoryName, selectedChildren.value, codeKey); // 카테고리 이름을 부모에게 전달
 
 };
 
