@@ -64,7 +64,7 @@
                         </p>
                     </div>
                     <SubCertification />
-                    <SubMoreBtn :label="t('about.part1.content3.btn')" width="w-[258px]" bgColor="bg-[#5C8F3F]"
+                    <SubMoreBtn :label="t('about.part1.content3.btn')" width="w-[258px]" bgColor="bg-[#5C8F3F]" :showIcon="true"
                         url="/" />
                 </div>
             </div>
@@ -208,7 +208,7 @@
                         {{ t('about.part2.content3.desc2') }}
                     </p>
                     <SubTreatment />
-                    <SubMoreBtn :label="t('about.part2.content3.sub.btn')" width="w-[480px]" bgColor="bg-[#3145A9]"
+                    <SubMoreBtn :label="t('about.part2.content3.sub.btn')" width="w-[480px]" bgColor="bg-[#3145A9]" :showIcon="true"
                         url="/" />
                 </div>
 
@@ -235,7 +235,7 @@
                         {{ t('about.part2.content4.desc3') }} <br />
                         {{ t('about.part2.content4.desc4') }}
                     </div>
-                    <SubMoreBtn :label="t('about.part2.content4.btn')" width="w-[334px]" bgColor="bg-[#3145A9]"
+                    <SubMoreBtn :label="t('about.part2.content4.btn')" width="w-[334px]" bgColor="bg-[#3145A9]" :showIcon="true"
                         url="/" />
                 </div>
             </div>

@@ -5,7 +5,12 @@
         @click="handleClick"
     >
         {{ label }}
-        <img src="@/assets/images/sub/about/program_btn.png" alt="화살표 이미지" class="">
+        <img 
+            v-if="showIcon"
+            src="@/assets/images/sub/about/program_btn.png"
+            alt="화살표 이미지" 
+            class=""
+        >
     </div>
 </template>
 
@@ -19,6 +24,7 @@ defineProps<{
     width?: string
     bgColor?: string
     url?: string
+    showIcon?: boolean
 }>()
 
 const handleClick = () => {

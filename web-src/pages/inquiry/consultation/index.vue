@@ -462,7 +462,7 @@
                 </div>
             </div>
 
-            <SubMoreBtn :label="t('menu.2depth.4.name')" width="w-[260px]" bgColor="bg-[#1F78FF]"
+            <SubMoreBtn :label="t('menu.2depth.4.name')" width="w-[260px]" bgColor="bg-[#1F78FF]" :showIcon="false"
             url="/" />
         </div>
     </div>
