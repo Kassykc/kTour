@@ -15,29 +15,33 @@
             <div>
             <CommonHeaderHome :isHoveredHeader="isHeaderHover" />
             </div>
-            <div class="hidden sm:block h-[85px]">
-            <CommonNav
-                :isHoveredHeader="isHeaderHover"
-                :activeNav="activeNav"
-                @hover="handleNavHover"
-                @leave="handleNavLeave"
-                />
+            <div class="hidden lg:block h-[85px]">
+              <CommonNav
+                  :isHoveredHeader="isHeaderHover"
+                  :activeNav="activeNav"
+                  @hover="handleNavHover"
+                  @leave="handleNavLeave"
+                  />
             </div>
-            <div class="sm:hidden">
-            <CommonNavMobile />
-            </div>
-            <div>
-            <CommonLanguageSwitch />
+            
+            
+            <div class="flex justify-end items-center gap-[20px] lg:gap-[40px] ">
+              <div>
+                <CommonLanguageSwitch />
+              </div>
+              <div class="block lg:hidden">
+                <CommonNavMobile />
+              </div>
             </div>
         </div>
         </div>
 
         <CommonNavSub
-        class="hidden sm:block"
-        :activeNav="activeNav"
-        :visible="activeNav !== null"
-        @submenu-enter="handleSubmenuEnter"
-        @submenu-leave="handleSubmenuLeave"
+          class="hidden lg:block"
+          :activeNav="activeNav"
+          :visible="activeNav !== null"
+          @submenu-enter="handleSubmenuEnter"
+          @submenu-leave="handleSubmenuLeave"
         />
     </div>
 </template>

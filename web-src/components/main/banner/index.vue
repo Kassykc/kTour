@@ -2,7 +2,7 @@
     <div
         class="relative h-[100vh] max-h-[1440px] sm:h-[538px] lg:h-[85vh] flex items-center justify-center overflow-hidden">
 
-        <video autoplay muted loop playsinline class="absolute w-full h-[85vh] object-cover z-0">
+        <video autoplay muted loop playsinline class="absolute w-full h-[100vh] max-h-[1440px] sm:h-[538px] lg:h-[85vh] object-cover z-0">
             <source src="/video/main/banner.webm" type="video/webm" />
         </video>
 
