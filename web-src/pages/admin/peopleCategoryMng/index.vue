@@ -26,7 +26,8 @@ const columns = ref([
     { label: 'No.', key: 'categoryIdx', type: 'text' },
     { label: '구분', key: 'categoryDiv', type: 'text' },
     // { label: '타입', key: 'categoryType', type: 'text' },
-    { label: '구분명', key: 'categoryNameKo', type: 'text' },
+    { label: '구분명(en)', key: 'categoryNameEn', type: 'text' },
+    { label: '구분명(id)', key: 'categoryNameId', type: 'text' },
     { label: '노출여부', key: 'showYn', type: 'text' },
 ]);
 
@@ -35,8 +36,8 @@ const columns = ref([
 const columnsWidth = [
     { flex: '5' },
     { flex: '10' },
-    // { flex: '30' },
-    { flex: '30' },
+    { flex: '20' },
+    { flex: '20' },
     { flex: '5' },
 ];
 
@@ -71,6 +72,12 @@ const getBoardList = async (pageNum: number, pageSize: number, searchKeyword: st
     const response = await memberMngStore.getPeopleCategoryList(data);
 
     if (response) {
+
+        response.resultInfo.forEach(item => {
+            item.categoryNameEn = JSON.parse(item.categoryNameKo)?.categoryNameEn;
+            item.categoryNameId = JSON.parse(item.categoryNameKo)?.categoryNameId;
+        })
+
         boardList.value = response.resultInfo;
         pageInfo.value = response.pageInfo;
     }

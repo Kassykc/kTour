@@ -432,8 +432,22 @@ onMounted(async () => {
     sessionStorage.setItem('medicalCodes', JSON.stringify(response2));
     const codes = response2.resultInfo || [];
 
-    hospitalDepth1.value = codes.filter(item => item.codeType === 'CONTENT_CATEGORY');
+    hospitalDepth1.value = codes.filter(item => (item.codeType === 'CONTENT_CATEGORY'));
     hospitalDepth2.value = codes.filter(item => item.codeType === "CONTENT_CATEGORY_CHILD");
+
+    hospitalDepth1.value = hospitalDepth1.value.map(item => {
+        return {
+            ...item,
+            codeValue: JSON.parse(item.codeValue)?.categoryNameEn
+        };
+    });
+
+    hospitalDepth2.value = hospitalDepth2.value.map(item => {
+        return {
+            ...item,
+            codeValue: JSON.parse(item.codeValue)?.categoryNameEn
+        };
+    });
 });
 
 

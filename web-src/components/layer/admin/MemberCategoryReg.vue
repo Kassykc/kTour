@@ -28,11 +28,11 @@
                 </div>
                 <div class="user_id input_area">
                     <label>분류명(en)</label>
-                    <input type="text" v-model="resData.categoryNameKo" autocomplete="off" />
+                    <input type="text" v-model="categoryNameEn" autocomplete="off" />
                 </div>
                 <div class="user_id input_area">
                     <label>분류명(id)</label>
-                    <input type="text" v-model="resData.categoryNameCn" autocomplete="off" />
+                    <input type="text" v-model="categoryNameId" autocomplete="off" />
                 </div>
             </div>
         </div>
@@ -107,6 +107,8 @@ const resData = ref({
     categoryType: ""
 });
 
+const categoryNameEn = ref('');
+const categoryNameId = ref('');
 
 const emit = defineEmits();
 
@@ -115,15 +117,20 @@ const setParent = () => {
 }
 
 const validation = (params: any) => {
-    const validationRules = [
-        { field: 'categoryNameKo', message: '분류명을 입력해주세요.' },
-    ];
+    // const validationRules = [
+    //     { field: 'categoryNameKo', message: '분류명을 입력해주세요.' },
+    // ];
 
-    for (const rule of validationRules) {
-        if (!params[rule.field]) {
-            SysAlert({ type: 'alert', message: rule.message });
-            return false;
-        }
+    // for (const rule of validationRules) {
+    //     if (!params[rule.field]) {
+    //         SysAlert({ type: 'alert', message: rule.message });
+    //         return false;
+    //     }
+    // }
+
+    if (!categoryNameEn.value || categoryNameEn.value == '' || !categoryNameId.value || categoryNameId.value == '') {
+        SysAlert({ type: 'alert', message: '분류명을 확인하세요' });
+        return false;
     }
 
     return true;
@@ -136,10 +143,15 @@ const goReg = async () => {
     params.categoryDiv = params.categoryDivCd;
     const isValid = validation(params);
 
+    const categoryNm = {
+        categoryNameEn: categoryNameEn.value,
+        categoryNameId: categoryNameId.value,
+    }
+
     const data = {
         categoryParentIdx: params.categoryParentIdx ? params.categoryParentIdx : 0,
-        categoryDiv: params.categoryDiv,
-        categoryNameKo: params.categoryNameKo
+        categoryDiv: params.categoryDivCd,
+        categoryNameKo: JSON.stringify(categoryNm)
     }
 
     if (!isValid) {
@@ -163,7 +175,16 @@ const goReg = async () => {
 
 const goUpdate = async () => {
     const params = toRaw(resData.value);
-    params.categoryDiv = params.categoryDivCd;
+
+    const categoryNm = {
+        categoryNameEn: categoryNameEn.value,
+        categoryNameId: categoryNameId.value,
+    }
+
+    params.categoryParentIdx = params.categoryParentIdx ? params.categoryParentIdx : 0
+    params.categoryDiv = params.categoryDivCd
+    params.categoryNameKo = JSON.stringify(categoryNm)
+
     const isValid = validation(params);
     if (!isValid) {
         return;
@@ -209,6 +230,10 @@ onMounted(async () => {
         }
         const response = await memberMngStore.dtlPeopleCategory(params);
         if (response) {
+            const parseNm = JSON.parse(response.resultInfo.categoryNameKo);
+            categoryNameEn.value = parseNm.categoryNameEn;
+            categoryNameId.value = parseNm.categoryNameId;
+
             resData.value = response.resultInfo;
 
             let codes;
@@ -257,7 +282,7 @@ onMounted(async () => {
     const code2 = codeOpt2.value.filter(item => item.categoryDivCd == '000');
     codeOpt2.value = code2.map(item => ({
         key: item.categoryIdx,
-        value: item.categoryNameKo
+        value: JSON.parse(item.categoryNameKo)?.categoryNameEn ?? ''
     }));
 });
 
