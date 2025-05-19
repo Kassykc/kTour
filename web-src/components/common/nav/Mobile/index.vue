@@ -36,7 +36,7 @@
                         >
                             <NuxtLink :to="subItem.link"
                                 class="block text-[#333] text-[14px] bg-white font-[500] py-[16px] pr-[20px] pl-[30px] leading-[15px] text-center"
-                                @click="closeMenu"
+                                @click.prevent="handleSubmenuClick(subItem)"
                             >{{ t(subItem.title) }}</NuxtLink>
                         </li>
                     </ul>
@@ -62,8 +62,17 @@
 
 <script setup lang="ts">
 import { t } from '@/plugins/i18n'
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { ref, onMounted, onBeforeUnmount, watch, nextTick } from 'vue';
 import { useRoute } from 'vue-router';
+
+const route = useRoute()
+
+const scrollToSection = (tab: string) => {
+    nextTick(() => {
+        const el = document.getElementById(tab)
+        if (el) el.scrollIntoView({ behavior: 'smooth' })
+    })
+}
 
 const routerPath = '';
 
@@ -86,36 +95,36 @@ const menuItems = ref<MenuItem[]>([
         title: t('menu.1.name'),
         link: '',
         submenu: [
-            { title: t('menu.1.2depth.1.name'), link: '/' },
-            { title: t('menu.1.2depth.2.name'), link: '/' },
-            { title: t('menu.1.2depth.3.name'), link: '/' },
-            { title: t('menu.1.2depth.4.name'), link: '/' },
+            { title: t('menu.1.2depth.1.name'), link: '/about', tab: 'company' },
+            { title: t('menu.1.2depth.2.name'), link: '/about', tab: 'service' },
+            { title: t('menu.1.2depth.3.name'), link: '/about', tab: 'korea' },
+            { title: t('menu.1.2depth.4.name'), link: '/about', tab: 'meditour' },
         ],
     },
     {
         title: t('menu.2.name'),
         link: '',
         submenu: [
-            { title: t('menu.2.2depth.1.name'), link: '/' },
-            { title: t('menu.2.2depth.2.name'), link: '/' },
+            { title: t('menu.2.2depth.1.name'), link: '/mtc' },
+            { title: t('menu.2.2depth.2.name'), link: '/mtc' },
         ],
     },
     {
         title: t('menu.3.name'),
         link: '',
         submenu: [
-            { title: t('menu.3.2depth.1.name'), link: '/' },
-            { title: t('menu.1.2depth.2.name'), link: '/' },
+            { title: t('menu.3.2depth.1.name'), link: '/tour/seoul' },
+            { title: t('menu.3.2depth.2.name'), link: '/tour/gangwon' },
         ],
     },
     {
         title: t('menu.6.name'),
         link: '',
         submenu: [
-            { title: t('menu.6.2depth.1.name'), link: '/' },
-            { title: t('menu.6.2depth.2.name'), link: '/' },
-            { title: t('menu.6.2depth.3.name'), link: '/' },
-            { title: t('menu.6.2depth.4.name'), link: '/' },
+            { title: t('menu.6.2depth.1.name'), link: '/inquiry/news' },
+            { title: t('menu.6.2depth.2.name'), link: '/inquiry/faq' },
+            { title: t('menu.6.2depth.3.name'), link: '/inquiry/contact' },
+            { title: t('menu.6.2depth.4.name'), link: '/inquiry/consultation' },
         ],
     },
 ]);
@@ -150,11 +159,20 @@ onMounted(() => {
     });
 
     document.addEventListener('click', handleClickOutside);
+
+    if (route.query.tab) scrollToSection(route.query.tab.toString())
 });
 
 onBeforeUnmount(() => {
     document.removeEventListener('click', handleClickOutside);
 });
+
+watch(
+    () => route.query.tab,
+    (newTab) => {
+        if (newTab) scrollToSection(newTab.toString())
+    }
+)
 
 const closeMenu = () => {
     isMenuOpen.value = false;
@@ -202,6 +220,17 @@ const handleClickOutside = (event: MouseEvent) => {
         closeMenu();
     }
 };
+
+const handleSubmenuClick = async (subItem: any) => {
+    await router.push({ path: subItem.link, query: { tab: subItem.tab } })
+    closeMenu()
+
+    nextTick(() => {
+        if (subItem.tab) {
+        scrollToSection(subItem.tab)
+        }
+    })
+}
 </script>
 
 <style scoped></style>
