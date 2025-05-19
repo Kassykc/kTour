@@ -77,8 +77,7 @@
                 <div class="name_wrap cont_wrap">
                     <div class="category_tit">해시태그<span class="necessary">*</span></div>
                     <div class="cont_area">
-                        <div>해시태그 : </div>
-                        <select class="slect_area" v-if="hospitalDepth2" v-model="hashtah">
+                        <select class="slect_area" v-if="hospitalDepth2" v-model="hashtag">
                             <option v-for="child in hospitalDepth2" :value="child.codeKey">
                                 {{ child.codeValue }}
                             </option>
@@ -292,6 +291,7 @@ const youtube = ref('');
 const site = ref('');
 const contentEn = ref('');
 const contentId = ref('');
+const hashtag = ref();
 
 
 const selectedShowYn = ref();
@@ -488,6 +488,7 @@ const goReg = async () => {
         site: site.value,
         contentEn: contentEn.value,
         contentId: contentId.value,
+        hashtag: hashtag.value,
     }
 
     params.peopleMemo = JSON.stringify(memo);
@@ -539,6 +540,7 @@ const goUpdate = async () => {
         site: site.value,
         contentEn: contentEn.value,
         contentId: contentId.value,
+        hashtag: hashtag.value,
     }
     params.peopleMemo = JSON.stringify(memo)
 
