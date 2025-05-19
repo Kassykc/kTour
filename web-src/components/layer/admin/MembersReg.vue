@@ -467,7 +467,27 @@ const handleCategory1 = (e) => {
 
 const goReg = async () => {
 
-    const params = toRaw(changedData.value);
+    const params = toRaw(resData.value);
+
+    const memo = {
+        sloganEn: sloganEn.value,
+        sloganId: sloganId.value,
+        instagram: instagram.value,
+        youtube: youtube.value,
+        site: site.value,
+        contentEn: contentEn.value,
+        contentId: contentId.value,
+    }
+
+    params.peopleMemo = JSON.stringify(memo);
+
+    if (files.value.length > 0) {
+        params.file = files.value;
+    }
+
+    if (thumbnails.value.length > 0) {
+        params.thumbnail = thumbnails.value;
+    }
 
     try {
         const response = await memberMngStore.insertPeople(params);
@@ -510,6 +530,15 @@ const goUpdate = async () => {
         contentId: contentId.value,
     }
     params.peopleMemo = JSON.stringify(memo)
+
+    if (files.value.length > 0) {
+        params.file = files.value;
+    }
+
+    if (thumbnails.value.length > 0) {
+        params.thumbnail = thumbnails.value;
+    }
+    
     // params.userStatus = params.userStatusCd;
     // params.gender = params.genderCd;
     // params.signinPolicy = params.signinPolicyCd;
