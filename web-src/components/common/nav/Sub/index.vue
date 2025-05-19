@@ -13,7 +13,7 @@
         <div v-for="(item, idx) in submenus[activeNav]" :key="idx" class="w-[48%] text-left">
           <div
             class="text-black cursor-pointer hover:text-[#F57E1F] text-[13px] md:text-[14px] lg:text-[20px] font-[700] px-[10px]"
-            @click="router.push(item.url)">
+            @click="router.push({ path: item.url, query: { tab: item.tab } })">
             {{ t(item.title) }}
           </div>
         </div>
@@ -33,29 +33,29 @@ const props = defineProps<{
 const router = useRouter()
 
 const menus = [
-  { title: t('menu.1.name'), url: '/' },
-  { title: t('menu.2.name'), url: '/' },
-  { title: t('menu.3.name'), url: '/' },
+  { title: t('menu.1.name'), url: '/about' },
+  { title: t('menu.2.name'), url: '/mtc' },
+  { title: t('menu.3.name'), url: '/tour/seoul' },
   // { title: t('menu.4.name'), url: '/' },
   // { title: t('menu.5.name'), url: '/' },
-  { title: t('menu.6.name'), url: '/' },
+  { title: t('menu.6.name'), url: '/inquiry/news' },
 ]
 
 // 각 nav에 대응하는 서브메뉴 데이터
 const submenus = [
   [
-    { title: 'menu.1.2depth.1.name', url: '/' },
-    { title: 'menu.1.2depth.2.name', url: '/' },
-    { title: 'menu.1.2depth.3.name', url: '/' },
-    { title: 'menu.1.2depth.4.name', url: '/' }
+    { title: 'menu.1.2depth.1.name', url: '/about', tab: 'company' },
+    { title: 'menu.1.2depth.2.name', url: '/about', tab: 'service' },
+    { title: 'menu.1.2depth.3.name', url: '/about', tab: 'korea' },
+    { title: 'menu.1.2depth.4.name', url: '/about', tab: 'meditour' }
   ],
   [
-    { title: 'menu.2.2depth.1.name', url: '/' },
-    { title: 'menu.2.2depth.2.name', url: '/' },
+    { title: 'menu.2.2depth.1.name', url: '/mtc' },
+    { title: 'menu.2.2depth.2.name', url: '/mtc' },
   ],
   [
-    { title: 'menu.3.2depth.1.name', url: '/' },
-    { title: 'menu.3.2depth.2.name', url: '/' },
+    { title: 'menu.3.2depth.1.name', url: '/tour/seoul' },
+    { title: 'menu.3.2depth.2.name', url: '/tour/gangwon' },
   ],
   // [
   //   { title: '프로젝트1', url: '/' },
@@ -66,10 +66,10 @@ const submenus = [
   //   { title: '프로젝트2', url: '/' }
   // ],
   [
-    { title: 'menu.6.2depth.1.name', url: '/' },
-    { title: 'menu.6.2depth.2.name', url: '/' },
-    { title: 'menu.6.2depth.3.name', url: '/' },
-    { title: 'menu.6.2depth.4.name', url: '/' }
+    { title: 'menu.6.2depth.1.name', url: '/inquiry/news' },
+    { title: 'menu.6.2depth.2.name', url: '/inquiry/faq' },
+    { title: 'menu.6.2depth.3.name', url: '/inquiry/contact' },
+    { title: 'menu.6.2depth.4.name', url: '/inquiry/consultation' }
   ],
 ]
 </script>

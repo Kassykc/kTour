@@ -444,13 +444,49 @@
 
 <script setup lang="ts">
 import { t } from '@/plugins/i18n'
+import { useRouter } from 'vue-router';
+import { onMounted, nextTick, watch } from "vue";
 
 import about_bg from "@/assets/images/sub/about/banner_bg.png";
+
+const route = useRoute();
 
 const bannerTitle = ref('About Us');
 const bannerBgImage = ref(about_bg); // 배경 이미지 경로
 const category = ref('about');
-const selectedTab = ref('company');
+const selectedTab = ref(route.query.tab?.toString() || 'company') // 기본값 설정
+
+// ✅ 쿼리로 받은 탭에 대해 스크롤 이동 실행
+watch(
+    () => selectedTab.value,
+    (tab) => {
+        if (!tab) return
+        nextTick(() => {
+        const target = document.getElementById(tab)
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' })
+        }
+        })
+    },
+    { immediate: true }
+)
+
+// onMounted → 첫 진입 시 강제 스크롤 (route.query로 받은 경우)
+onMounted(() => {
+    const tab = route.query.tab?.toString()
+    if (!tab) return
+
+    // DOM 완전히 로드될 때까지 기다림
+    nextTick(() => {
+        setTimeout(() => {
+        const target = document.getElementById(tab)
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth' })
+        }
+        }, 100) // ❗지연시간 있어야 함 (DOM 렌더링 완료 보장)
+    })
+})
+
 </script>
 
 <style scoped></style>

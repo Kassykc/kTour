@@ -37,7 +37,7 @@ const allTabs = {
         { key: 'gangwon', label: 'menu.3.2depth.2.name', url: '/tour/gangwon' },
     ],
     mtc: [
-        { key: 'mts', label: 'Medical Treatment Center' },
+        { key: 'mtc', label: 'menu.2.name' },
     ],
     inquiry: [
         { key: 'news', label: 'menu.6.2depth.1.name', url: '/inquiry/news' },
