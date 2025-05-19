@@ -129,45 +129,6 @@
             </div>
         </div>
 
-        <!-- 인물 프로필 정보 -->
-        <!-- <div class="reg_area">
-            <h4 class="reg_tit">인물 프로필 정보</h4>
-            <div @click="handleProfileSection('add')" class="add_row">추가</div>
-            <div v-for="item in profileSection" :key="item.idx" class="row_area">
-                <div class="cont_wrap">
-                    <div class="category_tit">프로필</div>
-                    <div class="cont_area select_profile_area">
-                        <div class="select_profile_wrap">
-                            <select v-if="selectedCategory2 && profileTypeCode && profileTypeCode.length !== 0"
-                                v-model="item.sectionValue" @change="handleProfileType($event, item.idx)"
-                                class="slect_area profile_slect_area">
-                                <option value="">- 선택 -</option>
-                                <option v-for="child in profileTypeCode[selectedCategory2]['child']"
-                                    :value="child.codeKey">
-                                    {{ child.codeValue }}
-                                </option>
-                            </select>
-                            <div @click="handleProfileSection('remove', item.idx)"
-                                class="remove_profile_btn profile_btn">프로필 삭제</div>
-                            <div @click="handleInputBtn('add', item.idx)"
-                                v-if="selectedProfile.filter((el) => el.parentIdx === item.idx).length !== 0"
-                                class="add_category_btn profile_btn">항목 추가</div>
-                        </div>
-                        <div v-if="selectedProfile && selectedProfile.filter(el => el.parentIdx === item.idx).length !== 0"
-                            class="add_profile_wrap">
-                            <div v-for="inputItem in selectedProfile.filter(el => el.parentIdx === item.idx)"
-                                :key="inputItem.inputIdx" class="add_profile_area">
-                                <input type="text" v-model="inputItem.profileContent"
-                                    @change="handleInput($event, item.idx, inputItem.inputIdx)" class="input_area">
-                                <div @click="handleInputBtn('remove', item.idx, inputItem.inputIdx)"
-                                    class="remove_category_btn profile_btn">항목 삭제</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
         <!-- 버튼 영역 -->
         <div class="btn_wrap">
             <div class="common_btn reg_btn" @click="goReg" v-if="props.mode == 'reg'">등록</div>
@@ -265,13 +226,6 @@ const resData = ref<ResultInfo>({
 
 const changedData = ref<Record<string, any>>({});
 
-// 변경 이벤트 핸들러
-// const handleChange = (key: string, event: Event) => {
-//     const target = event.target as HTMLInputElement | HTMLSelectElement;
-//     changedData.value[key] = target.value;
-// };
-
-
 const files = ref<File[]>([]);
 const thumbnails = ref<File[]>([]);
 const logos = ref<File[]>([]);
@@ -294,13 +248,7 @@ const contentId = ref('');
 const hashtag = ref();
 
 
-const selectedShowYn = ref();
 const selectedBirthday = ref();
-const peopleTypeCode = ref();
-const profileTypeCode = ref();
-const categoryCode = ref();
-const selectedCategory1 = ref('59');
-const selectedCategory2 = ref('77');
 
 const hospitalDepth1 = ref();
 const hospitalDepth2 = ref();
@@ -317,39 +265,11 @@ const thumbnail = ref([]);
 
 watch(() => resData.value.categoryParentIdx, (selected) => {
     if (selected != 0) {
-        // hospitalDepth2selected.value = hospitalDepth2.value.
         hospitalDepth2selected.value = hospitalDepth2.value.filter(item => item.codeParentKey === selected);
     }
 },
     { immediate: true }
 );
-
-const handleProfileSection = (handleType, idx) => {
-    switch (handleType) {
-        case "add":
-            const lastSectionIdx = profileSection.value.length !== 0 ? profileSection.value.at(-1).idx : 0;
-            const addSectionIdx = lastSectionIdx + 1;
-
-            profileSection.value = [...profileSection.value, { idx: addSectionIdx, sectionValue: "" }];
-            break;
-
-        case "remove":
-            if (profileSection.value.length > 1) {
-                profileSection.value = profileSection.value.filter((el) => el.idx !== idx);
-                // selectedProfile은 profileSection과 독립적으로 삭제 처리
-                selectedProfile.value = selectedProfile.value.filter((el) => el.parentIdx !== idx);
-            } else {
-                SysAlert({
-                    type: 'alert',
-                    message: '한가지 이상은 필수입니다.',
-                });
-            }
-            break;
-
-        default:
-            break;
-    }
-};
 
 const handleContentEn = (content: any) => {
 
@@ -360,121 +280,6 @@ const handleContentId = (content: any) => {
 
     contentId.value = content;
 }
-
-const handleThumbnailChange = (event: Event) => {
-    insertThumb.value = [];
-    const target = event.target as HTMLInputElement;
-    if (target.files && target.files.length > 0) {
-        Array.from(target.files).forEach((file) => {
-            insertThumb.value.push(file);
-        });
-    }
-};
-
-const prevImg = (idx: Number) => {
-    const file = insertThumb.value[idx];
-    if (file) {
-        return URL.createObjectURL(file);
-    }
-};
-
-const removeThumbnail = () => {
-    thumbnail.value = [];
-    insertThumb.value = [];
-};
-
-const handleProfileType = (e: Event, sectionIdx: number) => {
-    const val = (e.target as HTMLSelectElement).value;
-    const section = profileSection.value.find((section) => section.idx === sectionIdx);
-
-    if (!section) return;
-
-    const isProfileSelected = profileSection.value.some((el) => el.sectionValue === val && el.idx !== sectionIdx); // 이미 다른 곳에서 선택되었는지 확인
-    const isProfileExist = selectedProfile.value.some((el) => el.parentIdx === sectionIdx);
-
-    if (isProfileSelected) {
-        SysAlert({
-            type: "alert",
-            message: "이미 선택하였습니다. 다른 항목을 선택해주세요",
-        });
-
-        if (isProfileExist) {
-            const selectedProfileItem = selectedProfile.value.find(
-                (el) => el.parentIdx === sectionIdx
-            );
-            if (selectedProfileItem) {
-                (e.target as HTMLSelectElement).value = selectedProfileItem.profileType;
-            }
-        } else {
-            (e.target as HTMLSelectElement).value = "";
-        }
-    } else {
-        section.sectionValue = val;
-        changedData.value[`profileType_${sectionIdx}`] = val;
-
-        if (!isProfileExist) {
-            selectedProfile.value.push({
-                parentIdx: sectionIdx,
-                profileType: val,
-                profileContent: "",
-                inputIdx: 1,
-            });
-        } else {
-            const selectedProfileItem = selectedProfile.value.find(
-                (el) => el.parentIdx === sectionIdx
-            );
-            if (selectedProfileItem) {
-                selectedProfileItem.profileType = val;
-            }
-        }
-    }
-};
-
-const handleInputBtn = (handleType, parentIdx, inputIdx) => {
-    switch (handleType) {
-        case "add":
-            const parentArr = selectedProfile.value.filter(
-                (el) => el.parentIdx === parentIdx
-            );
-
-            const newItem = {
-                parentIdx: parentIdx,
-                profileType: parentArr.at(-1).profileType,
-                profileContent: "",
-                inputIdx: parentArr.at(-1).inputIdx + 1,
-            };
-
-            selectedProfile.value.push(newItem);
-            break;
-
-        case "remove":
-            const removeIdx = selectedProfile.value.findIndex(
-                (el) => el.parentIdx === parentIdx && el.inputIdx === inputIdx
-            );
-
-            if (removeIdx !== -1) selectedProfile.value.splice(removeIdx, 1);
-
-        default:
-            break;
-    }
-};
-
-
-// input change 이벤트
-const handleInput = (e: Event, parentIdx: number, inputIdx: number) => {
-    const val = (e.target as HTMLInputElement).value;
-    const profile = selectedProfile.value.find(
-        (el) => el.parentIdx === parentIdx && el.inputIdx === inputIdx
-    );
-    if (profile) {
-        profile.profileContent = val;
-        changedData.value[`profileContent_${parentIdx}_${inputIdx}`] = val;
-    }
-};
-
-const handleCategory1 = (e) => {
-    selectedCategory1.value = e.target.value;
-};
 
 const goReg = async () => {
 
