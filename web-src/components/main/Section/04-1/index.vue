@@ -1,16 +1,16 @@
 <template>
     <div class="flex flex-col py-[120px] items-center ">
-        <div class="flex flex-col items-start w-[100vw] max-w-[1340px] pb-12 pl-6">
+        <div class="flex flex-col items-start w-[100vw] max-w-[1340px] pb-12 px-6">
             <div class="pb-[2rem]">
                 <MainSectionLinkTitle :title="t('main.section4-1.part1.title')" :color="'#477FF6'" :link="true" />
             </div>
-            <div class="font-[400] text-[1.5rem] text-[#717171] mb-[42px]">
+            <div class="font-[400] text-[20px] md:text-[26px] text-[#717171] mb-[42px]">
                 {{ t('main.section4-1.part1.desc') }}
             </div>
             <div class="swiper_area w-full max-w-[1222px] mx-auto">
                 <div class="relative">
                     <div
-                        class="absolute top-0 left-0 w-[926px] h-[524px] bg-[#266BFF] rounded-[38px] pointer-events-none ">
+                        class="absolute top-0 left-0 w-full max-w-full lg:max-w-[926px] h-full lg:h-[524px] bg-[#266BFF] rounded-[38px] pointer-events-none">
                     </div>
                     <Swiper :modules="[Autoplay, Pagination, Navigation]"
                         :autoplay="{ delay: 3000, disableOnInteraction: false }" :loop="true" :pagination="false"
@@ -20,23 +20,23 @@
                         }" @swiper="onSwiperInit" @slideChange="onSlideChange"
                         class="w-full flex justify-center items-center  mx-auto" ref="swiper">
                         <SwiperSlide v-for="(item, idx) in slide" :key="idx">
-                            <div class="flex justifiy-center items-center">
+                            <div class="flex justifiy-center items-center flex-col-reverse lg:flex-row">
                                 <div
-                                    class="slide_item relative w-1/2 h-[524px] flex flex-col justify-start items-start gap-[35px] p-[70px]  bg-cover bg-center">
-                                    <div class="font-[800] text-[19px] text-white">
+                                    class="slide_item relative w-full lg:w-1/2 h-full lg:h-[524px] flex flex-col justify-start items-start gap-[20px] lg:gap-[35px] p-[30px] xl:p-[70px]  bg-cover bg-center">
+                                    <div class="font-[800] text-[14px] lg:text-[19px] text-white">
                                         {{ item.subTitle }}
 
                                     </div>
-                                    <div class="font-[800] text-[45px] leading-[58px] text-white uppercase">
+                                    <div class="font-[800] text-[30px] lg:text-[45px] leading-[42px] lg:leading-[58px] text-white uppercase">
                                         {{ item.title }}
                                     </div>
 
-                                    <div class="font-[800] text-[28px] leading-[31px] text-white mt-[35px]">
+                                    <div class="font-[800] text-[20px] lg:text-[28px] leading-[22px] lg:leading-[31px] text-white mt-[15px] lg:mt-[35px]">
                                         {{ item.desc }}
                                     </div>
 
-                                    <div class="absolute top-[35px] right-[30px] pointer-event-none">
-                                        <img src="@/assets/images/main/section07/slide_arrow.png" alt="화살표">
+                                    <div class="absolute top-[25px] right-[10px] sm:right-[20px] lg:top-[35px] lg:right-[30px] w-[50px] h-[50px] lg:w-[80px] lg:h-[80px] pointer-event-none">
+                                        <img src="@/assets/images/main/section07/slide_arrow.png" alt="화살표" class="w-full h-full object-cover">
                                     </div>
                                 </div>
                                 <div>
@@ -46,17 +46,17 @@
                         </SwiperSlide>
                     </Swiper>
 
-                    <div class="absolute bottom-[-65px] left-[70px] font-[500] text-[16px] text-[#929292]">
+                    <div class="absolute bottom-[-117px] left-0 lg:bottom-[-65px] lg:left-[70px] font-[500] text-[16px] text-[#929292]">
                         {{ String(activeIndex + 1).padStart(2, '0') }}/{{ totalSlides }}
                     </div>
 
                     <div
-                        class="absolute bottom-[-56px] left-[165px] w-full max-w-[772px] h-[4px] bg-[#E3E3E3] overflow-hidden">
-                        <div ref="progressBarRef" class="h-full bg-[#477FF6] animate-progress"></div>
+                        class="absolute bottom-[-56px] left-0 lg:left-[165px] w-full max-w-full lg:max-w-[772px] h-[4px] bg-[#E3E3E3] overflow-hidden">
+                        <div ref="progressBarRef" class="w-full h-full bg-[#477FF6] animate-progress"></div>
                     </div>
 
                     <div
-                        class="flex justify-between items-center w-[150px] mb-4 absolute bottom-[-100px] right-[100px]">
+                        class="flex justify-between items-center w-[150px] mb-4 absolute bottom-[-150px] lg:bottom-[-100px] right-0 lg:right-[100px]">
                         <div class="swiper-button-prev-custom">
                             <img :src="isPrevHover ? prevOn : prevOff" @mouseover="isPrevHover = true"
                                 @mouseleave="isPrevHover = false" alt="이전 버튼" class="cursor-pointer" />
