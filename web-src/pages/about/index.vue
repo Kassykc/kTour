@@ -417,23 +417,8 @@
                         {{ t('about.part4.content1.desc1') }}<br />
                         {{ t('about.part4.content1.desc2') }}
                     </p>
-                    <div class="flex justify-center items-center gap-[8px]">
-                        <div>
-                            <img src="@/assets/images/sub/about/meditour01.png" alt="MediTour">
-                        </div>
-                        <div>
-                            <img src="@/assets/images/main/section01/arrow.png" alt="화살표">
-                        </div>
-                        <div>
-                            <img src="@/assets/images/sub/about/meditour02.png" alt="MediTour">
-                        </div>
-                        <div>
-                            <img src="@/assets/images/main/section01/arrow.png" alt="화살표">
-                        </div>
-                        <div>
-                            <img src="@/assets/images/sub/about/meditour03.png" alt="MediTour">
-                        </div>
-                    </div>
+                    
+                    <SubTreatmentStep />
                 </div>
             </div>
 
