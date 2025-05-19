@@ -33,17 +33,17 @@ const allTabs = {
         { key: 'meditour', label: 'tabs.about.meditour' },
     ],
     tour: [
-        { key: 'seoul', label: 'Seoul Tour', url: '/tour/seoul' },
-        { key: 'gangwon', label: 'Gangwon Tour', url: '/tour/gangwon' },
+        { key: 'seoul', label: 'menu.3.2depth.1.name', url: '/tour/seoul' },
+        { key: 'gangwon', label: 'menu.3.2depth.2.name', url: '/tour/gangwon' },
     ],
     mtc: [
         { key: 'mts', label: 'Medical Treatment Center' },
     ],
     inquiry: [
-        { key: 'news', label: 'News & Updates', url: '/inquiry/news' },
-        { key: 'faq', label: 'FAQ', url: '/inquiry/faq' },
-        { key: 'contact', label: 'Contact Us', url: '/inquiry/contact' },
-        { key: 'consultation', label: 'Request for Consultation', url: '/inquiry/consultation' },
+        { key: 'news', label: 'menu.6.2depth.1.name', url: '/inquiry/news' },
+        { key: 'faq', label: 'menu.6.2depth.2.name', url: '/inquiry/faq' },
+        { key: 'contact', label: 'menu.6.2depth.3.name', url: '/inquiry/contact' },
+        { key: 'consultation', label: 'menu.6.2depth.4.name', url: '/inquiry/consultation' },
     ],
 }
 
