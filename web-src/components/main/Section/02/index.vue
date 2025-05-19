@@ -10,8 +10,8 @@
             <div class="mb-[100px]">
                 <CommonBtnViewMore />
             </div>
-            <div class="chart_area w-full max-w-[1340px] flex justify-between items-start mb-[126px]">
-                <div class="rank w-[632px] h-[780px] flex flex-col justify-between items-center">
+            <div class="chart_area w-full max-w-[1340px] flex justify-between items-start gap-[70px] mb-[126px]">
+                <div class="rank w-[632px] h-[780px] flex flex-col justify-between items-center ">
                     <div class="flex flex-col justify-center items-start w-full">
                         <h1 class="title font-[700] text-[26px] mb-[20px]">
                             {{ t('main.section2.part1.desc.1.title') }}
@@ -24,8 +24,12 @@
                         <img src="@/assets/images/main/section02/rank.png" alt="rank"
                             class="w-full h-full object-cover">
                     </div>
+                    <p class="text-right text-[14px] w-full">
+                        <i>{{ t('about.part3.content1.source') }}</i>
+                    </p>
                 </div>
-                <div class="tourism w-[632px] h-[780px] flex flex-col justify-between items-center">
+
+                <div class="tourism w-[632px] h-[780px] flex flex-col justify-between items-center ">
                     <div class="flex flex-col justify-center items-start w-full">
                         <h1 class="title font-[700] text-[26px] mb-[20px]">
                             {{ t('main.section2.part1.desc.2.title') }}
@@ -38,6 +42,9 @@
                         <img src="@/assets/images/main/section02/tourism.png" alt="rank"
                             class="w-full h-full object-cover">
                     </div>
+                    <p class="text-right text-[14px] w-full">
+                        <i>{{ t('about.part3.content3.source') }}</i>
+                    </p>
                 </div>
             </div>
             <div class="font-[400] text-[1.5rem]">

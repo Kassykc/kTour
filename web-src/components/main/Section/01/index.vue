@@ -29,28 +29,19 @@
                     </p>
                 </div>
                 <div class="w-full max-w-[884px] flex justify-center items-center mx-auto">
-                    <img src="@/assets/images/main/section01/k_medi_tour.png" alt="Medi Tour">
+                    <img src="@/assets/images/main/section01/k_medi_tour.png" alt="Medi Tour" v-if="common.getCookie('lang')=='en'">
+                    <img src="@/assets/images/main/section01/k_medi_tour_id.png" alt="Medi Tour" v-if="common.getCookie('lang')=='id'">
                 </div>
             </div>
             <div class="works_area">
                 <h1 class="title font-[700] text-[60px] text-center mb-[64px]">
-                     {{ t('main.section1.part2.title') }}
+                    {{ t('main.section1.part2.title') }}
                 </h1>
                 <h3 class="font-[600] text-[26px] text-center px-[250px] mb-[70px]">
                     {{ t('main.section1.part2.desc') }}
                 </h3>
-                <div class="step_area flex justify-center items-center mb-[60px]">
-                    <img src="@/assets/images/main/section01/step01.png" alt="step">
-                    <img src="@/assets/images/main/section01/arrow.png" alt="화살표">
-                    <img src="@/assets/images/main/section01/step02.png" alt="step">
-                    <img src="@/assets/images/main/section01/arrow.png" alt="화살표">
-                    <img src="@/assets/images/main/section01/step03.png" alt="step">
-                    <img src="@/assets/images/main/section01/arrow.png" alt="화살표">
-                    <img src="@/assets/images/main/section01/step04.png" alt="step">
-                    <img src="@/assets/images/main/section01/arrow.png" alt="화살표">
-                    <img src="@/assets/images/main/section01/step05.png" alt="step">
 
-                </div>
+                <SubWorksStep />
             </div>
         </div>
     </div>

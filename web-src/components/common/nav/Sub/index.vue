@@ -9,7 +9,7 @@
         v-html="menus[activeNav]?.title">
       </div>
       <div
-        class="submenu_area flex flex-wrap items-center min-w-[250px] w-auto h-[180px] pl-[20px] gap-x-[8px] gap-y-[4px]">
+        class="submenu_area flex flex-wrap items-center min-w-[250px] w-[50%] h-[180px] pl-[20px] gap-x-[8px] gap-y-[4px]">
         <div v-for="(item, idx) in submenus[activeNav]" :key="idx" class="w-[48%] text-left">
           <div
             class="text-black cursor-pointer hover:text-[#F57E1F] text-[13px] md:text-[14px] lg:text-[20px] font-[700] px-[10px]"

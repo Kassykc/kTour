@@ -13,11 +13,17 @@
                     </p>
                     <div class="about_intro flex flex-wrap justify-center items-center mb-[100px]">
                         <img src="@/assets/images/sub/about/company01.png" alt="About Medi-City"
-                            class="mix-blend-multiply">
+                            class="mix-blend-multiply" v-if="common.getCookie('lang')=='en'">
                         <img src="@/assets/images/sub/about/company02.png" alt="Our Mission"
-                            class="ml-[-38px] mix-blend-multiply">
+                            class="ml-[-38px] mix-blend-multiply" v-if="common.getCookie('lang')=='en'">
                         <img src="@/assets/images/sub/about/company03.png" alt="What We Offer"
-                            class="ml-[-38px] mix-blend-multiply">
+                            class="ml-[-38px] mix-blend-multiply" v-if="common.getCookie('lang')=='en'">
+                        <img src="@/assets/images/sub/about/company01_id.png" alt="About Medi-City"
+                            class="mix-blend-multiply" v-if="common.getCookie('lang')=='id'">
+                        <img src="@/assets/images/sub/about/company02_id.png" alt="Our Mission"
+                            class="ml-[-38px] mix-blend-multiply" v-if="common.getCookie('lang')=='id'">
+                        <img src="@/assets/images/sub/about/company03_id.png" alt="What We Offer"
+                            class="ml-[-38px] mix-blend-multiply" v-if="common.getCookie('lang')=='id'">
                     </div>
                     <SubMoreBtn label="Medi-Tour Program" width="w-[348px]" bgColor="bg-[#001181]" url="/" />
                 </div>
@@ -81,7 +87,8 @@
                         {{ t('about.part2.content1.desc1') }}
                     </p>
                     <div class="tour_program w-full flex justify-center items-center mb-[46px]">
-                        <img src="@/assets/images/sub/about/medi_tour.png" alt="Medi Tour" class="">
+                        <img src="@/assets/images/sub/about/medi_tour.png" alt="Medi Tour" class="" v-if="common.getCookie('lang')=='en'">
+                        <img src="@/assets/images/sub/about/medi_tour_id.png" alt="Medi Tour" class="" v-if="common.getCookie('lang')=='id'">
                     </div>
                     <div
                         class="w-full max-w-[1128px] h-[166px] p-[40px] flex justify-center items-center text-white font-[600] text-[22px] bg-[#001181] mx-auto">
