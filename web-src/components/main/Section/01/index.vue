@@ -15,16 +15,16 @@
     </div> -->
     <div>
         <div class="about_service w-full max-w-[1340px] my-0 mx-auto py-[136px]">
-            <div class="service_area mb-[240px]">
-                <h1 class="title font-[700] text-[60px] text-center mb-[64px]">
+            <div class="service_area mb-[120px] md:mb-[240px]">
+                <h1 class="title font-[700] text-[40px] md:text-[60px] text-center mb-[40px] md:mb-[64px]">
                     {{ t('main.section1.part1.title') }}
                 </h1>
                 <div
                     class="program w-full max-w-[884px] flex flex-col justify-center items-center gap-[25px] mx-auto mb-[90px]">
-                    <h3 class="font-[600] text-[26px] text-center">
+                    <h3 class="font-[600] text-[20px] md:text-[26px] text-center">
                         {{ t('main.section1.part1.subtitle') }}
                     </h3>
-                    <p class="text-[22px] text-center">
+                    <p class="text-[18px] md:text-[22px] text-center">
                         {{ t('main.section1.part1.desc') }}
                     </p>
                 </div>
@@ -34,10 +34,10 @@
                 </div>
             </div>
             <div class="works_area">
-                <h1 class="title font-[700] text-[60px] text-center mb-[64px]">
+                <h1 class="title font-[700] text-[40px] md:text-[60px] text-center mb-[40px] md:mb-[64px]">
                     {{ t('main.section1.part2.title') }}
                 </h1>
-                <h3 class="font-[600] text-[26px] text-center px-[250px] mb-[70px]">
+                <h3 class="font-[600] text-[20px] md:text-[26px] text-center mx-auto mb-[70px]">
                     {{ t('main.section1.part2.desc') }}
                 </h3>
 
