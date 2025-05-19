@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-wrap justify-start gap-x-[16px] gap-y-[110px]">
+    <div class="flex flex-wrap justify-start gap-x-[16px] gap-y-[110px] ml-[10px]">
         <div v-for="(item, index) in props.list" :key="index" class="treatment flex flex-col items-start w-[320px] cursor-pointer"
         @click="router.push(item.url)"
         >

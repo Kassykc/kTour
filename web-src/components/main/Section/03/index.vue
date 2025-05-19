@@ -7,7 +7,7 @@
             <div class="pb-[2rem]">
                 <MainSectionLinkTitle :title="t('main.section3.part1.title')" :color="'#5C8F3F'" :link="true" />
             </div>
-            <div class="font-[400] text-[1.5rem] text-[#717171]">
+            <div class="font-[400] text-[20px] md:text-[26px] text-[#717171]">
                 {{ t('main.section3.part1.desc1') }}<br />
                 {{ t('main.section3.part1.desc2') }}
             </div>
