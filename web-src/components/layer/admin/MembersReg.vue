@@ -339,10 +339,6 @@ const goReg = async () => {
         params.file = files.value;
     }
 
-    if (thumbnails.value.length > 0) {
-        params.thumbnail = thumbnails.value;
-    }
-
     params.profileInfo = [];
     try {
         const response = await memberMngStore.insertPeople(params);
@@ -390,11 +386,6 @@ const goUpdate = async () => {
     if (files.value.length > 0) {
         params.file = files.value;
     }
-
-    if (thumbnails.value.length > 0) {
-        params.thumbnail = thumbnails.value;
-    }
-
     // params.userStatus = params.userStatusCd;
     // params.gender = params.genderCd;
     // params.signinPolicy = params.signinPolicyCd;

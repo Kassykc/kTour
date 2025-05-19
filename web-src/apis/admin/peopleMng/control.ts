@@ -118,7 +118,7 @@ export const getPeopleCategory = async (data: any) => {
 };
 
 export const postPeople = async (data: any) => {
-  const formData = createFormData(
+  const formData = await createFormData(
     data,
     data?.file,
     data?.attachmentPeople,
@@ -150,7 +150,7 @@ export const postPeopleCategory = async (data: any) => {
 };
 
 export const putPeople = async (data: any) => {
-  const formData = createFormData(
+  const formData = await createFormData(
     data,
     data?.file,
     data?.attachmentPeople,
