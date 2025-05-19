@@ -91,3 +91,5 @@ export function addMessages(
   const existingMessages = composer.getLocaleMessage(locale);
   composer.setLocaleMessage(locale, { ...existingMessages, ...newMessages });
 }
+
+export { composer };

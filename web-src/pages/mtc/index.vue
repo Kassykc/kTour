@@ -8,7 +8,7 @@
                     {{ t('mts.title') }}
                 </div>
 
-                <SubCategoryTab @update:selectedCategory="updateSelectedCategory" class="py-[60px]"/>
+                <SubCategoryTab @update:selectedCategory="updateSelectedCategory" class="py-[60px]" />
 
                 <SubSearchBar class="mb-[74px]" />
 
@@ -17,7 +17,7 @@
                 </div>
 
                 <!-- <SubSearchListTab :selectedCategory="selectedCategory" /> -->
-                <SubSearchListTab class="mb-[116px]" />
+                <SubSearchListTab class="mb-[116px]" :depth2List="depth2List" />
 
                 <SubSearchList />
                 <SubSearchList />
@@ -37,9 +37,15 @@ const bannerBgImage = ref(mts_bg); // 배경 이미지 경로
 const category = ref('mtc');
 const selectedTab = ref('mtc');
 const selectedCategory = ref(t('mts.tab.1')); // 선택된 카테고리 이름을 저장
+const depth2List = ref();
 
-const updateSelectedCategory = (categoryName: string) => {
+const updateSelectedCategory = (categoryName: string, depth2?: any) => {
     selectedCategory.value = categoryName;  // selectedCategory 업데이트
+
+    if (depth2) {
+        depth2List.value = [];
+        depth2List.value = depth2;
+    }
 };
 
 </script>

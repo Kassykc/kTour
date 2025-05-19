@@ -77,8 +77,8 @@
                 <div class="name_wrap cont_wrap">
                     <div class="category_tit">해시태그<span class="necessary">*</span></div>
                     <div class="cont_area">
-                        <select class="slect_area" v-if="hospitalDepth2" v-model="hashtag">
-                            <option v-for="child in hospitalDepth2" :value="child.codeKey">
+                        <select class="slect_area" v-if="hospitalDepth2" v-model="hashtag" multiple>
+                            <option v-for="child in hospitalDepth2" :value="child">
                                 {{ child.codeValue }}
                             </option>
                         </select>
@@ -118,15 +118,6 @@
                     첨부파일</label>
                 <AdminCommonBoardFileContainer :files="files" @update:files="updateFiles" :isAttFile="true" />
             </div>
-
-            <div
-                class="input_area board_title flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-t border-[#dcdcdc]">
-                <label
-                    class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
-                    썸네일</label>
-                <AdminCommonBoardFileContainer :files="thumbnails" @update:files="updateThumbnails"
-                    :isAttFile="false" />
-            </div>
         </div>
 
         <!-- 버튼 영역 -->
@@ -144,9 +135,11 @@
 import { useMemberMngStore } from '@/stores/admin/peopleStore';
 import type { ResultInfo, FileInfo, ProfileInfo } from '@/types/admin/people';
 import { useMenuStore } from "@/stores/admin/common/menuStore";
+import Multiselect from 'vue-multiselect'
+import 'vue-multiselect/dist/vue-multiselect.min.css'
 
 const memberMngStore = useMemberMngStore('people-adm-dtl');
-const codeStore = useMenuStore('code');
+const codeStore = useMenuStore('adm-code');
 const fileBaseUrl = apiBase.url() + "/_file/000/";
 
 const resData = ref<ResultInfo>({
