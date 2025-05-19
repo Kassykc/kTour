@@ -97,15 +97,16 @@ onMounted(() => {
         }
     });
 
-    document.addEventListener(
-        "touchmove",
-        (event) => {
-            if (window.scrollY === 0) {
-                event.preventDefault();
-            }
-        },
-        { passive: false }
-    );
+    // 터치 막는 주범
+    // document.addEventListener(
+    //     "touchmove",
+    //     (event) => {
+    //         if (window.scrollY === 0) {
+    //             event.preventDefault();
+    //         }
+    //     },
+    //     { passive: false }
+    // );
 
     // 뒤로 가기 처리
     window.addEventListener('popstate', () => {

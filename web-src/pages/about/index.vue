@@ -3,8 +3,8 @@
         <Banner :title="bannerTitle" :bgImage="bannerBgImage" :category="category" :selectedTab="selectedTab" />
 
         <div class="content_area">
-            <div id="company">
-                <div class="company medicity w-full max-w-[1340px] pt-[160px] pb-[120px] my-0 mx-auto">
+            <div id="company" class="">
+                <div class="company medicity w-full max-w-[1340px] pt-[160px] pb-[120px] px-[20px] my-0 mx-auto">
                     <h2 class="area_name text-[65px] font-[700] mb-[120px]">
                         {{ t('about.part1.title') }}
                     </h2>
@@ -13,17 +13,17 @@
                     </p>
                     <div class="about_intro flex flex-wrap justify-center items-center mb-[100px]">
                         <img src="@/assets/images/sub/about/company01.png" alt="About Medi-City"
-                            class="mix-blend-multiply" v-if="common.getCookie('lang')=='en'">
+                            class="mix-blend-multiply w-[280px] h-[280px] sm:w-[450px] sm:h-[450px]" v-if="common.getCookie('lang')=='en'">
                         <img src="@/assets/images/sub/about/company02.png" alt="Our Mission"
-                            class="ml-[-38px] mix-blend-multiply" v-if="common.getCookie('lang')=='en'">
+                            class="ml-0 mt-[-28px] md:mt-0 md:ml-[-38px] mix-blend-multiply w-[280px] h-[280px] sm:w-[450px] sm:h-[450px]" v-if="common.getCookie('lang')=='en'">
                         <img src="@/assets/images/sub/about/company03.png" alt="What We Offer"
-                            class="ml-[-38px] mix-blend-multiply" v-if="common.getCookie('lang')=='en'">
+                            class="ml-0 mt-[-28px] md:mt-0 md:ml-[-38px] mix-blend-multiply w-[280px] h-[280px] sm:w-[450px] sm:h-[450px]" v-if="common.getCookie('lang')=='en'">
                         <img src="@/assets/images/sub/about/company01_id.png" alt="About Medi-City"
-                            class="mix-blend-multiply" v-if="common.getCookie('lang')=='id'">
+                            class="mix-blend-multiply w-[280px] h-[280px] sm:w-[450px] sm:h-[450px]" v-if="common.getCookie('lang')=='id'">
                         <img src="@/assets/images/sub/about/company02_id.png" alt="Our Mission"
-                            class="ml-[-38px] mix-blend-multiply" v-if="common.getCookie('lang')=='id'">
+                            class="ml-0 mt-[-28px] md:mt-0 md:ml-[-38px] mix-blend-multiply w-[280px] h-[280px] sm:w-[450px] sm:h-[450px]" v-if="common.getCookie('lang')=='id'">
                         <img src="@/assets/images/sub/about/company03_id.png" alt="What We Offer"
-                            class="ml-[-38px] mix-blend-multiply" v-if="common.getCookie('lang')=='id'">
+                            class="ml-0 mt-[-28px] md:mt-0 md:ml-[-38px] mix-blend-multiply w-[280px] h-[280px] sm:w-[450px] sm:h-[450px]" v-if="common.getCookie('lang')=='id'">
                     </div>
                     <SubMoreBtn label="Medi-Tour Program" width="w-[348px]" bgColor="bg-[#001181]" url="/" />
                 </div>

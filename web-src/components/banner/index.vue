@@ -7,7 +7,7 @@
         <!-- bg-[url('@/assets/images/sub/banner_bg.png')] -->
             <div
                 class="title_area max-w-[1340px] w-full h-[435px] flex flex-col justify-center items-center my-0 mx-auto">
-                <div class="title text-white font-[700] text-[80px] mt-[100px]">{{ title }}</div>
+                <div class="title text-white font-[700] text-[32px] sm:text-[48px] lg:text-[80px] mt-[100px]">{{ title }}</div>
                 <SubTab v-model="selectedTab" :category="category" />
             </div>
         </div>
