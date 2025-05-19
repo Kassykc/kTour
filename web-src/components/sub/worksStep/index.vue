@@ -5,7 +5,7 @@
                 <!-- STEP 카드 -->
                 <div
                     :class="[
-                    'w-[246px] h-[372px] rounded-[260px] py-[58px] px-[30px] flex flex-col justify-start items-center gap-[22px] text-center',
+                    'w-[243px] h-[372px] rounded-[260px] py-[58px] px-[30px] flex flex-col justify-start items-center gap-[22px] text-center',
                     step.bgColor
                     ]"
                 >

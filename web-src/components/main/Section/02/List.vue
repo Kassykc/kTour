@@ -1,7 +1,9 @@
 <template>
-    <div class="flex justify-center items-center gap-2">
-        <div v-for="(item, index) in imgList" :key="index">
-            <img :src="item.img" alt="img" class="w-[17vw]">
+    <div class="flex justify-center items-center flex-col md:flex-row flex-wrap gap-10 md:gap-2">
+        <div v-for="(item, index) in imgList" :key="index" class="">
+            <div class="w-[296px] h-[340px]">
+                <img :src="item.img" alt="img" class="w-full h-full object-cover">
+            </div>
             <div class="pt-[0.5rem] font-[500] text-[1.2rem]">{{ item.title }}</div>
         </div>
     </div>
