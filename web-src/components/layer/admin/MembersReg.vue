@@ -74,6 +74,17 @@
                         <input type="text" placeholder="공식홈페이지" v-model="site" class="input_firstName input_area">
                     </div>
                 </div>
+                <div class="name_wrap cont_wrap">
+                    <div class="category_tit">해시태그<span class="necessary">*</span></div>
+                    <div class="cont_area">
+                        <div>해시태그 : </div>
+                        <select class="slect_area" v-if="hospitalDepth2" v-model="hashtah">
+                            <option v-for="child in hospitalDepth2" :value="child.codeKey">
+                                {{ child.codeValue }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
                 <div class="sort_wrap cont_wrap">
                     <div class="category_tit">정렬 순서</div>
                     <div class="cont_area">
@@ -538,7 +549,7 @@ const goUpdate = async () => {
     if (thumbnails.value.length > 0) {
         params.thumbnail = thumbnails.value;
     }
-    
+
     // params.userStatus = params.userStatusCd;
     // params.gender = params.genderCd;
     // params.signinPolicy = params.signinPolicyCd;
