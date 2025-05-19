@@ -3,12 +3,13 @@
         <div
         :class="[ 
             'border-b',
-            isHeaderHover || isSubVisible
+            isHeaderActive 
             ? 'bg-white/90 border-[#ADADAD]'
             : 'border-[transparent]'
         ]"
-        @mouseenter="isHeaderHover = true"
+        @mouseenter="handleHeaderEnter"
         @mouseleave="handleHeaderLeave"
+        @touchstart="onTouchStart"
         >
         <div
             class="px-[28px] sm:px-[18px] flex justify-between items-center w-full max-w-[1340px] mx-auto min-w-[320px] min-h-[85px] max-h-[85px]">
@@ -47,35 +48,61 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 const isHeaderHover = ref(false)
+const isTouchActive = ref(false)
 const activeNav = ref<number | null>(null)
 const submenuHover = ref(false)
+const windowWidth = ref(0)
 
 const isSubVisible = computed(() => activeNav.value !== null || submenuHover.value)
+const isHeaderActive = computed(() =>
+  (isDesktop.value && (isHeaderHover.value || isSubVisible.value)) ||
+  (isTouchActive.value && isDesktop.value)
+)
+
+const isDesktop = computed(() => windowWidth.value >= 1024)
 
 let hideTimer: number
 
+const updateWindowWidth = () => {
+  windowWidth.value = window.innerWidth
+}
+
+onMounted(() => {
+  windowWidth.value = window.innerWidth
+  window.addEventListener('resize', updateWindowWidth)
+})
+onUnmounted(() => {
+  window.removeEventListener('resize', updateWindowWidth)
+})
+
 const handleNavHover = (index: number) => {
+  if (!isDesktop.value) return
   clearTimeout(hideTimer)
   activeNav.value = index
+  isTouchActive.value = false
 }
 
 const handleNavLeave = () => {
+  if (!isDesktop.value) return
   hideTimer = window.setTimeout(() => {
     if (!submenuHover.value) {
-      activeNav.value = null  // ✅ nav만 초기화, 헤더 hover는 유지
+      activeNav.value = null
+      isTouchActive.value = false
     }
   }, 200)
 }
 
 const handleSubmenuEnter = () => {
+  if (!isDesktop.value) return
   clearTimeout(hideTimer)
   submenuHover.value = true
 }
 
 const handleSubmenuLeave = () => {
+  if (!isDesktop.value) return
   submenuHover.value = false
   hideTimer = window.setTimeout(() => {
     resetHeaderState()
@@ -83,16 +110,32 @@ const handleSubmenuLeave = () => {
 }
 
 const resetHeaderState = () => {
+  if (isTouchActive.value) return  // 👈 터치 중이면 무시
   isHeaderHover.value = false
   activeNav.value = null
 }
 
 const handleHeaderLeave = () => {
+  if (!isDesktop.value) return
   hideTimer = window.setTimeout(() => {
     if (!submenuHover.value && activeNav.value === null) {
       resetHeaderState()
     }
   }, 200)
+}
+
+const handleHeaderEnter = () => {
+  if (!isDesktop.value) return
+  isHeaderHover.value = true
+}
+
+
+// 👇 터치 이벤트 추가 (1024 이상에서 탭 시 헤더 활성화)
+const onTouchStart = () => {
+  if (isDesktop.value) {
+    isTouchActive.value = true
+    isHeaderHover.value = false
+  }
 }
 
 </script>

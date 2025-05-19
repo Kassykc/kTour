@@ -1,7 +1,7 @@
 <template>
-    <div class="flex flex-col pt-[5rem] items-center h-[100%] max-h-[2400px] bg-[#fff] pb-[5rem]">
-        <div class="flex flex-col items-start w-[100vw] max-w-[1340px] pb-10 border-b border-black">
-            <div class="pb-[2rem]">
+    <div class="flex flex-col pt-[10rem] items-center h-full bg-[#fff] pb-[5rem] px-[20px]">
+        <div class="flex flex-col items-start w-full max-w-[1340px] pb-2 lg:pb-10 border-b border-black">
+            <div class="flex flex-col justify-center items-start pb-[2rem]">
                 <MainSectionLinkTitle :title="t('main.section6.part1.title')" :color="'#7A5083'" />
             </div>
         </div>

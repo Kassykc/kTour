@@ -1,16 +1,16 @@
 <template>
-    <div class="flex flex-col pt-[10rem] items-center h-[100%] max-h-[2400px] bg-[#FAFAFA]">
-        <div class="flex flex-col items-start w-[100vw] max-w-[1340px] pb-12 pl-6">
+    <div class="flex flex-col pt-[10rem] items-center w-full h-full bg-[#FAFAFA]">
+        <div class="flex flex-col items-start w-[100vw] max-w-[1340px] pb-12 px-6">
             <div class="pb-[2rem]">
                 <MainSectionLinkTitle :title="t('main.section4.part1.title')" :color="'#F57E1F'" :link="true" />
             </div>
-            <div class="font-[400] text-[1.5rem] text-[#717171]">
+            <div class="font-[400] text-[20px] md:text-[26px] text-[#717171]">
                 {{ t('main.section4.part1.desc1') }}<br />
                 {{ t('main.section4.part1.desc2') }}
             </div>
         </div>
 
-        <div class="max-w-[1340px] pt-[4rem] pb-[10rem] border-t border-black">
+        <div class="max-w-[1340px] w-full pt-[4rem] pb-[10rem] border-t border-black">
             <MainSection04List :list="list" />
         </div>
 

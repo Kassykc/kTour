@@ -11,9 +11,9 @@
                 <li v-for="(item, index) in menuItems" :key="index" class="relative">
                     <div v-if="item.link.startsWith('http')">
                         <a :href="item.link" :id="'nav' + index" target="_blank" rel="noopener noreferrer"
-                            class="block text-[15px] font-[600] py-[21px] px-[20px] leading-[15px] text-center"
+                            class="block text-[15px] font-[600] py-[21px] px-[20px] leading-[15px] text-center text-white"
                             :class="[
-                                item.isOpen ? 'text-[#fff] bg-[#E61673]' : 'text-[#E61673]'
+                                item.isOpen ? '!text-white bg-[#1D43FF]' : ''
                             ]"
                         >
                             {{ t(item.title) }}
@@ -21,9 +21,9 @@
                     </div>
                     <div v-else>
                         <NuxtLink :to="item.link" :id="'nav' + index" @click="menuDepth($event, index)"
-                            class="block text-[15px] font-[600] py-[21px] px-[20px] leading-[15px] text-center"
+                            class="block text-[15px] font-[600] py-[21px] px-[20px] leading-[15px] text-center text-white"
                             :class="[
-                                item.isOpen ? '!text-white bg-[#E61673]' : 'text-[#E61673]'
+                                item.isOpen ? '!text-white bg-[#1D43FF]' : ''
                             ]"
                             >
                             <!-- :class="{ selected: item.isOpen }" -->
@@ -45,15 +45,15 @@
         </nav>
         <div id="menu-icon2" class="all_menu ralative w-[30px] h-[20px] transform rotate-0 transition-all duration-500 ease-in-out cursor-pointer z-[9999]" @click="menuClick">
             <span 
-                class="block absolute w-full h-[3px] bg-[#E61673] left-0 opacity-[1]  transform  transition-all duration-250 ease-in-out"
+                class="block absolute w-full h-[3px] bg-white left-0 opacity-[1]  transform  transition-all duration-250 ease-in-out"
                 :class="isMenuOpen ? 'top-[6px] rotate-[-45deg]' : 'top-0 rotate-0'"
             ></span>
             <span 
-                class="block absolute w-full h-[3px] bg-[#E61673] top-[8px] left-0   transform rotate-0 transition-all duration-250 ease-in-out"
+                class="block absolute w-full h-[3px] bg-white top-[8px] left-0   transform rotate-0 transition-all duration-250 ease-in-out"
                 :class="isMenuOpen ? 'opacity-[0]' : 'opacity-[1]'"
             ></span>
             <span 
-                class="short block absolute  h-[3px] bg-[#E61673] opacity-[1] transform transition-all duration-250 ease-in-out"
+                class="short block absolute  h-[3px] bg-white opacity-[1] transform transition-all duration-250 ease-in-out"
                 :class="isMenuOpen ? 'top-[6px] rotate-[-135deg] w-[30px] left-0' : 'top-[17px] left-[10px] w-[20px] rotate-0'"
             ></span>
         </div>
