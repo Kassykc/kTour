@@ -2,7 +2,7 @@
     <div>
         <div 
             class="banner_area w-full h-[435px] bg-cover bg-center"
-            :style="{ backgroundImage: `url(${bgImage})` }"    
+            :style="{ backgroundImage: `url(${fileBaseUrl + bgImage})` }"    
         >
         <!-- bg-[url('@/assets/images/sub/banner_bg.png')] -->
             <div
@@ -13,16 +13,18 @@
         </div>
     </div>
 </template>
-<script lang="ts">
-export default {
-    props: {
-        title: {
+<script setup lang="ts">
+
+const fileBaseUrl = apiBase.url() + "/_file/000/";
+
+const props = defineProps({
+title: {
             type: String,
             default: '',
         },
         bgImage: {
-            type: String,
-            default: '', // 기본값을 빈 문자열로 설정
+            type: Array,
+            default: [], // 기본값을 빈 문자열로 설정
         },
         category: {
             type: String,
@@ -32,20 +34,14 @@ export default {
             type: String,
             default: 'company', // 부모로부터 전달된 기본 탭 값
         }
-    },
-    setup(props) {
-        const selectedTab = ref(props.selectedTab);
+})
+
+const selectedTab = ref(props.selectedTab);
 
         // 카테고리 변경 시, 탭 초기화
         watch(() => props.category, (newCategory) => {
             selectedTab.value = 'company'; // 카테고리 변경 시 'company'로 초기화
         });
-
-        return {
-            selectedTab
-        };
-    }
-};
 </script>
 <style lang="">
     

@@ -35,7 +35,7 @@ import { t } from '@/plugins/i18n'
 import mts_bg from "@/assets/images/sub/mtc/banner_bg.png";
 import { useMemberMngStore } from '~/stores/admin/peopleStore';
 
-const memberMngStore = useMemberMngStore('people-adm');
+const memberMngStore = useMemberMngStore('people-mtc');
 
 const bannerTitle = ref('MTC');
 const bannerBgImage = ref(mts_bg); // 배경 이미지 경로
