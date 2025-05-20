@@ -287,6 +287,14 @@ const common = {
     }
     return obj; // 원시값(문자열, 숫자, 불리언 등)은 그대로 유지
   },
+
+  cleanObject(obj: Record<string, any>) {
+    return Object.fromEntries(
+      Object.entries(obj).filter(
+        ([_, value]) => value !== null && value !== undefined && value !== ""
+      )
+    );
+  },
 };
 
 export default common; // default export 추가

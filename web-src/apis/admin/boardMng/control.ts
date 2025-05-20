@@ -17,7 +17,7 @@ export const postBoardList = async (data: any) => {
 };
 
 export const postBoard = async (data: any) => {
-  const formData = createFormData(data, data?.file, data?.thumbnail);
+  const formData = await createFormData(data, data?.file, data?.thumbnail);
   const { fetchData } = useApi();
   const params: ApiRequest = {
     url: BOARDMNG_API_URLS.INSERT_BOARD_URL,
@@ -43,7 +43,7 @@ export const getBoard = async (data: any) => {
 };
 
 export const updateBoard = async (data: any) => {
-  const formData = createFormData(data, data?.file, data?.thumbnail);
+  const formData = await createFormData(data, data?.file, data?.thumbnail);
   const { fetchData } = useApi();
   const params: ApiRequest = {
     url: BOARDMNG_API_URLS.SET_BOARD_URL,
