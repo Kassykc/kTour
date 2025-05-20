@@ -1,26 +1,22 @@
 <template>
     <div class="reg_wrap">
-        <!-- 인물 필수 정보 -->
-        <div class="reg_area reg_necessary_area w-full mb-[30px]">
-            <h4 class="reg_tit text-[18px] mb-[20px]">인물 필수 정보</h4>
-            <div
-                class="reg_nameVisibility_area divide_row_area row_area flex justify-center items-center w-full border-t">
-                <div class="name_wrap cont_wrap flex justify-start items-stretch w-[50%]">
-                    <div
-                        class="category_tit flex justify-center items-center bg-[#f5f5f5] border-r flex-0 text-[14px] font-[600] max-w-[120px] min-h-full w-[120px]">
-                        병원명<span class="necessary text-[#e60000]">*</span></div>
-                    <div
-                        class="reg_name_wrap cont_area flex justify-start items-center p-[20px] w-[calc(100% - 120px)]">
-                        <input type="text" placeholder="en" v-model="resData.nameFirstKo"
-                            class="input_firstName input_area bg-white border rounded-[6px] h-[30px] px-[10px] py-0 w-full">
-                        <input type="text" placeholder="id" v-model="resData.nameFirstEn"
-                            class="input_lastName input_area bg-white border rounded-[6px] h-[30px] px-[10px] py-0 w-full">
+        <!-- 병원원 정보 -->
+        <div class="reg_area reg_necessary_area">
+            <h4 class="reg_tit text-[18px] mb-[20px] text-left font-[700]">병원 정보</h4>
+            <div class="reg_nameVisibility_area divide_row_area row_area flex justify-start items-center border-t">
+                <div class="name_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-[50%] h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">병원명<span class="necessary text-[#ff0000]">*</span></div>
+                    <div class="reg_name_wrap cont_area py-[10px] !px-0 !m-auto w-full flex justify-start items-center gap-[4px]">
+                        <input type="text" placeholder="en" v-model="resData.userNameKo"
+                            class="input_firstName input_area border rounded-[6px] px-[10px] py-[4px] w-[48%]">
+                        <input type="text" placeholder="id" v-model="resData.userNameEn"
+                            class="input_lastName input_area border rounded-[6px] px-[10px] py-[4px] w-[48%]">
                     </div>
                 </div>
-                <div class="visibility_wrap cont_wrap">
-                    <div class="category_tit">노출여부 <span class="necessary">*</span></div>
-                    <div class="visibility_area cont_area">
-                        <select v-model="resData.showYn" class="slect_area">
+                <div class="visibility_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-[50%] h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">노출여부 <span class="necessary text-[#ff0000]">*</span></div>
+                    <div class="visibility_area cont_area py-[10px] !px-0 !m-auto w-full">
+                        <select v-model="resData.showYn" class="slect_area border rounded-[6px] w-[90%] px-[10px]">
                             <option value="Y">노출</option>
                             <option value="N">비노출</option>
                         </select>
@@ -28,58 +24,58 @@
                 </div>
             </div>
             <div class="category_sort_area divide_row_area row_area">
-                <div class="category_wrap cont_wrap">
-                    <div class="category_tit">카테고리<span class="necessary">*</span></div>
-                    <div class="cont_area">
+                <div class="category_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">카테고리<span class="necessary text-[#ff0000]">*</span></div>
+                    <div class="cont_area flex justify-start items-center gap-[8px] w-[40%]">
                         <div>분과 : </div>
-                        <select class="slect_area" v-if="hospitalDepth1" v-model="resData.categoryParentIdx">
+                        <select class="slect_area w-fit px-[10px]" v-if="hospitalDepth1" v-model="resData.categoryParentIdx">
                             <option v-for="child in hospitalDepth1" :value="child.codeKey">
                                 {{ child.codeValue }}
                             </option>
                         </select>
                     </div>
-                    <div class="cont_area">
+                    <div class="cont_area flex justify-start items-center gap-[8px] w-[40%]">
                         <div>세부항목 : </div>
-                        <select class="slect_area" v-if="hospitalDepth2" v-model="resData.categoryChildIdx">
+                        <select class="slect_area w-fit min-w-[200px] px-[10px]" v-if="hospitalDepth2" v-model="resData.categoryChildIdx">
                             <option v-for="child in hospitalDepth2selected" :value="child.codeKey">
                                 {{ child.codeValue }}
                             </option>
                         </select>
                     </div>
                 </div>
-                <div class="name_wrap cont_wrap">
-                    <div class="category_tit">주소<span class="necessary">*</span></div>
+                <div class="name_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">주소<span class="necessary text-[#ff0000]">*</span></div>
                     <div class="reg_name_wrap cont_area">
-                        <input type="text" placeholder="" v-model="resData.email" class="input_firstName input_area">
+                        <input type="text" placeholder="" v-model="resData.email" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
                     </div>
                 </div>
-                <div class="name_wrap cont_wrap">
-                    <div class="category_tit">연락처<span class="necessary">*</span></div>
+                <div class="name_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">연락처<span class="necessary text-[#ff0000]">*</span></div>
                     <div class="reg_name_wrap cont_area">
                         +<input type="text" placeholder="" v-model="resData.interPhoneNumber"
-                            class="input_firstName input_area">)
-                        <input type="text" placeholder="" v-model="resData.mobile1" class="input_firstName input_area">-
-                        <input type="text" placeholder="" v-model="resData.mobile2" class="input_firstName input_area">-
-                        <input type="text" v-model="resData.mobile3" class="input_firstName input_area">
+                            class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">)
+                        <input type="text" placeholder="" v-model="resData.mobile1" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">-
+                        <input type="text" placeholder="" v-model="resData.mobile2" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">-
+                        <input type="text" v-model="resData.mobile3" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
                     </div>
                 </div>
-                <div class="name_wrap cont_wrap">
-                    <div class="category_tit">슬로건<span class="necessary">*</span></div>
+                <div class="name_wrap cont_wrap  flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">슬로건<span class="necessary text-[#ff0000]">*</span></div>
                     <div class="reg_name_wrap cont_area">
-                        <input type="text" placeholder="en" v-model="sloganEn" class="input_firstName input_area">
-                        <input type="text" placeholder="id" v-model="sloganId" class="input_firstName input_area">
+                        <input type="text" placeholder="en" v-model="sloganEn" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
+                        <input type="text" placeholder="id" v-model="sloganId" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
                     </div>
                 </div>
-                <div class="name_wrap cont_wrap">
-                    <div class="category_tit">SNS<span class="necessary">*</span></div>
+                <div class="name_wrap cont_wrap  flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">SNS<span class="necessary text-[#ff0000]">*</span></div>
                     <div class="reg_name_wrap cont_area">
-                        <input type="text" placeholder="인스타그램" v-model="instagram" class="input_firstName input_area">
-                        <input type="text" placeholder="유튜브" v-model="youtube" class="input_firstName input_area">
-                        <input type="text" placeholder="공식홈페이지" v-model="site" class="input_firstName input_area">
+                        <input type="text" placeholder="인스타그램" v-model="instagram" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
+                        <input type="text" placeholder="유튜브" v-model="youtube" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
+                        <input type="text" placeholder="공식홈페이지" v-model="site" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
                     </div>
                 </div>
-                <div class="name_wrap cont_wrap" ref="dropdownRef">
-                    <div class="category_tit">해시태그<span class="necessary">*</span></div>
+                <div class="name_wrap cont_wrap  flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]" ref="dropdownRef">
+                    <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">해시태그<span class="necessary text-[#ff0000]">*</span></div>
                     <div class="cont_area">
                         <div class="dropdown-toggle" @click="toggleDropdown">
                             <span v-if="selectedHashtags.length > 0">
@@ -98,10 +94,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="sort_wrap cont_wrap">
-                    <div class="category_tit">정렬 순서</div>
+                <div class="sort_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">정렬 순서</div>
                     <div class="cont_area">
-                        <input type="text" v-model="resData.sortNum" class="input_area">
+                        <input type="text" v-model="resData.sortNum" class="input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
                         <p class="help">입력하신 숫자가 클수록 상위에 노출됩니다. 예시) 10, 9, 8, ... 1 (+최신 등록 순으로 인물 정렬)</p>
                     </div>
                 </div>
