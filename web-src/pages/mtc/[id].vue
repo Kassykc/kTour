@@ -1,9 +1,6 @@
 <template>
     <div>
-        {{ imageFiles }}
-        <Banner v-if="mtcDtlData && mtcDtlData.resultInfo.fileInfo && mtcDtlData.resultInfo.fileInfo.length > 0"
-            :title="bannerTitle" :bgImage="mtcDtlData.resultInfo.fileInfo.filter(item => item.fileExt == 'webp')"
-            :category="category" :selectedTab="selectedTab" />
+        <Banner :title="bannerTitle" :bgImage="bannerBgImage" :category="category" :selectedTab="selectedTab" />
 
         <div class="content_area pb-[160px]">
             <div id="mtc_detail" class="w-full max-w-[1340px] mx-auto">
@@ -112,7 +109,8 @@
                                 class="w-full flex justify-center items-center mx-auto" ref="swiper">
                                 <SwiperSlide v-for="(item, idx) in imageFiles" :key="idx">
                                     <div class="w-full h-full">
-                                        <img :src="fileBaseUrl + item.filePathEnc" alt="슬라이드 이미지" class="w-full h-full object-cover">
+                                        <img :src="fileBaseUrl + item.filePathEnc" alt="슬라이드 이미지"
+                                            class="w-full h-full object-cover">
                                     </div>
                                 </SwiperSlide>
                             </Swiper>
@@ -126,7 +124,8 @@
                     <div class="tit uppercase font-[700] text-[28px] text-[#313131]">
                         Hospital Description
                     </div>
-                    <div class="cont text-[18px] leading-[29px]" v-html="composer.locale == 'en' ? parsedMemo.contentEn : parsedMemo.contentId"></div>
+                    <div class="cont text-[18px] leading-[29px]"
+                        v-html="composer.locale == 'en' ? parsedMemo.contentEn : parsedMemo.contentId"></div>
                 </div>
 
                 <!-- 리스트 버튼 -->
