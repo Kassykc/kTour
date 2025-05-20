@@ -3,21 +3,21 @@
         <Banner :title="bannerTitle" :bgImage="bannerBgImage" :category="category" :selectedTab="selectedTab" />
 
         <div class="content_area pb-[260px]">
-            <div id="contact w-full max-w-[1340px] mx-auto">
+            <div id="contact w-full max-w-[1340px] px-[20px] mx-auto">
                 <div class="title_area w-full max-w-[1340px] mx-auto text-center mb-[130px]">
-                    <div class="main_tit text-[65px] font-[700] pt-[160px] mb-[50px]">
+                    <div class="main_tit  text-[46px] lg:text-[65px] font-[700] pt-[160px] mb-[50px]">
                         {{ t('contactUs.title') }}
                     </div>
-                    <div class="sub_title text-[20px]">
+                    <div class="sub_title text-[18px] lg:text-[20px] ">
                         {{ t('contactUs.subtitle') }}
                     </div>
                 </div>
 
-                <div class="map_area w-full max-w-[1340px] mx-auto flex justify-between items-start mb-[166px]">
+                <div class="map_area w-full max-w-[1340px] px-[20px] mx-auto flex flex-col xl:flex-row justify-center xl:justify-between items-start mb-[166px] gap-[100px] xl:gap-0">
                     <SubMapList />
                 </div>
 
-                <SubMoreBtn :label="t('menu.6.2depth.4.name')" width="w-[364px]" bgColor="bg-[#1F78FF]" :showIcon="false"
+                <SubMoreBtn :label="t('menu.6.2depth.4.name')" width="w-[280px] sm:w-[364px]" bgColor="bg-[#1F78FF]" :showIcon="false"
                 url="/" />
 
             </div>
