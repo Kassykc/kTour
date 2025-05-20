@@ -22,8 +22,8 @@
                         <div class="info flex flex-col justify-start items-start gap-[56px] w-[608px]">
                             <!-- 타이틀 -->
                             <div class="title text-[45px] font-[800] text-[#313131] uppercase">
-                                {{ composer.locale == 'en' ? mtcDtlData.resultInfo.userNameKo :
-                                    mtcDtlData.resultInfo.userNameEn
+                                {{ composer.locale == 'en' ? mtcDtlData.resultInfo.nameFirstKo :
+                                    mtcDtlData.resultInfo.nameFirstEn
                                 }}
                             </div>
 
