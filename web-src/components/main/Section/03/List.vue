@@ -1,10 +1,10 @@
 <template>
     <div class="flex flex-wrap justify-start gap-x-[16px] gap-y-[40px] md:gap-y-[110px]">
-        <div v-for="(item, index) in props.list" :key="index" class="treatment flex flex-col items-start w-[300px] sm:w-[320px] cursor-pointer"
+        <div v-for="(item, index) in props.list" :key="index" class="treatment flex flex-col items-start w-full sm:w-[320px] cursor-pointer"
         @click="router.push(item.url)"
         >
             <div class="w-full h-[210px]">
-                <img :src="item.img" alt="img" class="w-full h-full" />
+                <img :src="item.img" alt="img" class="w-full h-full object-cover" />
             </div>
             <div class="img_title text-[20px] font-[500] pt-[20px]">
                 {{ item.title }}

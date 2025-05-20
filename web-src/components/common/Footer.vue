@@ -1,11 +1,11 @@
 <template>
   <div>
     <!-- Footer -->
-    <div id="footer" class="bg-[#001181]">
+    <div id="footer" class="bg-[#001181] w-full h-full">
       <div id="footer_content"
-        class="w-full max-w-[1340px] h-[600px] md:h-[600px] ml-[0] mr-[auto] sm:mx-auto min-w-[320px] min-h-[400px] sm:max-h-[400px] px-[28px] sm:px-[18px] pt-[28px]">
+        class="w-full max-w-[1340px] h-fit ml-[0] mr-[auto] sm:mx-auto min-w-[320px] max-h-auto px-[28px] sm:px-[18px] pt-[75px] pb-[28px] h-auto lg:h-[337px]">
         <address
-          class="flex justify-center items-start sm:justify-around sm:flex-row lg:justify-between items-start sm:items-center h-[535px] sm:h-[354px] min-h-[354px] gap-[10px]">
+          class="flex justify-center items-start sm:justify-around flex-col lg:flex-row lg:justify-between items-start sm:items-center h-fit  gap-[10px]">
 
           <div class="brand_info flex flex-col gap-[24px] items-start pr-[4rem]">
             <img src="/img/common/logo/footer_logo.png" class="w-[90px] h-auto min-w-[90px] md:w-[220px] pb-[4rem]">

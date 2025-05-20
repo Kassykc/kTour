@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <div class="max-w-[1340px] pt-[50px] sm:pt-[6rem] pb-12 pl-[12px] ">
+        <div class="max-w-[1340px] pt-[50px] sm:pt-[6rem] pb-12 px-[12px] xl:pl-[0] ">
             <MainSection03List :list="list" />
         </div>
 
