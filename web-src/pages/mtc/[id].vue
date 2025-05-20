@@ -15,7 +15,7 @@
                     <!-- 탭 이름 -->
                     <div
                         class="tab_name w-fit text-[#1F78FF] font-[700] border-[2px] border-[#1F78FF] py-[14px] px-[20px] rounded-[100px]">
-                        '탭이름'
+                        {{ composer.locale == 'en' ? parsedTab.categoryNameEn : parsedTab.categoryNameId }}
                     </div>
 
                     <div class="info_wrap flex justify-between items-end w-full">
@@ -166,6 +166,21 @@ const decodeHtmlEntities = (str: string) => {
     txt.innerHTML = str;
     return txt.value;
 }
+
+const parsedTab = computed(() => {
+    try {
+        const rawMemo = mtcDtlData.value.resultInfo?.categoryChildNameKo;
+
+        if (!rawMemo || rawMemo === 'null') return {};
+
+        const decoded = decodeHtmlEntities(rawMemo);
+        return JSON.parse(decoded);
+    } catch (e) {
+        console.error('peopleMemo 파싱 오류:', e);
+        return {};
+    }
+});
+
 const parsedMemo = computed(() => {
     try {
         const rawMemo = mtcDtlData.value.resultInfo?.peopleMemo;
