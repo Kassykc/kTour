@@ -3,8 +3,8 @@
         <Banner :title="bannerTitle" :bgImage="bannerBgImage" :category="category" :selectedTab="selectedTab" />
 
         <div class="content_area pb-[220px]">
-            <div id="new_details" class="w-full max-w-[1340px] my-0 mx-auto">
-                <div class="main_tit text-[40px] font-[700] pt-[160px] leading-[56px] text-center mb-[114px] break-keep">
+            <div id="new_details" class="w-full max-w-[1340px] px-[20px] my-0 mx-auto">
+                <div class="main_tit text-[28px] sm:text-[40px] font-[700] pt-[160px] leading-[36px] sm:leading-[56px] text-center mb-[114px] break-keep">
                     Medi-City Co., Ltd. Visits National University Hospital<br/>Director and National Cancer Center in Indonesia.
                 </div>
                 
