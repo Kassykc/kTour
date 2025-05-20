@@ -137,7 +137,7 @@
                 <label
                     class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">내용(en)</label>
                 <ClientOnly>
-                    <AdminCommonBoardQuillEditor :content="contentEn" @update:content="handleContentEn" />
+                    <AdminCommonBoardQuillEditor v-model="contentEn" />
                 </ClientOnly>
             </div>
 
@@ -146,7 +146,7 @@
                 <label
                     class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">내용(id)</label>
                 <ClientOnly>
-                    <AdminCommonBoardQuillEditor :content="contentId" @update:content="handleContentId" />
+                    <AdminCommonBoardQuillEditor v-model="contentId" />
                 </ClientOnly>
             </div>
 
@@ -405,7 +405,7 @@ const goUpdate = async () => {
     params.modUserIdx = 0;
     params.categoryIdx = params.categoryChildIdx;
     delete params['profileInfo'];
-    params.categoryIdx = resData.value.categoryChildIdx;
+    params.categoryIdx = resData.value.categoryChildIdx ?? 0;
     params.profile = selectedProfile.value;
     params.peopleType = '900';
     params.gender = 0;

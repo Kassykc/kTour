@@ -1930,8 +1930,6 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url("/img/common/select_arrow.png") calc(100% - 10px) center
-    no-repeat;
 }
 
 #guest {

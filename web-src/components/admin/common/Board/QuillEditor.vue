@@ -8,38 +8,20 @@ import BlotFormatter from "@enzedonline/quill-blot-formatter2";
 const editor = ref();
 
 const props = defineProps({
-    content: String,
+    modelValue: String,
     placeholder: {
         type: String,
         default: "내용을 입력하세요...",
     },
 });
 
-const emit = defineEmits(["update:content"]);
+const emit = defineEmits(["update:modelValue"]);
 
-const contentLocal = ref(props.content);
-
-// 🔄 props.content → local
-watch(
-    () => props.content,
-    (newVal) => {
-        if (newVal !== contentLocal.value) {
-            contentLocal.value = newVal;
-        }
-    }
-);
-
-// 🔄 local → emit
-watch(contentLocal, (val) => {
-    emit("update:content", val);
-});
-
+// onMounted에서 Quill 설정
 onMounted(() => {
     if (editor.value?.getQuill) {
         const quill = editor.value.getQuill();
-        console.log("Quill instance:", quill);
 
-        // 이미지 업로드
         quill.getModule("toolbar").addHandler("image", () => {
             const input = document.createElement("input");
             input.setAttribute("type", "file");
@@ -75,7 +57,6 @@ onMounted(() => {
 
         new BlotFormatter(quill);
 
-        // 이미지 정렬
         quill.getModule("toolbar").addHandler("align", (alignValue: any) => {
             const range = quill.getSelection();
             if (range) {
@@ -95,6 +76,11 @@ onMounted(() => {
     }
 });
 
+// v-model을 위한 change 핸들러
+function onContentChange(val: string) {
+    emit("update:modelValue", val);
+}
+
 defineExpose({
     getEditor: () => editor.value?.getQuill(),
 });
@@ -102,16 +88,17 @@ defineExpose({
 
 <template>
     <div class="editor-area !py-[10px] !px-0 !m-auto w-full">
-        <QuillEditor ref="editor" v-model:content="contentLocal" :contentType="'html'" :theme="'snow'" :toolbar="[
-            ['bold', 'italic', 'underline'],
-            [{ header: 1 }, { header: 2 }],
-            [{ list: 'ordered' }, { list: 'bullet' }],
-            [{ script: 'sub' }, { script: 'super' }],
-            [{ indent: '-1' }, { indent: '+1' }],
-            [{ align: [] }],
-            ['clean'],
-            ['image']
-        ]" :placeholder="placeholder" />
+        <QuillEditor ref="editor" :content="props.modelValue" @update:content="onContentChange" :contentType="'html'"
+            :theme="'snow'" :toolbar="[
+                ['bold', 'italic', 'underline'],
+                [{ header: 1 }, { header: 2 }],
+                [{ list: 'ordered' }, { list: 'bullet' }],
+                [{ script: 'sub' }, { script: 'super' }],
+                [{ indent: '-1' }, { indent: '+1' }],
+                [{ align: [] }],
+                ['clean'],
+                ['image']
+            ]" :placeholder="placeholder" />
     </div>
 </template>
 
