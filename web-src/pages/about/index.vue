@@ -214,43 +214,47 @@
                     </div>
                 </div>
 
-                <div id="overview" class="overview w-full max-w-[1340px] py-[120px] my-0 mx-auto">
-                    <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
-                        {{ t('about.part2.content3.title') }}
-                    </p>
-                    <p class="text-[18px] lg:text-[24px] mb-[86px]">
-                        {{ t('about.part2.content3.desc1') }}<br />
-                        {{ t('about.part2.content3.desc2') }}
-                    </p>
-                    <SubTreatment />
-                    <SubMoreBtn :label="t('about.part2.content3.sub.btn')" width="w-[480px]" bgColor="bg-[#3145A9]" :showIcon="true"
+                <div id="overview" class="overview w-full pt-[120px] my-0 mx-auto">
+                    <div class="w-full max-w-[1340px] px-[20px] my-0 mx-auto">
+                        <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
+                            {{ t('about.part2.content3.title') }}
+                        </p>
+                        <p class="text-[18px] lg:text-[24px] mb-[86px]">
+                            {{ t('about.part2.content3.desc1') }}<br />
+                            {{ t('about.part2.content3.desc2') }}
+                        </p>
+                    </div>
+                    <div class="w-full max-w-[1380px] pt-0 sm:py-[120px] px-[20px] my-0 mx-auto">
+                        <SubTreatment />
+                        <SubMoreBtn :label="t('about.part2.content3.sub.btn')" width="w-[280px] sm:w-[480px] text-center" bgColor="bg-[#3145A9]" :showIcon="true"
                         url="/" />
+                    </div>
                 </div>
 
-                <div id="tour_overview" class="tour_overview w-full max-w-[1340px] py-[120px] my-0 mx-auto">
+                <div id="tour_overview" class="tour_overview w-full max-w-[1340px] py-[120px] px-[20px] my-0 mx-auto">
                     <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         {{ t('about.part2.content4.title') }}
                     </p>
-                    <p class="text-[18px] lg:text-[24px] mb-[86px]">
+                    <p class="text-[18px] lg:text-[24px] mb-[43px] sm:mb-[86px]">
                         {{ t('about.part2.content4.desc1') }}<br />
                         {{ t('about.part2.content4.desc2') }}
                     </p>
-                    <div class="flex justify-between items-center gap-[10px] mb-[42px]">
-                        <div class="w-[49%] h-[370px] overflow-hidden">
+                    <div class="flex flex-col md:flex-row justify-between items-center gap-[10px] mb-[42px]">
+                        <div class="w-full md:w-[49%] h-[370px] overflow-hidden">
                             <img src="@/assets/images/sub/about/tour_overview01.png" alt=""
                                 class="w-full h-full object-cover">
                         </div>
-                        <div class="w-[49%] h-[370px] overflow-hidden">
+                        <div class="w-full md:w-[49%] h-[370px] overflow-hidden">
                             <img src="@/assets/images/sub/about/tour_overview02.png" alt=""
                                 class="w-full h-full object-cover">
                         </div>
                     </div>
                     <div
-                        class="w-[1177px] h-[144px] text-[20px] leading-[32px] py-[40px] px-[70px] mx-auto mb-[40px] border border-[#919191]">
+                        class="w-full max-w-[1177px] h-fit xl:h-[144px] text-[16px] sm:text-[20px] leading-[32px] py-[18px] px-[30px] sm:py-[40px] sm:px-[70px] mx-auto mb-[40px] border border-[#919191]">
                         {{ t('about.part2.content4.desc3') }} <br />
                         {{ t('about.part2.content4.desc4') }}
                     </div>
-                    <SubMoreBtn :label="t('about.part2.content4.btn')" width="w-[334px]" bgColor="bg-[#3145A9]" :showIcon="true"
+                    <SubMoreBtn :label="t('about.part2.content4.btn')" width="w-[280px] sm:w-[334px]" bgColor="bg-[#3145A9]" :showIcon="true"
                         url="/" />
                 </div>
             </div>

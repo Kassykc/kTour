@@ -1,6 +1,6 @@
 <template>
     <div class="mb-[60px]">
-        <div class="font-[700] text-[25px] text-center mb-[56px]">Medical Treatment Field</div>
+        <div class="font-[700] text-[18px] sm:text-[25px] text-center mb-[28px] sm:mb-[56px]">Medical Treatment Field</div>
         <div class="treatment_area flex justify-center items-start gap-[12px] flex-wrap">
             <div v-for="(item, index) in treatments" :key="index" class="w-[120px]">
                 <div class="img_area w-[120px] h-[120px] flex justify-center items-center rounded-[20px] mb-[18px] hover:rounded-full transition-all duration-200 ease-in-out cursor-pointer hover:shadow-[0_3px_14px_rgba(0,0,0,0.6)]"
