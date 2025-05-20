@@ -5,10 +5,10 @@
         <div class="content_area">
             <div id="company" class="">
                 <div class="company medicity w-full max-w-[1340px] pt-[160px] pb-[120px] px-[20px] my-0 mx-auto">
-                    <h2 class="area_name text-[65px] font-[700] mb-[120px]">
+                    <h2 class="area_name text-[46px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
                         {{ t('about.part1.title') }}
                     </h2>
-                    <p class="description text-[40px] font-[700] mb-[86px]">
+                    <p class="description text-[24px] lg:text-[40px] font-[700] mb-[86px]">
                         {{ t('about.part1.content1.title') }}
                     </p>
                     <div class="about_intro flex flex-wrap justify-center items-center mb-[100px]">
@@ -25,36 +25,36 @@
                         <img src="@/assets/images/sub/about/company03_id.png" alt="What We Offer"
                             class="ml-0 mt-[-28px] md:mt-0 md:ml-[-38px] mix-blend-multiply w-[280px] h-[280px] sm:w-[450px] sm:h-[450px]" v-if="common.getCookie('lang')=='id'">
                     </div>
-                    <SubMoreBtn label="Medi-Tour Program" width="w-[348px]" bgColor="bg-[#001181]" url="/" />
+                    <SubMoreBtn label="Medi-Tour Program" width="w-[280px] sm:w-[348px]" bgColor="bg-[#001181]" url="/" />
                 </div>
 
                 <div id="location" class="bg-[#FAFAFA]">
-                    <div class="location w-full max-w-[1340px] py-[120px] my-0 mx-auto">
-                        <p class="description text-[40px] font-[700] mb-[48px]">
+                    <div class="location w-full max-w-[1340px] py-[120px] px-[20px] my-0 mx-auto">
+                        <p class="description text-[24px] lg:text-[40px] font-[700] mb-[24px] sm:mb-[48px]">
                             {{ t('about.part1.content2.title') }}
                         </p>
-                        <div class="map_area flex justify-center items-center gap-[50px]">
-                            <div class="indonesia w-[644px]">
-                                <div class="location_name font-[600] text-[30px]">
+                        <div class="map_area flex flex-col xl:flex-row justify-start xl:justify-center items-center gap-[50px]">
+                            <div class="indonesia w-full sm:w-[644px]">
+                                <div class="location_name font-[600] text-[18px] sm:text-[30px]">
                                     {{ t('about.part1.content2.1.title') }}
                                 </div>
                                 <iframe class="my-[20px]"
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2801510474746!2d106.8076904757315!3d-6.226746060983552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1500e1e0f8f%3A0x22556f795030d081!2sProsperity%20Office%20Tower!5e0!3m2!1sen!2skr!4v1746686854088!5m2!1sen!2skr"
-                                    width="640" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                                     referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                <p class="address font-[500] text-[20px]">
+                                <p class="address font-[500] text-[16px] sm:text-[20px]">
                                     {{ t('about.part1.content2.1.desc1') }}<br />
                                     {{ t('about.part1.content2.1.desc2') }}
                                 </p>
                             </div>
-                            <div class="korea w-[644px]">
-                                <div class="location_name font-[600] text-[30px]">
+                            <div class="korea w-full sm:w-[644px]">
+                                <div class="location_name font-[600] text-[18px] sm:text-[30px]">
                                     {{ t('about.part1.content2.2.title') }}</div>
                                 <iframe class="my-[20px]"
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1877.9720455737743!2d126.76596014993176!3d37.66424970668722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c855b9707d1d3%3A0x17347b2ae75e0217!2s43-55%20Mugunghwa-ro%2C%20Ilsandong-gu%2C%20Goyang-si%2C%20Gyeonggi-do!5e0!3m2!1sen!2skr!4v1746687176074!5m2!1sen!2skr"
-                                    width="640" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                                     referrerpolicy="no-referrer-when-downgrade"></iframe>
-                                <p class="address font-[500] text-[20px]">
+                                <p class="address font-[500] text-[16px] sm:text-[20px]">
                                     {{ t('about.part1.content2.2.desc1') }}<br />
                                     {{ t('about.part1.content2.2.desc2') }}
                                 </p>
@@ -64,8 +64,8 @@
                 </div>
 
                 <div id="certification">
-                    <div class="w-full max-w-[1340px] pt-[120px] my-0 mx-auto">
-                        <p class="description text-[40px] font-[700] mb-[48px]">
+                    <div class="w-full max-w-[1340px] pt-[120px] px-[20px] my-0 mx-auto">
+                        <p class="description text-[24px] lg:text-[40px] font-[700] mb-[48px]">
                             {{ t('about.part1.content3.title') }}
                         </p>
                     </div>
@@ -76,31 +76,37 @@
             </div>
 
             <div id="service">
-                <div id="program" class="program w-full max-w-[1340px] py-[120px] my-0 mx-auto">
-                    <h2 class="area_name text-[65px] font-[700] mb-[120px]">
+                <div id="program" class="program w-full max-w-[1340px] py-[120px] px-[20px] my-0 mx-auto">
+                    <h2 class="area_name text-[46px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
                         {{ t('about.part2.title') }}
                     </h2>
-                    <p class="description text-[40px] font-[700] mb-[34px]">
+                    <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         {{ t('about.part2.content1.title') }}
                     </p>
-                    <p class="text-[24px] mb-[86px]">
+                    <p class="text-[18px] lg:text-[24px] mb-[86px]">
                         {{ t('about.part2.content1.desc1') }}
                     </p>
                     <div class="tour_program w-full flex justify-center items-center mb-[46px]">
-                        <img src="@/assets/images/sub/about/medi_tour.png" alt="Medi Tour" class="" v-if="common.getCookie('lang')=='en'">
-                        <img src="@/assets/images/sub/about/medi_tour_id.png" alt="Medi Tour" class="" v-if="common.getCookie('lang')=='id'">
+                        <picture v-if="common.getCookie('lang') === 'en'">
+                            <source media="(max-width: 639px)" srcset="@/assets/images/sub/about/medi_tour_m.png">
+                            <img src="@/assets/images/sub/about/medi_tour.png" alt="Medi Tour">
+                        </picture>
+                        <picture v-else-if="common.getCookie('lang') === 'id'">
+                            <source media="(max-width: 639px)" srcset="@/assets/images/sub/about/medi_tour_id_m.png">
+                            <img src="@/assets/images/sub/about/medi_tour_id.png" alt="Medi Tour">
+                        </picture>
                     </div>
                     <div
-                        class="w-full max-w-[1128px] h-[166px] p-[40px] flex justify-center items-center text-white font-[600] text-[22px] bg-[#001181] mx-auto">
+                        class="w-full max-w-[1128px] h-fit lg:h-[166px] p-[40px] flex justify-center items-center text-white font-[600] text-[16px] lg:text-[22px] bg-[#001181] mx-auto">
                         {{ t('about.part2.content1.desc2') }}
                     </div>
                 </div>
 
                 <div id="works" class="works w-full max-w-[1340px] py-[120px] my-0 mx-auto">
-                    <p class="description text-[40px] font-[700] mb-[34px]">
+                    <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         {{ t('about.part2.content2.title') }}
                     </p>
-                    <p class="text-[24px] mb-[86px]">
+                    <p class="text-[18px] lg:text-[24px] mb-[86px]">
                         {{ t('about.part2.content2.desc') }}
                     </p>
                     <table class="table-auto border-collapse w-full">
@@ -207,10 +213,10 @@
                 </div>
 
                 <div id="overview" class="overview w-full max-w-[1340px] py-[120px] my-0 mx-auto">
-                    <p class="description text-[40px] font-[700] mb-[34px]">
+                    <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         {{ t('about.part2.content3.title') }}
                     </p>
-                    <p class="text-[24px] mb-[86px]">
+                    <p class="text-[18px] lg:text-[24px] mb-[86px]">
                         {{ t('about.part2.content3.desc1') }}<br />
                         {{ t('about.part2.content3.desc2') }}
                     </p>
@@ -220,10 +226,10 @@
                 </div>
 
                 <div id="tour_overview" class="tour_overview w-full max-w-[1340px] py-[120px] my-0 mx-auto">
-                    <p class="description text-[40px] font-[700] mb-[34px]">
+                    <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         {{ t('about.part2.content4.title') }}
                     </p>
-                    <p class="text-[24px] mb-[86px]">
+                    <p class="text-[18px] lg:text-[24px] mb-[86px]">
                         {{ t('about.part2.content4.desc1') }}<br />
                         {{ t('about.part2.content4.desc2') }}
                     </p>
@@ -250,10 +256,10 @@
             <div id="korea"
                 class="bg-[url('@/assets/images/sub/about/korea_bg.png')] bg-no-repeat bg-contain bg-bottom">
                 <div class="w-full max-w-[1340px] py-[120px] my-0 mx-auto">
-                    <h2 class="area_name text-[65px] font-[700] mb-[120px]">
+                    <h2 class="area_name text-[46px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
                         {{ t('about.part3.title') }}
                     </h2>
-                    <p class="description text-[40px] font-[700] mb-[34px]">
+                    <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         {{ t('about.part3.subtitle') }}
                     </p>
                     <p class="text-[24px] mb-[236px]">
@@ -262,10 +268,10 @@
                     </p>
 
                     <div id="ranking">
-                        <p class="description text-[40px] font-[700] mb-[34px]">
+                        <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                             {{ t('about.part3.content1.title') }}
                         </p>
-                        <p class="text-[24px] mb-[86px]">
+                        <p class="text-[18px] lg:text-[24px] mb-[86px]">
                             {{ t('about.part3.content1.desc1') }}<br />
                             {{ t('about.part3.content1.desc2') }}
                         </p>
@@ -284,10 +290,10 @@
                     </div>
 
                     <div id="meditech">
-                        <p class="description text-[40px] font-[700] mb-[34px]">
+                        <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                             {{ t('about.part3.content2.title') }}
                         </p>
-                        <p class="text-[24px] mb-[86px]">
+                        <p class="text-[18px] lg:text-[24px] mb-[86px]">
                             {{ t('about.part3.content2.desc1') }}<br />
                             {{ t('about.part3.content2.desc2') }}
                         </p>
@@ -311,10 +317,10 @@
                     </div>
 
                     <div id="tourism">
-                        <p class="description text-[40px] font-[700] mb-[34px]">
+                        <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                             {{ t('about.part3.content3.title') }}
                         </p>
-                        <p class="text-[24px] mb-[86px]">
+                        <p class="text-[18px] lg:text-[24px] mb-[86px]">
                             {{ t('about.part3.content3.desc1') }}<br />
                             {{ t('about.part3.content3.desc2') }}
                         </p>
@@ -333,7 +339,7 @@
                     </div>
 
                     <div id="experiences">
-                        <p class="description text-[40px] font-[700] mb-[34px]">
+                        <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                             {{ t('about.part3.content4.title') }}
                         </p>
                         <p class="text-[24px] mb-[86px] pb-[100px] border-b border-[#808080]">
@@ -417,7 +423,7 @@
                         {{ t('about.part4.title1') }}<br />
                         {{ t('about.part4.title2') }}
                     </h2>
-                    <p class="description text-[40px] font-[700] mb-[34px]">
+                    <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         {{ t('about.part4.content1.title') }}
                     </p>
                     <p class="text-[24px] mb-[83px]">

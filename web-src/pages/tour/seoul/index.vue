@@ -5,23 +5,23 @@
         <div class="content_area">
             <div id="seoul_tour">
                 <div class="main_title w-full max-w-[1340px] pt-[160px] my-0 mx-auto">
-                    <h2 class="area_name text-[65px] font-[700] mb-[120px]">
+                    <h2 class="area_name text-[46px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
                         {{ t('seoulTour.title') }}
                     </h2>
-                    <p class="description text-[40px] font-[700] mb-[34px]">
+                    <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         {{ t('seoulTour.subtitle') }}
                     </p>
-                    <p class="text-[24px] mb-[86px]">
+                    <p class="text-[18px] lg:text-[24px] mb-[86px]">
                         {{ t('seoulTour.desc1') }}<br/>
                         {{ t('seoulTour.desc2') }}
                     </p>
                 </div> 
 
                 <div class="hallyu_tour w-full max-w-[1340px] pt-[120px] my-0 mx-auto">
-                    <p class="description text-[40px] font-[700] mb-[34px]">
+                    <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         {{ t('seoulTour.part1.title') }}
                     </p>
-                    <p class="text-[24px] mb-[86px]">
+                    <p class="text-[18px] lg:text-[24px] mb-[86px]">
                         {{ t('about.part2.content4.desc1') }}<br />
                         {{ t('about.part2.content4.desc2') }}
                     </p>
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="itinerary w-full max-w-[1340px] py-[120px] my-0 mx-auto">
-                    <p class="description text-[40px] font-[700] mb-[34px]">
+                    <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         {{ t('seoulTour.part2.title') }}
                     </p>
 
