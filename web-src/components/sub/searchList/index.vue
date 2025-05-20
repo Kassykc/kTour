@@ -88,7 +88,7 @@
                 </a>
 
                 <div class="view_details flex justify-center items-center gap-[5px] w-full bg-[#1F78FF] text-white px-[20px] py-[12px] h-[54px] cursor-pointer"
-                    @click="movePage(`/mtc/${props.data.categoryIdx}`)">
+                    @click="movePage(`/mtc/${props.data.peopleIdx}`)">
                     View Details
                     <img src="@/assets/images/sub/mtc/move_icon.png" alt="">
                 </div>
@@ -149,13 +149,6 @@ const generalFiles = computed(() => {
         return {};
     }
 })
-
-const slide = [
-    { img: img01 },
-    { img: img01 },
-    { img: img01 },
-    { img: img01 },
-];
 
 const router = useRouter();
 
