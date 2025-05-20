@@ -102,114 +102,116 @@
                     </div>
                 </div>
 
-                <div id="works" class="works w-full max-w-[1340px] py-[120px] my-0 mx-auto">
+                <div id="works" class="works w-full max-w-[1340px] py-[120px] px-[20px] my-0 mx-auto">
                     <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         {{ t('about.part2.content2.title') }}
                     </p>
-                    <p class="text-[18px] lg:text-[24px] mb-[86px]">
+                    <p class="text-[18px] lg:text-[24px] mb-[43px] lg:mb-[86px]">
                         {{ t('about.part2.content2.desc') }}
                     </p>
-                    <table class="table-auto border-collapse w-full">
-                        <thead>
-                            <tr>
-                                <th class="font-[700] text-[18px] bg-[#CCD7FB] h-[50px]">
-                                    {{ t('about.part2.content2.grid.header.1') }}
-                                </th>
-                                <th class="font-[700] text-[18px] bg-[#DFE6FF] border border-white border-t-0 h-[50px]">
-                                    {{ t('about.part2.content2.grid.header.2') }}
-                                </th>
-                                <th class="font-[700] text-[18px] bg-[#E8F3FF] border border-white border-t-0 h-[50px]">
-                                    {{ t('about.part2.content2.grid.header.3') }}
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td
-                                    class="text-center py-[30px] px-[60px] bg-[#A5B2E0] font-[800] text-[18px] text-white">
-                                    <span class="text-[26px]">Step 01</span><br />
-                                    <span class="text-[18px] leading-[24px]">
-                                        {{ t('about.part2.content2.grid.step1.title') }}
-                                    </span>
-                                </td>
-                                <td
-                                    class="text-center py-[30px] px-[60px] border border-white bg-[#EDF1FF] text-[18px]">
-                                    {{ t('about.part2.content2.grid.step1.1') }}
-                                </td>
-                                <td
-                                    class="text-center py-[30px] px-[60px] border border-white bg-[#F2F8FF] text-[18px]">
-                                    {{ t('about.part2.content2.grid.step1.2') }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td
-                                    class="text-center py-[30px] px-[60px] bg-[#8594CF] font-[800] text-[18px] text-white relative before:content-[''] before:absolute before:top-[-10px] before:left-1/2 before:w-[20px] before:h-[20px] before:bg-[#A5B2E0] before:rotate-45">
-                                    <span class="text-[26px]">Step 02</span><br /><span
-                                        class="text-[18px] leading-[24px]">
-                                        {{ t('about.part2.content2.grid.step2.title') }}
-                                    </span>
-                                </td>
-                                <td
-                                    class="text-center py-[30px] px-[60px] border border-white bg-[#E4EAFF] text-[18px]">
-                                    {{ t('about.part2.content2.grid.step2.1') }}
-                                </td>
-                                <td
-                                    class="text-center py-[30px] px-[60px] border border-white bg-[#E8F4FF] text-[18px]">
-                                    {{ t('about.part2.content2.grid.step2.2') }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td
-                                    class="text-center py-[30px] px-[60px] bg-[#6779BC] font-[800] text-[18px] text-white relative before:content-[''] before:absolute before:top-[-10px] before:left-1/2 before:w-[20px] before:h-[20px] before:bg-[#8594CF] before:rotate-45">
-                                    <span class="text-[26px]">Step 03</span><br /><span
-                                        class="text-[18px] leading-[24px]">
-                                        {{ t('about.part2.content2.grid.step3.title') }}
-                                    </span>
-                                </td>
-                                <td
-                                    class="text-center py-[30px] px-[60px] border border-white bg-[#DBE3FF] text-[18px]">
-                                    {{ t('about.part2.content2.grid.step3.1') }}
-                                </td>
-                                <td
-                                    class="text-center py-[30px] px-[60px] border border-white bg-[#DBECFF] text-[18px]">
-                                    {{ t('about.part2.content2.grid.step3.2') }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td
-                                    class="text-center py-[30px] px-[60px] bg-[#4A5FA5] font-[800] text-[18px] text-white relative before:content-[''] before:absolute before:top-[-10px] before:left-1/2 before:w-[20px] before:h-[20px] before:bg-[#6779BC] before:rotate-45">
-                                    <span class="text-[26px]">
-                                        Step 04
-                                    </span><br /><span class="text-[18px] leading-[24px]">{{
-                                        t('about.part2.content2.grid.step4.title')
-                                    }}</span>
-                                </td>
-                                <td
-                                    class="text-center py-[30px] px-[60px] border border-white bg-[#D0DBFF] text-[18px]">
-                                    {{ t('about.part2.content2.grid.step4.1') }}</td>
-                                <td
-                                    class="text-center py-[30px] px-[60px] border border-white bg-[#CFE6FF] text-[18px]">
-                                    {{ t('about.part2.content2.grid.step4.2') }}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td
-                                    class="text-center py-[30px] px-[60px] bg-[#364C95] font-[800] text-[18px] text-white relative before:content-[''] before:absolute before:top-[-10px] before:left-1/2 before:w-[20px] before:h-[20px] before:bg-[#4A5FA5] before:rotate-45">
-                                    <span class="text-[26px]">Step 05</span><br /><span
-                                        class="text-[18px] leading-[24px]">{{ t('about.part2.content2.grid.step5.title')
+                    <div class="w-full overflow-x-auto">
+                        <table class="table-auto border-collapse w-full">
+                            <thead>
+                                <tr>
+                                    <th class="font-[700] text-[13px] sm:text-[18px] bg-[#CCD7FB] h-[50px]">
+                                        {{ t('about.part2.content2.grid.header.1') }}
+                                    </th>
+                                    <th class="font-[700] text-[13px] sm:text-[18px] bg-[#DFE6FF] border border-white border-t-0 h-[50px]">
+                                        {{ t('about.part2.content2.grid.header.2') }}
+                                    </th>
+                                    <th class="font-[700] text-[13px] sm:text-[18px] bg-[#E8F3FF] border border-white border-t-0 h-[50px]">
+                                        {{ t('about.part2.content2.grid.header.3') }}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td
+                                        class="text-center py-[8px] px-[10px] sm:py-[14px] sm:px-[20px] md:py-[30px] md:px-[60px] bg-[#A5B2E0] font-[800] text-[18px] text-white">
+                                        <span class="text-[18px] sm:text-[26px]">Step 01</span><br />
+                                        <span class="text-[16px] sm:text-[18px] leading-[24px]">
+                                            {{ t('about.part2.content2.grid.step1.title') }}
+                                        </span>
+                                    </td>
+                                    <td
+                                        class="text-center py-[8px] px-[10px] sm:py-[14px] sm:px-[20px] md:py-[30px] md:px-[60px] border border-white bg-[#EDF1FF] text-[13px] sm:text-[18px]">
+                                        {{ t('about.part2.content2.grid.step1.1') }}
+                                    </td>
+                                    <td
+                                        class="text-center py-[8px] px-[10px] sm:py-[14px] sm:px-[20px] md:py-[30px] md:px-[60px] border border-white bg-[#F2F8FF] text-[13px] sm:text-[18px]">
+                                        {{ t('about.part2.content2.grid.step1.2') }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        class="text-center py-[8px] px-[10px] sm:py-[14px] sm:px-[20px] md:py-[30px] md:px-[60px] bg-[#8594CF] font-[800] text-[18px] text-white relative before:content-[''] before:absolute before:top-[-10px] before:left-1/2 before:w-[20px] before:h-[20px] before:bg-[#A5B2E0] before:rotate-45">
+                                        <span class="text-[18px] sm:text-[26px]">Step 02</span><br /><span
+                                            class="text-[16px] sm:text-[18px] leading-[24px]">
+                                            {{ t('about.part2.content2.grid.step2.title') }}
+                                        </span>
+                                    </td>
+                                    <td
+                                        class="text-center py-[8px] px-[10px] sm:py-[14px] sm:px-[20px] md:py-[30px] md:px-[60px] border border-white bg-[#E4EAFF] text-[13px] sm:text-[18px]">
+                                        {{ t('about.part2.content2.grid.step2.1') }}
+                                    </td>
+                                    <td
+                                        class="text-center py-[8px] px-[10px] sm:py-[14px] sm:px-[20px] md:py-[30px] md:px-[60px] border border-white bg-[#E8F4FF] text-[13px] sm:text-[18px]">
+                                        {{ t('about.part2.content2.grid.step2.2') }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        class="text-center py-[8px] px-[10px] sm:py-[14px] sm:px-[20px] md:py-[30px] md:px-[60px] bg-[#6779BC] font-[800] text-[18px] text-white relative before:content-[''] before:absolute before:top-[-10px] before:left-1/2 before:w-[20px] before:h-[20px] before:bg-[#8594CF] before:rotate-45">
+                                        <span class="text-[18px] sm:text-[26px]">Step 03</span><br /><span
+                                            class="text-[16px] sm:text-[18px] leading-[24px]">
+                                            {{ t('about.part2.content2.grid.step3.title') }}
+                                        </span>
+                                    </td>
+                                    <td
+                                        class="text-center py-[8px] px-[10px] sm:py-[14px] sm:px-[20px] md:py-[30px] md:px-[60px] border border-white bg-[#DBE3FF] text-[13px] sm:text-[18px]">
+                                        {{ t('about.part2.content2.grid.step3.1') }}
+                                    </td>
+                                    <td
+                                        class="text-center py-[8px] px-[10px] sm:py-[14px] sm:px-[20px] md:py-[30px] md:px-[60px] border border-white bg-[#DBECFF] text-[13px] sm:text-[18px]">
+                                        {{ t('about.part2.content2.grid.step3.2') }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        class="text-center py-[8px] px-[10px] sm:py-[14px] sm:px-[20px] md:py-[30px] md:px-[60px] bg-[#4A5FA5] font-[800] text-[18px] text-white relative before:content-[''] before:absolute before:top-[-10px] before:left-1/2 before:w-[20px] before:h-[20px] before:bg-[#6779BC] before:rotate-45">
+                                        <span class="text-[18px] sm:text-[26px]">
+                                            Step 04
+                                        </span><br /><span class="text-[16px] sm:text-[18px] leading-[24px]">{{
+                                            t('about.part2.content2.grid.step4.title')
                                         }}</span>
-                                </td>
-                                <td
-                                    class="text-center py-[30px] px-[60px] border border-white border-b-0 bg-[#BECDFF] text-[18px]">
-                                    {{ t('about.part2.content2.grid.step5.1') }}
-                                </td>
-                                <td
-                                    class="text-center py-[30px] px-[60px] border border-white border-b-0 bg-[#B8D8FF] text-[18px]">
-                                    {{ t('about.part2.content2.grid.step5.2') }}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                    </td>
+                                    <td
+                                        class="text-center py-[8px] px-[10px] sm:py-[14px] sm:px-[20px] md:py-[30px] md:px-[60px] border border-white bg-[#D0DBFF] text-[13px] sm:text-[18px]">
+                                        {{ t('about.part2.content2.grid.step4.1') }}</td>
+                                    <td
+                                        class="text-center py-[8px] px-[10px] sm:py-[14px] sm:px-[20px] md:py-[30px] md:px-[60px] border border-white bg-[#CFE6FF] text-[13px] sm:text-[18px]">
+                                        {{ t('about.part2.content2.grid.step4.2') }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td
+                                        class="text-center py-[8px] px-[10px] sm:py-[14px] sm:px-[20px] md:py-[30px] md:px-[60px] bg-[#364C95] font-[800] text-[18px] text-white relative before:content-[''] before:absolute before:top-[-10px] before:left-1/2 before:w-[20px] before:h-[20px] before:bg-[#4A5FA5] before:rotate-45">
+                                        <span class="text-[18px] sm:text-[26px]">Step 05</span><br /><span
+                                            class="text-[16px] sm:text-[18px] leading-[24px]">{{ t('about.part2.content2.grid.step5.title')
+                                            }}</span>
+                                    </td>
+                                    <td
+                                        class="text-center py-[8px] px-[10px] sm:py-[14px] sm:px-[20px] md:py-[30px] md:px-[60px] border border-white border-b-0 bg-[#BECDFF] text-[13px] sm:text-[18px]">
+                                        {{ t('about.part2.content2.grid.step5.1') }}
+                                    </td>
+                                    <td
+                                        class="text-center py-[8px] px-[10px] sm:py-[14px] sm:px-[20px] md:py-[30px] md:px-[60px] border border-white border-b-0 bg-[#B8D8FF] text-[13px] sm:text-[18px]">
+                                        {{ t('about.part2.content2.grid.step5.2') }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
                 <div id="overview" class="overview w-full max-w-[1340px] py-[120px] my-0 mx-auto">
