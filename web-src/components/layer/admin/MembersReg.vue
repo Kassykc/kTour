@@ -45,30 +45,30 @@
                 </div>
                 <div class="name_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
                     <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">주소<span class="necessary text-[#ff0000]">*</span></div>
-                    <div class="reg_name_wrap cont_area">
-                        <input type="text" placeholder="" v-model="resData.email" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
+                    <div class="reg_name_wrap cont_area py-[10px] !px-0 !m-auto w-full">
+                        <input type="text" placeholder="" v-model="resData.email" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-full">
                     </div>
                 </div>
                 <div class="name_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
                     <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">연락처<span class="necessary text-[#ff0000]">*</span></div>
-                    <div class="reg_name_wrap cont_area">
+                    <div class="reg_name_wrap cont_area py-[10px] !px-0 !m-auto w-full flex justify-start items-center gap-[10px]">
                         +<input type="text" placeholder="" v-model="resData.interPhoneNumber"
-                            class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">)
-                        <input type="text" placeholder="" v-model="resData.mobile1" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">-
-                        <input type="text" placeholder="" v-model="resData.mobile2" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">-
-                        <input type="text" v-model="resData.mobile3" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
+                            class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[10%]">)
+                        <input type="text" placeholder="" v-model="resData.mobile1" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[26%]">-
+                        <input type="text" placeholder="" v-model="resData.mobile2" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[26%]">-
+                        <input type="text" v-model="resData.mobile3" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[28%]">
                     </div>
                 </div>
                 <div class="name_wrap cont_wrap  flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
                     <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">슬로건<span class="necessary text-[#ff0000]">*</span></div>
-                    <div class="reg_name_wrap cont_area">
-                        <input type="text" placeholder="en" v-model="sloganEn" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
-                        <input type="text" placeholder="id" v-model="sloganId" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
+                    <div class="reg_name_wrap cont_area py-[10px] !px-0 !m-auto w-full flex justify-start items-center gap-[8px]">
+                        <input type="text" placeholder="en" v-model="sloganEn" class="input_firstName input_area border rounded-[6px] px-[10px] py-[4px] w-[50%]">
+                        <input type="text" placeholder="id" v-model="sloganId" class="input_firstName input_area border rounded-[6px] px-[10px] py-[4px] w-[50%]">
                     </div>
                 </div>
                 <div class="name_wrap cont_wrap  flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
                     <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">SNS<span class="necessary text-[#ff0000]">*</span></div>
-                    <div class="reg_name_wrap cont_area">
+                    <div class="reg_name_wrap cont_area py-[10px] !px-0 !m-auto w-full flex justify-start items-center gap-[8px]">
                         <input type="text" placeholder="인스타그램" v-model="instagram" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
                         <input type="text" placeholder="유튜브" v-model="youtube" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
                         <input type="text" placeholder="공식홈페이지" v-model="site" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
@@ -76,16 +76,16 @@
                 </div>
                 <div class="name_wrap cont_wrap  flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]" ref="dropdownRef">
                     <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">해시태그<span class="necessary text-[#ff0000]">*</span></div>
-                    <div class="cont_area">
-                        <div class="dropdown-toggle" @click="toggleDropdown">
+                    <div class="cont_area py-[10px] !px-0 !m-auto w-full">
+                        <div class="dropdown-toggle flex justify-start items-stretch" @click="toggleDropdown">
                             <span v-if="selectedHashtags.length > 0">
                                 {{selectedHashtags.map(item => item.codeValue).join(', ')}}
                             </span>
                             <span v-else class="placeholder">해시태그 선택</span>
-                            <span class="arrow">▼</span>
+                            <span class="arrow ml-[10px]">▼</span>
                         </div>
 
-                        <div v-if="isOpen" class="dropdown-list">
+                        <div v-if="isOpen" class="dropdown-list w-full flex flex-col justify-stretch items-start py-[10px]">
                             <div class="dropdown-item" v-for="item in hospitalDepth2" :key="item.codeKey"
                                 @click="toggleItem(item)">
                                 <input type="checkbox" :checked="isSelected(item)" readonly />
@@ -96,9 +96,9 @@
                 </div>
                 <div class="sort_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
                     <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">정렬 순서</div>
-                    <div class="cont_area">
-                        <input type="text" v-model="resData.sortNum" class="input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
-                        <p class="help">입력하신 숫자가 클수록 상위에 노출됩니다. 예시) 10, 9, 8, ... 1 (+최신 등록 순으로 인물 정렬)</p>
+                    <div class="cont_area py-[10px] !px-0 !m-auto w-full flex justify-start items-center gap-[10px]">
+                        <input type="text" v-model="resData.sortNum" class="input_area  border rounded-[6px] px-[10px] py-[4px] w-fit">
+                        <p class="help text-[14px]">입력하신 숫자가 클수록 상위에 노출됩니다. 예시) 10, 9, 8, ... 1 (+최신 등록 순으로 인물 정렬)</p>
                     </div>
                 </div>
             </div>
@@ -131,11 +131,11 @@
         </div>
 
         <!-- 버튼 영역 -->
-        <div class="btn_wrap">
-            <div class="common_btn reg_btn" @click="goReg" v-if="props.mode == 'reg'">등록</div>
-            <div class="common_btn modify_btn" @click="goUpdate" v-if="props.mode == 'mod'">수정</div>
-            <div class="common_btn delete_btn" @click="goDelete" v-if="props.mode == 'mod'">삭제</div>
-            <div class="common_btn cancle_btn" @click="emit('close')">취소</div>
+        <div class="btn_wrap flex items-center justify-end gap-[6px]">
+            <div class="common_btn reg_btn text-[14px] !py-[10px] !px-[20px] !mt-[20px] rounded-[10px] cursor-pointer text-white bg-[#0047A0]" @click="goReg" v-if="props.mode == 'reg'">등록</div>
+            <div class="common_btn modify_btn text-[14px] !py-[10px] !px-[20px] !mt-[20px] rounded-[10px] cursor-pointer text-white bg-[#12A0DD]" @click="goUpdate" v-if="props.mode == 'mod'">수정</div>
+            <div class="common_btn delete_btn text-[14px] !py-[10px] !px-[20px] !mt-[20px] rounded-[10px] cursor-pointer text-white bg-[#C93631]" @click="goDelete" v-if="props.mode == 'mod'">삭제</div>
+            <div class="ccommon_btn cancle_btn text-[14px] !py-[10px] !px-[20px] !mt-[20px] rounded-[10px] cursor-pointer text-white bg-[#bfbfbf]" @click="emit('close')">취소</div>
         </div>
     </div>
 </template>
