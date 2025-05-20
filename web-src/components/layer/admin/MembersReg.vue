@@ -1,6 +1,6 @@
 <template>
     <div class="reg_wrap">
-        <!-- 병원원 정보 -->
+        <!-- 병원 정보 -->
         <div class="reg_area reg_necessary_area">
             <h4 class="reg_tit text-[18px] mb-[20px] text-left font-[700]">병원 정보</h4>
             <div class="reg_nameVisibility_area divide_row_area row_area flex justify-start items-center border-t">
