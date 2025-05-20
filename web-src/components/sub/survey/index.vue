@@ -2,24 +2,24 @@
     <div>
         <div class="content_area">
             <div id="consultation" class="w-full max-w-[1340px] my-0 mx-auto">
-                <div class="main_tit  text-[46px] lg:text-[65px] font-[700] pt-[160px] text-center mb-[50px]">
+                <div class="main_tit w-full text-[46px] lg:text-[65px] font-[700] pt-[160px] px-[20px] text-center mb-[50px]">
                     {{ t('consultation.title') }}
                 </div>
-                <div class="sub_title text-[18px] lg:text-[20px]  text-center mb-[50px]">
+                <div class="sub_title text-[18px] lg:text-[20px] w-full px-[20px] text-center mb-[50px]">
                     {{ t('consultation.subtitle') }}
                 </div>
 
-                <div class="input_area w-full max-w-[1340px] mb-[80px] mx-auto">
+                <div class="input_area w-full max-w-[1340px] px-[20px] mb-[80px] mx-auto">
                     <div class="essential text-right text-[16px] font-[500] mb-[16px]">
                         <span class="text-[#ff0000]">√</span> Full Name
                     </div>
                     
                     <div class="basic_info">
-                        <div class="tit text-[25px] font-[700] w-full py-[30px] px-[50px] bg-[#F9F9F9] border-t border-b  border-[#c8c8c8]">
+                        <div class="tit text-[18px] sm:text-[25px] font-[700] w-full p-[20px] sm:py-[30px] sm:px-[50px] bg-[#F9F9F9] border-t border-b  border-[#c8c8c8]">
                             Basic Information
                         </div>
-                        <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b  border-[#c8c8c8]">
-                            <div class="flex justify-start items-center">
+                        <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b  border-[#c8c8c8]">
+                            <div class="flex flex-col sm:flex-row justify-start items-start sm:items-center gap-[10px] sm:gap-0">
                                 <div class="name w-[200px] flex-0">
                                     <span class="text-[#ff0000]">√</span> Full Name
                                 </div>
@@ -28,8 +28,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b  border-[#c8c8c8]">
-                            <div class="flex justify-start items-center">
+                        <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b  border-[#c8c8c8]">
+                            <div class="flex flex-col sm:flex-row justify-start items-start sm:items-center gap-[10px] sm:gap-0">
                                 <div class="name w-[200px] flex-0">
                                     <span class="text-[#ff0000]">√</span> Phone Number
                                 </div>
@@ -38,8 +38,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b  border-[#c8c8c8]">
-                            <div class="flex justify-start items-center">
+                        <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b  border-[#c8c8c8]">
+                            <div class="flex flex-col sm:flex-row justify-start items-start sm:items-center gap-[10px] sm:gap-0">
                                 <div class="name w-[200px] flex-0">
                                     <span class="text-[#ff0000]">√</span> Email Address
                                 </div>
@@ -48,8 +48,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b  border-[#c8c8c8]">
-                            <div class="flex justify-start items-center">
+                        <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b  border-[#c8c8c8]">
+                            <div class="flex flex-col sm:flex-row justify-start items-start sm:items-center gap-[10px] sm:gap-0">
                                 <div class="name w-[200px] flex-0">
                                     <span class="text-[#ff0000]">√</span> Address
                                 </div>
@@ -61,11 +61,11 @@
                     </div>
 
                     <div class="services">
-                            <div class="tit text-[25px] font-[700] w-full py-[30px] px-[50px] bg-[#F9F9F9] border-b  border-[#c8c8c8]">
+                            <div class="tit text-[18px] sm:text-[25px] font-[700] w-full p-[20px] sm:py-[30px] sm:px-[50px] bg-[#F9F9F9] border-b  border-[#c8c8c8]">
                                 Medical Services
                             </div>
     
-                            <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b border-[#c8c8c8]">
+                            <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b border-[#c8c8c8]">
                                 <div class="mb-[30px]">
                                     <span class="text-[#ff0000]">√</span> What type of medical service are you interested in?
                                 </div>
@@ -118,13 +118,13 @@
                                 </div>
                             </div>
     
-                            <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b border-[#C8C8C8]">
+                            <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b border-[#C8C8C8]">
                                 <div class="mb-[30px]">
                                     <span class="text-[#ff0000]">√</span> What medical concerns or symptoms would you like to discuss? (Please describe your condition in detail)
                                 </div>
                                 <textarea class="w-full h-[150px] p-[10px] border border-[#C8C8C8] rounded-[5px] resize-none font-[400] text-[16px]"></textarea>
                             </div>
-                            <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b border-[#C8C8C8]">
+                            <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b border-[#C8C8C8]">
                                 <div class="mb-[30px]">
                                     Which medical institution on our website would you prefer for your treatment?
                                 </div>
@@ -132,7 +132,7 @@
                             </div>
     
     
-                            <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b border-[#C8C8C8]">
+                            <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b border-[#C8C8C8]">
                                 <div class="mb-[30px]">
                                     <span class="text-[#ff0000]">√</span> Have you been diagnosed with any medical condition(s)?
                                 </div>
@@ -186,7 +186,7 @@
                                 </div>
                             </div>
     
-                            <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b border-[#C8C8C8]">
+                            <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b border-[#C8C8C8]">
                                 <div class="mb-[30px]">
                                     <span class="text-[#ff0000]">√</span> Do you have any additional health conditions or chronic diseases?
                                 </div>
@@ -215,11 +215,11 @@
                     </div>
     
                     <div class="schedule">
-                        <div class="tit text-[25px] font-[700] w-full py-[30px] px-[50px] bg-[#F9F9F9] border-b  border-[#c8c8c8]">
+                        <div class="tit text-[18px] sm:text-[25px] font-[700] w-full p-[20px] sm:py-[30px] sm:px-[50px] bg-[#F9F9F9] border-b  border-[#c8c8c8]">
                             Schedule & Accompaniment
                         </div>
     
-                        <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b border-[#C8C8C8]">
+                        <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b border-[#C8C8C8]">
                             <div class="mb-[30px]">
                                 <span class="text-[#ff0000]">√</span> How long do you plan to stay in Korea for your treatment?
                             </div>
@@ -229,7 +229,7 @@
                             </div>
                         </div>
     
-                        <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b border-[#C8C8C8]">
+                        <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b border-[#C8C8C8]">
                             <div class="mb-[30px]">
                                 <span class="text-[#ff0000]">√</span> Will you be accompanied by anyone
                             </div>
@@ -257,18 +257,18 @@
                     </div>
     
                     <div class="tour">
-                        <div class="tit text-[25px] font-[700] w-full py-[30px] px-[50px] bg-[#F9F9F9] border-b  border-[#c8c8c8]">
+                        <div class="tit text-[18px] sm:text-[25px] font-[700] w-full p-[20px] sm:py-[30px] sm:px-[50px] bg-[#F9F9F9] border-b  border-[#c8c8c8]">
                             Tour
                         </div>
     
-                        <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b border-[#C8C8C8]">
+                        <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b border-[#C8C8C8]">
                             <div class="mb-[30px]">
                                 Which cities or regions in Seoul or Gangwon are you interested in visiting?
                             </div>
                             <input type="text" class="w-full h-[50px] border border-[#C8C8C8] font-[400] rounded-[5px] px-[10px]" />
                         </div>
     
-                        <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b border-[#C8C8C8]">
+                        <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b border-[#C8C8C8]">
                             <div class="mb-[30px]">
                                 What experiences would you like to try in Korea?
                             </div>
@@ -277,11 +277,11 @@
                     </div>
     
                     <div class="additional_info">
-                        <div class="tit text-[25px] font-[700] w-full py-[30px] px-[50px] bg-[#F9F9F9] border-b  border-[#c8c8c8]">
+                        <div class="tit text-[18px] sm:text-[25px] font-[700] w-full p-[20px] sm:py-[30px] sm:px-[50px] bg-[#F9F9F9] border-b  border-[#c8c8c8]">
                             Additional Information
                         </div>
     
-                        <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b border-[#C8C8C8]">
+                        <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b border-[#C8C8C8]">
                             <div class="mb-[30px]">
                                 <span class="text-[#ff0000]">√</span> How long do you plan to stay in Korea for your treatment?
                             </div>
@@ -291,7 +291,7 @@
                             </div>
                         </div>
     
-                        <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b border-[#C8C8C8]">
+                        <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b border-[#C8C8C8]">
                             <div class="mb-[30px]">
                                 <span class="text-[#ff0000]">√</span> Have you received treatment in Korea?
                             </div>
@@ -323,7 +323,7 @@
                             </div>
                         </div>
     
-                        <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b border-[#C8C8C8]">
+                        <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b border-[#C8C8C8]">
                             <div class="mb-[30px]">
                                 <span class="text-[#ff0000]">√</span> Have you received medical treatment abroad, outside of Korea?
                             </div>
@@ -361,7 +361,7 @@
                             </div>
                         </div>
     
-                        <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b border-[#C8C8C8]">
+                        <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b border-[#C8C8C8]">
                             <div class="mb-[30px]">
                                 <span class="text-[#ff0000]">√</span> Do you require Halal food during your stay?
                             </div>
@@ -379,7 +379,7 @@
                             </div>
                         </div>
     
-                        <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b border-[#C8C8C8]">
+                        <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b border-[#C8C8C8]">
                             <div class="mb-[30px]">
                                 <span class="text-[#ff0000]">√</span> Do you have any allergies?
                             </div>
@@ -404,7 +404,7 @@
                             </div>
                         </div>
     
-                        <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b border-[#C8C8C8]">
+                        <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b border-[#C8C8C8]">
                             <div class="mb-[30px]">
                                 <span class="text-[#ff0000]">√</span> Do you have international health insurance coverage?
                             </div>
@@ -431,11 +431,11 @@
                     </div>
     
                     <div class="preferences">
-                        <div class="tit text-[25px] font-[700] w-full py-[30px] px-[50px] bg-[#F9F9F9] border-b  border-[#c8c8c8]">
+                        <div class="tit text-[18px] sm:text-[25px] font-[700] w-full p-[20px] sm:py-[30px] sm:px-[50px] bg-[#F9F9F9] border-b  border-[#c8c8c8]">
                             Consultation Preferences
                         </div>
     
-                        <div class="cont text-[18px] font-[700] w-full py-[20px] px-[50px] border-b border-[#C8C8C8]">
+                        <div class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b border-[#C8C8C8]">
                             <div class="mb-[30px]">
                                 <span class="text-[#ff0000]">√</span> How would you prefer to receive your consultation?
                             </div>
