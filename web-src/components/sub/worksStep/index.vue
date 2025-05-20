@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div class="step_area flex flex-col sm:flex-row justify-center items-center flex-wrap mb-[60px]">
+        <div class="step_area flex flex-col sm:flex-row justify-center items-center flex-wrap mb-[60px] gap-[10px] sm:gap-0">
             <template v-for="(step, index) in steps" :key="index">
                 <!-- STEP 카드 -->
                 <div
                     :class="[
-                    'w-[243px] h-[372px] rounded-[260px] py-[58px] px-[30px] flex flex-col justify-start items-center gap-[22px] text-center',
+                    'w-full max-w-[300px] h-[270px] max-h-[270px] sm:w-[243px] sm:max-w-[243px] sm:h-[372px] sm: max-h-[372px] rounded-[30px] sm:rounded-[260px] py-[26px] sm:py-[58px] px-[30px] flex flex-col justify-center sm:justify-start items-center gap-[22px] text-center',
                     step.bgColor
                     ]"
                 >
@@ -19,7 +19,7 @@
                     v-if="index < steps.length - 1"
                     src="@/assets/images/main/section01/arrow.png"
                     alt="화살표"
-                    class="transform rotate-90 sm:rotate-0 transition-all duration-500 ease-in-out"
+                    class="hidden sm:block transform rotate-90 sm:rotate-0 transition-all duration-500 ease-in-out"
                 />
             </template>
         </div>

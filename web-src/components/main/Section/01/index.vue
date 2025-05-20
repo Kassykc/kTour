@@ -24,20 +24,28 @@
                     <h3 class="font-[600] text-[20px] md:text-[26px] text-center">
                         {{ t('main.section1.part1.subtitle') }}
                     </h3>
-                    <p class="text-[18px] md:text-[22px] text-center">
+                    <p class="text-[18px] md:text-[22px] text-center px-[10px] sm:px-0">
                         {{ t('main.section1.part1.desc') }}
                     </p>
                 </div>
                 <div class="w-full max-w-[884px] flex justify-center items-center mx-auto">
-                    <img src="@/assets/images/main/section01/k_medi_tour.png" alt="Medi Tour" v-if="common.getCookie('lang')=='en'">
-                    <img src="@/assets/images/main/section01/k_medi_tour_id.png" alt="Medi Tour" v-if="common.getCookie('lang')=='id'">
+                    <!-- <img src="@/assets/images/main/section01/k_medi_tour.png" alt="Medi Tour" v-if="common.getCookie('lang')=='en'">
+                    <img src="@/assets/images/main/section01/k_medi_tour_id.png" alt="Medi Tour" v-if="common.getCookie('lang')=='id'"> -->
+                    <picture v-if="common.getCookie('lang') === 'en'">
+                        <source media="(max-width: 639px)" srcset="@/assets/images/main/section01/k_medi_tour_m.png">
+                        <img src="@/assets/images/main/section01/k_medi_tour.png" alt="Medi Tour">
+                    </picture>
+                    <picture v-else-if="common.getCookie('lang') === 'id'">
+                        <source media="(max-width: 639px)" srcset="@/assets/images/main/section01/k_medi_tour_id_m.png">
+                        <img src="@/assets/images/main/section01/k_medi_tour_id.png" alt="Medi Tour">
+                    </picture>
                 </div>
             </div>
             <div class="works_area">
                 <h1 class="title font-[700] text-[40px] md:text-[60px] text-center mb-[40px] md:mb-[64px]">
                     {{ t('main.section1.part2.title') }}
                 </h1>
-                <h3 class="font-[600] text-[20px] md:text-[26px] text-center mx-auto mb-[70px]">
+                <h3 class="font-[600] text-[20px] md:text-[26px] text-center mx-auto mb-[70px] px-[10px] md:px-0">
                     {{ t('main.section1.part2.desc') }}
                 </h3>
 
