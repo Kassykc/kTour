@@ -4,17 +4,24 @@
         <div class="reg_area reg_necessary_area">
             <h4 class="reg_tit text-[18px] mb-[20px] text-left font-[700]">병원 정보</h4>
             <div class="reg_nameVisibility_area divide_row_area row_area flex justify-start items-center border-t">
-                <div class="name_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-[50%] h-auto min-h-[60px] border-b border-[#dcdcdc]">
-                    <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">병원명<span class="necessary text-[#ff0000]">*</span></div>
-                    <div class="reg_name_wrap cont_area py-[10px] !px-0 !m-auto w-full flex justify-start items-center gap-[4px]">
+                <div
+                    class="name_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-[50%] h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <div
+                        class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        병원명<span class="necessary text-[#ff0000]">*</span></div>
+                    <div
+                        class="reg_name_wrap cont_area py-[10px] !px-0 !m-auto w-full flex justify-start items-center gap-[4px]">
                         <input type="text" placeholder="en" v-model="resData.userNameKo"
                             class="input_firstName input_area border rounded-[6px] px-[10px] py-[4px] w-[48%]">
                         <input type="text" placeholder="id" v-model="resData.userNameEn"
                             class="input_lastName input_area border rounded-[6px] px-[10px] py-[4px] w-[48%]">
                     </div>
                 </div>
-                <div class="visibility_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-[50%] h-auto min-h-[60px] border-b border-[#dcdcdc]">
-                    <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">노출여부 <span class="necessary text-[#ff0000]">*</span></div>
+                <div
+                    class="visibility_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-[50%] h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <div
+                        class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        노출여부 <span class="necessary text-[#ff0000]">*</span></div>
                     <div class="visibility_area cont_area py-[10px] !px-0 !m-auto w-full">
                         <select v-model="resData.showYn" class="slect_area border rounded-[6px] w-[90%] px-[10px]">
                             <option value="Y">노출</option>
@@ -24,11 +31,15 @@
                 </div>
             </div>
             <div class="category_sort_area divide_row_area row_area">
-                <div class="category_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
-                    <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">카테고리<span class="necessary text-[#ff0000]">*</span></div>
+                <div
+                    class="category_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <div
+                        class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        카테고리<span class="necessary text-[#ff0000]">*</span></div>
                     <div class="cont_area flex justify-start items-center gap-[8px] w-[40%]">
                         <div>분과 : </div>
-                        <select class="slect_area w-fit px-[10px]" v-if="hospitalDepth1" v-model="resData.categoryParentIdx">
+                        <select class="slect_area w-fit px-[10px]" v-if="hospitalDepth1"
+                            v-model="resData.categoryParentIdx">
                             <option v-for="child in hospitalDepth1" :value="child.codeKey">
                                 {{ child.codeValue }}
                             </option>
@@ -36,46 +47,70 @@
                     </div>
                     <div class="cont_area flex justify-start items-center gap-[8px] w-[40%]">
                         <div>세부항목 : </div>
-                        <select class="slect_area w-fit min-w-[200px] px-[10px]" v-if="hospitalDepth2" v-model="resData.categoryChildIdx">
-                            <option v-for="child in hospitalDepth2selected" :value="child.codeKey">
+                        <select class="slect_area w-fit min-w-[200px] px-[10px]" v-model="resData.categoryChildIdx">
+                            <option v-for="child in showDepth2" :value="child.codeKey">
                                 {{ child.codeValue }}
                             </option>
                         </select>
                     </div>
                 </div>
-                <div class="name_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
-                    <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">주소<span class="necessary text-[#ff0000]">*</span></div>
+                <div
+                    class="name_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <div
+                        class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        주소<span class="necessary text-[#ff0000]">*</span></div>
                     <div class="reg_name_wrap cont_area">
-                        <input type="text" placeholder="" v-model="resData.email" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
+                        <input type="text" placeholder="" v-model="resData.email"
+                            class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
                     </div>
                 </div>
-                <div class="name_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
-                    <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">연락처<span class="necessary text-[#ff0000]">*</span></div>
+                <div
+                    class="name_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <div
+                        class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        연락처<span class="necessary text-[#ff0000]">*</span></div>
                     <div class="reg_name_wrap cont_area">
                         +<input type="text" placeholder="" v-model="resData.interPhoneNumber"
                             class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">)
-                        <input type="text" placeholder="" v-model="resData.mobile1" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">-
-                        <input type="text" placeholder="" v-model="resData.mobile2" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">-
-                        <input type="text" v-model="resData.mobile3" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
+                        <input type="text" placeholder="" v-model="resData.mobile1"
+                            class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">-
+                        <input type="text" placeholder="" v-model="resData.mobile2"
+                            class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">-
+                        <input type="text" v-model="resData.mobile3"
+                            class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
                     </div>
                 </div>
-                <div class="name_wrap cont_wrap  flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
-                    <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">슬로건<span class="necessary text-[#ff0000]">*</span></div>
+                <div
+                    class="name_wrap cont_wrap  flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <div
+                        class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        슬로건<span class="necessary text-[#ff0000]">*</span></div>
                     <div class="reg_name_wrap cont_area">
-                        <input type="text" placeholder="en" v-model="sloganEn" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
-                        <input type="text" placeholder="id" v-model="sloganId" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
+                        <input type="text" placeholder="en" v-model="sloganEn"
+                            class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
+                        <input type="text" placeholder="id" v-model="sloganId"
+                            class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
                     </div>
                 </div>
-                <div class="name_wrap cont_wrap  flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
-                    <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">SNS<span class="necessary text-[#ff0000]">*</span></div>
+                <div
+                    class="name_wrap cont_wrap  flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <div
+                        class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        SNS<span class="necessary text-[#ff0000]">*</span></div>
                     <div class="reg_name_wrap cont_area">
-                        <input type="text" placeholder="인스타그램" v-model="instagram" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
-                        <input type="text" placeholder="유튜브" v-model="youtube" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
-                        <input type="text" placeholder="공식홈페이지" v-model="site" class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
+                        <input type="text" placeholder="인스타그램" v-model="instagram"
+                            class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
+                        <input type="text" placeholder="유튜브" v-model="youtube"
+                            class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
+                        <input type="text" placeholder="공식홈페이지" v-model="site"
+                            class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
                     </div>
                 </div>
-                <div class="name_wrap cont_wrap  flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]" ref="dropdownRef">
-                    <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">해시태그<span class="necessary text-[#ff0000]">*</span></div>
+                <div class="name_wrap cont_wrap  flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]"
+                    ref="dropdownRef">
+                    <div
+                        class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        해시태그<span class="necessary text-[#ff0000]">*</span></div>
                     <div class="cont_area">
                         <div class="dropdown-toggle" @click="toggleDropdown">
                             <span v-if="selectedHashtags.length > 0">
@@ -94,10 +129,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="sort_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
-                    <div class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">정렬 순서</div>
+                <div
+                    class="sort_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <div
+                        class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        정렬 순서</div>
                     <div class="cont_area">
-                        <input type="text" v-model="resData.sortNum" class="input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
+                        <input type="text" v-model="resData.sortNum"
+                            class="input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
                         <p class="help">입력하신 숫자가 클수록 상위에 노출됩니다. 예시) 10, 9, 8, ... 1 (+최신 등록 순으로 인물 정렬)</p>
                     </div>
                 </div>
@@ -283,6 +322,7 @@ const selectedBirthday = ref();
 
 const hospitalDepth1 = ref();
 const hospitalDepth2 = ref();
+const showDepth2 = ref();
 const hospitalDepth2selected = ref([]);
 
 const profileSection = ref([{ idx: 1, sectionValue: "" }]);
@@ -296,7 +336,7 @@ const thumbnail = ref([]);
 
 watch(() => resData.value.categoryParentIdx, (selected) => {
     if (selected != 0) {
-        hospitalDepth2selected.value = hospitalDepth2.value.map(item => item.codeParentKey === selected);
+        showDepth2.value = hospitalDepth2.value.filter(item => item.codeParentKey === selected);
     }
 },
     { immediate: true }
@@ -437,7 +477,7 @@ onMounted(async () => {
             codeValue: JSON.parse(item.codeValue)?.categoryNameEn
         };
     });
-    
+
     if (props.mode === 'mod') {
         const params = { peopleIdx: props.idx };
         const response = await memberMngStore.dtlPeople(params);
