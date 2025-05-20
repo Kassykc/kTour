@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div class="flex justify-center items-center gap-[8px]">
-            <div class="step step1 w-[400px] h-[687px] rounded-[20px] bg-[#eee] py-[40px] px-[30px] text-[#3A3A3A] text-center flex flex-col justify-start items-center">
+        <div class="flex flex-col sm:flex-row justify-center items-center flex-wrap 2xl:flex-nowrap gap-[8px]">
+            <div class="step step1 w-[400px] h-fit sm:h-[687px] rounded-[20px] bg-[#eee] py-[40px] px-[20px] sm:px-[30px] text-[#3A3A3A] text-center flex flex-col justify-start items-center">
                 <!-- {{ t('about.part4.title2') }} -->
                 <div class="tit pb-[32px] border-b border-[#4D4D4D] font-[700] text-[26px] w-full">
                     Before Treatment<br/>
@@ -30,10 +30,10 @@
             </div>
 
             <div>
-                <img src="@/assets/images/main/section01/arrow.png" alt="화살표">
+                <img src="@/assets/images/main/section01/arrow.png" alt="화살표" class="transform rotate-90 sm:rotate-0 transition-all duration-500 ease-in-out">
             </div>
 
-            <div class="step step2 w-[400px] h-[687px] rounded-[20px] bg-[#FFEEEE] py-[40px] px-[30px] text-[#B23939] text-center flex flex-col justify-start items-center">
+            <div class="step step2 w-[400px] h-fit sm:h-[687px] rounded-[20px] bg-[#FFEEEE] py-[40px] px-[20px] sm:px-[30px] text-[#B23939] text-center flex flex-col justify-start items-center">
                 <!-- {{ t('about.part4.title2') }} -->
                 <div class="tit pb-[32px] border-b border-[#B23939] font-[700] text-[26px] w-full">
                     During Treatment<br/>
@@ -66,10 +66,10 @@
             </div>
 
             <div>
-                <img src="@/assets/images/main/section01/arrow.png" alt="화살표">
+                <img src="@/assets/images/main/section01/arrow.png" alt="화살표" class="transform rotate-90 sm:rotate-0 transition-all duration-500 ease-in-out">
             </div>
 
-            <div class="step step3 w-[400px] h-[687px] rounded-[20px] bg-[#DCE1F9] py-[40px] px-[30px] text-[#46409F] text-center flex flex-col justify-start items-center">
+            <div class="step step3 w-[400px] h-fit sm:h-[687px] rounded-[20px] bg-[#DCE1F9] py-[40px] px-[20px] sm:px-[30px] text-[#46409F] text-center flex flex-col justify-start items-center">
                 <!-- {{ t('about.part4.title2') }} -->
                 <div class="tit pb-[32px] border-b border-[#46409F] font-[700] text-[26px] w-full">
                     After Treatment<br/>
