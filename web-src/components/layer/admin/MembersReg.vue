@@ -3,13 +3,17 @@
         <!-- 인물 필수 정보 -->
         <div class="reg_area reg_necessary_area w-full mb-[30px]">
             <h4 class="reg_tit text-[18px] mb-[20px]">인물 필수 정보</h4>
-            <div class="reg_nameVisibility_area divide_row_area row_area flex justify-center items-center w-full border-t">
+            <div
+                class="reg_nameVisibility_area divide_row_area row_area flex justify-center items-center w-full border-t">
                 <div class="name_wrap cont_wrap flex justify-start items-stretch w-[50%]">
-                    <div class="category_tit flex justify-center items-center bg-[#f5f5f5] border-r flex-0 text-[14px] font-[600] max-w-[120px] min-h-full w-[120px]">병원명<span class="necessary text-[#e60000]">*</span></div>
-                    <div class="reg_name_wrap cont_area flex justify-start items-center p-[20px] w-[calc(100% - 120px)]">
-                        <input type="text" placeholder="en" v-model="resData.userNameKo"
+                    <div
+                        class="category_tit flex justify-center items-center bg-[#f5f5f5] border-r flex-0 text-[14px] font-[600] max-w-[120px] min-h-full w-[120px]">
+                        병원명<span class="necessary text-[#e60000]">*</span></div>
+                    <div
+                        class="reg_name_wrap cont_area flex justify-start items-center p-[20px] w-[calc(100% - 120px)]">
+                        <input type="text" placeholder="en" v-model="resData.nameFirstKo"
                             class="input_firstName input_area bg-white border rounded-[6px] h-[30px] px-[10px] py-0 w-full">
-                        <input type="text" placeholder="id" v-model="resData.userNameEn"
+                        <input type="text" placeholder="id" v-model="resData.nameFirstEn"
                             class="input_lastName input_area bg-white border rounded-[6px] h-[30px] px-[10px] py-0 w-full">
                     </div>
                 </div>
@@ -296,18 +300,18 @@ const thumbnail = ref([]);
 
 watch(() => resData.value.categoryParentIdx, (selected) => {
     if (selected != 0) {
-        hospitalDepth2selected.value = hospitalDepth2.value.filter(item => item.codeParentKey === selected);
+        hospitalDepth2selected.value = hospitalDepth2.value.map(item => item.codeParentKey === selected);
     }
 },
     { immediate: true }
 );
 
-const handleContentEn = (content: any) => {
+const handleContentEn = (content: string) => {
 
     contentEn.value = content;
 }
 
-const handleContentId = (content: any) => {
+const handleContentId = (content: string) => {
 
     contentId.value = content;
 }
@@ -409,6 +413,12 @@ const goUpdate = async () => {
 
 };
 
+const decodeHtmlEntities = (str: string): string => {
+    const txt = document.createElement('textarea');
+    txt.innerHTML = str;
+    return txt.value;
+}
+
 onMounted(async () => {
     if (props.mode === 'mod') {
         const params = { peopleIdx: props.idx };
@@ -417,32 +427,65 @@ onMounted(async () => {
         if (response) {
             resData.value = response.resultInfo;
 
+            const decoded = decodeHtmlEntities(response.resultInfo.peopleMemo);
+            const parsedMemo = JSON.parse(decoded);
+
+            sloganEn.value = parsedMemo.sloganEn
+            sloganId.value = parsedMemo.sloganId
+            instagram.value = parsedMemo.instagram
+            youtube.value = parsedMemo.youtube
+            site.value = parsedMemo.site
+            contentEn.value = parsedMemo.contentEn
+            contentId.value = parsedMemo.contentId
+            hashtag.value = parsedMemo.hashtag
+
             files.value = response.resultInfo.fileInfo.filter((file: any) => file.originTypeCd !== 100);
-
         }
+
+        const codeParams = { page_num: 1, page_size: 999 };
+        const response2 = await codeStore.setCodes(codeParams);
+        sessionStorage.setItem('medicalCodes', JSON.stringify(response2));
+        const codes = response2.resultInfo || [];
+
+        hospitalDepth1.value = codes.filter(item => (item.codeType === 'CONTENT_CATEGORY'));
+        hospitalDepth2.value = codes.filter(item => item.codeType === "CONTENT_CATEGORY_CHILD");
+
+        hospitalDepth1.value = hospitalDepth1.value.map(item => {
+            return {
+                ...item,
+                codeValue: JSON.parse(item.codeValue)?.categoryNameEn
+            };
+        });
+
+        hospitalDepth2.value = hospitalDepth2.value.map(item => {
+            return {
+                ...item,
+                codeValue: JSON.parse(item.codeValue)?.categoryNameEn
+            };
+        });
+    } else {
+        const codeParams = { page_num: 1, page_size: 999 };
+        const response2 = await codeStore.setCodes(codeParams);
+        sessionStorage.setItem('medicalCodes', JSON.stringify(response2));
+        const codes = response2.resultInfo || [];
+
+        hospitalDepth1.value = codes.filter(item => (item.codeType === 'CONTENT_CATEGORY'));
+        hospitalDepth2.value = codes.filter(item => item.codeType === "CONTENT_CATEGORY_CHILD");
+
+        hospitalDepth1.value = hospitalDepth1.value.map(item => {
+            return {
+                ...item,
+                codeValue: JSON.parse(item.codeValue)?.categoryNameEn
+            };
+        });
+
+        hospitalDepth2.value = hospitalDepth2.value.map(item => {
+            return {
+                ...item,
+                codeValue: JSON.parse(item.codeValue)?.categoryNameEn
+            };
+        });
     }
-
-    const codeParams = { page_num: 1, page_size: 999 };
-    const response2 = await codeStore.setCodes(codeParams);
-    sessionStorage.setItem('medicalCodes', JSON.stringify(response2));
-    const codes = response2.resultInfo || [];
-
-    hospitalDepth1.value = codes.filter(item => (item.codeType === 'CONTENT_CATEGORY'));
-    hospitalDepth2.value = codes.filter(item => item.codeType === "CONTENT_CATEGORY_CHILD");
-
-    hospitalDepth1.value = hospitalDepth1.value.map(item => {
-        return {
-            ...item,
-            codeValue: JSON.parse(item.codeValue)?.categoryNameEn
-        };
-    });
-
-    hospitalDepth2.value = hospitalDepth2.value.map(item => {
-        return {
-            ...item,
-            codeValue: JSON.parse(item.codeValue)?.categoryNameEn
-        };
-    });
 });
 
 

@@ -91,6 +91,15 @@ onMounted(() => {
 defineExpose({
     getEditor: () => editor.value?.getQuill(),
 });
+
+const contentLocal = ref(props.content);
+
+watch(
+    () => props.content,
+    (newVal) => {
+        contentLocal.value = newVal;
+    }
+);
 </script>
 
 <template>
