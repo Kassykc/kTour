@@ -23,7 +23,7 @@
                                 <div class="name w-[200px] flex-0">
                                     <span class="text-[#ff0000]">√</span> Full Name
                                 </div>
-                                <div class="fill flex-1">
+                                <div class="fill flex-1 w-full">
                                     <input type="text" class="w-full max-w-[500px] h-[50px] border border-[#C8C8C8] font-[400] rounded-[5px] px-[10px]" />
                                 </div>
                             </div>
@@ -33,7 +33,7 @@
                                 <div class="name w-[200px] flex-0">
                                     <span class="text-[#ff0000]">√</span> Phone Number
                                 </div>
-                                <div class="fill flex-1">
+                                <div class="fill flex-1 w-full">
                                     <input type="text" class="w-full max-w-[500px] h-[50px] border border-[#C8C8C8] font-[400] rounded-[5px] px-[10px]" />
                                 </div>
                             </div>
@@ -43,7 +43,7 @@
                                 <div class="name w-[200px] flex-0">
                                     <span class="text-[#ff0000]">√</span> Email Address
                                 </div>
-                                <div class="fill flex-1">
+                                <div class="fill flex-1 w-full">
                                     <input type="text" class="w-full max-w-[500px] h-[50px] border border-[#C8C8C8] font-[400] rounded-[5px] px-[10px]" />
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                                 <div class="name w-[200px] flex-0">
                                     <span class="text-[#ff0000]">√</span> Address
                                 </div>
-                                <div class="fill flex-1">
+                                <div class="fill flex-1 w-full">
                                     <input type="text" class="w-full max-w-[984px] h-[50px] border border-[#C8C8C8] font-[400] rounded-[5px] px-[10px]" />
                                 </div>
                             </div>
