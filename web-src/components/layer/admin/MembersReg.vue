@@ -1,16 +1,16 @@
 <template>
     <div class="reg_wrap">
         <!-- 인물 필수 정보 -->
-        <div class="reg_area reg_necessary_area">
-            <h4 class="reg_tit">인물 필수 정보</h4>
-            <div class="reg_nameVisibility_area divide_row_area row_area">
-                <div class="name_wrap cont_wrap">
-                    <div class="category_tit">병원명<span class="necessary">*</span></div>
-                    <div class="reg_name_wrap cont_area">
+        <div class="reg_area reg_necessary_area w-full mb-[30px]">
+            <h4 class="reg_tit text-[18px] mb-[20px]">인물 필수 정보</h4>
+            <div class="reg_nameVisibility_area divide_row_area row_area flex justify-center items-center w-full border-t">
+                <div class="name_wrap cont_wrap flex justify-start items-stretch w-[50%]">
+                    <div class="category_tit flex justify-center items-center bg-[#f5f5f5] border-r flex-0 text-[14px] font-[600] max-w-[120px] min-h-full w-[120px]">병원명<span class="necessary text-[#e60000]">*</span></div>
+                    <div class="reg_name_wrap cont_area flex justify-start items-center p-[20px] w-[calc(100% - 120px)]">
                         <input type="text" placeholder="en" v-model="resData.userNameKo"
-                            class="input_firstName input_area">
+                            class="input_firstName input_area bg-white border rounded-[6px] h-[30px] px-[10px] py-0 w-full">
                         <input type="text" placeholder="id" v-model="resData.userNameEn"
-                            class="input_lastName input_area">
+                            class="input_lastName input_area bg-white border rounded-[6px] h-[30px] px-[10px] py-0 w-full">
                     </div>
                 </div>
                 <div class="visibility_wrap cont_wrap">
