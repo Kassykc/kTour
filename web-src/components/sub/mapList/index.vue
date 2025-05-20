@@ -1,17 +1,17 @@
 <template>
 
-        <div v-for="(mapItem, index) in mapBlocks" :key="index" class="map w-[638px]">
+        <div v-for="(mapItem, index) in mapBlocks" :key="index" class="map w-full xl:w-[638px]">
             <!-- 타이틀 영역 -->
-            <div class="title flex justify-start items-center gap-[20px] font-[700] text-[25px] mb-[30px]">
+            <div class="title flex justify-start items-center gap-[20px] font-[700] text-[16px] sm:text-[25px] mb-[30px]">
                 <p>{{ t(mapItem.title) }}</p>
                 <p>{{ t(mapItem.manager) }}</p>
             </div>
     
             <!-- 지도 영역 -->
-            <div class="map w-[638px] h-[422px] mb-[50px]">
+            <div class="map w-full xl:w-[638px] h-[422px] mb-[50px]">
                 <iframe 
                     :src="mapItem.src" 
-                    width="638" 
+                    width="100%" 
                     height="422" 
                     style="border:0;" 
                     allowfullscreen 
@@ -22,12 +22,12 @@
     
             <!-- 정보 영역 -->
             <div class="info flex flex-col justify-start items-start gap-[20px]">
-                <div v-for="(info, idx) in mapItem.infoData" :key="idx" class="flex justify-start items-start">
-                    <div class="tit flex-0 w-[164px] flex justify-start items-center gap-[12px] text-[25px] font-[700]">
+                <div v-for="(info, idx) in mapItem.infoData" :key="idx" class="flex flex-col sm:flex-row gap-[10px] sm:gap-0 justify-start items-start">
+                    <div class="tit flex-0 w-[164px] flex justify-start items-center gap-[12px] text-[16px] sm:text-[25px] font-[700]">
                         <img :src="info.icon" alt="" />
                         {{ t(info.label) }}
                     </div>
-                    <div class="cont flex-1 w-full text-[20px]">
+                    <div class="cont flex-1 w-full text-[15px] sm:text-[20px]">
                         <div v-for="(contentItem, contentIndex) in info.content" :key="contentIndex">
                             {{ t(contentItem) }}
                         </div>

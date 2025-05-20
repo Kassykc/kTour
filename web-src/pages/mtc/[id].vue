@@ -5,7 +5,7 @@
         <div class="content_area pb-[160px]">
             <div id="mtc_detail" class="w-full max-w-[1340px] mx-auto">
                 <!-- 메일 타이틀 -->
-                <div class="main_tit text-[65px] font-[700] w-full pt-[160px] pb-[86px] my-0 mx-auto text-center">
+                <div class="main_tit  text-[46px] lg:text-[65px] font-[700] w-full pt-[160px] pb-[86px] my-0 mx-auto text-center">
                     Hospital Information
                 </div>
 
