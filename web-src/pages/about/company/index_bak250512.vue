@@ -10,10 +10,10 @@
         <div class="content_area">
             <div id="company" >
                 <div class="company medicity w-full max-w-[1340px] py-[120px] my-0 mx-auto">
-                    <h2 class="area_name text-[65px] font-[700] mb-[120px]">
+                    <h2 class="area_name text-[46px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
                         MediCity
                     </h2>
-                    <p class="description text-[40px] font-[700] mb-[86px]">
+                    <p class="description text-[24px] lg:text-[40px] font-[700] mb-[86px]">
                         🌐 MediCity Co., Ltd. - A Global Integrated Medical Platform
                     </p>
                     <div class="about_intro flex flex-wrap justify-center items-center mb-[100px]">
@@ -26,7 +26,7 @@
 
                 <div id="location" class="bg-[#FAFAFA]">
                     <div class="location w-full max-w-[1340px] py-[120px] my-0 mx-auto">
-                        <p class="description text-[40px] font-[700] mb-[48px]">
+                        <p class="description text-[24px] lg:text-[40px] font-[700] mb-[48px]">
                             📍 Location
                         </p>
                         <div class="map_area flex justify-center items-center gap-[50px]">
@@ -50,7 +50,7 @@
 
                 <div id="certification">
                     <div class="w-full max-w-[1340px] pt-[120px] my-0 mx-auto">
-                        <p class="description text-[40px] font-[700] mb-[48px]">
+                        <p class="description text-[24px] lg:text-[40px] font-[700] mb-[48px]">
                             ✅ Certification Status
                         </p>
                     </div>
@@ -61,13 +61,13 @@
 
             <div id="service">
                 <div id="program" class="program w-full max-w-[1340px] py-[120px] my-0 mx-auto">
-                    <h2 class="area_name text-[65px] font-[700] mb-[120px]">
+                    <h2 class="area_name text-[46px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
                         Service
                     </h2>
-                    <p class="description text-[40px] font-[700] mb-[34px]">
+                    <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         ✈️ K-MediTour Program
                     </p>
-                    <p class="text-[24px] mb-[86px]">
+                    <p class="text-[18px] lg:text-[24px] mb-[86px]">
                         K-MediTour Program is a fully integrated medical travel program designed to make both your treatment and travel in South Korea smooth, safe, and unforgettable.
                     </p>
                     <div class="tour_program w-full flex justify-center items-center mb-[46px]">
@@ -79,10 +79,10 @@
                 </div>
 
                 <div id="works" class="works w-full max-w-[1340px] py-[120px] my-0 mx-auto">
-                    <p class="description text-[40px] font-[700] mb-[34px]">
+                    <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         🔄 How It Works
                     </p>
-                    <p class="text-[24px] mb-[86px]">
+                    <p class="text-[18px] lg:text-[24px] mb-[86px]">
                         Our streamlined process ensures a hassle-free experience from start to finish.
                     </p>
                     <table class="table-auto border-collapse w-full">
@@ -124,10 +124,10 @@
                 </div>
 
                 <div id="overview" class="overview w-full max-w-[1340px] py-[120px] my-0 mx-auto">
-                    <p class="description text-[40px] font-[700] mb-[34px]">
+                    <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         🩺 Medical Treatment Program Overview
                     </p>
-                    <p class="text-[24px] mb-[86px]">
+                    <p class="text-[18px] lg:text-[24px] mb-[86px]">
                         We offer a wide range of medical specialties through our partnered hospitals,<br/>
                         ensuring personalized care tailored to each patient’s needs.
                     </p>
@@ -136,10 +136,10 @@
                 </div>
 
                 <div id="tour_overview" class="tour_overview w-full max-w-[1340px] py-[120px] my-0 mx-auto">
-                    <p class="description text-[40px] font-[700] mb-[34px]">
+                    <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         🏞️ Tour(Seoul Tour, Gangwon Tour) Overview
                     </p>
-                    <p class="text-[24px] mb-[86px]">
+                    <p class="text-[18px] lg:text-[24px] mb-[86px]">
                         More than just treatment—immerse yourself in the charm of Korea with Drako,<br/>
                         by visiting the most iconic K-drama and K-pop landmarks.
                     </p>
@@ -161,10 +161,10 @@
 
             <div id="korea" class="bg-[url('@/assets/images/sub/about/korea_bg.png')] bg-no-repeat bg-contain bg-bottom">
                 <div class="w-full max-w-[1340px] py-[120px] my-0 mx-auto">
-                    <h2 class="area_name text-[65px] font-[700] mb-[120px]">
+                    <h2 class="area_name text-[46px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
                         Why Korea?
                     </h2>
-                    <p class="description text-[40px] font-[700] mb-[34px]">
+                    <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         World-Class Medical Excellence
                     </p>
                     <p class="text-[24px] mb-[236px]">
@@ -173,10 +173,10 @@
                     </p>
 
                     <div id="ranking">
-                        <p class="description text-[40px] font-[700] mb-[34px]">
+                        <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                             🏆 World-Class Healthcare, Globally Recognized
                         </p>
-                        <p class="text-[24px] mb-[86px]">
+                        <p class="text-[18px] lg:text-[24px] mb-[86px]">
                             Korea has been ranked as the country with the second best healthcare system in the world.<br/>
                             This index ranks 110 countries based on various factors contributing to overall health.
                         </p>
@@ -191,10 +191,10 @@
                     </div>
 
                     <div id="meditech">
-                        <p class="description text-[40px] font-[700] mb-[34px]">
+                        <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                             🖥️ Leading in Early Diagnosis & Medical Tech
                         </p>
-                        <p class="text-[24px] mb-[86px]">
+                        <p class="text-[18px] lg:text-[24px] mb-[86px]">
                             Korea leads globally in the availability of mammographs and maintains above-OECD-average access to CT scanners<br/>
                             and MRI units, underscoring its strength in early diagnosis and advanced medical infrastructure.
                         </p>
@@ -215,10 +215,10 @@
                     </div>
                     
                     <div id="tourism">
-                        <p class="description text-[40px] font-[700] mb-[34px]">
+                        <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                             🧳 Asia’s Rising Star in Medical Tourism
                         </p>
-                        <p class="text-[24px] mb-[86px]">
+                        <p class="text-[18px] lg:text-[24px] mb-[86px]">
                             The number of foreign patients in Korea surged to 1.17 million in 2024, marking a 93.2% increase from the previous year<br/>
                             and solidifying the country's status as a leading medical tourism hub in Asia.
                         </p>
@@ -236,7 +236,7 @@
                     </div>
 
                     <div id="experiences">
-                        <p class="description text-[40px] font-[700] mb-[34px]">
+                        <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                             🗺️ Unique Travel Experiences
                         </p>
                         <p class="text-[24px] mb-[86px] pb-[100px] border-b border-[#808080]">
@@ -313,7 +313,7 @@
                         Why K-MediTour?<br/>
                         Total Care, Trusted Network
                     </h2>
-                    <p class="description text-[40px] font-[700] mb-[34px]">
+                    <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         🧭 From Indonesia to Korea—Every Step, Fully Supported
                     </p>
                     <p class="text-[24px] mb-[83px]">

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div
-            class="certification_area w-full max-w-[1340px] my-0 mx-auto pb-[100px] flex justify-start items-center flex-wrap gap-x-[8px] gap-y-[38px]">
+            class="certification_area w-full max-w-[1380px] px-[20px] my-0 mx-auto pb-[100px] flex justify-center sm:justify-start items-center flex-wrap gap-x-[8px] gap-y-[38px]">
             <div v-for="(item, index) in certifications" :key="index" class="w-[216px] flex flex-col gap-[8px]">
                 <img :src="item.image" alt="certification" />
                 <div
