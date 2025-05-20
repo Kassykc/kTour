@@ -260,15 +260,15 @@
             </div>
 
             <div id="korea"
-                class="bg-[url('@/assets/images/sub/about/korea_bg.png')] bg-no-repeat bg-contain bg-bottom">
-                <div class="w-full max-w-[1340px] py-[120px] my-0 mx-auto">
+                class="bg-[url('@/assets/images/sub/about/korea_bg.png')] bg-no-repeat [background-size:450%] sm:[background-size:200%] xl:bg-contain bg-bottom">
+                <div class="w-full max-w-[1340px] py-[120px] px-[20px] my-0 mx-auto">
                     <h2 class="area_name text-[46px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
                         {{ t('about.part3.title') }}
                     </h2>
                     <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         {{ t('about.part3.subtitle') }}
                     </p>
-                    <p class="text-[24px] mb-[236px]">
+                    <p class="text-[18px] lg:text-[24px] mb-[100px] lg:mb-[236px]">
                         {{ t('about.part3.desc1') }}<br />
                         {{ t('about.part3.desc2') }}
                     </p>
@@ -282,14 +282,14 @@
                             {{ t('about.part3.content1.desc2') }}
                         </p>
                         <div class="table_area flex flex-col gap-[50px] mb-[180px]">
-                            <h2 class="title font-[700] text-[25px] text-center">
+                            <h2 class="title font-[700] text-[18px] sm:text-[25px] text-center">
                                 {{ t('about.part3.content1.1') }}
                             </h2>
                             <div>
                                 <img src="@/assets/images/sub/about/ranking_table.png" alt=""
                                     class="w-full h-full object-cover">
                             </div>
-                            <p class="text-right text-[14px] mb-[250px]">
+                            <p class="text-right text-[14px] mb-0 lg:mb-[250px]">
                                 <i>{{ t('about.part3.content1.source') }}</i>
                             </p>
                         </div>
@@ -303,7 +303,7 @@
                             {{ t('about.part3.content2.desc1') }}<br />
                             {{ t('about.part3.content2.desc2') }}
                         </p>
-                        <div class="flex justify-between items-end mb-[60px]">
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-[30px] sm:gap-0 mb-[60px]">
                             <div>
                                 <img src="@/assets/images/sub/about/meditech01.png" alt=""
                                     class="w-full h-full object-cover">
@@ -348,65 +348,65 @@
                         <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                             {{ t('about.part3.content4.title') }}
                         </p>
-                        <p class="text-[24px] mb-[86px] pb-[100px] border-b border-[#808080]">
+                        <p class="text-[18px] lg:text-[24px] mb-[43px] lg:mb-[86px] pb-[50px] lg:pb-[100px] border-b border-[#808080]">
                             {{ t('about.part3.content4.desc1') }}<br />
                             {{ t('about.part3.content4.desc2') }}
                         </p>
 
-                        <div class="k_drama px-[50px] border-b border-[#808080] mb-[100px]">
-                            <p class="description text-[30px] font-[700] mb-[34px]">
+                        <div class="k_drama px-[20px] lg:px-[50px] border-b border-[#808080] mb-[50px] lg:mb-[100px]">
+                            <p class="description text-[20px] lg:text-[30px] font-[700] mb-[34px]">
                                 {{ t('about.part3.content4.1.title') }}
                             </p>
                             <p class="text-[16px] mb-[52px] ">
                                 {{ t('about.part3.content4.1.desc1') }}<br />
                                 {{ t('about.part3.content4.1.desc2') }}
                             </p>
-                            <div class="flex justify-between items-center mb-[106px]">
-                                <div class="w-[602px] h-[372px]">
+                            <div class="flex flex-col md:flex-row justify-between items-center mb-[53px] lg:mb-[106px]">
+                                <div class="w-full h-auto md:w-[602px] md:h-[372px]">
                                     <img src="@/assets/images/sub/about/tour_overview01.png" alt=""
                                         class="w-full h-full object-cover">
                                 </div>
-                                <div class="w-[602px] h-[372px]">
+                                <div class="w-full h-auto md:w-[602px] md:h-[372px]">
                                     <img src="@/assets/images/sub/about/kdrama02.png" alt=""
                                         class="w-full h-full object-cover">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="k_pop px-[50px] border-b border-[#808080] mb-[100px]">
-                            <p class="description text-[30px] font-[700] mb-[34px]">
+                        <div class="k_pop px-[20px] lg:px-[50px] border-b border-[#808080] mb-[50px] lg:mb-[100px]">
+                            <p class="description text-[20px] lg:text-[30px] font-[700] mb-[34px]">
                                 {{ t('about.part3.content4.2.title') }}
                             </p>
                             <p class="text-[16px] mb-[52px] ">
                                 {{ t('about.part3.content4.2.desc1') }}<br />
                                 {{ t('about.part3.content4.2.desc2') }}
                             </p>
-                            <div class="flex justify-between items-center mb-[106px]">
-                                <div class="w-[602px] h-[372px]">
+                            <div class="flex flex-col md:flex-row justify-between items-center mb-[53px] lg:mb-[106px]">
+                                <div class="w-full h-auto md:w-[602px] md:h-[372px]">
                                     <img src="@/assets/images/sub/about/kpop01.png" alt=""
                                         class="w-full h-full object-cover">
                                 </div>
-                                <div class="w-[602px] h-[372px]">
+                                <div class="w-full h-auto md:w-[602px] md:h-[372px]">
                                     <img src="@/assets/images/sub/about/tour_overview02.png" alt=""
                                         class="w-full h-full object-cover">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="k_beauty px-[50px] mb-[178px]">
-                            <p class="description text-[30px] font-[700] mb-[34px]">
+                        <div class="k_beauty px-[20px] lg:px-[50px] mb-[88px] lg:mb-[178px]">
+                            <p class="description text-[20px] lg:text-[30px] font-[700] mb-[34px]">
                                 {{ t('about.part3.content4.3.title') }}
                             </p>
                             <p class="text-[16px] mb-[52px] ">
                                 {{ t('about.part3.content4.3.desc1') }}<br />
                                 {{ t('about.part3.content4.3.desc2') }}
                             </p>
-                            <div class="flex justify-between items-center mb-[106px]">
-                                <div class="w-[602px] h-[372px]">
+                            <div class="flex flex-col md:flex-row justify-between items-center mb-[53px] lg:mb-[106px]">
+                                <div class="w-full h-auto md:w-[602px] md:h-[372px]">
                                     <img src="@/assets/images/sub/about/kbeauty01.png" alt=""
                                         class="w-full h-full object-cover">
                                 </div>
-                                <div class="w-[602px] h-[372px]">
+                                <div class="w-full h-auto md:w-[602px] md:h-[372px]">
                                     <img src="@/assets/images/sub/about/kbeauty02.png" alt=""
                                         class="w-full h-full object-cover">
                                 </div>
@@ -414,7 +414,7 @@
                         </div>
 
                         <div
-                            class="font-[700] text-[56px] text-white text-center flex justify-center items-center mb-[40px]">
+                            class="font-[700] text-[20px] sm:text-[32px] lg:text-[56px] text-white text-center flex justify-center items-center mb-[40px]">
                             {{ t('about.part3.content4.banner.1') }}<br />
                             {{ t('about.part3.content4.banner.2') }}<br />
                             {{ t('about.part3.content4.banner.3') }}
@@ -424,15 +424,15 @@
             </div>
 
             <div id="meditour" class="mt-[160px] mb-[60px]">
-                <div class="w-full max-w-[1340px] py-[120px] my-0 mx-auto">
-                    <h2 class="area_name text-[65px] font-[700] mb-[200px]">
+                <div class="w-full max-w-[1340px] py-[120px] px-[20px] my-0 mx-auto">
+                    <h2 class="area_name text-[46px] lg:text-[65px] font-[700] mb-[100px] lg:mb-[200px]">
                         {{ t('about.part4.title1') }}<br />
                         {{ t('about.part4.title2') }}
                     </h2>
                     <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         {{ t('about.part4.content1.title') }}
                     </p>
-                    <p class="text-[24px] mb-[83px]">
+                    <p class="text-[18px] lg:text-[24px] mb-[41px] lg:mb-[83px]">
                         {{ t('about.part4.content1.desc1') }}<br />
                         {{ t('about.part4.content1.desc2') }}
                     </p>
