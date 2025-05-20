@@ -1,24 +1,42 @@
 <script setup lang="ts">
-import { ref, watch, onMounted, defineProps, defineEmits, defineExpose } from "vue";
+import { ref, watch, onMounted, nextTick, defineProps, defineEmits, defineExpose } from "vue";
 import { QuillEditor } from "@vueup/vue-quill";
 import "quill/dist/quill.snow.css";
-import Quill from "quill";
 import BlotFormatter from "@enzedonline/quill-blot-formatter2";
-
-const editor = ref();
 
 const props = defineProps({
     modelValue: String,
-    placeholder: {
-        type: String,
-        default: "내용을 입력하세요...",
-    },
+    placeholder: { type: String, default: "내용을 입력하세요..." }
 });
 
 const emit = defineEmits(["update:modelValue"]);
 
-// onMounted에서 Quill 설정
-onMounted(() => {
+const editor = ref();
+
+const content = ref(props.modelValue);
+
+watch(() => props.modelValue, (val) => {
+    if (val !== content.value) content.value = val;
+});
+
+watch(content, (val) => {
+    if (val !== props.modelValue) emit("update:modelValue", val);
+});
+
+const toolbar = [
+    ['bold', 'italic', 'underline'],
+    [{ header: 1 }, { header: 2 }],
+    [{ list: 'ordered' }, { list: 'bullet' }],
+    [{ script: 'sub' }, { script: 'super' }],
+    [{ indent: '-1' }, { indent: '+1' }],
+    [{ align: [] }],
+    ['clean'],
+    ['image']
+];
+
+onMounted(async () => {
+    await nextTick();
+
     if (editor.value?.getQuill) {
         const quill = editor.value.getQuill();
 
@@ -76,29 +94,15 @@ onMounted(() => {
     }
 });
 
-// v-model을 위한 change 핸들러
-function onContentChange(val: string) {
-    emit("update:modelValue", val);
-}
-
 defineExpose({
-    getEditor: () => editor.value?.getQuill(),
+    getEditor: () => editor.value?.getQuill()
 });
 </script>
 
 <template>
     <div class="editor-area !py-[10px] !px-0 !m-auto w-full">
-        <QuillEditor ref="editor" :content="props.modelValue" @update:content="onContentChange" :contentType="'html'"
-            :theme="'snow'" :toolbar="[
-                ['bold', 'italic', 'underline'],
-                [{ header: 1 }, { header: 2 }],
-                [{ list: 'ordered' }, { list: 'bullet' }],
-                [{ script: 'sub' }, { script: 'super' }],
-                [{ indent: '-1' }, { indent: '+1' }],
-                [{ align: [] }],
-                ['clean'],
-                ['image']
-            ]" :placeholder="placeholder" />
+        <QuillEditor ref="editor" v-model:content="content" :contentType="'html'" :theme="'snow'" :toolbar="toolbar"
+            :placeholder="props.placeholder" />
     </div>
 </template>
 
