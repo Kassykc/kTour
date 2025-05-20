@@ -30,9 +30,7 @@ const columns = ref([
 
 const columnsWidth = [
     { flex: '5' },
-    { flex: '5' },
-    { flex: '10' },
-    { flex: '10' },
+    { flex: '50' },
 ];
 
 const handleDeleteItems = async (selectedRows: number[]) => {
