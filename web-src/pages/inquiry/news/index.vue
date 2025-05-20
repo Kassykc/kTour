@@ -4,7 +4,7 @@
 
         <div class="content_area">
             <div id="news">
-                <div class="main_tit text-[65px] font-[700] w-full max-w-[1340px] pt-[160px] my-0 mx-auto text-center">
+                <div class="main_tit  text-[46px] lg:text-[65px] font-[700] w-full max-w-[1340px] pt-[160px] my-0 mx-auto text-center">
                     {{ t('news.title') }}
                 </div>
             
