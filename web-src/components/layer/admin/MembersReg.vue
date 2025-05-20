@@ -420,6 +420,28 @@ const decodeHtmlEntities = (str: string): string => {
 }
 
 onMounted(async () => {
+    const codeParams = { page_num: 1, page_size: 999 };
+    const response2 = await codeStore.setCodes(codeParams);
+    sessionStorage.setItem('medicalCodes', JSON.stringify(response2));
+    const codes = response2.resultInfo || [];
+
+    hospitalDepth1.value = codes.filter(item => (item.codeType === 'CONTENT_CATEGORY'));
+    hospitalDepth2.value = codes.filter(item => item.codeType === "CONTENT_CATEGORY_CHILD");
+
+    hospitalDepth1.value = hospitalDepth1.value.map(item => {
+        return {
+            ...item,
+            codeValue: JSON.parse(item.codeValue)?.categoryNameEn
+        };
+    });
+
+    hospitalDepth2.value = hospitalDepth2.value.map(item => {
+        return {
+            ...item,
+            codeValue: JSON.parse(item.codeValue)?.categoryNameEn
+        };
+    });
+    
     if (props.mode === 'mod') {
         const params = { peopleIdx: props.idx };
         const response = await memberMngStore.dtlPeople(params);
@@ -442,49 +464,8 @@ onMounted(async () => {
             files.value = response.resultInfo.fileInfo.filter((file: any) => file.originTypeCd !== 100);
         }
 
-        const codeParams = { page_num: 1, page_size: 999 };
-        const response2 = await codeStore.setCodes(codeParams);
-        sessionStorage.setItem('medicalCodes', JSON.stringify(response2));
-        const codes = response2.resultInfo || [];
 
-        hospitalDepth1.value = codes.filter(item => (item.codeType === 'CONTENT_CATEGORY'));
-        hospitalDepth2.value = codes.filter(item => item.codeType === "CONTENT_CATEGORY_CHILD");
-
-        hospitalDepth1.value = hospitalDepth1.value.map(item => {
-            return {
-                ...item,
-                codeValue: JSON.parse(item.codeValue)?.categoryNameEn
-            };
-        });
-
-        hospitalDepth2.value = hospitalDepth2.value.map(item => {
-            return {
-                ...item,
-                codeValue: JSON.parse(item.codeValue)?.categoryNameEn
-            };
-        });
-    } else {
-        const codeParams = { page_num: 1, page_size: 999 };
-        const response2 = await codeStore.setCodes(codeParams);
-        sessionStorage.setItem('medicalCodes', JSON.stringify(response2));
-        const codes = response2.resultInfo || [];
-
-        hospitalDepth1.value = codes.filter(item => (item.codeType === 'CONTENT_CATEGORY'));
-        hospitalDepth2.value = codes.filter(item => item.codeType === "CONTENT_CATEGORY_CHILD");
-
-        hospitalDepth1.value = hospitalDepth1.value.map(item => {
-            return {
-                ...item,
-                codeValue: JSON.parse(item.codeValue)?.categoryNameEn
-            };
-        });
-
-        hospitalDepth2.value = hospitalDepth2.value.map(item => {
-            return {
-                ...item,
-                codeValue: JSON.parse(item.codeValue)?.categoryNameEn
-            };
-        });
+        selectedHashtags.value = hashtag.value;
     }
 });
 
