@@ -1,6 +1,6 @@
 <template>
     <div class="search_list w-full max-w-[1340px] mx-auto flex justify-start items-start gap-[8px] mb-[146px]">
-
+        <!-- {{ props.data.fileInfo }} -->
         <div class="hospital_media flex-0 w-[592px] h-[424px] flex flex-col justify-center items-center gap-[6px]">
             <!-- 슬라이드 영역  -->
             <div class="swiper_area w-[592px] h-[360px] border">
@@ -8,9 +8,9 @@
                     :autoplay="{ delay: 3000, disableOnInteraction: false }" :loop="true" :pagination="true"
                     :slidesPerView="1" :spaceBetween="30" :navigation="false"
                     class="w-full flex justify-center items-center  mx-auto" ref="swiper">
-                    <SwiperSlide v-for="(item, idx) in slide" :key="idx">
+                    <SwiperSlide v-for="(item, idx) in imageFiles" :key="idx">
                         <div class="w-full h-full object-cover">
-                            <img :src=item.img alt="슬라이드 이미지">
+                            <img :src="fileBaseUrl + item.filePathEnc" alt="슬라이드 이미지">
                         </div>
                     </SwiperSlide>
                 </Swiper>
@@ -81,7 +81,7 @@
 
             <!-- 버튼 -->
             <div class="btns w-full flex justify-center items-center gap-[8px]">
-                <a href="" download=""
+                <a href="fileBaseUrl + generalFiles[0].filePathEnc" download=""
                     class="brochure flex justify-center items-center gap-[5px] w-full bg-[#3F3F3F] !text-white px-[20px] py-[12px] h-[54px] cursor-pointer">
                     Brochure
                     <img src="@/assets/images/sub/mtc/down_icon.png" alt="">
@@ -111,9 +111,44 @@ const props = defineProps({
     selectedCategory: String
 })
 
+const fileBaseUrl = apiBase.url() + "/_file/000/";
+
+const decodeHtmlEntities = (str: string) => {
+    const txt = document.createElement('textarea');
+    txt.innerHTML = str;
+    return txt.value;
+}
 const parsedMemo = computed(() => {
-    return JSON.parse(props.data?.peopleMemo || '{}');
+    try {
+        const rawMemo = props.data?.peopleMemo;
+
+        if (!rawMemo || rawMemo === 'null') return {};
+
+        const decoded = decodeHtmlEntities(rawMemo);
+        return JSON.parse(decoded);
+    } catch (e) {
+        console.error('peopleMemo 파싱 오류:', e);
+        return {};
+    }
 });
+
+const imageFiles = computed(() => {
+    try {
+        return props.data?.fileInfo?.filter(file => file.fileExt?.toLowerCase() == 'webp') ?? []
+    } catch (e) {
+        console.error('peopleMemo 파싱 오류:', e);
+        return {};
+    }
+})
+
+const generalFiles = computed(() => {
+    try {
+        return props.data?.fileInfo?.filter(file => file.fileExt?.toLowerCase() != 'webp') ?? []
+    } catch (e) {
+        console.error('peopleMemo 파싱 오류:', e);
+        return {};
+    }
+})
 
 const slide = [
     { img: img01 },

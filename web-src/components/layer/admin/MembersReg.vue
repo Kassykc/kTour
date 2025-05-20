@@ -316,6 +316,8 @@ const goReg = async () => {
 
     const params = toRaw(resData.value);
 
+    params.categoryIdx = params.categoryChildIdx;
+
     const memo = {
         sloganEn: sloganEn.value,
         sloganId: sloganId.value,
@@ -358,6 +360,7 @@ const goUpdate = async () => {
 
     const params = toRaw(resData.value);
     params.modUserIdx = 0;
+    params.categoryIdx = params.categoryChildIdx;
     delete params['profileInfo'];
     params.categoryIdx = resData.value.categoryChildIdx;
     params.profile = selectedProfile.value;
@@ -417,29 +420,29 @@ onMounted(async () => {
             files.value = response.resultInfo.fileInfo.filter((file: any) => file.originTypeCd !== 100);
 
         }
-
-        const codeParams = { page_num: 1, page_size: 999 };
-        const response2 = await codeStore.setCodes(codeParams);
-        sessionStorage.setItem('medicalCodes', JSON.stringify(response2));
-        const codes = response2.resultInfo || [];
-
-        hospitalDepth1.value = codes.filter(item => (item.codeType === 'CONTENT_CATEGORY'));
-        hospitalDepth2.value = codes.filter(item => item.codeType === "CONTENT_CATEGORY_CHILD");
-
-        hospitalDepth1.value = hospitalDepth1.value.map(item => {
-            return {
-                ...item,
-                codeValue: JSON.parse(item.codeValue)?.categoryNameEn
-            };
-        });
-
-        hospitalDepth2.value = hospitalDepth2.value.map(item => {
-            return {
-                ...item,
-                codeValue: JSON.parse(item.codeValue)?.categoryNameEn
-            };
-        });
     }
+
+    const codeParams = { page_num: 1, page_size: 999 };
+    const response2 = await codeStore.setCodes(codeParams);
+    sessionStorage.setItem('medicalCodes', JSON.stringify(response2));
+    const codes = response2.resultInfo || [];
+
+    hospitalDepth1.value = codes.filter(item => (item.codeType === 'CONTENT_CATEGORY'));
+    hospitalDepth2.value = codes.filter(item => item.codeType === "CONTENT_CATEGORY_CHILD");
+
+    hospitalDepth1.value = hospitalDepth1.value.map(item => {
+        return {
+            ...item,
+            codeValue: JSON.parse(item.codeValue)?.categoryNameEn
+        };
+    });
+
+    hospitalDepth2.value = hospitalDepth2.value.map(item => {
+        return {
+            ...item,
+            codeValue: JSON.parse(item.codeValue)?.categoryNameEn
+        };
+    });
 });
 
 
