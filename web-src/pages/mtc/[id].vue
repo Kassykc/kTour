@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-if="mtcDtlData">
         <Banner :title="bannerTitle" :bgImage="bannerBgImage" :category="category" :selectedTab="selectedTab" />
 
         <div class="content_area pb-[160px]">
@@ -87,14 +87,17 @@
                                         SNS
                                     </div>
                                     <div class="cont flex-1 flex justify-start items-center gap-[26px]">
-                                        <a :href="parsedMemo.instagram" target="blank">
+                                        <a :href="parsedMemo.instagram" target="blank"
+                                            v-if="parsedMemo.instagram && parsedMemo.instagram != ''">
                                             <img src="@/assets/images/sub/mtc/insta.png" alt="">
                                         </a>
-                                        <a :href="parsedMemo.youtube" target="blank">
+                                        <a :href="parsedMemo.youtube" target="blank"
+                                            v-if="parsedMemo.youtube && parsedMemo.youtube != ''">
                                             <img src="@/assets/images/sub/mtc/youtube.png" alt="">
                                         </a>
                                         <a :href="parsedMemo.site" target="blank">
-                                            <img src="@/assets/images/sub/mtc/language.png" alt="">
+                                            <img src="@/assets/images/sub/mtc/language.png" alt=""
+                                                v-if="parsedMemo.site && parsedMemo.site != ''">
                                         </a>
                                     </div>
                                 </div>
@@ -130,12 +133,12 @@
 
                 <!-- 리스트 버튼 -->
                 <div class="flex justify-center items-center gap-[8px]">
-                    <SubListBtn />
-                    <a href="fileBaseUrl + generalFiles[0].filePathEnc" download=""
+                    <SubListBtn @click=" router.back()" />
+                    <div @click="getDown(generalFiles[0].filePathEnc)" v-if="generalFiles && generalFiles.length > 0"
                         class="brochure flex justify-center items-center gap-[5px] w-[246px] bg-[#3F3F3F] !text-white px-[20px] py-[12px] h-[60px] cursor-pointer">
                         Brochure
                         <img src="@/assets/images/sub/mtc/down_icon.png" alt="">
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -155,6 +158,8 @@ const movePage = (page: string) => {
 
     router.push(page);
 };
+
+const fileBaseUrl = apiBase.url() + "/_file/000/";
 
 const bannerTitle = ref('MTC');
 const bannerBgImage = ref(mts_bg); // 배경 이미지 경로
@@ -215,7 +220,10 @@ const generalFiles = computed(() => {
 
 
 const route = useRoute();
-const fileBaseUrl = apiBase.url() + "/_file/000/";
+const getDown = (path: string) => {
+    console.log(apiBase.url() + "/_file/000/" + path)
+    window.location.href = apiBase.url() + "/_file/000/" + path
+};
 
 const { data: mtcDtlData, pending, error, refresh } = await useAsyncData(
     `mtcDtlData-${route.params.id}`,

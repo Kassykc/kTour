@@ -10,7 +10,8 @@
                     class="w-full h-full flex justify-center items-center  mx-auto" ref="swiper">
                     <SwiperSlide v-for="(item, idx) in imageFiles" :key="idx">
                         <div class="w-full h-full">
-                            <img :src="fileBaseUrl + item.filePathEnc" alt="슬라이드 이미지" class="w-full h-full object-contain">
+                            <img :src="fileBaseUrl + item.filePathEnc" alt="슬라이드 이미지"
+                                class="w-full h-full object-contain">
                         </div>
                     </SwiperSlide>
                 </Swiper>
@@ -19,13 +20,14 @@
             <!-- sns 영역 -->
             <div
                 class="sns flex justify-start items-center gap-[20px] w-full h-[52px] bg-[#F3F3F3] px-[20px] py-[12px]">
-                <a href="" target="blank">
+                <a href="" target="blank" v-if="parsedMemo.instagram && parsedMemo.instagram != ''">
                     <img src="@/assets/images/sub/mtc/insta.png" alt="" @click="router.push(parsedMemo.instagram)">
                 </a>
-                <a href="" target="blank">
+                <a href="" target="blank" v-if="parsedMemo.youtube && parsedMemo.youtube != ''">
                     <img src="@/assets/images/sub/mtc/youtube.png" alt="" @click="router.push(parsedMemo.youtube)">
                 </a>
-                <a href="" target="blank" class="flex justify-start items-center gap-[20px]">
+                <a href="" target="blank" class="flex justify-start items-center gap-[20px]"
+                    v-if="parsedMemo.site && parsedMemo.site != ''">
                     <img src="@/assets/images/sub/mtc/language.png" alt="" @click="router.push(parsedMemo.site)">
                     <span class="text-[#313131]" @click="router.push(parsedMemo.site)">{{ parsedMemo.site }}</span>
                 </a>
@@ -39,7 +41,8 @@
                 <!-- 탭 이름 -->
                 <div
                     class="tab_name w-fit text-[#1F78FF] font-[700] border-[2px] border-[#1F78FF] py-[14px] px-[20px] rounded-[100px] mb-[10px]">
-                    {{ props.selectedCategory }}</div>
+                    {{ composer.locale == 'en' ?
+                        parsedTab.categoryNameEn : parsedTab.categoryNameId  }}</div>
 
                 <!-- 태그 -->
                 <div class="tags flex justify-start items-center gap-[10px]">
@@ -81,7 +84,8 @@
 
             <!-- 버튼 -->
             <div class="btns w-full flex justify-center items-center gap-[8px]">
-                <a href="fileBaseUrl + generalFiles[0].filePathEnc" download=""
+                <a v-if="generalFiles && generalFiles.length > 0" :href="fileBaseUrl + generalFiles[0].filePathEnc"
+                    download=""
                     class="brochure flex justify-center items-center gap-[5px] w-full bg-[#3F3F3F] !text-white px-[20px] py-[12px] h-[54px] cursor-pointer">
                     Brochure
                     <img src="@/assets/images/sub/mtc/down_icon.png" alt="">
@@ -118,6 +122,21 @@ const decodeHtmlEntities = (str: string) => {
     txt.innerHTML = str;
     return txt.value;
 }
+
+const parsedTab = computed(() => {
+    try {
+        const rawMemo = props.data?.categoryChildNameKo;
+
+        if (!rawMemo || rawMemo === 'null') return {};
+
+        const decoded = decodeHtmlEntities(rawMemo);
+        return JSON.parse(decoded);
+    } catch (e) {
+        console.error('peopleMemo 파싱 오류:', e);
+        return {};
+    }
+});
+
 const parsedMemo = computed(() => {
     try {
         const rawMemo = props.data?.peopleMemo;

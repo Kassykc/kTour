@@ -4,7 +4,7 @@
             <div v-for="(tab, index) in tabs" :key="index"
                 class="tab w-full text-[20px] font-[700] text-center py-[22px] cursor-pointer"
                 :class="index === selectedIndex ? 'text-[#1F78FF] border-b-[2px] border-[#1F78FF]' : 'text-[#afafaf]'"
-                @click="selectTab(index)">
+                @click="selectTab(index, tab.codeKey)">
                 {{ tab.codeValue }}
             </div>
         </div>
@@ -23,11 +23,16 @@ const props = defineProps<{
     }[]
 }>();
 
+const emit = defineEmits<{
+    (e: 'select-code-key', codeKey: number): void
+}>();
+
 const tabs = computed(() => props.depth2List ?? []);
 
 // 탭 클릭 시 선택된 인덱스 업데이트
-const selectTab = (index: number) => {
+const selectTab = (index: number, codeKey: number) => {
     selectedIndex.value = index;
+    emit('select-code-key', codeKey);
 };
 </script>
 

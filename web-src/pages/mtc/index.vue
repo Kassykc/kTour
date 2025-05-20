@@ -17,9 +17,9 @@
                 </div>
 
                 <!-- <SubSearchListTab :selectedCategory="selectedCategory" /> -->
-                <SubSearchListTab class="mb-[116px]" :depth2List="depth2List" />
+                <SubSearchListTab class="mb-[116px]" :depth2List="depth2List" @select-code-key="onSelectCodeKey" />
 
-                <div v-for="(item, index) in listData" :key="index">
+                <div v-for="(item, index) in selectTabList" :key="index">
                     <SubSearchList :data="item" :selectedCategory="selectedCategory" />
                 </div>
 
@@ -44,6 +44,12 @@ const selectedTab = ref('mtc');
 const selectedCategory = ref(t('mts.tab.1')); // 선택된 카테고리 이름을 저장
 const depth2List = ref();
 const listData = ref();
+const selectTabList = ref([]);
+
+const onSelectCodeKey = (codeKey: number) => {
+    selectTabList.value = listData.value.filter(item => item.categoryChildIdx == codeKey);
+};
+
 
 const updateSelectedCategory = async (categoryName: string, depth2?: any, idx?: any) => {
     selectedCategory.value = categoryName;  // selectedCategory 업데이트
