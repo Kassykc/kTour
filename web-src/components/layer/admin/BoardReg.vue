@@ -30,7 +30,7 @@
                     <label
                         class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
                         언어
-                    </label> 
+                    </label>
                     <select v-model="resData.mobileAgencyCd"
                         class="w-[150px] h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white text-sm self-center">
                         <option key="1" value="id">id</option>
@@ -43,7 +43,7 @@
                     <label
                         class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">내용</label>
                     <ClientOnly>
-                        <AdminCommonBoardQuillEditor :content="resData.content" @update:content="handleContent" />
+                        <AdminCommonBoardQuillEditor v-model="resData.content" />
                     </ClientOnly>
                 </div>
 
@@ -206,8 +206,10 @@ const goReg = async () => {
         params.thumbnail = thumbnails.value;
     }
 
+    const data = common.cleanObject(params);
+
     try {
-        const response = await boardMngStore.insertBoard(params);
+        const response = await boardMngStore.insertBoard(data);
 
         if (response) {
             SysAlert({
@@ -244,8 +246,10 @@ const goUpdate = async () => {
         params.thumbnail = thumbnails.value;
     }
 
+    const data = common.cleanObject(params);
+
     try {
-        const response = await boardMngStore.uptBoard(params);
+        const response = await boardMngStore.uptBoard(data);
 
         if (response) {
             SysAlert({

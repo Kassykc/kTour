@@ -344,16 +344,6 @@ const toggleDepth2 = (item: any) => {
     }
 }
 
-const handleContentEn = (content: string) => {
-
-    contentEn.value = content;
-}
-
-const handleContentId = (content: string) => {
-
-    contentId.value = content;
-}
-
 const goReg = async () => {
 
     const params = toRaw(resData.value);
@@ -378,9 +368,11 @@ const goReg = async () => {
         params.file = files.value;
     }
 
+    const data = common.cleanObject(params);
+
     // params.profileInfo = [];
     try {
-        const response = await memberMngStore.insertPeople(params);
+        const response = await memberMngStore.insertPeople(data);
 
         if (response) {
             SysAlert({
@@ -437,8 +429,10 @@ const goUpdate = async () => {
     //     return;
     // }
 
+    const data = common.cleanObject(params);
+
     try {
-        const response = await memberMngStore.updatePeople(params);
+        const response = await memberMngStore.updatePeople(data);
 
         if (response) {
             SysAlert({
