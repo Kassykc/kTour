@@ -63,11 +63,14 @@ const updateSelectedCategory = async (categoryName: string, depth2?: any, idx?: 
     if (depth2List.value && depth2List.value.length > 0) {
         const key = depth2List.value[keyIdx.value]?.codeValue;
 
+        let txt = document.createElement('textarea');
+        txt.textContent = key;
+
         const data = {
             showYn: 'Y',
             pageNum: 1,
             pageSize: 9999,
-            searchKeyword: key,
+            searchKeyword: txt.innerHTML,
         };
 
         const response = await memberMngStore.getPeopleList(data);
@@ -81,14 +84,16 @@ const updateSelectedCategory = async (categoryName: string, depth2?: any, idx?: 
         depth2List.value = [];
         depth2List.value = depth2;
 
-
         const key = depth2 ? depth2[keyIdx.value]?.codeValue : '';
+
+        let txt = document.createElement('textarea');
+        txt.textContent = key;
 
         const data = {
             showYn: 'Y',
             pageNum: 1,
             pageSize: 9999,
-            searchKeyword: key,
+            searchKeyword: txt.innerHTML,
         };
 
         const response = await memberMngStore.getPeopleList(data);
