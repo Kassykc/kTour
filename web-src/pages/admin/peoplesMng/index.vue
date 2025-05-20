@@ -25,8 +25,7 @@ const fileBaseUrl = apiBase.url() + "/_file/000/";
 
 const columns = ref([
     { label: 'No.', key: 'peopleIdx', type: 'text' },
-    { label: '사진', key: 'thumb', type: 'img_people' },
-    { label: '이름', key: 'nameKo', type: 'text' },
+    { label: '이름', key: 'nameFirstKo', type: 'text' },
 ]);
 
 const columnsWidth = [

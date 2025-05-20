@@ -11,9 +11,9 @@
                         병원명<span class="necessary text-[#ff0000]">*</span></div>
                     <div
                         class="reg_name_wrap cont_area py-[10px] !px-0 !m-auto w-full flex justify-start items-center gap-[4px]">
-                        <input type="text" placeholder="en" v-model="resData.userNameKo"
+                        <input type="text" placeholder="en" v-model="resData.nameFirstKo"
                             class="input_firstName input_area border rounded-[6px] px-[10px] py-[4px] w-[48%]">
-                        <input type="text" placeholder="id" v-model="resData.userNameEn"
+                        <input type="text" placeholder="id" v-model="resData.nameFirstEn"
                             class="input_lastName input_area border rounded-[6px] px-[10px] py-[4px] w-[48%]">
                     </div>
                 </div>
