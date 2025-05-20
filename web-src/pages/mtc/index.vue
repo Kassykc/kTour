@@ -4,7 +4,8 @@
 
         <div class="content_area">
             <div id="mtc">
-                <div class="main_tit  text-[46px] lg:text-[65px] font-[700] w-full max-w-[1340px] pt-[160px] my-0 mx-auto text-center">
+                <div
+                    class="main_tit  text-[46px] lg:text-[65px] font-[700] w-full max-w-[1340px] pt-[160px] my-0 mx-auto text-center">
                     {{ t('mts.title') }}
                 </div>
 
@@ -19,7 +20,7 @@
                 <!-- <SubSearchListTab :selectedCategory="selectedCategory" /> -->
                 <SubSearchListTab class="mb-[116px]" :depth2List="depth2List" @select-code-key="onSelectCodeKey" />
 
-                <div v-for="(item, index) in selectTabList" :key="index">
+                <div v-for="(item, index) in listData" :key="index">
                     <SubSearchList :data="item" :selectedCategory="selectedCategory" />
                 </div>
 
@@ -45,27 +46,49 @@ const selectedCategory = ref(t('mts.tab.1')); // 선택된 카테고리 이름�
 const depth2List = ref();
 const listData = ref();
 const selectTabList = ref([]);
+const keyIdx = ref(0);
 
 const onSelectCodeKey = (codeKey: number) => {
-    selectTabList.value = listData.value.filter(item => item.categoryChildIdx == codeKey);
+    keyIdx.value = depth2List.value.findIndex(item => item.codeKey == codeKey);
+    updateSelectedCategory(selectedCategory.value)
 };
 
 
 const updateSelectedCategory = async (categoryName: string, depth2?: any, idx?: any) => {
+
+    console.log('fdfdfd')
+
     selectedCategory.value = categoryName;  // selectedCategory 업데이트
 
-    if (depth2) {
-        depth2List.value = [];
-        depth2List.value = depth2;
-    }
+    if (depth2List.value && depth2List.value.length > 0) {
+        const key = depth2List.value[keyIdx.value]?.codeValue;
 
-    if (idx) {
         const data = {
             showYn: 'Y',
             pageNum: 1,
             pageSize: 9999,
-            searchKeyword: '',
-            categoryIdx: idx,
+            searchKeyword: key,
+        };
+
+        const response = await memberMngStore.getPeopleList(data);
+        if (response) {
+            listData.value = response.resultInfo;
+        }
+        return
+    }
+
+    if (depth2) {
+        depth2List.value = [];
+        depth2List.value = depth2;
+
+
+        const key = depth2 ? depth2[keyIdx.value]?.codeValue : '';
+
+        const data = {
+            showYn: 'Y',
+            pageNum: 1,
+            pageSize: 9999,
+            searchKeyword: key,
         };
 
         const response = await memberMngStore.getPeopleList(data);

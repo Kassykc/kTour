@@ -39,16 +39,17 @@
             <div class="info w-full px-[26px] flex-1 flex flex-col justify-centr items-start gap-[10px]">
 
                 <!-- 탭 이름 -->
-                <div
+                <div v-for="(item, index) in parsedMemo.category" :key="index"
                     class="tab_name w-fit text-[#1F78FF] font-[700] border-[2px] border-[#1F78FF] py-[14px] px-[20px] rounded-[100px] mb-[10px]">
-                    {{ composer.locale == 'en' ?
-                        parsedTab.categoryNameEn : parsedTab.categoryNameId  }}</div>
+                    {{ composer.locale == 'en' ? item.codeValue.categoryNameEn : item.codeValue.categoryNameId }}
+                </div>
 
                 <!-- 태그 -->
                 <div class="tags flex justify-start items-center gap-[10px]">
-                    <div class="tag text-[15px] text-[#838383]" v-for="(item, index) in parsedMemo.hashtag"
+                    <div class="tag text-[15px] text-[#838383]" v-for="(item, index) in parsedMemo.categoryChild"
                         :key="index">
-                        #{{ item.codeValue }}
+                        #{{ composer.locale == 'en' ?
+                            item.codeValue.categoryNameEn : item.codeValue.categoryNameId }}
                     </div>
                 </div>
 
@@ -122,20 +123,6 @@ const decodeHtmlEntities = (str: string) => {
     txt.innerHTML = str;
     return txt.value;
 }
-
-const parsedTab = computed(() => {
-    try {
-        const rawMemo = props.data?.categoryChildNameKo;
-
-        if (!rawMemo || rawMemo === 'null') return {};
-
-        const decoded = decodeHtmlEntities(rawMemo);
-        return JSON.parse(decoded);
-    } catch (e) {
-        console.error('peopleMemo 파싱 오류:', e);
-        return {};
-    }
-});
 
 const parsedMemo = computed(() => {
     try {

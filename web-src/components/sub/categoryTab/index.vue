@@ -2,6 +2,11 @@
     <div class="cartegory_tab w-full max-w-[1340px] my-0 mx-auto">
         <div class="category_wrap flex justify-center items-center flex-wrap gap-[14px]">
             <div class="category min-w-[40px] md:min-w-[75px] px-[10px] md:px-[30px] py-[8px] md:py-[14px] text-[13px] md:text-[18px] text-center rounded-[18px] md:rounded-[30px] cursor-pointer font-[700] border border-[#AFAFAF]"
+                :class="selectedIndex == -1 ? 'bg-[#1F78FF] text-white' : 'bg-white text-[#AFAFAF]'"
+                @click="selectCategory(-1, '')">
+                <div>ALL</div>
+            </div>
+            <div class="category min-w-[40px] md:min-w-[75px] px-[10px] md:px-[30px] py-[8px] md:py-[14px] text-[13px] md:text-[18px] text-center rounded-[18px] md:rounded-[30px] cursor-pointer font-[700] border border-[#AFAFAF]"
                 :class="index === selectedIndex ? 'bg-[#1F78FF] text-white' : 'bg-white text-[#AFAFAF]'"
                 v-for="(category, index) in categories" :key="index"
                 @click="selectCategory(index, category.category_name, category.category_key)">
@@ -28,13 +33,18 @@ const route = useRoute();
 
 // const router = useRouter();
 const emit = defineEmits(); // 부모에게 전달할 이벤트 정의
-const selectedIndex = ref(0);
+const selectedIndex = ref(-1);
 const selectedIdx = ref(0);
 
 
 // 카테고리 클릭 시 해당 인덱스를 selectedIndex에 할당
 const selectCategory = (index: number, categoryName: string, codeKey?: number) => {
     selectedIndex.value = index;
+
+    if (index == 0) {
+        return emit('update:selectedCategory', categoryName, selectedChildren.value, codeKey);
+    }
+
     if (codeKey && composer.locale == 'en') {
         selectedChildren.value = hospitalDepth2En.value.filter(
             item => item.codeParentKey == codeKey
@@ -46,8 +56,7 @@ const selectCategory = (index: number, categoryName: string, codeKey?: number) =
     } else {
         selectedChildren.value = []; // 없으면 초기화
     }
-    emit('update:selectedCategory', categoryName, selectedChildren.value, codeKey); // 카테고리 이름을 부모에게 전달
-
+    return emit('update:selectedCategory', categoryName, selectedChildren.value, codeKey); // 카테고리 이름을 부모에게 전달
 };
 
 
@@ -132,11 +141,13 @@ const setCategories = async () => {
         categories.value = []; // 기본값 설정 (필요에 따라 다른 설정 가능)
     }
 
-    if (categories.value.length > 0) {
-        const first = categories.value[0];
-        selectedIndex.value = 0;
-        selectCategory(0, first.category_name, first?.category_key);
-    }
+    // if (categories.value.length > 0) {
+    //     const first = categories.value[0];
+    //     selectedIndex.value = 0;
+    //     selectCategory(0, first.category_name, first?.category_key);
+    // }
+    selectedIndex.value = -1;
+    selectCategory(-1, '');
 };
 
 watch(() => composer.locale, (newLang, oldLang) => {

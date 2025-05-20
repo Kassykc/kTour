@@ -5,7 +5,8 @@
         <div class="content_area pb-[160px]">
             <div id="mtc_detail" class="w-full max-w-[1340px] mx-auto">
                 <!-- 메일 타이틀 -->
-                <div class="main_tit  text-[46px] lg:text-[65px] font-[700] w-full pt-[160px] pb-[86px] my-0 mx-auto text-center">
+                <div
+                    class="main_tit  text-[46px] lg:text-[65px] font-[700] w-full pt-[160px] pb-[86px] my-0 mx-auto text-center">
                     Hospital Information
                 </div>
 
@@ -13,9 +14,9 @@
                 <div
                     class="info_area flex flex-col justify-start items-start gap-[36px] w-full py-[36px] px-[44px] border border-black mb-[118px]">
                     <!-- 탭 이름 -->
-                    <div
+                    <div v-for="(item, index) in parsedMemo.category" :key="index"
                         class="tab_name w-fit text-[#1F78FF] font-[700] border-[2px] border-[#1F78FF] py-[14px] px-[20px] rounded-[100px]">
-                        {{ composer.locale == 'en' ? parsedTab.categoryNameEn : parsedTab.categoryNameId }}
+                        {{ composer.locale == 'en' ? item.codeValue.categoryNameEn : item.codeValue.categoryNameId }}
                     </div>
 
                     <div class="info_wrap flex justify-between items-end w-full">
@@ -72,12 +73,16 @@
                                         Category (specify)
                                     </div>
                                     <div class="cont flex-1">
-                                        <ul class="list-disc">
-                                            Plastic Surgery
-                                            <li class="ml-[30px]" v-for="(item, index) in parsedMemo.hashtag"
-                                                :key="index">
-                                                {{ item.codeValue }}
-                                            </li>
+                                        <ul class="list-disc" v-for="(item, index) in parsedMemo.category" :key="index">
+                                            {{ composer.locale == 'en' ? item.codeValue.categoryNameEn :
+                                                item.codeValue.categoryNameId }}
+                                            <div v-for="(item2, index) in parsedMemo.categoryChild" :key="index">
+                                                <li class="ml-[30px]"
+                                                    v-if="item && item2 && item2.codeParentKey == item.codeKey">
+                                                    {{ composer.locale == 'en' ? item2.codeValue.categoryNameEn :
+                                                        item2.codeValue.categoryNameId }}
+                                                </li>
+                                            </div>
                                         </ul>
                                     </div>
                                 </div>

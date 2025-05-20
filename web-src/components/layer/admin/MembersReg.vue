@@ -301,56 +301,6 @@ const selectedDepth1 = ref([])
 const selectedDepth2 = ref([])
 const isOpen = ref(false)
 
-// const isSelectedDepth1 = (item: any) => {
-//     const codeKey = item.codeKey
-//     const codeValue = item.codeValue
-//     const title = String(codeValue)
-
-//     const isSelected = selectedDepth1.value.some(tag => tag.codeKey === codeKey)
-
-//     if (isSelected) {
-//         // 이미 선택된 경우 → showDepth2에 중복 방지
-//         if (!showDepth2.value.some(entry => entry.codeParentKey === codeKey)) {
-//             const filteredList = hospitalDepth2.value?.filter(
-//                 item2 => item2.codeParentKey === codeKey
-//             ) ?? []
-//             showDepth2.value.push({
-//                 codeParentKey: codeKey,
-//                 title,
-//                 list: filteredList
-//             })
-//         }
-//     } else {
-//         // 선택 해제 → 해당 codeParentKey 제거
-//         showDepth2.value = showDepth2.value.filter(entry => entry.codeParentKey !== codeKey)
-//         selectedDepth2.value = selectedDepth2.value.filter(entry => entry.codeParentKey !== codeKey)
-//     }
-
-//     return isSelected
-// }
-
-// const isSelectedDepth2 = (item: any) => {
-//     return selectedDepth2.value.some(tag => tag.codeKey === item.codeKey)
-// }
-
-// const toggleDepth1 = (item: any) => {
-//     const index = selectedDepth1.value.findIndex(tag => tag.codeKey === item.codeKey);
-//     if (index > -1) {
-//         selectedDepth1.value = selectedDepth1.value.filter(tag => tag.codeKey !== item.codeKey);
-//     } else {
-//         selectedDepth1.value = [...selectedDepth1.value, item];
-//     }
-// };
-
-// const toggleDepth2 = (item: any) => {
-//     const index = selectedDepth2.value.findIndex(tag => tag.codeKey === item.codeKey);
-//     if (index > -1) {
-//         selectedDepth2.value = selectedDepth2.value.filter(tag => tag.codeKey !== item.codeKey);
-//     } else {
-//         selectedDepth2.value = [...selectedDepth2.value, item];
-//     }
-// };
-
 const toggleDepth1 = (item: any) => {
     const index = selectedDepth1.value.findIndex(
         (tag) => tag.codeKey === item.codeKey
@@ -416,6 +366,32 @@ const goReg = async () => {
     params.categoryIdx = 0;
     params.nameLastKo = ''
 
+    selectedDepth1.value = selectedDepth1.value.map((item) => {
+        try {
+            const real = JSON.parse(item.realValue);
+            return {
+                ...item,
+                codeValue: real, // fallback 처리
+            };
+        } catch (e) {
+            console.error("realValue 파싱 실패:", item.realValue);
+            return item;
+        }
+    });
+
+    selectedDepth2.value = selectedDepth2.value.map((item) => {
+        try {
+            const real = JSON.parse(item.realValue);
+            return {
+                ...item,
+                codeValue: real, // fallback 처리
+            };
+        } catch (e) {
+            console.error("realValue 파싱 실패:", item.realValue);
+            return item;
+        }
+    });
+
     const memo = {
         sloganEn: sloganEn.value,
         sloganId: sloganId.value,
@@ -465,6 +441,32 @@ const goUpdate = async () => {
     params.gender = 0;
     params.attachmentPeople = JSON.stringify(thumbnail.value) != '[]' ? thumbnail.value[0] : insertThumb.value[0];
     params.nameLastKo = ''
+
+    selectedDepth1.value = selectedDepth1.value.map((item) => {
+        try {
+            const real = JSON.parse(item.realValue);
+            return {
+                ...item,
+                codeValue: real, // fallback 처리
+            };
+        } catch (e) {
+            console.error("realValue 파싱 실패:", item.realValue);
+            return item;
+        }
+    });
+
+    selectedDepth2.value = selectedDepth2.value.map((item) => {
+        try {
+            const real = JSON.parse(item.realValue);
+            return {
+                ...item,
+                codeValue: real, // fallback 처리
+            };
+        } catch (e) {
+            console.error("realValue 파싱 실패:", item.realValue);
+            return item;
+        }
+    });
 
     const memo = {
         sloganEn: sloganEn.value,
@@ -528,14 +530,16 @@ onMounted(async () => {
     hospitalDepth1.value = hospitalDepth1.value.map(item => {
         return {
             ...item,
-            codeValue: JSON.parse(item.codeValue)?.categoryNameEn
+            codeValue: JSON.parse(item.codeValue)?.categoryNameEn,
+            realValue: item.codeValue
         };
     });
 
     hospitalDepth2.value = hospitalDepth2.value.map(item => {
         return {
             ...item,
-            codeValue: JSON.parse(item.codeValue)?.categoryNameEn
+            codeValue: JSON.parse(item.codeValue)?.categoryNameEn,
+            realValue: item.codeValue
         };
     });
 
