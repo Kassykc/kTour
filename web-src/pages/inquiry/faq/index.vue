@@ -10,8 +10,8 @@
             
                 <SubCategoryTab class="py-[60px] mb-[100px]" @update:selectedCategory="updateSelectedCategory"/>
 
-                <div class="faq_content_area w-full max-w-[1340px] mx-auto text-[55px] font-[700]">
-                    <div class="title mb-[62px]">
+                <div class="faq_content_area w-full max-w-[1340px] px-[20px] mx-auto text-[26px] sm:text-[40px] lg:text-[55px] font-[700]">
+                    <div class="title mb-[30px] sm:mb-[62px]">
                         {{ selectedCategory }}
                     </div>
 

@@ -4,21 +4,21 @@
             <div 
                 v-for="(faq, index) in faqs" 
                 :key="index"
-                class="faq_content w-full flex flex-col justify-center items-start py-[40px] px-[60px] rounded-[24px] shadow-[0_4px_14px_rgba(0,0,0,0.25)]"
+                class="faq_content w-full flex flex-col justify-center items-start py-[40px] px-[30px] sm:px-[60px] rounded-[24px] shadow-[0_4px_14px_rgba(0,0,0,0.25)]"
             >
-                <div class="q w-full text-[#848484] pb-[28px] border-b border-[#949494] flex justify-start items-center">
-                    <div class="tit font-[700] text-[28px] flex-0 w-[60px]">
+                <div class="q w-full text-[#848484] pb-[28px] border-b border-[#949494] flex flex-col sm:flex-row justify-start items-center">
+                    <div class="tit font-[700] text-[20px] sm:text-[28px] flex-0 w-full sm:w-[60px]">
                         Q.
                     </div>
-                    <div class="cont font-[600] text-[22px] flex-1">
+                    <div class="cont font-[600] text-[16px] sm:text-[22px] flex-1">
                         {{ faq.question }}
                     </div>
                 </div>
-                <div class="a w-full text-[#1F78FF] pt-[28px] flex justify-start items-center">
-                    <div class="tit font-[700] text-[28px] flex-0 w-[60px]">
+                <div class="a w-full text-[#1F78FF] pt-[28px] flex flex-col sm:flex-row justify-start items-center">
+                    <div class="tit font-[700] text-[20px] sm:text-[28px] flex-0 w-full sm:w-[60px]">
                         A.
                     </div>
-                    <div class="cont font-[600] text-[22px] flex-1">
+                    <div class="cont font-[600] text-[16px] sm:text-[22px] flex-1">
                         {{ faq.answer }}
                     </div>
                 </div>
