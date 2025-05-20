@@ -106,11 +106,11 @@
                             <Swiper :modules="[Autoplay, Pagination, Navigation]"
                                 :autoplay="{ delay: 3000, disableOnInteraction: false }" :loop="true" :pagination="true"
                                 :slidesPerView="1" :spaceBetween="30" :navigation="false"
-                                class="w-full flex justify-center items-center mx-auto" ref="swiper">
+                                class="w-full h-full flex justify-center items-center mx-auto" ref="swiper">
                                 <SwiperSlide v-for="(item, idx) in imageFiles" :key="idx">
                                     <div class="w-full h-full">
                                         <img :src="fileBaseUrl + item.filePathEnc" alt="슬라이드 이미지"
-                                            class="w-full h-full object-cover">
+                                            class="w-full h-full object-contain">
                                     </div>
                                 </SwiperSlide>
                             </Swiper>
@@ -129,8 +129,14 @@
                 </div>
 
                 <!-- 리스트 버튼 -->
-                <SubListBtn />
-
+                <div class="flex justify-center items-center gap-[8px]">
+                    <SubListBtn />
+                    <a href="fileBaseUrl + generalFiles[0].filePathEnc" download=""
+                        class="brochure flex justify-center items-center gap-[5px] w-[246px] bg-[#3F3F3F] !text-white px-[20px] py-[12px] h-[60px] cursor-pointer">
+                        Brochure
+                        <img src="@/assets/images/sub/mtc/down_icon.png" alt="">
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -141,7 +147,7 @@ import { PROFILEMNG_API_URLS } from '@/apis/admin/peopleMng/urls'
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
-import mts_bg from "@/assets/images/sub/mtc/banner_bg.png";
+import mts_bg from "@/public/img/mtc/banner_bg.png";
 
 const router = useRouter();
 
@@ -192,80 +198,6 @@ const generalFiles = computed(() => {
     }
 })
 
-const slide = [
-    // { img: img01 },
-    // { img: img01 },
-    // { img: img01 },
-    // { img: img01 },
-];
-
-
-const hospitalDescription = ref(`
-    Located in Seomyeon, Busan, Design Plastic Surgery offers personalized care with two board-certified plastic surgeons who handle everything from consultations to surgeries and post-operative management on a 1:1 basis. Specializing in breast augmentation, we also provide a wide range of procedures, including facelifts, eyelid surgery, rhinoplasty, fillers, and skin treatments, to help you achieve the ultimate beauty. 
-
-    <ul class="list-disc">
-        <li class="ml-[30px]">
-            Equipped with 3D-CT for preoperative rhinoplasty examinations
-        </li>
-        <li class="ml-[30px]">
-            3D virtual plastic surgery consultations using the Crisalix program
-        </li>
-        <li class="ml-[30px]">
-            Comprehensive breast surgery care, including pre/post-operative ultrasound exams, shampoo services, and a structured aftercare program extending up to six months
-        </li>
-        <li class="ml-[30px]">
-            Quick adoption of advanced equipment
-        </li>
-        <li class="ml-[30px]">
-            Safe and efficient procedures using endoscopy
-        </li>
-    </ul>
-
-    Our duo of experienced plastic surgeons, who have worked together seamlessly for many years, is committed to designing natural beauty with heartfelt dedication.
-`);
-
-const treatmentDescription = ref(`
-    <ul class="list-disc">
-        Breast Surgery 
-        <li>
-            Breast Augmentation: We use high-quality implants like Motiva and Mentor, primarily through a transaxillary (armpit) incision to minimize scarring. 
-        </li>
-        <li>
-            Breast Lift: Customized techniques such as periareolar, vertical, and anchor incisions are used based on the degree of sagging. 
-        </li>
-        <li>
-            Breast Reduction: Focused on reducing volume safely while enhancing symmetry and minimizing scarring. 
-        </li>
-    </ul>
-
-    <ul class="list-disc">
-        Facial Surgery 
-        <li>
-            Facelift: Includes both full and mini lifts, as well as endoscopic forehead lifts using our specialized dual triple-point fixation method without Endotine. 
-        </li>
-        <li>
-            Rhinoplasty: Customized nose reshaping with a focus on natural results that suit each patient’s facial balance. 
-        </li>
-        <li>
-            Eyelid Surgery: Upper and lower blepharoplasty to improve sagging, puffiness, and tired-looking eyes. 
-        </li>
-        <li>
-            Otoplasty: Surgical correction for protruding or misshapen ears, creating natural and balanced contours. 
-        </li>
-    </ul>
-
-    <ul class="list-disc">
-        Non-Surgical Procedures 
-        <li>
-            Lifting (Laser, Thread): We offer thread lifting as well as advanced energy-based lifting treatments like Titanium Lift and Ulthera Prime for non-invasive skin tightening. 
-        </li>
-        <li>
-            Fillers: Personalized filler treatments to enhance facial contours, volume, and harmony. 
-        </li>
-    </ul>
-
-    Skin Boosters: Skin hydration and elasticity improvement treatments tailored to individual skin needs.
-`);
 
 const route = useRoute();
 const fileBaseUrl = apiBase.url() + "/_file/000/";

@@ -2,7 +2,7 @@
     <div>
         <div 
             class="banner_area w-full h-[435px] bg-cover bg-center"
-            :style="{ backgroundImage: `url(${fileBaseUrl + bgImage})` }"    
+            :style="{ backgroundImage: `url(${bgImage})` }"    
         >
         <!-- bg-[url('@/assets/images/sub/banner_bg.png')] -->
             <div

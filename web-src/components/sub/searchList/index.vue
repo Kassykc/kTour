@@ -7,10 +7,10 @@
                 <Swiper :modules="[Autoplay, Pagination, Navigation]"
                     :autoplay="{ delay: 3000, disableOnInteraction: false }" :loop="true" :pagination="true"
                     :slidesPerView="1" :spaceBetween="30" :navigation="false"
-                    class="w-full flex justify-center items-center  mx-auto" ref="swiper">
+                    class="w-full h-full flex justify-center items-center  mx-auto" ref="swiper">
                     <SwiperSlide v-for="(item, idx) in imageFiles" :key="idx">
-                        <div class="w-full h-full object-cover">
-                            <img :src="fileBaseUrl + item.filePathEnc" alt="슬라이드 이미지">
+                        <div class="w-full h-full">
+                            <img :src="fileBaseUrl + item.filePathEnc" alt="슬라이드 이미지" class="w-full h-full object-contain">
                         </div>
                     </SwiperSlide>
                 </Swiper>
@@ -51,7 +51,7 @@
 
                 <!-- 타이틀틀 -->
                 <div class="title text-[36px] font-[700] mb-[20px] text-[#313131]">{{ composer.locale == 'en' ?
-                    props.data.userNameKo : props.data.userNameEn }}</div>
+                    props.data.nameFirstKo : props.data.nameFirstEn }}</div>
 
                 <!-- 슬로건 -->
                 <div
