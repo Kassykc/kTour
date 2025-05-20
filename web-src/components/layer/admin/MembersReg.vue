@@ -502,7 +502,7 @@ onMounted(async () => {
 
             selectedDepth1.value = hospitalDepth1.value.filter(
                 item =>
-                    parsedMemo.category.some((cat: any) => cat.codeKey === item.codeKey)
+                    parsedMemo.category?.some((cat: any) => cat.codeKey === item.codeKey)
             );
 
             showDepth2.value = selectedDepth1.value.map(depth1 => {
