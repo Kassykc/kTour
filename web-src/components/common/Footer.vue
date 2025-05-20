@@ -7,9 +7,9 @@
         <address
           class="flex justify-center items-start sm:justify-around flex-col lg:flex-row lg:justify-between items-start sm:items-center h-fit  gap-[10px]">
 
-          <div class="brand_info flex flex-col gap-[24px] items-start pr-[4rem]">
-            <img src="/img/common/logo/footer_logo.png" class="w-[90px] h-auto min-w-[90px] md:w-[220px] pb-[4rem]">
-            <div class="rights text-[13px] font-[400] text-white pb-[2rem]">
+          <div class="brand_info flex flex-col gap-[24px] items-start pr-0 lg:pr-[4rem]">
+            <img src="/img/common/logo/footer_logo.png" class="w-[198px] h-auto min-w-[198px] md:w-[220px] pb-0 md:pb-[4rem]">
+            <div class="rights text-[13px] font-[400] text-white pb-[56px] lg:pb-[2rem]">
               Copyright Medicity. All rights reserved.
             </div>
           </div>
@@ -43,7 +43,7 @@
               <div class="text-[16px] text-white font-[700] pb-[1rem]">
                 {{ t('footer.inniBranch.name') }}
               </div>
-              <div class="text-[13px] text-[#6B77C7] font-[400] leading-[20px]">
+              <div class="text-[13px] text-[#6B77C7] font-[400] leading-[20px] pb-[54px] lg:pb-0">
                 <div>
                   {{ t('footer.inniBranch.registrated') }}
                 </div>
@@ -60,7 +60,7 @@
             </div>
           </div>
 
-          <div class="company_info flex flex-col gap-[20px] lg:gap-[30px]">
+          <div class="company_info flex flex-col gap-[20px] lg:gap-[30px] pb-[60px] lg:pb-0">
             <div class="sns flex gap-[32px] justify-end items-center">
               <div class="facebook"><a href="/" target="_blank"><img src="@/assets/images/facebook.png"></a></div>
               <div class="twitter"><a href="/" target="_blank"><img src="@/assets/images/twitter.png"></a></div>
