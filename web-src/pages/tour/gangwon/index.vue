@@ -3,7 +3,7 @@
         <Banner :title="bannerTitle" :bgImage="bannerBgImage" :category="category" :selectedTab="selectedTab" />
         
         <div class="content_area">
-            <div id="seoul_tour">
+            <div id="seoul_tour" class="px-[20px]">
                 <div class="main_title w-full max-w-[1340px] pt-[160px] my-0 mx-auto">
                     <h2 class="area_name text-[46px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
                         {{ t('gangwonTour.title') }}
@@ -11,7 +11,7 @@
                     <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         {{ t('gangwonTour.subtitle') }}
                     </p>
-                    <p class="text-[18px] lg:text-[24px] mb-[86px]">
+                    <p class="text-[18px] lg:text-[24px] mb-[43px] lg:mb-[86px]">
                         {{ t('gangwonTour.desc1') }}<br/>
                         {{ t('gangwonTour.desc2') }}
                     </p>
@@ -25,12 +25,12 @@
                         {{ t('about.part2.content4.desc1') }}<br />
                         {{ t('about.part2.content4.desc2') }}
                     </p>
-                    <div class="flex justify-between items-center gap-[10px] mb-[42px]">
-                        <div class="w-[49%] h-[370px] overflow-hidden">
+                    <div class="flex flex-col sm:flex-row justify-between items-center gap-[10px] mb-[42px]">
+                        <div class="w-full h-auto sm:w-[49%] sm:h-[370px] overflow-hidden">
                             <img src="@/assets/images/sub/tour/gangwon01.png" alt=""
                                 class="w-full h-full object-cover">
                         </div>
-                        <div class="w-[49%] h-[370px] overflow-hidden">
+                        <div class="w-full h-auto sm:w-[49%] sm:h-[370px] overflow-hidden">
                             <img src="@/assets/images/sub/tour/gangwon02.png" alt=""
                                 class="w-full h-full object-cover">
                         </div>
@@ -48,6 +48,7 @@
                         :dayImage="gangwon_day1_img" 
                         :dayDesc="day1Desc" 
                         :dayColor="'day1'"
+                        class="mb-[40px] sm:mb-0"
                     />
                     <SubTourTimeline 
                         :day="t('gangwonTour.part2.day2.day')"
