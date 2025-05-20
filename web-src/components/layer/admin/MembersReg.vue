@@ -31,29 +31,38 @@
                 </div>
             </div>
             <div class="category_sort_area divide_row_area row_area">
-                <div
-                    class="category_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                <div class="name_wrap cont_wrap  flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]"
+                    ref="dropdownRef" v-if="hospitalDepth1 && hospitalDepth1.length > 0">
                     <div
                         class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
                         카테고리<span class="necessary text-[#ff0000]">*</span></div>
-                    <div class="cont_area flex justify-start items-center gap-[8px] w-[40%]">
-                        <div>분과 : </div>
-                        <select class="slect_area w-fit px-[10px]" v-if="hospitalDepth1"
-                            v-model="resData.categoryParentIdx">
-                            <option v-for="child in hospitalDepth1" :value="child.codeKey">
-                                {{ child.codeValue }}
-                            </option>
-                        </select>
-                    </div>
-                    <div class="cont_area flex justify-start items-center gap-[8px] w-[40%]">
-                        <div>세부항목 : </div>
-                        <select class="slect_area w-fit min-w-[200px] px-[10px]" v-model="resData.categoryChildIdx">
-                            <option v-for="child in showDepth2" :value="child.codeKey">
-                                {{ child.codeValue }}
-                            </option>
-                        </select>
+                    <div class="cont_area py-[10px] !px-0 !m-auto w-full">
+                        <div class="dropdown-list w-full flex flex-col justify-stretch items-start py-[10px]">
+                            <div class="dropdown-item" v-for="item in hospitalDepth1" :key="item.codeKey"
+                                @click="toggleDepth1(item)">
+                                <input type="checkbox" :checked="isSelectedDepth1(item)" readonly />
+                                {{ item.codeValue }}
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="name_wrap cont_wrap  flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]"
+                    ref="dropdownRef" v-if="showDepth2 && showDepth2.length > 0" v-for="(item, index) in showDepth2"
+                    :key="index">
+                    <div
+                        class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        {{ item.title }} <br /> 세부항목<span class="necessary text-[#ff0000]">*</span></div>
+                    <div class="cont_area py-[10px] !px-0 !m-auto w-full">
+                        <div class="dropdown-list w-full flex flex-col justify-stretch items-start py-[10px]">
+                            <div class="dropdown-item" v-for="item2 in item.list" :key="item.codeKey"
+                                @click="toggleDepth2(item2)">
+                                <input type="checkbox" :checked="isSelectedDepth2(item2)" readonly />
+                                {{ item2.codeValue }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div
                     class="name_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
                     <div
@@ -109,30 +118,7 @@
                             class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
                     </div>
                 </div>
-                <div class="name_wrap cont_wrap  flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]"
-                    ref="dropdownRef">
-                    <div
-                        class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
-                        해시태그<span class="necessary text-[#ff0000]">*</span></div>
-                    <div class="cont_area py-[10px] !px-0 !m-auto w-full">
-                        <div class="dropdown-toggle flex justify-start items-stretch" @click="toggleDropdown">
-                            <span v-if="selectedHashtags.length > 0">
-                                {{selectedHashtags.map(item => item.codeValue).join(', ')}}
-                            </span>
-                            <span v-else class="placeholder">해시태그 선택</span>
-                            <span class="arrow ml-[10px]">▼</span>
-                        </div>
 
-                        <div v-if="isOpen"
-                            class="dropdown-list w-full flex flex-col justify-stretch items-start py-[10px]">
-                            <div class="dropdown-item" v-for="item in hospitalDepth2" :key="item.codeKey"
-                                @click="toggleItem(item)">
-                                <input type="checkbox" :checked="isSelected(item)" readonly />
-                                {{ item.codeValue }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div
                     class="sort_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
                     <div
@@ -268,41 +254,7 @@ const resData = ref({
     categoryType: '',
 });
 
-const selectedHashtags = ref([])
-const isOpen = ref(false)
-
-const toggleDropdown = () => {
-    isOpen.value = !isOpen.value
-}
-
-const isSelected = (item: any) => {
-    return selectedHashtags.value.some(tag => tag.codeKey === item.codeKey)
-}
-
-const toggleItem = (item: any) => {
-    const index = selectedHashtags.value.findIndex(tag => tag.codeKey == item.codeKey)
-    if (index > -1) {
-        selectedHashtags.value.splice(index, 1)
-    } else {
-        selectedHashtags.value.push(item)
-    }
-}
-
 const dropdownRef = ref<HTMLElement | null>(null)
-
-const handleClickOutside = (e: MouseEvent) => {
-    if (dropdownRef.value && !dropdownRef.value.contains(e.target as Node)) {
-        isOpen.value = false
-    }
-}
-
-onMounted(() => {
-    document.addEventListener('click', handleClickOutside)
-})
-
-onBeforeUnmount(() => {
-    document.removeEventListener('click', handleClickOutside)
-})
 
 const files = ref<File[]>([]);
 const thumbnails = ref<File[]>([]);
@@ -310,10 +262,6 @@ const logos = ref<File[]>([]);
 
 const updateFiles = (updatedFiles: File[]) => {
     files.value = updatedFiles;
-};
-
-const updateThumbnails = (updatedFiles: File[]) => {
-    thumbnails.value = updatedFiles;
 };
 
 const sloganEn = ref('');
@@ -328,9 +276,9 @@ const hashtag = ref();
 
 const selectedBirthday = ref();
 
-const hospitalDepth1 = ref();
-const hospitalDepth2 = ref();
-const showDepth2 = ref();
+const hospitalDepth1 = ref([]);
+const hospitalDepth2 = ref([]);
+const showDepth2 = ref([]);
 const hospitalDepth2selected = ref([]);
 
 const profileSection = ref([{ idx: 1, sectionValue: "" }]);
@@ -342,13 +290,59 @@ const props = defineProps<{ mode: string, idx: string, cancel: () => void }>();
 const insertThumb = ref([]);
 const thumbnail = ref([]);
 
-watch(() => resData.value.categoryParentIdx, (selected) => {
-    if (selected != 0) {
-        showDepth2.value = hospitalDepth2.value.filter(item => item.codeParentKey == selected);
+const selectedDepth1 = ref([])
+const selectedDepth2 = ref([])
+const isOpen = ref(false)
+
+const isSelectedDepth1 = (item: any) => {
+    const codeKey = item.codeKey
+    const codeValue = item.codeValue
+    const title = String(codeValue)
+
+    const isSelected = selectedDepth1.value.some(tag => tag.codeKey === codeKey)
+
+    if (isSelected) {
+        // 이미 선택된 경우 → showDepth2에 중복 방지
+        if (!showDepth2.value.some(entry => entry.codeParentKey === codeKey)) {
+            const filteredList = hospitalDepth2.value?.filter(
+                item2 => item2.codeParentKey === codeKey
+            ) ?? []
+            showDepth2.value.push({
+                codeParentKey: codeKey,
+                title,
+                list: filteredList
+            })
+        }
+    } else {
+        // 선택 해제 → 해당 codeParentKey 제거
+        showDepth2.value = showDepth2.value.filter(entry => entry.codeParentKey !== codeKey)
+        selectedDepth2.value = selectedDepth2.value.filter(entry => entry.codeParentKey !== codeKey)
     }
-},
-    { immediate: true }
-);
+
+    return isSelected
+}
+
+const isSelectedDepth2 = (item: any) => {
+    return selectedDepth2.value.some(tag => tag.codeKey === item.codeKey)
+}
+
+const toggleDepth1 = (item: any) => {
+    const index = selectedDepth1.value.findIndex(tag => tag.codeKey == item.codeKey)
+    if (index > -1) {
+        selectedDepth1.value.splice(index, 1)
+    } else {
+        selectedDepth1.value.push(item)
+    }
+}
+
+const toggleDepth2 = (item: any) => {
+    const index = selectedDepth2.value.findIndex(tag => tag.codeKey == item.codeKey)
+    if (index > -1) {
+        selectedDepth2.value.splice(index, 1)
+    } else {
+        selectedDepth2.value.push(item)
+    }
+}
 
 const handleContentEn = (content: string) => {
 
@@ -374,7 +368,8 @@ const goReg = async () => {
         site: site.value,
         contentEn: contentEn.value,
         contentId: contentId.value,
-        hashtag: selectedHashtags.value,
+        category: selectedDepth1.value,
+        categoryChild: selectedDepth2.value,
     }
 
     params.peopleMemo = JSON.stringify(memo);
@@ -424,7 +419,8 @@ const goUpdate = async () => {
         site: site.value,
         contentEn: contentEn.value,
         contentId: contentId.value,
-        hashtag: selectedHashtags.value,
+        category: selectedDepth1.value,
+        categoryChild: selectedDepth2.value,
     }
     params.peopleMemo = JSON.stringify(memo)
 
@@ -503,13 +499,32 @@ onMounted(async () => {
             site.value = parsedMemo.site
             contentEn.value = parsedMemo.contentEn
             contentId.value = parsedMemo.contentId
-            hashtag.value = parsedMemo.hashtag
+
+            selectedDepth1.value = hospitalDepth1.value.filter(
+                item =>
+                    parsedMemo.category.some((cat: any) => cat.codeKey === item.codeKey)
+            );
+
+            showDepth2.value = selectedDepth1.value.map(depth1 => {
+                const title = String(depth1.codeValue);
+                const filteredList = hospitalDepth2.value.filter(
+                    item => item.codeParentKey === depth1.codeKey
+                );
+
+                return {
+                    codeParentKey: depth1.codeKey,
+                    title,
+                    list: filteredList
+                }
+            })
+            
+            selectedDepth2.value = hospitalDepth2.value.filter(item =>
+                parsedMemo.categoryChild?.some((cat: any) => cat.codeKey === item.codeKey)
+            );
+
 
             files.value = response.resultInfo.fileInfo.filter((file: any) => file.originTypeCd !== 100);
         }
-
-        selectedHashtags.value = hashtag.value;
-        showDepth2.value = hospitalDepth2.value.filter(item => item.codeParentKey == resData.value.categoryParentIdx);
     }
 });
 
