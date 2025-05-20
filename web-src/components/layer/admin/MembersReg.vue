@@ -145,27 +145,21 @@
 import { useMemberMngStore } from '@/stores/admin/peopleStore';
 import type { ResultInfo, FileInfo, ProfileInfo } from '@/types/admin/people';
 import { useMenuStore } from "@/stores/admin/common/menuStore";
-import Multiselect from 'vue-multiselect'
-import 'vue-multiselect/dist/vue-multiselect.min.css'
 
 const memberMngStore = useMemberMngStore('people-adm-dtl');
 const codeStore = useMenuStore('adm-code');
 const fileBaseUrl = apiBase.url() + "/_file/000/";
 
-const resData = ref<ResultInfo>({
-    rowNum: null,
-    prevIdx: null,
+const resData = ref({
     prevTitle: '',
     prevWriter: '',
     prevDate: '',
-    nextIdx: null,
     nextTitle: '',
     nextWriter: '',
     nextDate: '',
     useYn: '',
     delYn: '',
     showYn: 'Y',
-    userIdx: null,
     userNameKo: '',
     userNameEn: '',
     regUserIdx: 0,
@@ -219,7 +213,7 @@ const resData = ref<ResultInfo>({
     peopleMemo: '',
     mainShowYn: '',
     sortNum: 0,
-    profileInfo: [],
+    // "profileInfo[0]": [],
     fileInfo: [],
     fileContent: null,
     filePathEnc: null,
@@ -339,7 +333,7 @@ const goReg = async () => {
         params.file = files.value;
     }
 
-    params.profileInfo = [];
+    // params.profileInfo = [];
     try {
         const response = await memberMngStore.insertPeople(params);
 
@@ -421,64 +415,32 @@ onMounted(async () => {
             resData.value = response.resultInfo;
 
             files.value = response.resultInfo.fileInfo.filter((file: any) => file.originTypeCd !== 100);
-            thumbnail.value = response.resultInfo.fileInfo.filter((file: any) => file.originTypeCd === 100);
 
-            const defaultProfile = response.resultInfo.profileInfo || [];
-
-            profileSection.value = [];
-            selectedProfile.value = [];
-
-            defaultProfile.forEach((profile, i) => {
-                let parentObj = profileSection.value.find(
-                    (el) => el.sectionValue === profile.profileTypeCd
-                );
-
-                if (!parentObj) {
-                    parentObj = { idx: profileSection.value.length, sectionValue: profile.profileTypeCd };
-                    profileSection.value.push(parentObj);
-                }
-
-                if (profile.profileContent.trim()) {
-                    const existingProfiles = selectedProfile.value.filter(
-                        (el) => el.parentIdx === parentObj.idx
-                    );
-
-                    const newItem = {
-                        parentIdx: parentObj.idx,
-                        profileType: parentObj.sectionValue,
-                        profileContent: profile.profileContent,
-                        inputIdx: existingProfiles.length + 1
-                    };
-
-                    selectedProfile.value.push(newItem);
-                }
-            });
         }
+
+        const codeParams = { page_num: 1, page_size: 999 };
+        const response2 = await codeStore.setCodes(codeParams);
+        sessionStorage.setItem('medicalCodes', JSON.stringify(response2));
+        const codes = response2.resultInfo || [];
+
+        hospitalDepth1.value = codes.filter(item => (item.codeType === 'CONTENT_CATEGORY'));
+        hospitalDepth2.value = codes.filter(item => item.codeType === "CONTENT_CATEGORY_CHILD");
+
+        hospitalDepth1.value = hospitalDepth1.value.map(item => {
+            return {
+                ...item,
+                codeValue: JSON.parse(item.codeValue)?.categoryNameEn
+            };
+        });
+
+        hospitalDepth2.value = hospitalDepth2.value.map(item => {
+            return {
+                ...item,
+                codeValue: JSON.parse(item.codeValue)?.categoryNameEn
+            };
+        });
     }
-
-    const codeParams = { page_num: 1, page_size: 999 };
-    const response2 = await codeStore.setCodes(codeParams);
-    sessionStorage.setItem('medicalCodes', JSON.stringify(response2));
-    const codes = response2.resultInfo || [];
-
-    hospitalDepth1.value = codes.filter(item => (item.codeType === 'CONTENT_CATEGORY'));
-    hospitalDepth2.value = codes.filter(item => item.codeType === "CONTENT_CATEGORY_CHILD");
-
-    hospitalDepth1.value = hospitalDepth1.value.map(item => {
-        return {
-            ...item,
-            codeValue: JSON.parse(item.codeValue)?.categoryNameEn
-        };
-    });
-
-    hospitalDepth2.value = hospitalDepth2.value.map(item => {
-        return {
-            ...item,
-            codeValue: JSON.parse(item.codeValue)?.categoryNameEn
-        };
-    });
 });
-
 
 
 </script>
