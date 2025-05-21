@@ -55,15 +55,7 @@ export default defineNuxtConfig({
 
   app: {
     buildAssetsDir: "/app",
-    head: {
-      link: [
-        {
-          rel: "icon",
-          type: "image/jpg",
-          href: "/favicon.jpg",
-        },
-      ],
-    },
+    head: {},
   },
 
   env: {

@@ -19,6 +19,7 @@ import 'swiper/css/pagination';
 import { onMounted, nextTick } from "vue";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { composer } from "@/plugins/i18n"
 
 const router = useRouter();
 const route = useRoute();
@@ -27,8 +28,12 @@ const isBackNavigation = ref(false);
 
 const sysAlert = useSysAlertStore();
 
+const desc = computed(() => {
+    return composer.locale == 'en' ? "Medical & Healing travel service to South Korea" : "Layanan perjalanan medis & penyembuhan terpadu ke Korea Selatan"
+})
+
 useHead({
-    title: "K-Medi ART SERVICE",
+    title: "K-Medi Tour",
     titleTemplate: "%s",
     meta: [
         {
@@ -38,27 +43,34 @@ useHead({
         },
         {
             name: "description",
-            content: "K-Art, a Valuable Choice for an Elegant Space ",
+            content: desc,
         },
         {
             name: "keywords",
             content:
                 "K-MEDI, k-medi, k medi, medi, MEDI, (주)메디씨티, MEDI-CITY, MEDICITY, medicity, medical, medical video, e-Learning",
         },
-        { property: "og:title", content: "K-Medi ART SERVICE" },
+        { property: "og:title", content: "K-Medi Tour" },
         {
             property: "og:description",
-            content: "K-Art, a Valuable Choice for an Elegant Space",
+            content: desc,
         },
         {
             property: "og:image",
-            content: "/img/common/art_thumbnail.png",
+            content: "/img/common/tour_thumbnail.png",
         },
         { property: "og:type", content: "website" },
-        { property: "og:url", content: "https://art.global-medicity.com" },
+        { property: "og:url", content: "https://medical.hicompint.com" },
         {
             name: "naver-site-verification",
             content: "0c45b8f31f79b3c1f4765da975406015cc05ac56",
+        },
+    ],
+    link: [
+        {
+            rel: "icon",
+            type: "image/png",
+            href: "/img/tour_favicon.png",
         },
     ],
 });
@@ -183,5 +195,4 @@ const handleCancel = () => {
 //     overflow-y: auto;
 //     overscroll-behavior: none;
 //     touch-action: none;
-// }
-</style>
+// }</style>
