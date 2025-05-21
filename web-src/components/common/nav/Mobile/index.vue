@@ -41,6 +41,8 @@
                         </li>
                     </ul>
                 </li>
+
+                <CommonNavMobileLanguageSwitch />
             </ul>
         </nav>
         <div id="menu-icon2" class="all_menu ralative w-[30px] h-[20px] transform rotate-0 transition-all duration-500 ease-in-out cursor-pointer z-[9999]" @click="menuClick">
