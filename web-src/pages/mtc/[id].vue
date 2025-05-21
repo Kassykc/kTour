@@ -1,6 +1,6 @@
 <template>
     <div v-if="mtcDtlData">
-        <Banner :title="bannerTitle" :bgImage="bannerBgImage" :category="category" :selectedTab="selectedTab" />
+        <Banner :title="bannerTitle" :category="category" :selectedTab="selectedTab" :videoSrc="'/video/sub/mtc_banner.webm'" />
 
         <div class="content_area pb-[160px]">
             <div id="mtc_detail" class="w-full max-w-[1340px] mx-auto">

@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-        <Banner :title="bannerTitle" :bgImage="bannerBgImage" :category="category" :selectedTab="selectedTab" />
+        <Banner :title="bannerTitle" :category="category" :selectedTab="selectedTab" :videoSrc="'/video/main/banner.webm'" />
 
         <div class="content_area">
             <div id="news">
