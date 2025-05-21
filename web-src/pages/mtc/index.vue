@@ -17,7 +17,7 @@
                 </div>
 
                 <!-- <SubSearchListTab :selectedCategory="selectedCategory" /> -->
-                <SubSearchListTab class="mb-[116px]" :depth2List="depth2List" />
+                <SubSearchListTab class="mb-[116px]" :depth2List="depth2List" @select-code-key="updateSelectedTab" />
 
                 <div v-for="(item, index) in listData" :key="index">
                     <SubSearchList :data="item" :selectedCategory="selectedCategory" />
@@ -45,27 +45,60 @@ const selectedCategory = ref(''); // 선택된 카테고리 이름을 저장
 const depth2List = ref();
 const listData = ref();
 
+const encodeHtmlEntities = (str: string): string => {
+    const txt = document.createElement('textarea');
+    txt.textContent = str;
+    return txt.innerHTML;
+};
+
 const updateSelectedCategory = async (categoryName: string, depth2?: any, idx?: any) => {
     selectedCategory.value = categoryName;  // selectedCategory 업데이트
 
-    if (depth2) {
+    if (depth2 && depth2.length > 0) {
         depth2List.value = [];
         depth2List.value = depth2;
+        listData.value = [];
+
+        updateSelectedTab();
+    } else {
+        depth2List.value = [];
+
+        const data = {
+            showYn: 'Y',
+            pageNum: 1,
+            pageSize: 9999,
+            searchKeyword: '',
+        };
+
+        const response = await memberMngStore.getPeopleList(data);
+        if (response) {
+            listData.value = response.resultInfo;
+        }
+    }
+};
+
+const updateSelectedTab = async (tabNm?: string) => {
+    let tabName;
+    if (tabNm != undefined && tabNm != null && tabNm != '') {
+        tabName = tabNm
+    } else if (depth2List.value && depth2List.value.length) {
+        tabName = depth2List.value[0].codeValue
+    } else {
+        return;
     }
 
     const data = {
         showYn: 'Y',
         pageNum: 1,
         pageSize: 9999,
-        searchKeyword: '',
-        categoryIdx: idx,
+        searchKeyword: encodeHtmlEntities(tabName) ?? '',
     };
 
     const response = await memberMngStore.getPeopleList(data);
     if (response) {
         listData.value = response.resultInfo;
     }
-};
+}
 
 </script>
 
