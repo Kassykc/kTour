@@ -72,7 +72,7 @@
                 </div>
             </div>
 
-            <SubListBtn class="mt-[120px]" />
+            <SubListBtn class="mt-[120px] mx-auto" />
         </div>
     </div>
 </template>

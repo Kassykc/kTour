@@ -1,13 +1,11 @@
 <template>
-    <div>
-        <div 
-            class="go_list flex justify-center items-center gap-[12px] w-[246px] h-[60px] py-[16px] border border-[#1F78FF] text-[#1F78FF] bg-white hover:border-white hover:text-white hover:bg-[#1F78FF] mx-auto text-[18px] font-[600] cursor-pointer"
-            @mouseover="isHovered = true" 
-            @mouseleave="isHovered = false"
-        >
-            <img :src="isHovered ? list_w : list_b" alt="" />
-            List
-        </div>
+    <div 
+        class="go_list flex justify-center items-center gap-[12px] w-[246px] h-[60px] px-[20px] py-[16px] border border-[#1F78FF] text-[#1F78FF] bg-white hover:border-white hover:text-white hover:bg-[#1F78FF] text-[18px] font-[600] cursor-pointer"
+        @mouseover="isHovered = true" 
+        @mouseleave="isHovered = false"
+    >
+        <img :src="isHovered ? list_w : list_b" alt="" />
+        List
     </div>
 </template>
 <script setup lang="ts">

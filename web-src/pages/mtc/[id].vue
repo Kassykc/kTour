@@ -3,7 +3,7 @@
         <Banner :title="bannerTitle" :category="category" :selectedTab="selectedTab" :videoSrc="'/video/sub/mtc_banner.webm'" />
 
         <div class="content_area pb-[160px]">
-            <div id="mtc_detail" class="w-full max-w-[1340px] mx-auto">
+            <div id="mtc_detail" class="w-full max-w-[1340px] mx-auto px-[20px]">
                 <!-- 메일 타이틀 -->
                 <div
                     class="main_tit  text-[30px] lg:text-[65px] font-[700] w-full pt-[160px] pb-[86px] my-0 mx-auto text-center">
@@ -12,17 +12,17 @@
 
                 <!-- 상세 정보 -->
                 <div
-                    class="info_area flex flex-col justify-start items-start gap-[36px] w-full py-[36px] px-[44px] border border-black mb-[118px]">
+                    class="info_area flex flex-col justify-start items-start gap-0 sm:gap-[36px] w-full p-[20px] sm:py-[36px] sm:px-[44px] border border-black mb-[118px]">
                     <!-- 탭 이름 -->
                     <div v-for="(item, index) in parsedMemo.category" :key="index"
-                        class="tab_name w-fit text-[#1F78FF] font-[700] border-[2px] border-[#1F78FF] py-[14px] px-[20px] rounded-[100px]">
+                        class="tab_name w-fit text-[14px] sm:text-[16px] text-[#1F78FF] font-[700] border-[2px] border-[#1F78FF] py-[6px] px-[14px] sm:py-[14px] sm:px-[20px] rounded-[100px]">
                         {{ composer.locale == 'en' ? item.codeValue.categoryNameEn : item.codeValue.categoryNameId }}
                     </div>
 
-                    <div class="info_wrap flex justify-between items-end w-full">
-                        <div class="info flex flex-col justify-start items-start gap-[56px] w-[608px]">
+                    <div class="info_wrap flex flex-col-reverse xl:flex-row justify-between items-end w-full">
+                        <div class="info flex flex-col justify-start items-start gap-[24px] sm:gap-[56px] w-full xl:w-[608px]">
                             <!-- 타이틀 -->
-                            <div class="title text-[45px] font-[800] text-[#313131] uppercase">
+                            <div class="title text-[24px] sm:text-[45px] font-[800] text-[#313131] uppercase">
                                 {{ composer.locale == 'en' ? mtcDtlData.resultInfo.nameFirstKo :
                                     mtcDtlData.resultInfo.nameFirstEn
                                 }}
@@ -31,8 +31,8 @@
                             <!-- 병원 정보 -->
                             <div class="hospital_info flex flex-col justify-start items-start gap-[10px]">
                                 <div
-                                    class="info_item tel flex justify-start items-start text-[20px] font-[500] text-[#31313] gap-[10px]">
-                                    <div class="tit w-[170px] flex-0">
+                                    class="info_item tel flex flex-col sm:flex-row justify-start items-start text-[14px] sm:text-[20px] font-[500] text-[#31313] gap-[10px]">
+                                    <div class="tit w-full sm:w-[170px] font-[700] sm:font-[500] flex-0">
                                         TEL
                                     </div>
                                     <div class="cont flex-1">
@@ -41,8 +41,8 @@
                                     </div>
                                 </div>
                                 <div
-                                    class="info_item address flex justify-start items-start text-[20px] font-[500] text-[#31313] gap-[10px]">
-                                    <div class="tit w-[170px] flex-0">
+                                    class="info_item address flex flex-col sm:flex-row justify-start items-start text-[14px] sm:text-[20px] font-[500] text-[#31313] gap-[10px]">
+                                    <div class="tit w-full sm:w-[170px] font-[700] sm:font-[500] flex-0">
                                         Adrress
                                     </div>
                                     <div class="cont flex-1">
@@ -50,8 +50,8 @@
                                     </div>
                                 </div>
                                 <div
-                                    class="info_item website flex justify-start items-start text-[20px] font-[500] text-[#31313] gap-[10px]">
-                                    <div class="tit w-[170px] flex-0">
+                                    class="info_item website flex flex-col sm:flex-row justify-start items-start text-[14px] sm:text-[20px] font-[500] text-[#31313] gap-[10px]">
+                                    <div class="tit w-full sm:w-[170px] font-[700] sm:font-[500] flex-0">
                                         Official Website
                                     </div>
                                     <div class="cont flex-1">
@@ -59,8 +59,8 @@
                                     </div>
                                 </div>
                                 <div
-                                    class="info_item slogan flex justify-start items-start text-[20px] font-[500] text-[#31313] gap-[10px]">
-                                    <div class="tit w-[170px] flex-0">
+                                    class="info_item slogan flex flex-col sm:flex-row justify-start items-start text-[14px] sm:text-[20px] font-[500] text-[#31313] gap-[10px]">
+                                    <div class="tit w-full sm:w-[170px] font-[700] sm:font-[500] flex-0">
                                         Slogan.
                                     </div>
                                     <div class="cont flex-1">
@@ -68,8 +68,8 @@
                                     </div>
                                 </div>
                                 <div
-                                    class="info_item category flex justify-start items-start text-[20px] font-[500] text-[#31313] gap-[10px]">
-                                    <div class="tit w-[170px] flex-0">
+                                    class="info_item category flex flex-col sm:flex-row justify-start items-start text-[14px] sm:text-[20px] font-[500] text-[#31313] gap-[10px]">
+                                    <div class="tit w-full sm:w-[170px] font-[700] sm:font-[500] flex-0">
                                         Category (specify)
                                     </div>
                                     <div class="cont flex-1">
@@ -87,8 +87,8 @@
                                     </div>
                                 </div>
                                 <div
-                                    class="info_item sns flex justify-start items-start text-[20px] font-[500] text-[#31313] gap-[10px]">
-                                    <div class="tit w-[170px] flex-0">
+                                    class="info_item sns flex flex-col sm:flex-row justify-start items-start text-[14px] sm:text-[20px] font-[500] text-[#31313] gap-[10px]">
+                                    <div class="tit w-full sm:w-[170px] font-[700] sm:font-[500] flex-0">
                                         SNS
                                     </div>
                                     <div class="cont flex-1 flex justify-start items-center gap-[26px]">
@@ -110,7 +110,7 @@
 
                         </div>
                         <!-- 슬라이드 -->
-                        <div class="swiper_area h-[432px] w-[608px]">
+                        <div class="swiper_area h-[432px] w-full xl:w-[608px]">
                             <Swiper :modules="[Autoplay, Pagination, Navigation]"
                                 :autoplay="{ delay: 3000, disableOnInteraction: false }" :loop="true" :pagination="true"
                                 :slidesPerView="1" :spaceBetween="30" :navigation="false"
@@ -128,11 +128,11 @@
 
                 <!-- Hospital Description -->
                 <div
-                    class="hospital_desc flex flex-col justify-start items-start gap-[30px] w-full max-w-[1340px] mx-auto px-[40px] mb-[125px]">
-                    <div class="tit uppercase font-[700] text-[28px] text-[#313131]">
+                    class="hospital_desc flex flex-col justify-start items-start gap-[30px] w-full max-w-[1340px] mx-auto px-[10px] sm:px-[40px] mb-[125px]">
+                    <div class="tit uppercase font-[700] text-[20px] sm:text-[28px] text-[#313131]">
                         Hospital Description
                     </div>
-                    <div class="cont text-[18px] leading-[29px]"
+                    <div class="cont text-[16px] sm:text-[18px] leading-[29px]"
                         v-html="composer.locale == 'en' ? parsedMemo.contentEn : parsedMemo.contentId"></div>
                 </div>
 
