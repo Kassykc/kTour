@@ -1,9 +1,9 @@
 <template>
     <div class="search_list w-full max-w-[1340px] mx-auto flex justify-start items-start gap-[8px] mb-[146px]">
         <!-- {{ props.data.fileInfo }} -->
-        <div class="hospital_media flex-0 w-[592px] h-[424px] flex flex-col justify-center items-center gap-[6px]">
+        <div class="hospital_media flex-0 w-[592px] h-fit flex flex-col justify-between items-center gap-[8px]">
             <!-- 슬라이드 영역  -->
-            <div class="swiper_area w-[592px] h-[360px] border">
+            <div ref="swiperRef" class="swiper_area w-[592px] min-h-[360px] border">
                 <Swiper :modules="[Autoplay, Pagination, Navigation]"
                     :autoplay="{ delay: 3000, disableOnInteraction: false }" :loop="true" :pagination="true"
                     :slidesPerView="1" :spaceBetween="30" :navigation="false"
@@ -19,7 +19,7 @@
 
             <!-- sns 영역 -->
             <div
-                class="sns flex justify-start items-center gap-[20px] w-full h-[52px] bg-[#F3F3F3] px-[20px] py-[12px]">
+                class="sns flex justify-start items-center gap-[20px] w-full h-[54px] bg-[#F3F3F3] px-[20px] py-[12px]">
                 <a href="" target="blank" v-if="parsedMemo.instagram && parsedMemo.instagram != ''">
                     <img src="@/assets/images/sub/mtc/insta.png" alt="" @click="router.push(parsedMemo.instagram)">
                 </a>
@@ -35,25 +35,35 @@
         </div>
 
         <!-- 리스트 정보 -->
-        <div class="info_area flex-1 h-[424px] flex flex-col justify-between items-start gap-[8px]">
-            <div class="info w-full px-[26px] flex-1 flex flex-col justify-centr items-start gap-[10px]">
+        <div class="info_area flex-1 min-h-[424px] h-full w-full max-w-[740px] flex flex-col justify-between items-start gap-[8px]">
+            <div ref="infoRef" class="info w-full px-[26px] flex-1 flex flex-col justify-centr items-start gap-[10px]">
 
                 <!-- 탭 이름 -->
-                <div v-for="(item, index) in parsedMemo.category" :key="index"
-                    class="tab_name w-fit text-[#1F78FF] font-[700] border-[2px] border-[#1F78FF] py-[14px] px-[20px] rounded-[100px] mb-[10px]">
-                    {{ composer.locale == 'en' ? item.codeValue.categoryNameEn : item.codeValue.categoryNameId }}
+                <div
+                    ref="tabWrap" 
+                    class="tab_wrap w-full flex justify-start items-center gap-[10px] mb-[10px] overflow-x-auto scrollbar-hide"
+                    style="-webkit-overflow-scrolling: touch;"
+                >
+                    <div v-for="(item, index) in parsedMemo.category" :key="index"
+                    class="tab_name w-fit text-[#1F78FF] font-[700] border-[2px] border-[#1F78FF] py-[14px] px-[20px] rounded-[100px] shrink-0">
+                        {{ composer.locale == 'en' ? item.codeValue.categoryNameEn : item.codeValue.categoryNameId }}
+                    </div>
                 </div>
 
                 <!-- 태그 -->
-                <div class="tags flex justify-start items-center gap-[10px]">
-                    <div class="tag text-[15px] text-[#838383]" v-for="(item, index) in parsedMemo.categoryChild"
+                <div 
+                    ref="tagWrap" 
+                    class="tags flex justify-start items-center gap-[20px] w-full overflow-x-auto scrollbar-hide"
+                    style="-webkit-overflow-scrolling: touch;"
+                >
+                    <div class="tag text-[15px] text-[#838383] w-fit shrink-0" v-for="(item, index) in parsedMemo.categoryChild"
                         :key="index">
                         #{{ composer.locale == 'en' ?
                             item.codeValue.categoryNameEn : item.codeValue.categoryNameId }}
                     </div>
                 </div>
 
-                <!-- 타이틀틀 -->
+                <!-- 타이틀 -->
                 <div class="title text-[36px] font-[700] mb-[20px] text-[#313131]">{{ composer.locale == 'en' ?
                     props.data.nameFirstKo : props.data.nameFirstEn }}</div>
 
@@ -107,9 +117,28 @@ import { t, composer } from '@/plugins/i18n';
 
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 import img01 from '@/assets/images/sub/mtc/interior01.png'
+
+const swiperRef = ref<HTMLElement | null>(null)
+const infoRef = ref<HTMLElement | null>(null)
+
+const syncInfoHeight = () => {
+    if (swiperRef.value && infoRef.value) {
+        const height = infoRef.value.offsetHeight
+        swiperRef.value.style.height = `${height}px`
+    }
+}
+
+onMounted(() => {
+    syncInfoHeight()
+    window.addEventListener('resize', syncInfoHeight)
+})
+
+onUnmounted(() => {
+    window.removeEventListener('resize', syncInfoHeight)
+})
 
 const props = defineProps({
     data: Object,
@@ -163,8 +192,81 @@ const movePage = (page: string) => {
     router.push(page);
 };
 
+const tabWrap = ref<HTMLElement | null>(null)
+const tagWrap = ref<HTMLElement | null>(null)
+
+let isDown = false
+let startX = 0
+let scrollLeft = 0
+
+onMounted(() => {
+    const tab_item = tabWrap.value
+    if (!tab_item) return
+
+    tab_item.addEventListener('mousedown', (e) => {
+        isDown = true
+        tab_item.classList.add('grabbing')
+        startX = e.pageX - tab_item.offsetLeft
+        scrollLeft = tab_item.scrollLeft
+    })
+
+    tab_item.addEventListener('mouseleave', () => {
+        isDown = false
+        tab_item.classList.remove('grabbing')
+    })
+
+    tab_item.addEventListener('mouseup', () => {
+        isDown = false
+        tab_item.classList.remove('grabbing')
+    })
+
+    tab_item.addEventListener('mousemove', (e) => {
+        if (!isDown) return
+        e.preventDefault()
+        const x = e.pageX - tab_item.offsetLeft
+        const walk = (x - startX) * 1.5 // 드래그 감도
+        tab_item.scrollLeft = scrollLeft - walk
+    })
+
+
+    const tag_item = tagWrap.value
+    if (!tag_item) return
+
+    tag_item.addEventListener('mousedown', (e) => {
+        isDown = true
+        tag_item.classList.add('grabbing')
+        startX = e.pageX - tag_item.offsetLeft
+        scrollLeft = tag_item.scrollLeft
+    })
+
+    tag_item.addEventListener('mouseleave', () => {
+        isDown = false
+        tag_item.classList.remove('grabbing')
+    })
+
+    tag_item.addEventListener('mouseup', () => {
+        isDown = false
+        tag_item.classList.remove('grabbing')
+    })
+
+    tag_item.addEventListener('mousemove', (e) => {
+        if (!isDown) return
+        e.preventDefault()
+        const x = e.pageX - tag_item.offsetLeft
+        const walk = (x - startX) * 1.5 // 드래그 감도
+        tag_item.scrollLeft = scrollLeft - walk
+    })
+    
+})
 
 </script>
-<style lang="">
+<style scoped >
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
 
+.tab_wrap.grabbing,
+.tags.grabbing {
+    cursor: grabbing !important;
+}
 </style>
