@@ -2,8 +2,8 @@
     <!-- news -->
     <AdminCommonBoardTableBoard :list="boardList" :paging="pageInfo" :columns="columns" :columnsWidth="columnsWidth"
         :pageSize="10" @update:currentIndex="handlePageChange" :isDtl="true" @update:selectedRows="handleDeleteItems"
-        :popupComp="NewsReg" :rowKey="'boardIdx'" :getBoardList="setBoardList" :useExcelDown="false"
-        :fileBaseUrl="fileBaseUrl" @excelDown="goExcel" :keyword="searchKeyword" />
+        :popupComp="BoardReg" :rowKey="'boardIdx'" :getBoardList="setBoardList" :useExcelDown="false"
+        @excelDown="goExcel" :keyword="searchKeyword" />
 </template>
 
 <script setup lang="ts">
@@ -11,7 +11,7 @@ import { useBoardMngStore } from '~/stores/admin/boardStore';
 import { boardType } from "@/assets/js/static";
 import type { ResultInfo } from '@/types/admin/board';
 import type { PageInfo } from '@/types/admin/page';
-import NewsReg from '@/components/layer/admin/NewsReg.vue';
+import BoardReg from '@/components/layer/admin/BoardReg.vue';
 
 definePageMeta({
     layout: 'admin',
@@ -19,8 +19,6 @@ definePageMeta({
 
 const noticeMngStore = useBoardMngStore('notice');
 const router = useRouter();
-
-const fileBaseUrl = apiBase.url() + "/_file/000/";
 
 const emit = defineEmits<{
     (event: 'update:currentIndex', pageIndex: number): void;
@@ -34,10 +32,9 @@ const searchKeyword = ref('');
 
 const columns = ref([
     { label: 'No.', key: 'boardIdx', type: 'text' },
-    { label: '썸네일', key: 'thumbnail', type: 'img' },
-    { label: '카테고리', key: 'categoryType', type: 'text' },
-    { label: '제목(en)', key: 'subjectEn', type: 'text' },
-    { label: '제목(id)', key: 'subjectId', type: 'text' },
+    { label: '언어', key: 'mobileAgencyCd', type: 'text' },
+    { label: '제목', key: 'subject', type: 'text' },
+    { label: '내용', key: 'content', type: 'html' },
     { label: '등록자', key: 'regUserNameKo', type: 'text' },
     { label: '등록일', key: 'regDttm', type: 'text' },
     { label: '노출여부', key: 'showYn', type: 'text' },
@@ -45,10 +42,9 @@ const columns = ref([
 
 const columnsWidth = [
     { flex: '5' },
-    { flex: '10' },
-    { flex: '10' },
-    { flex: '20' },
-    { flex: '20' },
+    { flex: '5' },
+    { flex: '30' },
+    { flex: '35' },
     { flex: '10' },
     { flex: '10' },
     { flex: '10' },
@@ -86,19 +82,12 @@ const getBoardList = async (pageNum: number, pageSize: number, word: string) => 
         pageNum: pageNum,
         pageSize: pageSize,
         searchKeyword: word ? word : searchKeyword.value,
-        boardType: boardType.news,
+        boardType: boardType.notice,
     };
 
     const response = await noticeMngStore.getBoardList(data);
 
     if (response) {
-
-        response.resultInfo.forEach(item => {
-            item.subjectEn = JSON.parse(item.subject)?.subjectEn;
-            item.subjectId = JSON.parse(item.subject)?.subjectId;
-            item.categoryType = item.categoryTypeCd == '100' ? '뉴스' : '영상';
-        })
-
         boardList.value = response.resultInfo;
         pageInfo.value = response.pageInfo;
     }

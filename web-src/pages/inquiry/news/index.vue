@@ -8,11 +8,11 @@
                     {{ t('news.title') }}
                 </div>
             
-                <SubCategoryTab class="py-[60px]"/>
+                <SubCategoryTab class="py-[60px]" @update:selectedCategory="getList"/>
 
                 <SubSearchBar class="mb-[74px]" />
 
-                <SubNewsList />
+                <SubNewsList :list="listData" v-if="listData && listData.length"/>
 
             </div>
         </div>
@@ -20,15 +20,47 @@
 </template>
 <script setup lang="ts">
 import { t } from '@/plugins/i18n'
-
+import { useBoardMngStore } from '@/stores/admin/boardStore';
 import inquiry_bg from "@/assets/images/sub/inquiry/banner_bg.png";
+
+const newsBoard = useBoardMngStore('news-cli');
 
 const bannerTitle = ref('Inquiry');
 const bannerBgImage = ref(inquiry_bg); // 배경 이미지 경로
 const category = ref('inquiry');
 const selectedTab = ref('news');
+const listData = ref([]);
+
+const getList = async (categoryName: string, depth2?: any, keys?: any) => {
+    if (keys) {
+        const params = {
+            pageNum: 1,
+            pageSize: 999,
+            searchKeyword: '',
+            boardType: keys.type,
+            CategoryTypeCd: keys.key,
+        }
+
+        const response = await newsBoard.getBoardList(params);
+        if (response) {
+            listData.value = response.resultInfo;
+        }
+    } else {
+        const params = {
+            pageNum: 1,
+            pageSize: 999,
+            searchKeyword: '',
+            boardType: '300',
+        }
+
+        const response = await newsBoard.getBoardList(params);
+        if (response) {
+            listData.value = response.resultInfo;
+        }
+    }
+}
 
 </script>
 <style lang="">
-    
+
 </style>

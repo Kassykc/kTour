@@ -594,6 +594,11 @@
       }
     }
   },
+  "board": {
+    "part1": { "title": "VIEW ALL" },
+    "part2": { "title": "VIDEO CONTENT" },
+    "part3": { "title": "NEWS" }
+  },
   "utils": {
     "btn": {
       "viewMore": "View More",

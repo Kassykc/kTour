@@ -594,6 +594,11 @@
       }
     }
   },
+  "board": {
+    "part1": { "title": "LIHAT SEMUA" },
+    "part2": { "title": "KONTEN VIDEO" },
+    "part3": { "title": "BERITA" }
+  },
   "utils": {
     "btn": {
       "viewMore": "Lihat Selengkapnya",

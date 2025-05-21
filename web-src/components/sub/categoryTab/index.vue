@@ -3,7 +3,7 @@
         <div class="category_wrap flex justify-center items-center flex-wrap gap-[14px]">
             <div class="category min-w-[40px] md:min-w-[75px] px-[10px] md:px-[30px] py-[8px] md:py-[14px] text-[13px] md:text-[18px] text-center rounded-[18px] md:rounded-[30px] cursor-pointer font-[700] border border-[#AFAFAF]"
                 :class="selectedIndex == -1 ? 'bg-[#1F78FF] text-white' : 'bg-white text-[#AFAFAF]'"
-                @click="selectCategory(-1, '')">
+                @click="selectCategory(-1, '')" v-if="route.path == '/mtc'">
                 <div>ALL</div>
             </div>
             <div class="category min-w-[40px] md:min-w-[75px] px-[10px] md:px-[30px] py-[8px] md:py-[14px] text-[13px] md:text-[18px] text-center rounded-[18px] md:rounded-[30px] cursor-pointer font-[700] border border-[#AFAFAF]"
@@ -19,6 +19,8 @@
 <script setup lang="ts">
 import { t, composer } from '@/plugins/i18n'
 import { useMenuStore } from "@/stores/admin/common/menuStore";
+import { boardType } from "@/assets/js/static";
+
 const codeStore = useMenuStore('cate-code');
 
 const categories = ref([]);
@@ -33,34 +35,41 @@ const route = useRoute();
 
 // const router = useRouter();
 const emit = defineEmits(); // 부모에게 전달할 이벤트 정의
-const selectedIndex = ref(-1);
+const selectedIndex = ref(route.path == '/mtc' ? -1 : 0);
 const setCodeKey = ref();
 
 
 // 카테고리 클릭 시 해당 인덱스를 selectedIndex에 할당
-const selectCategory = (index: number, categoryName: string, codeKey?: number) => {
+const selectCategory = (index: number, categoryName: string, codeKey?: number | Object) => {
+    
     selectedIndex.value = index;
 
-    const getCodeKey = codeKey ? codeKey : setCodeKey.value ? setCodeKey.value : null;
-    setCodeKey.value = getCodeKey;
+    if (route.path == '/mtc') {
 
-    if (index == -1) {
-        selectedChildren.value = [];
-        return emit('update:selectedCategory', categoryName, selectedChildren.value, getCodeKey);
-    }
 
-    if (getCodeKey && composer.locale == 'en') {
-        selectedChildren.value = hospitalDepth2En.value.filter(
-            item => item.codeParentKey == getCodeKey
-        );
-    } else if (getCodeKey && composer.locale == 'id') {
-        selectedChildren.value = hospitalDepth2Id.value.filter(
-            item => item.codeParentKey == getCodeKey
-        );
+        const getCodeKey = codeKey ? codeKey : setCodeKey.value ? setCodeKey.value : null;
+        setCodeKey.value = getCodeKey;
+
+        if (index == -1) {
+            selectedChildren.value = [];
+            return emit('update:selectedCategory', categoryName, selectedChildren.value, getCodeKey);
+        }
+
+        if (getCodeKey && composer.locale == 'en') {
+            selectedChildren.value = hospitalDepth2En.value.filter(
+                item => item.codeParentKey == getCodeKey
+            );
+        } else if (getCodeKey && composer.locale == 'id') {
+            selectedChildren.value = hospitalDepth2Id.value.filter(
+                item => item.codeParentKey == getCodeKey
+            );
+        } else {
+            selectedChildren.value = []; // 없으면 초기화
+        }
+        return emit('update:selectedCategory', categoryName, selectedChildren.value, getCodeKey); // 카테고리 이름을 부모에게 전달
     } else {
-        selectedChildren.value = []; // 없으면 초기화
+        return emit('update:selectedCategory', categoryName, selectedChildren.value, codeKey);
     }
-    return emit('update:selectedCategory', categoryName, selectedChildren.value, getCodeKey); // 카테고리 이름을 부모에게 전달
 };
 
 
@@ -127,9 +136,18 @@ const setCategories = async () => {
         }
     } else if (route.path === '/inquiry/news') {
         categories.value = [
-            { category_name: t('news.tab.1') },
-            { category_name: t('news.tab.2') },
-            { category_name: t('news.tab.3') },
+            {
+                category_name: t('board.part1.title'),
+                category_key: { type: boardType.news, key: '' }
+            },
+            {
+                category_name: t('board.part2.title'),
+                category_key: { type: boardType.news, key: '200' }
+            },
+            {
+                category_name: t('board.part3.title'),
+                category_key: { type: boardType.news, key: '100' }
+            },
         ];
     } else if (route.path === '/inquiry/faq') {
         categories.value = [
