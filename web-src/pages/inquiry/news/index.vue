@@ -50,7 +50,7 @@ const getList = async (categoryName: string, depth2?: any, keys?: any) => {
             pageNum: 1,
             pageSize: 999,
             searchKeyword: '',
-            boardType: '300',
+            boardType: '350',
         }
 
         const response = await newsBoard.getBoardList(params);

@@ -139,7 +139,7 @@ const resData = ref<ResultInfo>({
     modDttm: '',
     boardIdx: 0,
     boardType: '',
-    boardTypeCd: boardType.news,
+    boardTypeCd: '',
     categoryType: '',
     categoryTypeCd: '100',
     processStatus: '',
@@ -175,6 +175,8 @@ const resData = ref<ResultInfo>({
     commentInfo: {},
 });
 
+const originThumb = ref();
+
 const subjectEn = ref('');
 const subjectId = ref('');
 const contentEn = ref('');
@@ -191,7 +193,6 @@ const extractYoutubeVideoId = (url: string): string | null => {
 }
 
 watch(videoLink, (val: string) => {
-    console.log('fdfd')
     videoId.value = extractYoutubeVideoId(val)
 })
 
@@ -233,7 +234,7 @@ const validation = (params: any) => {
 const goReg = async () => {
     const params = toRaw(resData.value);
 
-    params.boardType = params.boardTypeCd;
+    params.boardType = params.categoryTypeCd == '100' ? '300' : '400';
     params.processStatus = params.processStatusCd;
     params.categoryType = params.categoryTypeCd;
     params.mobileAgency = params.mobileAgencyCd;
@@ -285,14 +286,12 @@ const goReg = async () => {
 // 수정 처리
 const goUpdate = async () => {
     const params = toRaw(resData.value);
-    if (!validation(params)) return;
 
-    params.boardType = params.boardTypeCd;
+    params.boardType = params.categoryTypeCd == '100' ? '300' : '400';
     params.processStatus = params.processStatusCd;
     params.categoryType = params.categoryTypeCd;
-    params.importantType = params.importantTypeCd;
-    params.gender = params.genderCd;
     params.mobileAgency = params.mobileAgencyCd;
+    params.importantType = params.importantTypeCd;
 
     const subject = {
         subjectEn: subjectEn.value,
@@ -314,9 +313,12 @@ const goUpdate = async () => {
     }
 
     if (thumbnails.value.length > 0) {
-        params.thumbnail = thumbnails.value;
+        if (originThumb.value != thumbnails.value) {
+            params.thumbnail = thumbnails.value;
+        }
     }
 
+    if (!validation(params)) return;
     const data = common.cleanObject(params);
 
     try {
@@ -376,6 +378,7 @@ onMounted(async () => {
             resData.value = response.resultInfo;
             files.value = response.resultInfo.fileInfo.filter(file => file.originTypeCd == '000');
             thumbnails.value = response.resultInfo.fileInfo.filter(file => file.originTypeCd == '100');
+            originThumb.value = thumbnails.value;
         }
     }
 });

@@ -35,7 +35,7 @@ const searchKeyword = ref('');
 const columns = ref([
     { label: 'No.', key: 'boardIdx', type: 'text' },
     { label: '썸네일', key: 'thumbnail', type: 'img' },
-    { label: '카테고리', key: 'categoryType', type: 'text' },
+    { label: '카테고리', key: 'boardType', type: 'text' },
     { label: '제목(en)', key: 'subjectEn', type: 'text' },
     { label: '제목(id)', key: 'subjectId', type: 'text' },
     { label: '등록자', key: 'regUserNameKo', type: 'text' },
@@ -96,7 +96,7 @@ const getBoardList = async (pageNum: number, pageSize: number, word: string) => 
         response.resultInfo.forEach(item => {
             item.subjectEn = JSON.parse(item.subject)?.subjectEn;
             item.subjectId = JSON.parse(item.subject)?.subjectId;
-            item.categoryType = item.categoryTypeCd == '100' ? '뉴스' : '영상';
+            item.boardType = item.boardTypeCd == '300' ? '뉴스' : '영상';
         })
 
         boardList.value = response.resultInfo;
