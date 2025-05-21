@@ -53,19 +53,17 @@ const updateSelectedCategory = async (categoryName: string, depth2?: any, idx?: 
         depth2List.value = depth2;
     }
 
-    if (idx) {
-        const data = {
-            showYn: 'Y',
-            pageNum: 1,
-            pageSize: 9999,
-            searchKeyword: '',
-            categoryIdx: idx,
-        };
+    const data = {
+        showYn: 'Y',
+        pageNum: 1,
+        pageSize: 9999,
+        searchKeyword: '',
+        categoryIdx: idx,
+    };
 
-        const response = await memberMngStore.getPeopleList(data);
-        if (response) {
-            listData.value = response.resultInfo;
-        }
+    const response = await memberMngStore.getPeopleList(data);
+    if (response) {
+        listData.value = response.resultInfo;
     }
 };
 
