@@ -39,7 +39,11 @@
             <div ref="infoRef" class="info w-full px-[26px] flex-1 flex flex-col justify-centr items-start gap-[10px]">
 
                 <!-- 탭 이름 -->
-                <div class="w-full flex justify-start items-center gap-[10px] mb-[10px]">
+                <div
+                    ref="tabWrap" 
+                    class="tab_wrap w-full flex justify-start items-center gap-[10px] mb-[10px] overflow-x-auto scrollbar-hide"
+                    style="-webkit-overflow-scrolling: touch;"
+                >
                     <div v-for="(item, index) in parsedMemo.category" :key="index"
                     class="tab_name w-fit text-[#1F78FF] font-[700] border-[2px] border-[#1F78FF] py-[14px] px-[20px] rounded-[100px] shrink-0">
                         {{ composer.locale == 'en' ? item.codeValue.categoryNameEn : item.codeValue.categoryNameId }}
@@ -47,7 +51,11 @@
                 </div>
 
                 <!-- 태그 -->
-                <div class="tags flex justify-start items-center gap-[20px] w-full">
+                <div 
+                    ref="tagWrap" 
+                    class="tags flex justify-start items-center gap-[20px] w-full overflow-x-auto scrollbar-hide"
+                    style="-webkit-overflow-scrolling: touch;"
+                >
                     <div class="tag text-[15px] text-[#838383] w-fit shrink-0" v-for="(item, index) in parsedMemo.categoryChild"
                         :key="index">
                         #{{ composer.locale == 'en' ?
@@ -184,8 +192,81 @@ const movePage = (page: string) => {
     router.push(page);
 };
 
+const tabWrap = ref<HTMLElement | null>(null)
+const tagWrap = ref<HTMLElement | null>(null)
+
+let isDown = false
+let startX = 0
+let scrollLeft = 0
+
+onMounted(() => {
+    const tab_item = tabWrap.value
+    if (!tab_item) return
+
+    tab_item.addEventListener('mousedown', (e) => {
+        isDown = true
+        tab_item.classList.add('grabbing')
+        startX = e.pageX - tab_item.offsetLeft
+        scrollLeft = tab_item.scrollLeft
+    })
+
+    tab_item.addEventListener('mouseleave', () => {
+        isDown = false
+        tab_item.classList.remove('grabbing')
+    })
+
+    tab_item.addEventListener('mouseup', () => {
+        isDown = false
+        tab_item.classList.remove('grabbing')
+    })
+
+    tab_item.addEventListener('mousemove', (e) => {
+        if (!isDown) return
+        e.preventDefault()
+        const x = e.pageX - tab_item.offsetLeft
+        const walk = (x - startX) * 1.5 // 드래그 감도
+        tab_item.scrollLeft = scrollLeft - walk
+    })
+
+
+    const tag_item = tagWrap.value
+    if (!tag_item) return
+
+    tag_item.addEventListener('mousedown', (e) => {
+        isDown = true
+        tag_item.classList.add('grabbing')
+        startX = e.pageX - tag_item.offsetLeft
+        scrollLeft = tag_item.scrollLeft
+    })
+
+    tag_item.addEventListener('mouseleave', () => {
+        isDown = false
+        tag_item.classList.remove('grabbing')
+    })
+
+    tag_item.addEventListener('mouseup', () => {
+        isDown = false
+        tag_item.classList.remove('grabbing')
+    })
+
+    tag_item.addEventListener('mousemove', (e) => {
+        if (!isDown) return
+        e.preventDefault()
+        const x = e.pageX - tag_item.offsetLeft
+        const walk = (x - startX) * 1.5 // 드래그 감도
+        tag_item.scrollLeft = scrollLeft - walk
+    })
+    
+})
 
 </script>
-<style lang="">
+<style scoped >
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
 
+.tab_wrap.grabbing,
+.tags.grabbing {
+    cursor: grabbing !important;
+}
 </style>
