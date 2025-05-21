@@ -27,8 +27,8 @@
             
             
             <div class="flex justify-end items-center gap-[20px] lg:gap-[40px] ">
-              <div>
-                <CommonLanguageSwitch />
+              <div class="hidden lg:block">
+                <CommonLanguageSwitch :isHeaderActive="isHeaderActive" />
               </div>
               <div class="block lg:hidden">
                 <CommonNavMobile />
