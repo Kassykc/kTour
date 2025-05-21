@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="hidden sm:block">
         <div class="sub_tab_area flex gap-[30px]">
             <div v-for="tab in filteredTabs" :key="tab.key"
                 class="sub_tab cursor-pointer py-[10px] text-[12px] sm:text-[16px] lg:text-[20px] border-b text-center" :class="{

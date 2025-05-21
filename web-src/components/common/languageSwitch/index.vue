@@ -1,6 +1,12 @@
 <template>
     <div class="flex items-center">
-        <img src="/img/languageSwitch/language_switch_icon.png" class="pr-1  sm:pr-5 py-1 rounded-md w-[26px] sm:w-auto" />
+        <!-- src="/img/languageSwitch/language_switch_icon.png"  -->
+        <img 
+            :src="props.isHeaderActive 
+            ? '/img/languageSwitch/language_switch_icon_b.png' 
+            : '/img/languageSwitch/language_switch_icon.png'"
+            class="pr-1  sm:pr-5 py-1 rounded-md w-[26px] sm:w-auto" 
+        />
         <div v-for="locale in availableLocales" :key="locale" class="">
             <img :src="`/img/languageSwitch/${locale}.png`" @click="changeLanguage(locale)"
                 class="px-1 py-1 rounded-md text-sm cursor-pointer w-[30px] h-[30px] sm:w-[35px] sm:h-[35px]" />
@@ -11,6 +17,13 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { getCurrentLocale, setLocale } from '@/plugins/i18n'
+
+const props = defineProps({
+    isHeaderActive: {
+        type: Boolean,
+        default: false
+    }
+})
 
 // 지원 언어 목록
 // const availableLocales = ['ko', 'en', 'id']
