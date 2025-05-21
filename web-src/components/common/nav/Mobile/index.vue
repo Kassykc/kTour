@@ -107,7 +107,7 @@ const menuItems = ref<MenuItem[]>([
         title: t('menu.2.name'),
         link: '',
         submenu: [
-            { title: t('menu.2.2depth.1.name'), link: '/mtc' },
+            // { title: t('menu.2.2depth.1.name'), link: '/mtc' },
             { title: t('menu.2.2depth.2.name'), link: '/mtc' },
         ],
     },

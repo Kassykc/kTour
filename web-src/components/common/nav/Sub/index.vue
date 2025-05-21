@@ -50,7 +50,7 @@ const submenus = [
     { title: 'menu.1.2depth.4.name', url: '/about', tab: 'meditour' }
   ],
   [
-    { title: 'menu.2.2depth.1.name', url: '/mtc' },
+    // { title: 'menu.2.2depth.1.name', url: '/mtc' },
     { title: 'menu.2.2depth.2.name', url: '/mtc' },
   ],
   [

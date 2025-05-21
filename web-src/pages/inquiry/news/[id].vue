@@ -7,77 +7,55 @@
             <div id="new_details" class="w-full max-w-[1340px] px-[20px] my-0 mx-auto">
                 <div
                     class="main_tit text-[28px] sm:text-[40px] font-[700] pt-[160px] leading-[36px] sm:leading-[56px] text-center mb-[114px] break-keep">
-                    Medi-City Co., Ltd. Visits National University Hospital<br />Director and National Cancer Center in
-                    Indonesia.
+                    {{ composer.locale == 'en' ? parsedTitle.subjectEn : parsedTitle.subjectId }}
                 </div>
 
                 <div class="w-full flex justify-between items-center pb-[20px] border-b-[2px] border-black">
-                    <div class="date text-[14px]">2025-02-24 16:44:19</div>
-                    <div class="attach flex justify-end items-center gap-[10px] text-[16px]">
-                        2025메디씨티 신년카드_최종.jpg
+                    <div class="date text-[14px]">{{ boardDtlData.resultInfo.regDttm }}</div>
+                    <div class="attach flex justify-end items-center gap-[10px] text-[16px]"
+                        v-for="(item, index) in boardDtlData.resultInfo.fileInfo" v-if="getFile(item)">
+                        {{ item }}
                         <img src="@/assets/images/sub/inquiry/attach_file.png" alt="">
                     </div>
                 </div>
 
-                <div class="content py-[80px] text-center">
-                    <div class="img_wrap flex justify-center items-center mb-[68px]">
-                        <img src="@/assets/images/sub/inquiry/detail01.png" alt="">
+                <div class="content py-[80px]">
+                    <div class="text-[16px] leading-[29px]" v-html="parsedContent.contentEn"
+                        v-if="composer.locale == 'en'">
                     </div>
 
-                    <div class="text-[16px] leading-[29px]">
-                        Medi-City Co., Ltd. announced on the 19th that it visited the National University Hospital of
-                        Indonesia,<br />
-                        RSUI (Rumah Sakit Universitas Indonesia), and the National Cancer Center in Korea, which leads
-                        international medical cooperation projects.<br />
-                        During this visit, hosted by Medi-City Co., Ltd., RSUI's Director Astuti met with National
-                        Cancer Center Director Seo Hong-Gwan<br />
-                        to discuss ways to enhance medical technology and service levels, as well as to explore
-                        cooperation for development in various fields.<br />
-                        In response, the National Cancer Center introduced Korea's advanced medical technology and
-                        infrastructure to Indonesia.<br />
-                        RSUI's Director Astuti remarked, "I am deeply impressed by Korea's medical technology and
-                        systems,<br />
-                        and I look forward to innovating Indonesia's medical system through cooperation with the
-                        National Cancer Center."<br />
-                        Medi-City Chairman Lee Ji-Sun said, "Through continuous international medical cooperation and
-                        technological exchanges,<br />
-                        we will contribute to the medical development of both countries, starting with the successful
-                        launch of the global medical platform K-Medi in<br />
-                        Indonesia this coming July.<br />
-                        " She added, "These efforts will be an important step in promoting the health of the people and
-                        improving the quality of medical services in<br />
-                        both countries."<br /><br /><br /><br /><br />
-                        Reporter Yoo Ji-Young, molly97@docdocdoc.co.kr<br />
-                        Source: Young Doctor (http://www.docdocdoc.co.kr)
+                    <div class="text-[16px] leading-[29px]" v-html="parsedContent.contentId"
+                        v-if="composer.locale == 'id'">
                     </div>
                 </div>
 
                 <div class="flex flex-col justify-start items-start w-full max-w-[924px] mx-auto">
-                    <div class="prev border-t border-b border-[#DADADA] flex justify-start items-center w-full">
+                    <div class="prev border-t border-b border-[#DADADA] flex justify-start items-center w-full"
+                        v-if="boardDtlData.resultInfo?.prevTitle != '' && boardDtlData.resultInfo?.prevTitle != null">
                         <div class="font-[700] text-[17px] bg-[#EFEFEF] py-[10px] px-[20px] flex-0 w-[154px]">Previous
                         </div>
                         <div class="font-[400] text-[15px] py-[10px] px-[20px] flex-1 cursor-pointer truncate"
-                            @click="movePage('/')">
-                            Medi-City Co., Ltd. Indonesia Branch successfully concludes the K-AESTHETIC & ART Medical
-                            Showcase!
+                            @click="movePage(`/inquiry/news/${boardDtlData.resultInfo?.prevIdx}`)">
+                            {{ composer.locale == 'en' ? parsedPrevTitle.subjectEn : parsedPrevTitle.subjectId }}
                         </div>
                     </div>
-                    <div class="next border-b border-[#DADADA] flex justify-start items-center w-full">
+                    <div class="next border-b border-[#DADADA] flex justify-start items-center w-full"
+                        v-if="boardDtlData.resultInfo?.nextTitle != '' && boardDtlData.resultInfo?.nextTitle != null">
                         <div class="font-[700] text-[17px] bg-[#EFEFEF] py-[10px] px-[20px] flex-0 w-[154px]">Next</div>
                         <div class="font-[400] text-[15px] py-[10px] px-[20px] flex-1 cursor-pointer truncate"
-                            @click="movePage('/')">
-                            [K-Art Serise] Seniman yang Mendukung Semua Mimpi di Dunia: Can N Chur
+                            @click="movePage(`/inquiry/news/${boardDtlData.resultInfo?.nextIdx}`)">
+                            {{ composer.locale == 'en' ? parsedNextTitle.subjectEn : parsedNextTitle.subjectId }}
                         </div>
                     </div>
                 </div>
             </div>
 
-            <SubListBtn class="mt-[120px]" />
+            <SubListBtn class="mt-[120px]" @click="router.push('/inquiry/news')" />
         </div>
     </div>
 </template>
 <script setup lang="ts">
-import { t } from '@/plugins/i18n'
+import { t, composer } from '@/plugins/i18n'
 import { BOARDMNG_API_URLS } from '@/apis/boardMng/urls'
 
 import inquiry_bg from "@/assets/images/sub/inquiry/banner_bg.png";
@@ -97,15 +75,24 @@ const selectedTab = ref('consultation');
 
 const fileBaseUrl = apiBase.url() + "/_file/000/";
 
+const getFile = (item: any) => {
+    console.log('item : ' + item)
+    if (item && item.originTypeCd && item.originTypeCd == '000') {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 const decodeHtmlEntities = (str: string) => {
     const txt = document.createElement('textarea');
     txt.innerHTML = str;
     return txt.value;
 }
 
-const parsedTab = computed(() => {
+const parsedContent = computed(() => {
     try {
-        const rawMemo = boardDtlData.value.resultInfo?.categoryChildNameKo;
+        const rawMemo = boardDtlData.value.resultInfo?.content;
 
         if (!rawMemo || rawMemo === 'null') return {};
 
@@ -117,9 +104,37 @@ const parsedTab = computed(() => {
     }
 });
 
-const parsedMemo = computed(() => {
+const parsedTitle = computed(() => {
     try {
-        const rawMemo = boardDtlData.value.resultInfo?.peopleMemo;
+        const rawMemo = boardDtlData.value.resultInfo?.subject;
+
+        if (!rawMemo || rawMemo === 'null') return {};
+
+        const decoded = decodeHtmlEntities(rawMemo);
+        return JSON.parse(decoded);
+    } catch (e) {
+        console.error('peopleMemo 파싱 오류:', e);
+        return {};
+    }
+});
+
+const parsedPrevTitle = computed(() => {
+    try {
+        const rawMemo = boardDtlData.value.resultInfo?.prevTitle;
+
+        if (!rawMemo || rawMemo === 'null') return {};
+
+        const decoded = decodeHtmlEntities(rawMemo);
+        return JSON.parse(decoded);
+    } catch (e) {
+        console.error('peopleMemo 파싱 오류:', e);
+        return {};
+    }
+});
+
+const parsedNextTitle = computed(() => {
+    try {
+        const rawMemo = boardDtlData.value.resultInfo?.nextTitle;
 
         if (!rawMemo || rawMemo === 'null') return {};
 
@@ -160,7 +175,7 @@ const { data: boardDtlData, pending, error, refresh } = await useAsyncData(
     `boardDtlData-${route.params.id}`,
     async () => {
         try {
-            const response = await fetch(BOARDMNG_API_URLS.SET_BOARD_URL + "/" + route.params.id, {
+            const response = await fetch(BOARDMNG_API_URLS.INSERT_BOARD_URL + "/" + route.params.id, {
                 method: 'GET',
                 headers: { 'Content-Type': 'application/json' },
             });
@@ -174,8 +189,6 @@ const { data: boardDtlData, pending, error, refresh } = await useAsyncData(
                 if (done) break;
                 result += new TextDecoder().decode(value);
             }
-
-            console.log('result : ' + result)
 
             return JSON.parse(result);
         } catch (err) {
@@ -197,6 +210,10 @@ onMounted(async () => {
 });
 
 </script>
-<style lang="">
-
+<style lang="scss">
+.ql-align-center {
+    img {
+        margin: 0px auto !important;
+    }
+}
 </style>
