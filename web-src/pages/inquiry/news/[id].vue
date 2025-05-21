@@ -50,7 +50,7 @@
                 </div>
             </div>
 
-            <SubListBtn class="mt-[120px]" @click="router.push('/inquiry/news')" />
+            <SubListBtn class="mt-[120px] mx-auto" @click="router.push('/inquiry/news')" />
         </div>
     </div>
 </template>
