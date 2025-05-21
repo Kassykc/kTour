@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Banner :title="bannerTitle" :bgImage="bannerBgImage" :category="category" :selectedTab="selectedTab" />
+        <Banner :title="bannerTitle" :category="category" :selectedTab="selectedTab" :videoSrc="'/video/main/banner.webm'" />
 
         <div class="content_area pb-[220px]">
             <div id="new_details" class="w-full max-w-[1340px] px-[20px] my-0 mx-auto">

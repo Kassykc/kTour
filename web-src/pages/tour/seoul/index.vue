@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Banner :title="bannerTitle" :bgImage="bannerBgImage" :category="category" :selectedTab="selectedTab" />
+        <Banner :title="bannerTitle" :category="category" :selectedTab="selectedTab" :videoSrc="'/video/sub/tour_seoul_banner.webm'" />
         
         <div class="content_area">
             <div id="seoul_tour" class="px-[20px]">
