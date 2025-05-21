@@ -28,52 +28,56 @@ const isBackNavigation = ref(false);
 
 const sysAlert = useSysAlertStore();
 
-const desc = computed(() => {
-    return composer.locale == 'en' ? "Medical & Healing travel service to South Korea" : "Layanan perjalanan medis & penyembuhan terpadu ke Korea Selatan"
-})
+watchEffect(() => {
+    const desc =
+        composer.locale.value === 'en'
+            ? "Medical & Healing travel service to South Korea"
+            : "Layanan perjalanan medis & penyembuhan terpadu ke Korea Selatan";
 
-useHead({
-    title: "K-Medi Tour",
-    titleTemplate: "%s",
-    meta: [
-        {
-            name: "viewport",
-            content:
-                "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover",
-        },
-        {
-            name: "description",
-            content: desc,
-        },
-        {
-            name: "keywords",
-            content:
-                "K-MEDI, k-medi, k medi, medi, MEDI, (주)메디씨티, MEDI-CITY, MEDICITY, medicity, medical, medical video, e-Learning",
-        },
-        { property: "og:title", content: "K-Medi Tour" },
-        {
-            property: "og:description",
-            content: desc,
-        },
-        {
-            property: "og:image",
-            content: "/img/common/tour_thumbnail.png",
-        },
-        { property: "og:type", content: "website" },
-        { property: "og:url", content: "https://medical.hicompint.com" },
-        {
-            name: "naver-site-verification",
-            content: "0c45b8f31f79b3c1f4765da975406015cc05ac56",
-        },
-    ],
-    link: [
-        {
-            rel: "icon",
-            type: "image/png",
-            href: "/img/tour_favicon.png",
-        },
-    ],
+    useHead({
+        title: "K-Medi Tour",
+        titleTemplate: "%s",
+        meta: [
+            {
+                name: "viewport",
+                content:
+                    "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover",
+            },
+            {
+                name: "description",
+                content: desc,
+            },
+            {
+                name: "keywords",
+                content:
+                    "K-MEDI, k-medi, k medi, medi, MEDI, (주)메디씨티, MEDI-CITY, MEDICITY, medicity, medical, medical video, e-Learning",
+            },
+            { property: "og:title", content: "K-Medi Tour" },
+            {
+                property: "og:description",
+                content: desc,
+            },
+            {
+                property: "og:image",
+                content: "/img/common/tour_thumbnail.png",
+            },
+            { property: "og:type", content: "website" },
+            { property: "og:url", content: "https://medical.hicompint.com" },
+            {
+                name: "naver-site-verification",
+                content: "0c45b8f31f79b3c1f4765da975406015cc05ac56",
+            },
+        ],
+        link: [
+            {
+                rel: "icon",
+                type: "image/png",
+                href: "/img/tour_favicon.png",
+            },
+        ],
+    });
 });
+
 
 const handleBackup = () => {
     const routePath = router.currentRoute.value.fullPath;  // 현재 페이지의 fullPath
