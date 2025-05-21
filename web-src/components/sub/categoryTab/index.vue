@@ -34,29 +34,33 @@ const route = useRoute();
 // const router = useRouter();
 const emit = defineEmits(); // 부모에게 전달할 이벤트 정의
 const selectedIndex = ref(-1);
-const selectedIdx = ref(0);
+const setCodeKey = ref();
 
 
 // 카테고리 클릭 시 해당 인덱스를 selectedIndex에 할당
 const selectCategory = (index: number, categoryName: string, codeKey?: number) => {
     selectedIndex.value = index;
 
-    if (index == 0) {
-        return emit('update:selectedCategory', categoryName, selectedChildren.value, codeKey);
+    const getCodeKey = codeKey ? codeKey : setCodeKey.value ? setCodeKey.value : null;
+    setCodeKey.value = getCodeKey;
+
+    if (index == -1) {
+        selectedChildren.value = [];
+        return emit('update:selectedCategory', categoryName, selectedChildren.value, getCodeKey);
     }
 
-    if (codeKey && composer.locale == 'en') {
+    if (getCodeKey && composer.locale == 'en') {
         selectedChildren.value = hospitalDepth2En.value.filter(
-            item => item.codeParentKey == codeKey
+            item => item.codeParentKey == getCodeKey
         );
-    } else if (codeKey && composer.locale == 'id') {
+    } else if (getCodeKey && composer.locale == 'id') {
         selectedChildren.value = hospitalDepth2Id.value.filter(
-            item => item.codeParentKey == codeKey
+            item => item.codeParentKey == getCodeKey
         );
     } else {
         selectedChildren.value = []; // 없으면 초기화
     }
-    return emit('update:selectedCategory', categoryName, selectedChildren.value, codeKey); // 카테고리 이름을 부모에게 전달
+    return emit('update:selectedCategory', categoryName, selectedChildren.value, getCodeKey); // 카테고리 이름을 부모에게 전달
 };
 
 
@@ -146,8 +150,8 @@ const setCategories = async () => {
     //     selectedIndex.value = 0;
     //     selectCategory(0, first.category_name, first?.category_key);
     // }
-    selectedIndex.value = -1;
-    selectCategory(-1, '');
+    selectedIndex.value = selectedIndex.value != null ? selectedIndex.value : -1;
+    selectCategory(selectedIndex.value, '');
 };
 
 watch(() => composer.locale, (newLang, oldLang) => {
