@@ -1,5 +1,5 @@
 <template>
-    <div class="cartegory_tab w-full max-w-[1340px] my-0 mx-auto">
+    <div class="cartegory_tab w-full max-w-[1340px] px-[20px] my-0 mx-auto">
         <div class="category_wrap flex justify-center items-center flex-wrap gap-[14px]">
             <div class="category min-w-[40px] md:min-w-[75px] px-[10px] md:px-[30px] py-[8px] md:py-[14px] text-[13px] md:text-[18px] text-center rounded-[18px] md:rounded-[30px] cursor-pointer font-[700] border border-[#AFAFAF]"
                 :class="selectedIndex == -1 ? 'bg-[#1F78FF] text-white' : 'bg-white text-[#AFAFAF]'"
