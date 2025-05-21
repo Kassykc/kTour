@@ -139,7 +139,7 @@
                 </div>
             </div>
 
-            <div v-if="contentEn && contentEn != ''"
+            <div
                 class="input_area content flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
                 <label
                     class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">내용(en)</label>
@@ -148,7 +148,7 @@
                 </ClientOnly>
             </div>
 
-            <div v-if="contentId && contentId != ''"
+            <div
                 class="input_area content flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
                 <label
                     class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">내용(id)</label>
@@ -245,7 +245,7 @@ const resData = ref({
     birthMm: '',
     birthDd: '',
     birth: '',
-    interPhoneNumber: '',
+    interPhoneNumber: '82',
     mobile1: '',
     mobile2: '',
     mobile3: '',
