@@ -1,9 +1,9 @@
 <template>
-    <div class="search_list w-full max-w-[1340px] mx-auto flex justify-start items-start gap-[8px] mb-[146px]">
+    <div class="search_list w-full max-w-[1340px] mx-auto flex flex-col xl:flex-row justify-start items-center xl:items-start gap-[30px] xl:gap-[8px] mb-[146px]">
         <!-- {{ props.data.fileInfo }} -->
-        <div class="hospital_media flex-0 w-[592px] h-fit flex flex-col justify-between items-center gap-[8px]">
+        <div class="hospital_media flex-0 w-full sm:w-[80%] xl:w-[592px] h-fit flex flex-col justify-between items-center gap-[8px] px-[20px] xl:px-0">
             <!-- 슬라이드 영역  -->
-            <div ref="swiperRef" class="swiper_area w-[592px] min-h-[360px] border">
+            <div ref="swiperRef" class="swiper_area w-full xl:w-[592px] min-h-[360px] border">
                 <Swiper :modules="[Autoplay, Pagination, Navigation]"
                     :autoplay="{ delay: 3000, disableOnInteraction: false }" :loop="true" :pagination="true"
                     :slidesPerView="1" :spaceBetween="30" :navigation="false"
@@ -19,7 +19,7 @@
 
             <!-- sns 영역 -->
             <div
-                class="sns flex justify-start items-center gap-[20px] w-full h-[54px] bg-[#F3F3F3] px-[20px] py-[12px]">
+                class="sns flex justify-center sm:justify-start items-center gap-[20px] w-full h-[54px] bg-[#F3F3F3] px-[20px] py-[12px]">
                 <a href="" target="blank" v-if="parsedMemo.instagram && parsedMemo.instagram != ''">
                     <img src="@/assets/images/sub/mtc/insta.png" alt="" @click="router.push(parsedMemo.instagram)">
                 </a>
@@ -29,13 +29,13 @@
                 <a href="" target="blank" class="flex justify-start items-center gap-[20px]"
                     v-if="parsedMemo.site && parsedMemo.site != ''">
                     <img src="@/assets/images/sub/mtc/language.png" alt="" @click="router.push(parsedMemo.site)">
-                    <span class="text-[#313131]" @click="router.push(parsedMemo.site)">{{ parsedMemo.site }}</span>
+                    <span class="text-[#313131] hidden sm:block" @click="router.push(parsedMemo.site)">{{ parsedMemo.site }}</span>
                 </a>
             </div>
         </div>
 
         <!-- 리스트 정보 -->
-        <div class="info_area flex-1 min-h-[424px] h-full w-full max-w-[740px] flex flex-col justify-between items-start gap-[8px]">
+        <div class="info_area flex-1 min-h-[424px] h-full w-full max-w-full sm:max-w-[80%] xl:max-w-[740px] flex flex-col justify-between items-start gap-[8px]">
             <div ref="infoRef" class="info w-full px-[26px] flex-1 flex flex-col justify-centr items-start gap-[10px]">
 
                 <!-- 탭 이름 -->
@@ -45,7 +45,7 @@
                     style="-webkit-overflow-scrolling: touch;"
                 >
                     <div v-for="(item, index) in parsedMemo.category" :key="index"
-                    class="tab_name w-fit text-[#1F78FF] font-[700] border-[2px] border-[#1F78FF] py-[14px] px-[20px] rounded-[100px] shrink-0">
+                    class="tab_name w-fit text-[14px] sm:text-[16px] text-[#1F78FF] font-[700] border-[2px] border-[#1F78FF] py-[6px] px-[14px] sm:py-[14px] sm:px-[20px] rounded-[100px] shrink-0">
                         {{ composer.locale == 'en' ? item.codeValue.categoryNameEn : item.codeValue.categoryNameId }}
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                     class="tags flex justify-start items-center gap-[20px] w-full overflow-x-auto scrollbar-hide"
                     style="-webkit-overflow-scrolling: touch;"
                 >
-                    <div class="tag text-[15px] text-[#838383] w-fit shrink-0" v-for="(item, index) in parsedMemo.categoryChild"
+                    <div class="tag  text-[13px] sm:text-[15px] text-[#838383] w-fit shrink-0" v-for="(item, index) in parsedMemo.categoryChild"
                         :key="index">
                         #{{ composer.locale == 'en' ?
                             item.codeValue.categoryNameEn : item.codeValue.categoryNameId }}
@@ -64,28 +64,28 @@
                 </div>
 
                 <!-- 타이틀 -->
-                <div class="title text-[36px] font-[700] mb-[20px] text-[#313131]">{{ composer.locale == 'en' ?
+                <div class="title text-[24px] sm:text-[36px] font-[700] mb-[20px] text-[#313131]">{{ composer.locale == 'en' ?
                     props.data.nameFirstKo : props.data.nameFirstEn }}</div>
 
                 <!-- 슬로건 -->
                 <div
-                    class="slogan w-full h-auto py-[14px] border-t border-black font-[700] text-[22px] text-[#313131] relative">
+                    class="slogan w-full h-auto py-[14px] border-t border-black font-[700] text-[18px] sm:text-[22px] text-[#313131] relative">
                     {{ composer.locale == 'en' ?
                         parsedMemo.sloganEn : parsedMemo.sloganId }}
                     <span
-                        class="mark absolute top-[-16px] left-[-10px] bg-white text-[14px] font-[700] text-[#313131] px-[8px] py-[4px]">Slogan.</span>
+                        class="mark absolute top-[-16px] left-[-10px] bg-white text-[12px] sm:text-[14px] font-[700] text-[#313131] px-[8px] py-[4px]">Slogan.</span>
                 </div>
 
                 <!-- 콘택트 -->
                 <div class="contact_info flex flex-col justify-center items-start gap-[8px]">
 
-                    <div class="pone flex justify-start items-center text-[18px] text-[#313131] gap-[20px]">
+                    <div class="pone flex justify-start items-center text-[14px] sm:text-[18px] text-[#313131] gap-[20px]">
                         <img src="@/assets/images/sub/mtc/phone.png" alt="">
                         +{{ props.data.interPhoneNumber }}){{ props.data.mobile1 }}-{{ props.data.mobile2 }}-{{
                             props.data.mobile3 }}
                     </div>
 
-                    <div class="address flex justify-start items-center text-[18px] text-[#313131] gap-[20px]">
+                    <div class="address flex justify-start items-center text-[14px] sm:text-[18px] text-[#313131] gap-[20px]">
                         <img src="@/assets/images/sub/mtc/distance.png" alt="">
                         {{ props.data.email }}
                     </div>
@@ -94,15 +94,15 @@
             </div>
 
             <!-- 버튼 -->
-            <div class="btns w-full flex justify-center items-center gap-[8px]">
+            <div class="btns w-full flex justify-center items-center gap-[8px] px-[20px] sm:px-0 mt-[20px] sm:mt-0">
                 <a v-if="generalFiles && generalFiles.length > 0" :href="fileBaseUrl + generalFiles[0].filePathEnc"
                     download=""
-                    class="brochure flex justify-center items-center gap-[5px] w-full bg-[#3F3F3F] !text-white px-[20px] py-[12px] h-[54px] cursor-pointer">
+                    class="brochure flex justify-center items-center gap-[5px] w-[45%] sm:w-full bg-[#3F3F3F] text-[12px] sm:text-[16px] !text-white p-[10px] sm:px-[20px] sm:py-[12px] h-[54px] cursor-pointer">
                     Brochure
                     <img src="@/assets/images/sub/mtc/down_icon.png" alt="">
                 </a>
 
-                <div class="view_details flex justify-center items-center gap-[5px] w-full bg-[#1F78FF] text-white px-[20px] py-[12px] h-[54px] cursor-pointer"
+                <div class="view_details flex justify-center items-center gap-[5px] w-[45%] sm:w-full bg-[#1F78FF] text-[12px] sm:text-[16px] text-white p-[10px] sm:px-[20px] sm:py-[12px] h-[54px] cursor-pointer"
                     @click="movePage(`/mtc/${props.data.peopleIdx}`)">
                     View Details
                     <img src="@/assets/images/sub/mtc/move_icon.png" alt="">
