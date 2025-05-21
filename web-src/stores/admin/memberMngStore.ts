@@ -34,6 +34,7 @@ export function useMemberMngStore(storeName: string) {
         };
 
         const dtlUser = async (data: any) => {
+            console.log(data)
             const response = await getUser(data); // API 호출
             return common.convertKeysToCamel(response.data); // 응답 데이터 반환
         };

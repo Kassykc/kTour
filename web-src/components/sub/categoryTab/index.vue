@@ -138,11 +138,11 @@ const setCategories = async () => {
         categories.value = [
             {
                 category_name: t('board.part1.title'),
-                category_key: { type: boardType.news, key: '' }
+                category_key: { type: boardType.contentAll, key: '' }
             },
             {
                 category_name: t('board.part2.title'),
-                category_key: { type: boardType.news, key: '200' }
+                category_key: { type: boardType.video, key: '200' }
             },
             {
                 category_name: t('board.part3.title'),

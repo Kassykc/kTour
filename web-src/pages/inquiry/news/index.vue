@@ -38,7 +38,6 @@ const getList = async (categoryName: string, depth2?: any, keys?: any) => {
             pageSize: 999,
             searchKeyword: '',
             boardType: keys.type,
-            CategoryTypeCd: keys.key,
         }
 
         const response = await newsBoard.getBoardList(params);

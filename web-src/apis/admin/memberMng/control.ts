@@ -18,7 +18,7 @@ export const postBoardList = async (data: any) => {
 export const getUser = async (data: any) => {
   const { fetchData } = useApi();
   const params: ApiRequest = {
-    url: PROFILEMNG_API_URLS.SET_USER_URL + "/" + data.user_id,
+    url: PROFILEMNG_API_URLS.SET_USER_URL + "/" + data.userId,
     method: "get",
     isAuthRequired: true,
   };
