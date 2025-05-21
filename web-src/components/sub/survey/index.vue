@@ -2,7 +2,7 @@
     <div>
         <div class="content_area">
             <div id="consultation" class="w-full max-w-[1340px] my-0 mx-auto">
-                <div class="main_tit w-full text-[46px] lg:text-[65px] font-[700] pt-[160px] px-[20px] text-center mb-[50px]">
+                <div class="main_tit w-full text-[30px] lg:text-[65px] font-[700] pt-[160px] px-[20px] text-center mb-[50px]">
                     {{ t('consultation.title') }}
                 </div>
                 <div class="sub_title text-[18px] lg:text-[20px] w-full px-[20px] text-center mb-[50px]">

@@ -5,7 +5,7 @@
         <div class="content_area">
             <div id="company" class="">
                 <div class="company medicity w-full max-w-[1340px] pt-[160px] pb-[120px] px-[20px] my-0 mx-auto">
-                    <h2 class="area_name text-[46px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
+                    <h2 class="area_name text-[30px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
                         {{ t('about.part1.title') }}
                     </h2>
                     <p class="description text-[24px] lg:text-[40px] font-[700] mb-[86px]">
@@ -77,7 +77,7 @@
 
             <div id="service">
                 <div id="program" class="program w-full max-w-[1340px] py-[120px] px-[20px] my-0 mx-auto">
-                    <h2 class="area_name text-[46px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
+                    <h2 class="area_name text-[30px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
                         {{ t('about.part2.title') }}
                     </h2>
                     <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
@@ -262,7 +262,7 @@
             <div id="korea"
                 class="bg-[url('@/assets/images/sub/about/korea_bg.png')] bg-no-repeat [background-size:450%] sm:[background-size:200%] xl:bg-contain bg-bottom">
                 <div class="w-full max-w-[1340px] py-[120px] px-[20px] my-0 mx-auto">
-                    <h2 class="area_name text-[46px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
+                    <h2 class="area_name text-[30px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
                         {{ t('about.part3.title') }}
                     </h2>
                     <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
@@ -425,7 +425,7 @@
 
             <div id="meditour" class="mt-[160px] mb-[60px]">
                 <div class="w-full max-w-[1340px] py-[120px] px-[20px] my-0 mx-auto">
-                    <h2 class="area_name text-[46px] lg:text-[65px] font-[700] mb-[100px] lg:mb-[200px]">
+                    <h2 class="area_name text-[30px] lg:text-[65px] font-[700] mb-[100px] lg:mb-[200px]">
                         {{ t('about.part4.title1') }}<br />
                         {{ t('about.part4.title2') }}
                     </h2>

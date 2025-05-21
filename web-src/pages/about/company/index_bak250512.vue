@@ -10,7 +10,7 @@
         <div class="content_area">
             <div id="company" >
                 <div class="company medicity w-full max-w-[1340px] py-[120px] my-0 mx-auto">
-                    <h2 class="area_name text-[46px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
+                    <h2 class="area_name text-[30px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
                         MediCity
                     </h2>
                     <p class="description text-[24px] lg:text-[40px] font-[700] mb-[86px]">
@@ -61,7 +61,7 @@
 
             <div id="service">
                 <div id="program" class="program w-full max-w-[1340px] py-[120px] my-0 mx-auto">
-                    <h2 class="area_name text-[46px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
+                    <h2 class="area_name text-[30px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
                         Service
                     </h2>
                     <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
@@ -161,7 +161,7 @@
 
             <div id="korea" class="bg-[url('@/assets/images/sub/about/korea_bg.png')] bg-no-repeat bg-contain bg-bottom">
                 <div class="w-full max-w-[1340px] py-[120px] my-0 mx-auto">
-                    <h2 class="area_name text-[46px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
+                    <h2 class="area_name text-[30px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
                         Why Korea?
                     </h2>
                     <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">

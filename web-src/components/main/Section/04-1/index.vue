@@ -22,16 +22,16 @@
                         <SwiperSlide v-for="(item, idx) in slide" :key="idx">
                             <div class="flex justifiy-center items-center flex-col lg:flex-row">
                                 <div
-                                    class="slide_item relative w-full lg:w-1/2 h-full lg:h-[524px] flex flex-col justify-start items-start gap-[20px] lg:gap-[35px] p-[30px] pt-[100px] xl:p-[70px]  bg-cover bg-center">
-                                    <div class="font-[800] text-[14px] lg:text-[19px] text-white">
+                                    class="slide_item relative w-full lg:w-1/2 h-full lg:h-[524px] flex flex-col justify-start items-start gap-[17px] sm:gap-[20px] lg:gap-[35px] px-[30px] pt-[80px] pb-[15px] xl:p-[70px] bg-cover bg-center">
+                                    <div class="font-[800] text-[14px] lg:text-[19px] text-white mb-[13px] sm:mb-[3px]">
                                         {{ item.subTitle }}
 
                                     </div>
-                                    <div class="font-[800] text-[20px] sm:text-[30px] lg:text-[45px] leading-[30px] sm:leading-[42px] lg:leading-[58px] text-white uppercase">
+                                    <div class="font-[800] text-[22px] sm:text-[30px] lg:text-[45px] leading-[30px] sm:leading-[42px] lg:leading-[58px] text-white uppercase">
                                         {{ item.title }}
                                     </div>
 
-                                    <div class="font-[800] text-[20px] lg:text-[28px] leading-[22px] lg:leading-[31px] text-white mt-[15px] lg:mt-[35px]">
+                                    <div class="font-[800] text-[15px] lg:text-[28px] leading-[22px] lg:leading-[31px] text-white mt-0 lg:mt-[35px]">
                                         {{ item.desc }}
                                     </div>
 

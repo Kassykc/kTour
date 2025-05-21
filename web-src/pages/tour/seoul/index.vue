@@ -5,7 +5,7 @@
         <div class="content_area">
             <div id="seoul_tour" class="px-[20px]">
                 <div class="main_title w-full max-w-[1340px] pt-[160px] my-0 mx-auto">
-                    <h2 class="area_name text-[46px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
+                    <h2 class="area_name text-[30px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
                         {{ t('seoulTour.title') }}
                     </h2>
                     <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
