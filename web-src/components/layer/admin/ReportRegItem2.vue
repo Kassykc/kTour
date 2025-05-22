@@ -1,7 +1,24 @@
 <template>
     <div class="w-full flex flex-col justify-start items-start gap-[10px] p-[20px]">
+
+        <div class="w-full flex justify-start items-center gap-[10px]">
+            <div class="w-fit shrink-0">질문 :</div>
+            <input v-model="props.modelValue.questionText" type="text"
+                class="h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white w-full" placeholder="질문 내용 입력" />
+        </div>
+
+        <select v-model="props.modelValue.answerType"
+            class="w-[150px] h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white text-sm">
+            <option value="text">단답식</option>
+            <option value="textarea">주관식</option>
+            <option value="radio">단일선택형</option>
+            <option value="checkbox">다중선택형</option>
+        </select>
+
+        {{ props.modelValue }}
+
         <div class="flex flex-col justify-start items-center w-full gap-[10px]"
-            v-for="(item, index) in props.modelValue" :key="index">
+            v-for="(item, index) in props.modelValue.option" :key="index">
             <div class="w-full flex justify-start items-center gap-[10px]">
                 <div class="w-fit shrink-0">선택지 값 :</div>
                 <input type="text" class="h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white w-[50%]"
@@ -12,48 +29,34 @@
 
             <div class="w-full flex justify-start items-center gap-[10px] flex-wrap">
                 <!-- 단답식 -->
-                <div v-if="props.answerType == 'text'"
+                <div v-if="props.modelValue.answerType == 'text'"
                     class="text_area flex justify-start items-start gap-[10px] flex-wrap w-full">
                 </div>
 
                 <!-- 주관식 -->
-                <div v-if="props.answerType == 'textarea'"
+                <div v-if="props.modelValue.answerType == 'textarea'"
                     class="textarea_area flex justify-start items-start gap-[10px] flex-wrap w-full">
                 </div>
 
                 <!-- radio/checkbox -->
-                <div v-if="props.answerType == 'radio' || props.answerType == 'checkbox'"
+                <div v-if="props.modelValue.answerType == 'radio' || props.modelValue.answerType == 'checkbox'"
                     class="radio_chkbox_area flex justify-start items-start gap-[10px] flex-wrap w-[80%]">
                     <div class="w-full flex justify-start items-center gap-[10px] flex-wrap">
-                        <div class="h-[36px] leading-[26px] flex-1 px-2 py-1 border border-[#dcdcdc] rounded cursor-pointer shrink-0 w-[50px]"
-                            @click="addChild(index)">하위질문 추가</div>
                         <div class="h-[36px] leading-[26px] px-2 py-1 border border-[#dcdcdc] rounded cursor-pointer w-[42px]"
                             @click="removeOption(index)">-</div>
-
-                        <!-- 자식 질문 개별 출력 -->
-                        <!-- <div v-if="item.children"
-                            class="sub_area relative w-full pl-[50px] flex flex-col justify-start items-start">
-                            <LayerAdminReportRegItem v-for="(child, i) in item.children" :key="i"
-                                v-model="item.children[i]" @remove="() => item.children.splice(i, 1)" />
-                        </div> -->
                     </div>
                 </div>
 
-                <div v-if="props.answerType === 'radio' || props.answerType === 'checkbox'"
+                <div v-if="props.modelValue.answerType === 'radio' || props.modelValue.answerType === 'checkbox'"
                     class="flex justify-center items-center gap-[10px]">
                     <div class="h-[36px] leading-[26px] flex-1 px-2 py-1 border border-[#dcdcdc] rounded cursor-pointer w-[42px] text-white bg-black"
                         @click="addOption(index)">+</div>
                 </div>
-
-                <!-- 자식 질문 재귀 출력 -->
-                <div v-if="props.answerType === 'radio' || props.answerType === 'checkbox'"
-                    v-for="(child, i) in props.modelValue[index].addquestion" :key="i"
-                    class="sub_area relative w-full pl-[50px] flex flex-col justify-start items-start">
-                    <LayerAdminReportRegItem2 v-model="props.modelValue[index].addquestion[i]"
-                        @remove="() => props.modelValue[index].addquestion.splice(i, 1)" :depth="2" />
-                </div>
             </div>
         </div>
+
+        <div class="sub_area_delete_btn h-[36px] leading-[26px] flex-1 px-2 py-1 border border-[#dcdcdc] rounded cursor-pointer text-white bg-black"
+            @click="emit('remove')">삭제</div>
     </div>
 </template>
 <script setup lang="ts">
@@ -91,22 +94,14 @@ const emit = defineEmits<{
 }>()
 
 const addOption = (index: number) => {
-    const newOptions = [...toRaw(props.modelValue)];
-    newOptions.push({ ...toRaw(answerOption.value) });
-    emit('update:modelValue', newOptions);
+    props.modelValue.option.push({ ...toRaw(addQuestionOption.value) });
+    emit('update:modelValue', props.modelValue);
 };
 
 const removeOption = (index: number) => {
     if (props.modelValue.length <= 1) return;
     const newOptions = [...toRaw(props.modelValue)];
     newOptions.splice(index, 1);
-    emit('update:modelValue', newOptions);
-};
-
-const addChild = (idx: number) => {
-    const newOptions = [...toRaw(props.modelValue)];
-    if (!newOptions[idx].addquestion) newOptions[idx].addquestion = [];
-    newOptions[idx].addquestion.push({ ...toRaw(addQuestion.value) });
     emit('update:modelValue', newOptions);
 };
 </script>

@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { useBoardMngStore } from '~/stores/admin/boardStore';
+import { useReportStore } from '~/stores/admin/reportStore';
 import { boardType } from "@/assets/js/static";
 import type { ResultInfo } from '@/types/admin/board';
 import type { PageInfo } from '@/types/admin/page';
@@ -17,7 +17,7 @@ definePageMeta({
     layout: 'admin',
 });
 
-const noticeMngStore = useBoardMngStore('notice');
+const reportMngStore = useReportStore('admin-report');
 const router = useRouter();
 
 const fileBaseUrl = apiBase.url() + "/_file/000/";
@@ -76,7 +76,7 @@ const setBoardList = async () => {
 }
 
 const goDel = async (selectedRows: number[]) => {
-    await noticeMngStore.delBoard(selectedRows);
+    await reportMngStore.delBoard(selectedRows);
 
     await getBoardList(nowPage.value, 10, '');
 };
@@ -85,11 +85,11 @@ const getBoardList = async (pageNum: number, pageSize: number, word: string) => 
     const data = {
         pageNum: pageNum,
         pageSize: pageSize,
+        reportId: 1,
         searchKeyword: word ? word : searchKeyword.value,
-        boardType: boardType.contentAll,
     };
 
-    const response = await noticeMngStore.getBoardList(data);
+    const response = await reportMngStore.getBoardList(data);
 
     if (response) {
 
@@ -109,19 +109,19 @@ const handlePageChange = (newPage: number) => {
     getBoardList(newPage, 10, '');
 };
 
-const goExcel = async () => {
-    const params = {
-        pageNum: 1,
-        pageSize: 9999,
-        boardType: boardType.contentAll,
-        searchKeyword: searchKeyword.value,
-    }
+// const goExcel = async () => {
+//     const params = {
+//         pageNum: 1,
+//         pageSize: 9999,
+//         boardType: boardType.contentAll,
+//         searchKeyword: searchKeyword.value,
+//     }
 
-    const response = await noticeMngStore.getExcel(params);
-}
+//     const response = await reportMngStore.getExcel(params);
+// }
 
 onMounted(async () => {
-    await getBoardList(1, 10, '');
+    await getBoardList(1, 9999, '');
 });
 </script>
 
