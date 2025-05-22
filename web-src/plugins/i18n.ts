@@ -23,8 +23,8 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   const messages = await loadMessages(); // 메시지 로드
 
   i18n = createI18n({
-    locale: "en", // 기본 언어 설정
-    fallbackLocale: "en",
+    locale: "id", // 기본 언어 설정
+    fallbackLocale: "id",
     messages,
   });
 
@@ -36,7 +36,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     i18n.global.locale = initialLang;
   } else {
     console.warn('Invalid language setting, defaulting to "en".');
-    i18n.global.locale = "en"; // 유효하지 않은 언어인 경우 기본값으로 설정
+    i18n.global.locale = "id"; // 유효하지 않은 언어인 경우 기본값으로 설정
   }
 
   // `composer`를 통해 `t` 함수 사용 가능하도록 설정
@@ -64,8 +64,8 @@ export function t(key: string, args?: Record<string, unknown>): string {
 export function getCurrentLocale(): string {
   return composer.locale.value
     ? composer.locale.value
-    : common.getCookie("lang")
-    ? common.getCookie("lang")
+    : common.getLang()
+    ? common.getLang()
     : "id";
 }
 
@@ -74,7 +74,7 @@ export function getCurrentLocale(): string {
  * @param locale - 변경할 언어 코드
  */
 export function setLocale(locale: string): void {
-  if (["en", "id", "ko"].includes(locale)) {
+  if (["en", "id"].includes(locale)) {
     console.log(locale);
     common.setLang(locale);
     composer.locale = locale;

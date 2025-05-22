@@ -32,12 +32,14 @@ const bannerTitle = ref('Inquiry');
 const bannerBgImage = ref(inquiry_bg); // 배경 이미지 경로
 const category = ref('inquiry');
 const selectedTab = ref('faq');
-const selectedCategory = ref(t('faq.tab.1')); // 선택된 카테고리 이름을 저장
+const selectedCategory = ref(''); // 선택된 카테고리 이름을 저장
 
 const listData = ref([]);
 const faqBoard = useBoardMngStore('faq-cli');
 
 const getList = async (categoryName: string, depth2?: any, keys?: any) => {
+    console.log('fdfd')
+    selectedCategory.value = categoryName && categoryName != '' && categoryName != null ? categoryName : "ALL"
     if (keys) {
         const params = {
             pageNum: 1,

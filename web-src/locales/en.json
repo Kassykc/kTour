@@ -600,6 +600,7 @@
     "part3": { "title": "NEWS" }
   },
   "faq": {
+    "title": "Frequently Asked Questions",
     "part1": { "title": "General" },
     "part2": { "title": "Required documents & Visa" },
     "part3": { "title": "Medical Services & Clinics" },

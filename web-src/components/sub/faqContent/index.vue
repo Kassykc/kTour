@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="faq_contents flex flex-col justify-start items-center gap-[62px]">
-            <div v-for="(faq, index) in props.list" :key="index"
+            <div v-if="props.list && props.list.length > 0" v-for="(faq, index) in props.list" :key="index"
                 class="faq_content w-full flex flex-col justify-center items-start py-[40px] px-[30px] sm:px-[60px] rounded-[24px] shadow-[0_4px_14px_rgba(0,0,0,0.25)]">
                 <div
                     class="q w-full text-[#848484] pb-[28px] border-b border-[#949494] flex flex-col sm:flex-row justify-start items-center">
@@ -45,7 +45,7 @@ const parsedTitle = (item: any) => {
 
 const parsedContent = (item: any) => {
     const title = decodeHtmlEntities(item.content)
-    return JSON.parse(title);
+    return JSON.parse(title) ?? {};
 };
 </script>
 

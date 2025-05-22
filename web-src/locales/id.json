@@ -600,6 +600,7 @@
     "part3": { "title": "BERITA" }
   },
   "faq": {
+    "title": "Pertanyaan yang Sering Diajukan",
     "part1": { "title": "Umum" },
     "part2": { "title": "Dokumen & Visa" },
     "part3": { "title": "Layanan Medis & Klinik" },
