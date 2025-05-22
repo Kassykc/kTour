@@ -105,6 +105,7 @@ import { boardType } from "@/assets/js/static";
 import { COMMON_API_URLS } from "@/apis/admin/common/urls";
 import { AdminCommonBoardFileContainer } from '#components';
 
+const answerType = ref('text')
 
 const boardMngStore = useBoardMngStore('dtl');
 
