@@ -8,7 +8,7 @@ import common from "@/utils/common"; // 기존 모듈 사용
 // 비동기 함수로 메시지 가져오기
 async function loadMessages() {
   const messages = {
-    // ko: await import("@/locales/ko.json"),
+    ko: await import("@/locales/ko.json"),
     en: await import("@/locales/en.json"),
     id: await import("@/locales/id.json"),
   };
@@ -23,8 +23,8 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   const messages = await loadMessages(); // 메시지 로드
 
   i18n = createI18n({
-    locale: "id", // 기본 언어 설정
-    fallbackLocale: "id",
+    locale: "en", // 기본 언어 설정
+    fallbackLocale: "en",
     messages,
   });
 
@@ -36,7 +36,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     i18n.global.locale = initialLang;
   } else {
     console.warn('Invalid language setting, defaulting to "en".');
-    i18n.global.locale = "id"; // 유효하지 않은 언어인 경우 기본값으로 설정
+    i18n.global.locale = "en"; // 유효하지 않은 언어인 경우 기본값으로 설정
   }
 
   // `composer`를 통해 `t` 함수 사용 가능하도록 설정
