@@ -41,12 +41,11 @@ const setCodeKey = ref();
 
 // 카테고리 클릭 시 해당 인덱스를 selectedIndex에 할당
 const selectCategory = (index: number, categoryName: string, codeKey?: number | Object) => {
-    
+    console.log('fdfddf')
+
     selectedIndex.value = index;
 
     if (route.path == '/mtc') {
-
-
         const getCodeKey = codeKey ? codeKey : setCodeKey.value ? setCodeKey.value : null;
         setCodeKey.value = getCodeKey;
 
@@ -67,7 +66,9 @@ const selectCategory = (index: number, categoryName: string, codeKey?: number | 
             selectedChildren.value = []; // 없으면 초기화
         }
         return emit('update:selectedCategory', categoryName, selectedChildren.value, getCodeKey); // 카테고리 이름을 부모에게 전달
-    } else {
+    } else if (route.path == '/inquiry/news') {
+        return emit('update:selectedCategory', categoryName, selectedChildren.value, codeKey);
+    } else if (route.path == '/inquiry/faq') {
         return emit('update:selectedCategory', categoryName, selectedChildren.value, codeKey);
     }
 };
@@ -151,13 +152,34 @@ const setCategories = async () => {
         ];
     } else if (route.path === '/inquiry/faq') {
         categories.value = [
-            { category_name: t('faq.tab.1') },
-            { category_name: t('faq.tab.2') },
-            { category_name: t('faq.tab.3') },
-            { category_name: t('faq.tab.4') },
-            { category_name: t('faq.tab.5') },
-            { category_name: t('faq.tab.6') },
-            { category_name: t('faq.tab.7') },
+            {
+                category_name: t('faq.part1.title'),
+                category_key: boardType.general
+            },
+            {
+                category_name: t('faq.part2.title'),
+                category_key: boardType.visa
+            },
+            {
+                category_name: t('faq.part3.title'),
+                category_key: boardType.clinics
+            },
+            {
+                category_name: t('faq.part4.title'),
+                category_key: boardType.tour
+            },
+            {
+                category_name: t('faq.part5.title'),
+                category_key: boardType.pay
+            },
+            {
+                category_name: t('faq.part6.title'),
+                category_key: boardType.after
+            },
+            {
+                category_name: t('faq.part7.title'),
+                category_key: boardType.other
+            },
         ];
     } else {
         categories.value = []; // 기본값 설정 (필요에 따라 다른 설정 가능)

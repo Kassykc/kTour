@@ -32,9 +32,8 @@ const searchKeyword = ref('');
 
 const columns = ref([
     { label: 'No.', key: 'boardIdx', type: 'text' },
-    { label: '언어', key: 'mobileAgencyCd', type: 'text' },
-    { label: '제목', key: 'subject', type: 'text' },
-    { label: '내용', key: 'content', type: 'html' },
+    { label: '질문', key: 'subjectEn', type: 'text' },
+    { label: '답변', key: 'contentEn', type: 'html' },
     { label: '등록자', key: 'regUserNameKo', type: 'text' },
     { label: '등록일', key: 'regDttm', type: 'text' },
     { label: '노출여부', key: 'showYn', type: 'text' },
@@ -82,12 +81,23 @@ const getBoardList = async (pageNum: number, pageSize: number, word: string) => 
         pageNum: pageNum,
         pageSize: pageSize,
         searchKeyword: word ? word : searchKeyword.value,
-        boardType: boardType.notice,
+        boardType: boardType.faq,
     };
 
     const response = await noticeMngStore.getBoardList(data);
 
     if (response) {
+
+        response.resultInfo.forEach(item => {
+            item.subjectEn = JSON.parse(item.subject)?.subjectEn;
+            item.subjectId = JSON.parse(item.subject)?.subjectId;
+        })
+
+        response.resultInfo.forEach(item => {
+            item.contentEn = JSON.parse(item.content)?.contentEn;
+            item.contentId = JSON.parse(item.content)?.contentId;
+        })
+
         boardList.value = response.resultInfo;
         pageInfo.value = response.pageInfo;
     }
@@ -102,7 +112,7 @@ const goExcel = async () => {
     const params = {
         pageNum: 1,
         pageSize: 9999,
-        boardType: boardType.notice,
+        boardType: boardType.faq,
         searchKeyword: searchKeyword.value,
     }
 

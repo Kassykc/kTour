@@ -6,10 +6,14 @@
                 <div
                     class="input_area board_title flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-t border-[#dcdcdc]">
                     <label
-                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">게시판
-                        제목</label>
-                    <input type="text" v-model="resData.subject"
-                        class="w-[calc(100%-70px)] sm:w-[calc(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] border border-solid border-[#dcdcdc] rounded-[6px] !my-auto !mx-0" />
+                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        질문</label>
+                    <input type="text" v-model="subjectEn"
+                        class="w-[calc(100%-70px)] sm:w-[calc(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] border border-solid border-[#dcdcdc] rounded-[6px] !my-auto !mx-0"
+                        placeholder="en" />
+                    <input type="text" v-model="subjectId"
+                        class="w-[calc(100%-70px)] sm:w-[calc(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] border border-solid border-[#dcdcdc] rounded-[6px] !my-auto !mx-0"
+                        placeholder="id" />
                 </div>
                 <div
                     class="input_area radio_btn flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
@@ -29,25 +33,35 @@
                     class="input_area content flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
                     <label
                         class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
-                        언어
+                        FAQ 카테고리
                     </label>
-                    <select v-model="resData.mobileAgencyCd"
+                    <select v-model="resData.boardTypeCd"
                         class="w-[150px] h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white text-sm self-center">
-                        <option key="1" value="id">id</option>
-                        <option key="2" value="en">en</option>
+                        <option v-for="(item, index) in faqCategory" :key="index" :value="item.value">
+                            {{ item.title }}
+                        </option>
                     </select>
                 </div>
 
                 <div
                     class="input_area content flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
                     <label
-                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">내용</label>
+                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">답변(en)</label>
                     <ClientOnly>
-                        <AdminCommonBoardQuillEditor v-model="resData.content" />
+                        <AdminCommonBoardQuillEditor v-model="contentEn" />
                     </ClientOnly>
                 </div>
 
                 <div
+                    class="input_area content flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <label
+                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">답변(en)</label>
+                    <ClientOnly>
+                        <AdminCommonBoardQuillEditor v-model="contentId" />
+                    </ClientOnly>
+                </div>
+
+                <!-- <div
                     class="input_area board_title flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-t border-[#dcdcdc]">
                     <label
                         class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
@@ -62,7 +76,7 @@
                         썸네일</label>
                     <AdminCommonBoardFileContainer :files="thumbnails" @update:files="updateThumbnails"
                         :isAttFile="false" />
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -86,7 +100,6 @@ import type { ResultInfo, FileInfo } from '@/types/admin/board';
 import { boardType } from "@/assets/js/static";
 import { COMMON_API_URLS } from "@/apis/admin/common/urls";
 import { AdminCommonBoardFileContainer } from '#components';
-import Draggable from 'vue3-draggable-next';
 
 
 const boardMngStore = useBoardMngStore('dtl');
@@ -118,7 +131,7 @@ const resData = ref<ResultInfo>({
     modDttm: '',
     boardIdx: 0,
     boardType: '',
-    boardTypeCd: boardType.notice,
+    boardTypeCd: '110',
     categoryType: '',
     categoryTypeCd: '900',
     processStatus: '',
@@ -154,9 +167,26 @@ const resData = ref<ResultInfo>({
     commentInfo: {},
 });
 
+const originThumb = ref();
+
+const subjectEn = ref('');
+const subjectId = ref('');
+const contentEn = ref('');
+const contentId = ref('');
+
 const files = ref<File[]>([]);
 const thumbnails = ref<File[]>([]);
 const fileDownPath = COMMON_API_URLS.FILE_URL;
+
+const faqCategory = ref([
+    { title: "general", value: boardType.general },
+    { title: "Required documents & Visa", value: boardType.visa },
+    { title: "Medical Services & Clinics", value: boardType.clinics },
+    { title: "Tour & Stay", value: boardType.tour },
+    { title: "Payment & Cancellation", value: boardType.pay },
+    { title: "Aftercare", value: boardType.after },
+    { title: "Other Question", value: boardType.other },
+]);
 
 const emit = defineEmits();
 
@@ -191,12 +221,25 @@ const validation = (params: any) => {
 // 등록 처리
 const goReg = async () => {
     const params = toRaw(resData.value);
-    if (!validation(params)) return;
 
     params.boardType = params.boardTypeCd;
     params.processStatus = params.processStatusCd;
     params.categoryType = params.categoryTypeCd;
     params.mobileAgency = params.mobileAgencyCd;
+
+    const subject = {
+        subjectEn: subjectEn.value,
+        subjectId: subjectId.value,
+    }
+
+    params.subject = JSON.stringify(subject);
+
+    const content = {
+        contentEn: contentEn.value,
+        contentId: contentId.value,
+    }
+
+    params.content = JSON.stringify(content);
 
     if (files.value.length > 0) {
         params.file = files.value;
@@ -206,6 +249,7 @@ const goReg = async () => {
         params.thumbnail = thumbnails.value;
     }
 
+    if (!validation(params)) return;
     const data = common.cleanObject(params);
 
     try {
@@ -229,23 +273,38 @@ const goReg = async () => {
 // 수정 처리
 const goUpdate = async () => {
     const params = toRaw(resData.value);
-    if (!validation(params)) return;
 
     params.boardType = params.boardTypeCd;
     params.processStatus = params.processStatusCd;
     params.categoryType = params.categoryTypeCd;
-    params.importantType = params.importantTypeCd;
-    params.gender = params.genderCd;
     params.mobileAgency = params.mobileAgencyCd;
+    params.importantType = params.importantTypeCd;
+
+    const subject = {
+        subjectEn: subjectEn.value,
+        subjectId: subjectId.value,
+    }
+
+    params.subject = JSON.stringify(subject);
+
+    const content = {
+        contentEn: contentEn.value,
+        contentId: contentId.value,
+    }
+
+    params.content = JSON.stringify(content);
 
     if (files.value.length > 0) {
         params.file = files.value;
     }
 
     if (thumbnails.value.length > 0) {
-        params.thumbnail = thumbnails.value;
+        if (originThumb.value != thumbnails.value) {
+            params.thumbnail = thumbnails.value;
+        }
     }
 
+    if (!validation(params)) return;
     const data = common.cleanObject(params);
 
     try {
@@ -284,9 +343,26 @@ onMounted(async () => {
         }
         const response = await boardMngStore.dtlBoard(params);
         if (response) {
+
+            const decodeHtmlEntities = (str: string) => {
+                const txt = document.createElement('textarea');
+                txt.innerHTML = str;
+                return txt.value;
+            }
+
+            const subject = decodeHtmlEntities(response.resultInfo.subject);
+            subjectEn.value = JSON.parse(subject).subjectEn ?? '';
+            subjectId.value = JSON.parse(subject).subjectId ?? '';
+
+
+            const content = decodeHtmlEntities(response.resultInfo.content);
+            contentEn.value = JSON.parse(content).contentEn ?? '';
+            contentId.value = JSON.parse(content).contentId ?? '';
+
             resData.value = response.resultInfo;
             files.value = response.resultInfo.fileInfo.filter(file => file.originTypeCd == '000');
             thumbnails.value = response.resultInfo.fileInfo.filter(file => file.originTypeCd == '100');
+            originThumb.value = thumbnails.value;
         }
     }
 });

@@ -7,16 +7,25 @@ const maxRowNum = {
 
 const boardType = {
   notice: "050", // 공지사항
-  faq: "100", // FAQ
+  faq: "100", // FAQ 전체
+  // faq - category
+  general: "110",
+  visa: "120",
+  clinics: "130",
+  tour: "140",
+  pay: "150",
+  after: "160",
+  other: "170",
+  // faq - category
   dataroom: "200", // 자료실
   news: "300", // 뉴스
   contentAll: "350",
   video: "400", // 영상
-  extracurricular: "500", // 비교과 프로그램
-  "industry-academic": "600", // 산학 프로젝트
-  patent: "700", // 사업성과 - 특허
-  awards: "800", // 사업성과 - 수상
-  etc: "900", // 기타
+  extracurricular: "500",
+  aa: "600",
+  patent: "700",
+  awards: "800",
+  etc: "900",
 };
 
 export { maxRowNum, boardType };

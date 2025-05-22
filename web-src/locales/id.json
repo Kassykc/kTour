@@ -599,6 +599,15 @@
     "part2": { "title": "KONTEN VIDEO" },
     "part3": { "title": "BERITA" }
   },
+  "faq": {
+    "part1": { "title": "Umum" },
+    "part2": { "title": "Dokumen & Visa" },
+    "part3": { "title": "Layanan Medis & Klinik" },
+    "part4": { "title": "Wisata & Akomodasi" },
+    "part5": { "title": "Pembayaran & Pembatalan" },
+    "part6": { "title": "Layanan Setelah Pengobatan" },
+    "part7": { "title": "Lainnya" }
+  },
   "utils": {
     "btn": {
       "viewMore": "Lihat Selengkapnya",

@@ -599,6 +599,15 @@
     "part2": { "title": "VIDEO CONTENT" },
     "part3": { "title": "NEWS" }
   },
+  "faq": {
+    "part1": { "title": "General" },
+    "part2": { "title": "Required documents & Visa" },
+    "part3": { "title": "Medical Services & Clinics" },
+    "part4": { "title": "Tour & Stay" },
+    "part5": { "title": "Payment & Cancellation" },
+    "part6": { "title": "Aftercare" },
+    "part7": { "title": "Other Questions" }
+  },
   "utils": {
     "btn": {
       "viewMore": "View More",

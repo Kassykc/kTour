@@ -62,7 +62,11 @@ export function t(key: string, args?: Record<string, unknown>): string {
  * @returns {string} - 현재 언어
  */
 export function getCurrentLocale(): string {
-  return composer.locale.value;
+  return composer.locale.value
+    ? composer.locale.value
+    : common.getCookie("lang")
+    ? common.getCookie("lang")
+    : "id";
 }
 
 /**
@@ -71,7 +75,7 @@ export function getCurrentLocale(): string {
  */
 export function setLocale(locale: string): void {
   if (["en", "id", "ko"].includes(locale)) {
-    console.log(locale)
+    console.log(locale);
     common.setLang(locale);
     composer.locale = locale;
   } else {
