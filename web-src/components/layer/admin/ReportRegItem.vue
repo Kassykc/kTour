@@ -35,14 +35,24 @@
                 <!-- radio/checkbox -->
                 <div v-if="question.answerType === 'radio' || question.answerType === 'checkbox'" class="radio_chkbox_area flex justify-start items-start gap-[10px] flex-wrap w-[80%]">
                     <div
-                    class="w-full flex justify-start items-center gap-[10px]"
-                    v-for="(item, idx) in question.options"
-                    :key="idx"
+                        class="w-full flex justify-start items-center gap-[10px] flex-wrap"
+                        v-for="(item, idx) in question.options"
+                        :key="idx"
                     >
-                    <input v-model="item.en" type="text" class="h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white w-[38%]" placeholder="en" />
-                    <input v-model="item.id" type="text" class="h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white w-[38%]" placeholder="id" />
-                    <div class="h-[36px] leading-[26px] flex-1 px-2 py-1 border border-[#dcdcdc] rounded cursor-pointer shrink-0 w-[50px]" @click="addChild">질문 추가</div>
-                    <div class="h-[36px] leading-[26px] px-2 py-1 border border-[#dcdcdc] rounded cursor-pointer w-[42px]" @click="removeOption(idx)">-</div>
+                        <input v-model="item.en" type="text" class="h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white w-[38%]" placeholder="en" />
+                        <input v-model="item.id" type="text" class="h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white w-[38%]" placeholder="id" />
+                        <div class="h-[36px] leading-[26px] flex-1 px-2 py-1 border border-[#dcdcdc] rounded cursor-pointer shrink-0 w-[50px]" @click="addChild(idx)">질문 추가</div>
+                        <div class="h-[36px] leading-[26px] px-2 py-1 border border-[#dcdcdc] rounded cursor-pointer w-[42px]" @click="removeOption(idx)">-</div>
+
+                        <!-- 자식 질문 개별 출력 -->
+                        <div v-if="item.children" class="sub_area relative w-full pl-[50px] flex flex-col justify-start items-start">
+                            <LayerAdminReportRegItem
+                            v-for="(child, i) in item.children"
+                            :key="i"
+                            v-model="item.children[i]"
+                            @remove="() => item.children.splice(i, 1)"
+                            />
+                        </div>
                     </div>
                 </div>
         
@@ -51,14 +61,14 @@
                 </div>
         
                 <!-- 자식 질문 재귀 출력 -->
-                <div v-if="question.answerType === 'radio' || question.answerType === 'checkbox'" class="sub_area relative w-full pl-[50px] flex flex-col justify-start items-start">
+                <!-- <div v-if="question.answerType === 'radio' || question.answerType === 'checkbox'" class="sub_area relative w-full pl-[50px] flex flex-col justify-start items-start">
                     <LayerAdminReportRegItem
                         v-for="(child, i) in question.children"
                         :key="i"
                         v-model="question.children[i]"
                         @remove="() => question.children.splice(i, 1)"
                     />
-                </div>
+                </div> -->
 
                 <div class="sub_area_delete_btn h-[36px] leading-[26px] flex-1 px-2 py-1 border border-[#dcdcdc] rounded cursor-pointer text-white bg-black" @click="emit('remove')">삭제</div>
             </div>
@@ -73,7 +83,7 @@ const props = defineProps<{
     modelValue: {
         answerType: string
         text: string
-        options: { en: string; id: string }[]
+        options: { en: string; id: string; children?: any[] }[]
         children: any[]
     }
 }>()
@@ -82,7 +92,7 @@ const emit = defineEmits(['update:modelValue', 'remove'])
 const question = reactive(props.modelValue)
 
 const addOption = () => {
-    question.options.push({ en: '', id: '' })
+    question.options.push({ en: '', id: '', children: [] })
 }
 
 const removeOption = (index: number) => {
@@ -91,8 +101,9 @@ const removeOption = (index: number) => {
     }
 }
 
-const addChild = () => {
-    question.children.push({
+const addChild = (idx: number) => {
+    question.options[idx].children = question.options[idx].children || []
+    question.options[idx].children.push({
         answerType: 'text',
         text: '',
         options: [{ en: '', id: '' }],
