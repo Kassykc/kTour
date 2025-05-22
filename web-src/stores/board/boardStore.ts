@@ -1,24 +1,3 @@
-// import { defineStore } from "pinia";
-// import { regBoard } from "@/apis/boardMng/control";
-// import {
-//   handleResponse,
-//   apiResponse,
-//   errorMessage,
-// } from "@/stores/common/handleResponse";
-
-// const createBoardStore = (storeName: string) => {
-//   return defineStore(storeName, () => {
-//     const insertBoard = async (data: FormData) => {
-//       const response = await regBoard(data); // API 호출
-//       return handleResponse(response); // 응답 처리
-//     };
-
-//     return { insertBoard };
-//   });
-// };
-
-// export default createBoardStore;
-
 import {
   handleResponse,
   apiResponse,
