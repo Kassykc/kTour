@@ -33,51 +33,25 @@
                 <div
                     class="input_area content flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
                     <label
-                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">선택지</label>
+                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        선택지
+                    </label>
                     
-                    <div class="w-full flex flex-col justify-start items-start gap-[10px] p-[20px]">
-                        <select 
-                            v-model="answerType"
-                            class="w-[150px] h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white text-sm"
-                        >
-                            <option value="textarea" >
-                                textarea(주관식)
-                            </option>
-                            <option value="text" >
-                                text(단답식)
-                            </option>
-                            <option value="radio" >
-                                radio(단일선택)
-                            </option>
-                            <option value="checkbox" >
-                                checkbox(다중선택)
-                            </option>
-                        </select>
+                    <LayerAdminReportRegItem
+                        v-for="(child, i) in rootQuestion.children"
+                        :key="i"
+                        v-model="rootQuestion.children[i]"
+
+                    />
+
+                    <!-- <div
+                        v-for="(child, i) in rootQuestion.children"
+                        :key="i"
                         
-                        <div class="flex flex-col justify-start items-center w-full gap-[10px]">
-                            <div class="w-full flex justify-start items-center gap-[10px]">
-                                <div class="w-fit shrink-0">질문 :</div> 
-                                <input type="text" class="h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white w-[50%]" />
-                            </div> 
-                            <div class="w-full flex justify-start items-center gap-[10px]">
-                                <div class="w-fit shrink-0">답변 :</div> 
-                                
-                                <!-- 단답식(text) -->
-                                <input v-if="answerType === 'text'" type="text" class="text_area h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white w-[50%]" />
-                                
-                                <!-- 주관식(textarea) -->
-                                <textarea v-if="answerType === 'textarea'" class="textarea_area w-[50%] h-[150px] p-[10px] border border-[#C8C8C8] rounded-[5px] resize-none font-[400] text-[16px]"></textarea>
-                                
-                                <!-- 단일 or 다중선택(radio / checkbox) -->
-                                <div  v-if="answerType === 'radio' || answerType === 'checkbox'" class="radio_chkbox_area flex justify-start items-start gap-[10px] flex-wrap w-[50%]">
-                                    <div class="w-full flex justify-start items-center gap-[10px]">
-                                        <input type="text" class="h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white w-[50%]" placeholder="en" />
-                                        <input type="text" class="h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white w-[50%]" placeholder="id" />
-                                    </div>
-                                </div>
-                            </div> 
-                        </div>
-                    </div>
+                    >
+                        <LayerAdminReportRegItem  :data="rootQuestion.children[i]" />
+                    </div> -->
+
                 </div>
 
 
@@ -103,9 +77,21 @@ import { useBoardMngStore } from '@/stores/admin/boardStore';
 import type { ResultInfo, FileInfo } from '@/types/admin/board';
 import { boardType } from "@/assets/js/static";
 import { COMMON_API_URLS } from "@/apis/admin/common/urls";
-import { AdminCommonBoardFileContainer } from '#components';
+import { AdminCommonBoardFileContainer, LayerAdminReportRegItem } from '#components';
 
-const answerType = ref('text')
+const rootQuestion = ref({
+    answerType: 'text',
+    text: '',
+    options: [{ en: '', id: '' }],
+    children: [
+        {
+        answerType: 'text',
+        text: '',
+        options: [{ en: '', id: '' }],
+        children: []
+        }
+    ]
+})
 
 const boardMngStore = useBoardMngStore('dtl');
 
