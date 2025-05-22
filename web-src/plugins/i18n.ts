@@ -8,7 +8,7 @@ import common from "@/utils/common"; // 기존 모듈 사용
 // 비동기 함수로 메시지 가져오기
 async function loadMessages() {
   const messages = {
-    ko: await import("@/locales/ko.json"),
+    // ko: await import("@/locales/ko.json"),
     en: await import("@/locales/en.json"),
     id: await import("@/locales/id.json"),
   };
@@ -62,11 +62,7 @@ export function t(key: string, args?: Record<string, unknown>): string {
  * @returns {string} - 현재 언어
  */
 export function getCurrentLocale(): string {
-  return composer.locale.value
-    ? composer.locale.value
-    : common.getLang()
-    ? common.getLang()
-    : "id";
+  return composer.locale.value;
 }
 
 /**
@@ -74,8 +70,8 @@ export function getCurrentLocale(): string {
  * @param locale - 변경할 언어 코드
  */
 export function setLocale(locale: string): void {
-  if (["en", "id"].includes(locale)) {
-    console.log(locale);
+  if (["en", "id", "ko"].includes(locale)) {
+    console.log(locale)
     common.setLang(locale);
     composer.locale = locale;
   } else {
