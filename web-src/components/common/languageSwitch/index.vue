@@ -8,7 +8,7 @@
         />
         <div v-for="locale in availableLocales" :key="locale" class="">
             <img 
-                :src="currentLocale == locale
+                :src="currentLang === locale
                 ? `/img/languageSwitch/${locale}_chk.png`
                 : `/img/languageSwitch/${locale}.png`"
                 @click="changeLanguage(locale)"
