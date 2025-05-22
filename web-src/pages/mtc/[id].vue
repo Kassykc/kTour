@@ -14,9 +14,15 @@
                 <div
                     class="info_area flex flex-col justify-start items-start gap-0 sm:gap-[36px] w-full p-[20px] sm:py-[36px] sm:px-[44px] border border-black mb-[118px]">
                     <!-- 탭 이름 -->
-                    <div v-for="(item, index) in parsedMemo.category" :key="index"
-                        class="tab_name w-fit text-[14px] sm:text-[16px] text-[#1F78FF] font-[700] border-[2px] border-[#1F78FF] py-[6px] px-[14px] sm:py-[14px] sm:px-[20px] rounded-[100px]">
-                        {{ composer.locale == 'en' ? item.codeValue.categoryNameEn : item.codeValue.categoryNameId }}
+                    <div
+                        ref="tabWrap" 
+                        class="tab_wrap w-full flex justify-start items-center gap-[10px] mb-[10px] overflow-x-auto scrollbar-hide"
+                        style="-webkit-overflow-scrolling: touch;"
+                    >
+                        <div v-for="(item, index) in parsedMemo.category" :key="index"
+                            class="tab_name w-fit text-[14px] sm:text-[16px] text-[#1F78FF] font-[700] border-[2px] border-[#1F78FF] py-[6px] px-[14px] sm:py-[14px] sm:px-[20px] rounded-[100px] shrink-0">
+                            {{ composer.locale == 'en' ? item.codeValue.categoryNameEn : item.codeValue.categoryNameId }}
+                        </div>
                     </div>
 
                     <div class="info_wrap flex flex-col-reverse xl:flex-row justify-between items-end w-full">
@@ -154,6 +160,7 @@ import { t, composer } from '@/plugins/i18n'
 import { PROFILEMNG_API_URLS } from '@/apis/admin/peopleMng/urls'
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { ref, onMounted, onUnmounted } from 'vue'
 
 import mts_bg from "@/public/img/mtc/banner_bg.png";
 
@@ -271,7 +278,51 @@ onMounted(async () => {
 });
 
 
-</script>
-<style lang="">
+const tabWrap = ref<HTMLElement | null>(null)
 
+let isDown = false
+let startX = 0
+let scrollLeft = 0
+
+onMounted(() => {
+    const tab_item = tabWrap.value
+    if (!tab_item) return
+
+    tab_item.addEventListener('mousedown', (e) => {
+        isDown = true
+        tab_item.classList.add('grabbing')
+        startX = e.pageX - tab_item.offsetLeft
+        scrollLeft = tab_item.scrollLeft
+    })
+
+    tab_item.addEventListener('mouseleave', () => {
+        isDown = false
+        tab_item.classList.remove('grabbing')
+    })
+
+    tab_item.addEventListener('mouseup', () => {
+        isDown = false
+        tab_item.classList.remove('grabbing')
+    })
+
+    tab_item.addEventListener('mousemove', (e) => {
+        if (!isDown) return
+        e.preventDefault()
+        const x = e.pageX - tab_item.offsetLeft
+        const walk = (x - startX) * 1.5 // 드래그 감도
+        tab_item.scrollLeft = scrollLeft - walk
+    })
+    
+})
+
+</script>
+<style scoped >
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.tab_wrap.grabbing,
+.tags.grabbing {
+    cursor: grabbing !important;
+}
 </style>
