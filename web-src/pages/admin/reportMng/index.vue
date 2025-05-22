@@ -2,7 +2,7 @@
     <!-- news -->
     <AdminCommonBoardTableBoard :list="boardList" :paging="pageInfo" :columns="columns" :columnsWidth="columnsWidth"
         :pageSize="10" @update:currentIndex="handlePageChange" :isDtl="true" @update:selectedRows="handleDeleteItems"
-        :popupComp="NewsReg" :rowKey="'boardIdx'" :getBoardList="setBoardList" :useExcelDown="false"
+        :popupComp="ReportReg" :rowKey="'boardIdx'" :getBoardList="setBoardList" :useExcelDown="false"
         :fileBaseUrl="fileBaseUrl" @excelDown="goExcel" :keyword="searchKeyword" />
 </template>
 
@@ -11,7 +11,7 @@ import { useBoardMngStore } from '~/stores/admin/boardStore';
 import { boardType } from "@/assets/js/static";
 import type { ResultInfo } from '@/types/admin/board';
 import type { PageInfo } from '@/types/admin/page';
-import NewsReg from '@/components/layer/admin/NewsReg.vue';
+import ReportReg from '@/components/layer/admin/ReportReg.vue';
 
 definePageMeta({
     layout: 'admin',
