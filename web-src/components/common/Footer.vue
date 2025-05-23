@@ -42,7 +42,7 @@
 
               </div>    
 
-              <div class="sns_area flex flex-col justify-center items-center md:items-end gap-[20px]">
+              <div class="sns_area w-full max-w-[380px] md:max-w-[168px] flex flex-row md:flex-col justify-center items-start md:items-end gap-[20px]">
                 <div class="sns flex gap-[20px]">
                   <a href="https://www.instagram.com/medicitykorea" target="_blank">
                     <img src="@/assets/images/f_insta.png" alt="">
@@ -51,15 +51,39 @@
                     <img src="@/assets/images/f_youtube.png" alt="">
                   </a>
                 </div>
-                <!-- <a 
-                  href="/file/Introduction_ko_v2.pdf" 
-                  download="Introduction_ko_v2.pdf"
-                  class="profile text-[16px] md:text-[18px] cursor-pointer text-white px-[30px] py-[10px] bg-[#E61673]">
-                  회사소개서
-                </a> -->
+                <div class="introduction_area w-full text-white relative  mt-[4px] md:mt-0">
+                  <div 
+                    class="selected_intro text-[16px] md:text-[18px] w-full px-[10px] py-[6px] border border-white absolute cursor-pointer bg-white text-[#001181]"
+                    @click="isOpen = !isOpen"
+                  >
+                    {{ selectedTitle }}
+                    <span class="absolute right-[8px] top-1/2 -translate-y-1/2 text-[14px]">
+                      {{ isOpen ? '▲' : '▼' }}
+                    </span>
+                  </div>
+                  <div 
+                    v-show="isOpen"  
+                    class="intro_items absolute top-[48px] w-full border border-white bg-[#001181]"
+                  >
+                    <a 
+                      href="/file/Introduction_en_v2.pdf" 
+                      download="Introduction_en_v2.pdf" 
+                      class="intro_item text-[16px] md:text-[18px] w-full px-[10px] py-[6px] h-full block hover:bg-white hover:text-[#001181]"
+                      @click.prevent="selectItem('회사소개서 EN', '/file/Introduction_en_v2.pdf')"  
+                    >
+                      회사소개서 EN
+                    </a>
+                    <a 
+                      href="/file/Introduction_id_v2.pdf" 
+                      download="Introduction_id_v2.pdf" 
+                      class="intro_item text-[16px] md:text-[18px] w-full px-[10px] py-[6px] h-full block hover:bg-white hover:text-[#001181]"
+                      @click.prevent="selectItem('회사소개서 ID', '/file/Introduction_id_v2.pdf')"  
+                    >
+                      회사소개서 ID
+                    </a>
+                  </div>
+                </div>
               </div>
-
-              
             </div>
             <div class="copyright pt-[20px] text-left border-t border-[#ddd] text-[12px] md:text-[14px] text-white">
               Copyright Medicity. All rights reserved.<br/>
@@ -108,6 +132,19 @@ const companyInfo = [
 const filteredCompanyInfo = computed(() => {
   return companyInfo.filter(info => info.key === selectedOption.value);
 });
+
+const isOpen = ref(false)
+const selectedTitle = ref('회사소개서 EN') // 기본값
+
+const selectItem = (title: string, url: string) => {
+  selectedTitle.value = title
+  isOpen.value = false
+  // 파일 다운로드 트리거
+  const a = document.createElement('a')
+  a.href = url
+  a.download = url.split('/').pop()
+  a.click()
+}
 
 </script>
 
