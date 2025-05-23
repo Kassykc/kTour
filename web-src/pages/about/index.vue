@@ -29,7 +29,7 @@
                 </div>
 
                 <div id="location" class="bg-[#FAFAFA]">
-                    <div class="location w-full max-w-[1340px] py-[120px] px-[20px] my-0 mx-auto">
+                    <div class="location w-full max-w-[1340px] py-[100px] px-[20px] my-0 mx-auto">
                         <p class="description text-[24px] lg:text-[40px] font-[700] mb-[24px] sm:mb-[48px]">
                             {{ t('about.part1.content2.title') }}
                         </p>
@@ -76,7 +76,7 @@
             </div>
 
             <div id="service">
-                <div id="program" class="program w-full max-w-[1340px] py-[120px] px-[20px] my-0 mx-auto">
+                <div id="program" class="program w-full max-w-[1340px] py-[100px] px-[20px] my-0 mx-auto">
                     <h2 class="area_name text-[30px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
                         {{ t('about.part2.title') }}
                     </h2>
@@ -102,7 +102,7 @@
                     </div>
                 </div>
 
-                <div id="works" class="works w-full max-w-[1340px] py-[120px] px-[20px] my-0 mx-auto">
+                <div id="works" class="works w-full max-w-[1340px] py-[100px] px-[20px] my-0 mx-auto">
                     <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         {{ t('about.part2.content2.title') }}
                     </p>
@@ -224,14 +224,14 @@
                             {{ t('about.part2.content3.desc2') }}
                         </p>
                     </div>
-                    <div class="w-full max-w-[1380px] pt-0 sm:py-[120px] px-[20px] my-0 mx-auto">
+                    <div class="w-full max-w-[1380px] pt-0 sm:py-[100px] px-[20px] my-0 mx-auto">
                         <SubTreatment />
                         <SubMoreBtn :label="t('about.part2.content3.sub.btn')" width="w-[280px] sm:w-[480px] text-center" bgColor="bg-[#3145A9]" :showIcon="true"
                         url="/" />
                     </div>
                 </div>
 
-                <div id="tour_overview" class="tour_overview w-full max-w-[1340px] py-[120px] px-[20px] my-0 mx-auto">
+                <div id="tour_overview" class="tour_overview w-full max-w-[1340px] py-[100px] px-[20px] my-0 mx-auto">
                     <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         {{ t('about.part2.content4.title') }}
                     </p>
@@ -261,7 +261,7 @@
 
             <div id="korea"
                 class="bg-[url('@/assets/images/sub/about/korea_bg.png')] bg-no-repeat [background-size:450%] sm:[background-size:200%] xl:bg-contain bg-bottom">
-                <div class="w-full max-w-[1340px] py-[120px] px-[20px] my-0 mx-auto">
+                <div class="w-full max-w-[1340px] py-[100px] px-[20px] my-0 mx-auto">
                     <h2 class="area_name text-[30px] lg:text-[65px] font-[700] mb-[30px] lg:mb-[120px]">
                         {{ t('about.part3.title') }}
                     </h2>
@@ -424,7 +424,7 @@
             </div>
 
             <div id="meditour" class="mt-[160px] mb-[60px]">
-                <div class="w-full max-w-[1340px] py-[120px] px-[20px] my-0 mx-auto">
+                <div class="w-full max-w-[1340px] py-[100px] px-[20px] my-0 mx-auto">
                     <h2 class="area_name text-[30px] lg:text-[65px] font-[700] mb-[100px] lg:mb-[200px]">
                         {{ t('about.part4.title1') }}<br />
                         {{ t('about.part4.title2') }}

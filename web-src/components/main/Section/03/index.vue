@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col pb-0 sm:py-[120px] items-center ">
+    <div class="flex flex-col pb-0 sm:py-[100px] items-center ">
         <div class="flex flex-col items-start w-[100vw] max-w-[1340px] pb-0 md:pb-12 pl-6">
             <!-- <div class="text-[500] text-[1.65rem] pb-[1rem]">
                 메디씨티는 이런 서비스를 제공합니다.

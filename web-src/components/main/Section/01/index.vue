@@ -15,7 +15,7 @@
     </div> -->
     <div>
         <div class="about_service w-full max-w-[1340px] my-0 mx-auto py-[136px]">
-            <div class="service_area mb-[120px] md:mb-[240px]">
+            <div class="service_area mb-[120px] md:mb-[130px]">
                 <h1 class="title font-[700] text-[40px] md:text-[60px] text-center mb-[40px] md:mb-[64px]">
                     {{ t('main.section1.part1.title') }}
                 </h1>

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col py-[120px] items-center ">
+    <div class="flex flex-col py-[100px] items-center ">
         <div class="flex flex-col items-start w-[100vw] max-w-[1340px] pb-12 px-6">
             <div class="pb-[2rem]">
                 <MainSectionLinkTitle :title="t('main.section4-1.part1.title')" :color="'#477FF6'" :link="true" />
@@ -13,7 +13,7 @@
                         class="absolute top-0 left-0 w-full max-w-full lg:max-w-[926px] h-[80%] lg:h-[524px] bg-[#266BFF] rounded-[38px] pointer-events-none">
                     </div>
                     <Swiper :modules="[Autoplay, Pagination, Navigation]"
-                        :autoplay="{ delay: 300000, disableOnInteraction: false }" :loop="true" :pagination="false"
+                        :autoplay="{ delay: 3000, disableOnInteraction: false }" :loop="true" :pagination="false"
                         :slidesPerView="1" :spaceBetween="30" :navigation="{
                             nextEl: '.swiper-button-next-custom',
                             prevEl: '.swiper-button-prev-custom'

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col justify-center items-center bg-[#FAFAFA] py-[120px]">
+    <div class="flex flex-col justify-center items-center bg-[#FAFAFA] py-[100px]">
         <div class="flex flex-col justify-center items-center max-w-[1340px] w-full">
             <div class="font-[700] text-[#000] text-[40px] md:text-[70px] pb-[1rem]">
                 {{ t('main.section2.part1.title') }}

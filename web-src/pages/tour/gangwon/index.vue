@@ -37,7 +37,7 @@
                     </div>
                 </div>
 
-                <div class="itinerary w-full max-w-[1340px] py-[120px] my-0 mx-auto">
+                <div class="itinerary w-full max-w-[1340px] py-[100px] my-0 mx-auto">
                     <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
                         {{ t('gangwonTour.part2.title') }}
                     </p>
