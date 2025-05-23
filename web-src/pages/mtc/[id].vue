@@ -25,7 +25,7 @@
                         </div>
                     </div>
 
-                    <div class="info_wrap flex flex-col-reverse xl:flex-row justify-between items-end w-full">
+                    <div class="info_wrap flex flex-col-reverse xl:flex-row justify-between items-end w-full gap-[10px]">
                         <div class="info flex flex-col justify-start items-start gap-[24px] sm:gap-[56px] w-full xl:w-[608px]">
                             <!-- 타이틀 -->
                             <div class="title text-[24px] sm:text-[45px] font-[800] text-[#313131] uppercase">
