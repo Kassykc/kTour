@@ -12,9 +12,9 @@
               <div class="company max-w-full sm:max-w-[380px] md:max-w-[450px]">
                 <div class="combobox mb-[20px]">
                   <select v-model="selectedOption" class="dropdown text-[16px] md:text-[18px] w-full px-[10px] cursor-pointer">
-                    <option value="headquarters">본사</option>
-                    <option value="indonesia">인도네시아</option>
-                    <option value="gangwon">강원지사</option>
+                    <option value="headquarters">Head Office</option>
+                    <option value="indonesia">Indonesia</option>
+                    <option value="gangwon">Gangwon Office</option>
                   </select>
                 </div>
 
@@ -22,19 +22,19 @@
                 <div class="info flex flex-col gap-[10px] text-white">
                   <div v-for="info in filteredCompanyInfo" :key="info.key">
                     <div class="business flex justify-start items-center text-[16px] md:text-[18px]">
-                      <div class="tit w-[110px] md:w-[130px] flex-0">사업자</div>
+                      <div class="tit w-[110px] md:w-[130px] flex-0">Registrated business</div>
                       <div class="cont flex-1">{{ info.business }}</div>
                     </div>
                     <div class="representative flex justify-start items-center text-[16px] md:text-[18px]">
-                      <div class="tit w-[110px] md:w-[130px] flex-0">대표자</div>
+                      <div class="tit w-[110px] md:w-[130px] flex-0">Owner's name</div>
                       <div class="cont flex-1">{{ info.representative }}</div>
                     </div>
                     <div class="registration flex justify-start items-center text-[16px] md:text-[18px]">
-                      <div class="tit w-[110px] md:w-[130px] flex-0">사업자등록번호</div>
+                      <div class="tit w-[110px] md:w-[130px] flex-0">Business Registration Number</div>
                       <div class="cont flex-1">{{ info.registration }}</div>
                     </div>
                     <div class="address flex justify-start items-center text-[16px] md:text-[18px]">
-                      <div class="tit w-[110px] md:w-[130px] flex-0">주소</div>
+                      <div class="tit w-[110px] md:w-[130px] flex-0">Address</div>
                       <div class="cont flex-1">{{ info.address }}</div>
                     </div>
                   </div>
@@ -69,17 +69,17 @@
                       href="/file/Introduction_en_v2.pdf" 
                       download="Introduction_en_v2.pdf" 
                       class="intro_item text-[16px] md:text-[18px] w-full px-[10px] py-[6px] h-full block hover:bg-white hover:text-[#001181]"
-                      @click.prevent="selectItem('회사소개서 EN', '/file/Introduction_en_v2.pdf')"  
+                      @click.prevent="selectItem('Company Introduction EN', '/file/Introduction_en_v2.pdf')"  
                     >
-                      회사소개서 EN
+                      Company Introduction EN
                     </a>
                     <a 
                       href="/file/Introduction_id_v2.pdf" 
                       download="Introduction_id_v2.pdf" 
                       class="intro_item text-[16px] md:text-[18px] w-full px-[10px] py-[6px] h-full block hover:bg-white hover:text-[#001181]"
-                      @click.prevent="selectItem('회사소개서 ID', '/file/Introduction_id_v2.pdf')"  
+                      @click.prevent="selectItem('Company Introduction ID', '/file/Introduction_id_v2.pdf')"  
                     >
-                      회사소개서 ID
+                      Company Introduction ID
                     </a>
                   </div>
                 </div>
@@ -87,7 +87,7 @@
             </div>
             <div class="copyright pt-[20px] text-left border-t border-[#ddd] text-[12px] md:text-[14px] text-white">
               Copyright Medicity. All rights reserved.<br/>
-              자사의 사이트에 게시된 모든 컨텐츠등 외 저작권은 ㈜메디씨티에게 있습니다. 자사의 사이트의 무단적인 수집을 엄격히 금합니다.
+              The copyrights of all content posted on our site belong to Medi-City Co., Ltd. Unauthorized collection of our site is strictly prohibited.
             </div>
           </div>
       </div>
@@ -107,24 +107,24 @@ const selectedOption = ref('headquarters')
 const companyInfo = [
   {
     key: 'headquarters',
-    business: '㈜메디씨티',
-    representative: '박종인',
+    business: 'Medi-City Co., Ltd.',
+    representative: 'Park Sung-Min',
     registration: '588-86-02555',
-    address: '경기도 고양시 일산동구 무궁화로 43-55, 302호'
+    address: '43-55, Mugunghwa-ro, Ilsandong-gu, Goyang-si, Gyeonggi-do'
   },
   {
     key: 'indonesia',
     business: 'PT. Medi City Indonesia',
-    representative: '박성민',
+    representative: 'Park Sung-Min',
     registration: '2305230037834',
     address: 'Prosperity Tower, Lt. 56, KOSME(GBC) Room 4.1. Jl. Jend. Sudirman No.Kav. 52-53, Jakarta Selatan 12190'
   },
   {
     key: 'gangwon',
-    business: '㈜메디씨티강원',
+    business: 'Medi-City Gangwon Co., Ltd.',
     representative: '박종인',
     registration: '363-86-03256',
-    address: '강원도 강릉시 경강로 2165, 3층 3호'
+    address: '3rd Floor, Unit 3, 2165 Gyeonggang-ro, Gangneung-si, Gangwon-do'
   }
 ]
 
@@ -134,7 +134,7 @@ const filteredCompanyInfo = computed(() => {
 });
 
 const isOpen = ref(false)
-const selectedTitle = ref('회사소개서 EN') // 기본값
+const selectedTitle = ref('Company Introduction EN') // 기본값
 
 const selectItem = (title: string, url: string) => {
   selectedTitle.value = title

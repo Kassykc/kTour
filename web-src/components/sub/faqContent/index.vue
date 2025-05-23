@@ -8,7 +8,7 @@
                     <div class="tit font-[700] text-[20px] sm:text-[28px] flex-0 w-full sm:w-[60px]">
                         Q.
                     </div>
-                    <div class="cont font-[600] text-[16px] sm:text-[22px] flex-1">
+                    <div class="cont font-[600] text-[16px] sm:text-[22px] flex-1 w-full">
                         {{ composer.locale == 'en' ? parsedTitle(faq).subjectEn : parsedTitle(faq).subjectId }}
                     </div>
                 </div>
@@ -16,7 +16,7 @@
                     <div class="tit font-[700] text-[20px] sm:text-[28px] flex-0 w-full sm:w-[60px]">
                         A.
                     </div>
-                    <div class="cont font-[600] text-[16px] sm:text-[22px] flex-1"
+                    <div class="cont font-[600] text-[16px] sm:text-[22px] flex-1 w-full"
                         v-html="composer.locale == 'en' ? parsedContent(faq).contentEn : parsedContent(faq).contentId">
                     </div>
                 </div>
