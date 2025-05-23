@@ -29,8 +29,8 @@
         </section>
 
         <section>
-            <MainSection06 />
-            <!-- <MainCommitteeSection /> -->
+            <!-- <MainSection06 /> -->
+            <MainSectionSpon />
         </section>
     </div>
 </template>
