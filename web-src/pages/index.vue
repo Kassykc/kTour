@@ -30,6 +30,7 @@
 
         <section>
             <MainSection06 />
+            <!-- <MainCommitteeSection /> -->
         </section>
     </div>
 </template>
