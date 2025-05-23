@@ -122,7 +122,7 @@ const companyInfo = [
   {
     key: 'gangwon',
     business: 'Medi-City Gangwon Co., Ltd.',
-    representative: '박종인',
+    representative: 'Park Jong-In',
     registration: '363-86-03256',
     address: '3rd Floor, Unit 3, 2165 Gyeonggang-ro, Gangneung-si, Gangwon-do'
   }
