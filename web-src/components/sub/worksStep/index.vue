@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="step_area flex flex-col sm:flex-row justify-center items-center flex-wrap mb-[60px] gap-[10px] sm:gap-0">
+        <div class="step_area flex flex-col sm:flex-row justify-center items-center flex-wrap gap-[10px] sm:gap-0">
             <template v-for="(step, index) in steps" :key="index">
                 <!-- STEP 카드 -->
                 <div

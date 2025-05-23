@@ -289,7 +289,7 @@
                                 <img src="@/assets/images/sub/about/ranking_table.png" alt=""
                                     class="w-full h-full object-cover">
                             </div>
-                            <p class="text-right text-[14px] mb-0 lg:mb-[250px]">
+                            <p class="text-right text-[14px] mb-0">
                                 <i>{{ t('about.part3.content1.source') }}</i>
                             </p>
                         </div>
@@ -317,7 +317,7 @@
                                     class="w-full h-full object-cover">
                             </div>
                         </div>
-                        <p class="text-right text-[14px] mb-[250px]">
+                        <p class="text-right text-[14px] mb-[120px]">
                             <i>{{ t('about.part3.content2.source') }}</i>
                         </p>
                     </div>

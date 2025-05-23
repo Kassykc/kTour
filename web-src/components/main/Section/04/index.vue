@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col pt-[10rem] items-center w-full h-full bg-[#FAFAFA]">
+    <div class="flex flex-col py-[100px] items-center w-full h-full bg-[#FAFAFA]">
         <div class="flex flex-col items-start w-[100vw] max-w-[1340px] pb-12 px-6">
             <div class="pb-[2rem]">
                 <MainSectionLinkTitle :title="t('main.section4.part1.title')" :color="'#F57E1F'" :link="true" />
@@ -10,7 +10,7 @@
             </div>
         </div>
 
-        <div class="max-w-[1340px] w-full pt-[4rem] pb-[10rem] border-t border-black">
+        <div class="max-w-[1340px] w-full pt-[4rem] border-t border-black">
             <MainSection04List :list="list" />
         </div>
 

@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col pt-[10rem] items-center h-full bg-[#fff] pb-[5rem] px-[20px]">
+    <div class="flex flex-col items-center h-full bg-[#fff] py-[100px] px-[20px]">
         <div class="flex flex-col items-start w-full max-w-[1340px] pb-2 lg:pb-10 border-b border-black">
             <div class="flex flex-col justify-center items-start pb-[2rem]">
                 <div class="text-[16px] sm:text-[20px] lg:text-[30px] text-[#F05056] font-[700]">{{ t('main.section5.part1.subtitle') }}</div>

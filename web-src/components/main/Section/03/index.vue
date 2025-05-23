@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        <div class="max-w-[1340px] pt-[50px] sm:pt-[6rem] pb-12 px-[12px] xl:pl-[0] ">
+        <div class="max-w-[1340px] pt-[50px] sm:pt-[6rem] px-[12px] xl:pl-[0] ">
             <MainSection03List :list="list" />
         </div>
 
@@ -35,13 +35,28 @@ import img10 from '@/assets/images/main/section03/img10.png';
 
 const list = computed(() => [
     {
-        img: img1,
-        title: t('menu.2.2depth.1.3depth.1.name'),
+        img: img9,
+        title: t('menu.2.2depth.1.3depth.9.name'),
         url: '/'
     },
     {
         img: img2,
         title: t('menu.2.2depth.1.3depth.2.name'),
+        url: '/'
+    },
+    {
+        img: img5,
+        title: t('menu.2.2depth.1.3depth.5.name'),
+        url: '/'
+    },
+    {
+        img: img1,
+        title: t('menu.2.2depth.1.3depth.1.name'),
+        url: '/'
+    },
+    {
+        img: img6,
+        title: t('menu.2.2depth.1.3depth.6.name'),
         url: '/'
     },
     {
@@ -55,16 +70,6 @@ const list = computed(() => [
         url: '/'
     },
     {
-        img: img5,
-        title: t('menu.2.2depth.1.3depth.5.name'),
-        url: '/'
-    },
-    {
-        img: img6,
-        title: t('menu.2.2depth.1.3depth.6.name'),
-        url: '/'
-    },
-    {
         img: img7,
         title: t('menu.2.2depth.1.3depth.7.name'),
         url: '/'
@@ -72,11 +77,6 @@ const list = computed(() => [
     {
         img: img8,
         title: t('menu.2.2depth.1.3depth.8.name'),
-        url: '/'
-    },
-    {
-        img: img9,
-        title: t('menu.2.2depth.1.3depth.9.name'),
         url: '/'
     },
     {
