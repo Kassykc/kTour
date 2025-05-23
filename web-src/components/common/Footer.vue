@@ -1,91 +1,113 @@
 <template>
   <div>
-    <!-- Footer -->
-    <div id="footer" class="bg-[#001181] w-full h-full">
-      <div id="footer_content"
-        class="w-full max-w-[1340px] h-fit ml-[0] mr-[auto] sm:mx-auto min-w-[320px] max-h-auto px-[28px] sm:px-[18px] pt-[75px] pb-[28px] h-auto lg:h-[337px]">
-        <address
-          class="flex justify-center items-start sm:justify-around flex-col lg:flex-row lg:justify-between items-start sm:items-center h-fit  gap-[10px]">
+      <!-- Footer -->
+      <div id="footer" class="bg-[#001181]">
+          <div id="footer_content" class="w-full max-w-[1200px] h-auto ml-[0] mr-[auto] sm:mx-auto min-w-[320px] min-h-[354px] py-[30px] px-[28px] sm:px-[18px]">
+            <div class="logo_area pb-[30px] border-b border-[#ddd]">
+              <img :src="logo" alt="" class="w-[180px]  mx-auto md:mx-0">
+            </div>
 
-          <div class="brand_info flex flex-col gap-[24px] items-start pr-0 lg:pr-[4rem]">
-            <img src="/img/common/logo/footer_logo.png" class="w-[198px] h-auto min-w-[198px] md:w-[220px] pb-0 md:pb-[4rem]">
-            <div class="rights text-[13px] font-[400] text-white pb-[56px] lg:pb-[2rem]">
-              Copyright Medicity. All rights reserved.
+            <div class="info_area py-[20px] md:py-[30px] px-0 flex flex-col md:flex-row justify-between items-center gap-[20px] md:gap-0">
+
+              <div class="company max-w-full sm:max-w-[380px] md:max-w-[450px]">
+                <div class="combobox mb-[20px]">
+                  <select v-model="selectedOption" class="dropdown text-[16px] md:text-[18px] w-full px-[10px] cursor-pointer">
+                    <option value="headquarters">본사</option>
+                    <option value="indonesia">인도네시아</option>
+                    <option value="gangwon">강원지사</option>
+                  </select>
+                </div>
+
+                <!-- 선택된 정보 표시 -->
+                <div class="info flex flex-col gap-[10px] text-white">
+                  <div v-for="info in filteredCompanyInfo" :key="info.key">
+                    <div class="business flex justify-start items-center text-[16px] md:text-[18px]">
+                      <div class="tit w-[110px] md:w-[130px] flex-0">사업자</div>
+                      <div class="cont flex-1">{{ info.business }}</div>
+                    </div>
+                    <div class="representative flex justify-start items-center text-[16px] md:text-[18px]">
+                      <div class="tit w-[110px] md:w-[130px] flex-0">대표자</div>
+                      <div class="cont flex-1">{{ info.representative }}</div>
+                    </div>
+                    <div class="registration flex justify-start items-center text-[16px] md:text-[18px]">
+                      <div class="tit w-[110px] md:w-[130px] flex-0">사업자등록번호</div>
+                      <div class="cont flex-1">{{ info.registration }}</div>
+                    </div>
+                    <div class="address flex justify-start items-center text-[16px] md:text-[18px]">
+                      <div class="tit w-[110px] md:w-[130px] flex-0">주소</div>
+                      <div class="cont flex-1">{{ info.address }}</div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>    
+
+              <div class="sns_area flex flex-col justify-center items-center md:items-end gap-[20px]">
+                <div class="sns flex gap-[20px]">
+                  <a href="https://www.instagram.com/medicitykorea" target="_blank">
+                    <img src="@/assets/images/f_insta.png" alt="">
+                  </a>
+                  <a href="https://www.youtube.com/@medi-city" target="_blank">
+                    <img src="@/assets/images/f_youtube.png" alt="">
+                  </a>
+                </div>
+                <!-- <a 
+                  href="/file/Introduction_ko_v2.pdf" 
+                  download="Introduction_ko_v2.pdf"
+                  class="profile text-[16px] md:text-[18px] cursor-pointer text-white px-[30px] py-[10px] bg-[#E61673]">
+                  회사소개서
+                </a> -->
+              </div>
+
+              
+            </div>
+            <div class="copyright pt-[20px] text-left border-t border-[#ddd] text-[12px] md:text-[14px] text-white">
+              Copyright Medicity. All rights reserved.<br/>
+              자사의 사이트에 게시된 모든 컨텐츠등 외 저작권은 ㈜메디씨티에게 있습니다. 자사의 사이트의 무단적인 수집을 엄격히 금합니다.
             </div>
           </div>
-
-
-          <!-- korea -->
-          <div>
-            <div class="business_info max-w-[400px]">
-              <div class="text-[16px] text-white font-[700] pb-[1rem]">
-                {{ t('footer.koreaBranch.name') }}
-              </div>
-              <div class="text-[13px] text-[#6B77C7] font-[400] leading-[20px]">
-                <div>
-                  {{ t('footer.koreaBranch.registrated') }}
-                </div>
-                <div>
-                  {{ t('footer.koreaBranch.owner') }}
-                </div>
-                <div>
-                  {{ t('footer.koreaBranch.registNumber') }}
-                </div>
-                <div>
-                  {{ t('footer.koreaBranch.address') }}
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- inni -->
-          <div>
-            <div class="business_info max-w-[400px]">
-              <div class="text-[16px] text-white font-[700] pb-[1rem]">
-                {{ t('footer.inniBranch.name') }}
-              </div>
-              <div class="text-[13px] text-[#6B77C7] font-[400] leading-[20px] pb-[54px] lg:pb-0">
-                <div>
-                  {{ t('footer.inniBranch.registrated') }}
-                </div>
-                <div>
-                  {{ t('footer.inniBranch.owner') }}
-                </div>
-                <div>
-                  {{ t('footer.inniBranch.registNumber') }}
-                </div>
-                <div>
-                  {{ t('footer.inniBranch.address') }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="company_info flex flex-col gap-[20px] lg:gap-[30px] pb-[60px] lg:pb-0">
-            <div class="sns flex gap-[32px] justify-end items-center">
-              <div class="facebook"><a href="/" target="_blank"><img src="@/assets/images/facebook.png"></a></div>
-              <div class="twitter"><a href="/" target="_blank"><img src="@/assets/images/twitter.png"></a></div>
-              <div class="instagram"><a href="/" target="_blank"><img src="@/assets/images/instagram.png"></a></div>
-            </div>
-            <!-- <div class="contact flex  gap-[0px] lg:gap-[20px] items-start sm:items-center justify-end text-white">
-              <div class="email text-[12px] sm:text-[14px] font-[400]"><span
-                  class="font-[700] pr-[10px] mr-[10px] border-r-2 border-white">E-mail</span>ogago6747@naver.com</div>
-              <div class="tell text-[12px] sm:text-[14px] font-[400]"><span
-                  class="font-[700] pr-[10px] mr-[10px] border-r-2 border-white">Tel</span>+82-2-2647-6747</div>
-              <div class="fax text-[12px] sm:text-[14px] font-[400]"><span
-                  class="font-[700] pr-[10px] mr-[10px] border-r-2 border-white">Fax</span>+82-50-4019-6747</div>
-              <div class="policy text-[12px] sm:text-[14px] font-[700]">개인정보처리방침</div>
-            </div> -->
-          </div>
-        </address>
       </div>
-    </div>
 
   </div>
 </template>
 
 <script setup lang="ts">
-import { t } from '@/plugins/i18n'
-// import logo2 from "@/assets/icons/logo2.png";
+import { ref, computed } from 'vue';
+// import logo from "@/assets/images/main_logo.png";
+import logo from "/img/common/logo/logo_white.png";
+
+// 선택된 옵션을 추적하는 변수
+const selectedOption = ref('headquarters')
+
+// 회사 정보 배열
+const companyInfo = [
+  {
+    key: 'headquarters',
+    business: '㈜메디씨티',
+    representative: '박종인',
+    registration: '588-86-02555',
+    address: '경기도 고양시 일산동구 무궁화로 43-55, 302호'
+  },
+  {
+    key: 'indonesia',
+    business: 'PT. Medi City Indonesia',
+    representative: '박성민',
+    registration: '2305230037834',
+    address: 'Prosperity Tower, Lt. 56, KOSME(GBC) Room 4.1. Jl. Jend. Sudirman No.Kav. 52-53, Jakarta Selatan 12190'
+  },
+  {
+    key: 'gangwon',
+    business: '㈜메디씨티강원',
+    representative: '박종인',
+    registration: '363-86-03256',
+    address: '강원도 강릉시 경강로 2165, 3층 3호'
+  }
+]
+
+// 필터된 정보만 표시하도록 computed 사용
+const filteredCompanyInfo = computed(() => {
+  return companyInfo.filter(info => info.key === selectedOption.value);
+});
 
 </script>
 

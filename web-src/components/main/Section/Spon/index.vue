@@ -11,7 +11,14 @@
                 <!-- sponsors -->
                 <div class="py-16">
                     <Swiper :modules="[Autoplay, Navigation]" :autoplay="{ delay: 0, disableOnInteraction: false }" :speed="3000"
-                    :loop="true" :freeMode="true" :slidesPerView="6" :spaceBetween="30" slidesPerGroupAuto: true
+                    :loop="true" :freeMode="true"  :spaceBetween="30" slidesPerGroupAuto: true
+                    :breakpoints="{
+                        320: { slidesPerView: 2 },
+                        640: { slidesPerView: 3 },
+                        1024: { slidesPerView: 4 },
+                        1280: { slidesPerView: 5 },
+                        1536: { slidesPerView: 6 }
+                    }"
                     class="w-full max-w-[1920px] flex justify-center items-center">
                         <SwiperSlide v-for="(item, idx) in spon" :key="idx">
                             <div class="text-center flex justify-center items-center h-[60px] shrink-0">
