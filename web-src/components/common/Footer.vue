@@ -42,7 +42,7 @@
 
               </div>    
 
-              <div class="sns_area w-full max-w-[380px] md:max-w-[168px] flex flex-row md:flex-col justify-center items-start md:items-end gap-[20px]">
+              <div class="sns_area w-full max-w-[380px] md:max-w-[268px] flex flex-row md:flex-col justify-center items-start md:items-end gap-[20px]">
                 <div class="sns flex gap-[20px]">
                   <a href="https://www.instagram.com/medicitykorea" target="_blank">
                     <img src="@/assets/images/f_insta.png" alt="">
@@ -69,17 +69,17 @@
                       href="/file/Introduction_en_v2.pdf" 
                       download="Introduction_en_v2.pdf" 
                       class="intro_item text-[16px] md:text-[18px] w-full px-[10px] py-[6px] h-full block hover:bg-white hover:text-[#001181]"
-                      @click.prevent="selectItem('Company Introduction EN', '/file/Introduction_en_v2.pdf')"  
+                      @click.prevent="selectItem('Company Introduction ENG', '/file/Introduction_en_v2.pdf')"  
                     >
-                      Company Introduction EN
+                      Company Introduction ENG
                     </a>
                     <a 
                       href="/file/Introduction_id_v2.pdf" 
                       download="Introduction_id_v2.pdf" 
                       class="intro_item text-[16px] md:text-[18px] w-full px-[10px] py-[6px] h-full block hover:bg-white hover:text-[#001181]"
-                      @click.prevent="selectItem('Company Introduction ID', '/file/Introduction_id_v2.pdf')"  
+                      @click.prevent="selectItem('Company Introduction IDN', '/file/Introduction_id_v2.pdf')"  
                     >
-                      Company Introduction ID
+                      Company Introduction IDN
                     </a>
                   </div>
                 </div>
@@ -134,7 +134,7 @@ const filteredCompanyInfo = computed(() => {
 });
 
 const isOpen = ref(false)
-const selectedTitle = ref('Company Introduction EN') // 기본값
+const selectedTitle = ref('Company Introduction ENG') // 기본값
 
 const selectItem = (title: string, url: string) => {
   selectedTitle.value = title
