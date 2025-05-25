@@ -4,20 +4,21 @@
             class="reg_modal_wrap flex justify-start items-start w-full h-[60vh] max-h-[600px] bg-white text-[12px] sm:text-[14px] overflow-y-auto overflow-x-hidden">
             <div class="overflow_wrap w-full">
 
-                <!-- <div
+                <div
                     class="input_area radio_btn flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
                     <label
-                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">노출
-                        여부</label>
-                    <label
-                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] gap-[10px]">
-                        <input type="radio" v-model="resData.showYn" value="Y" />예
+                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        응답필수여부
                     </label>
                     <label
                         class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] gap-[10px]">
-                        <input type="radio" v-model="resData.showYn" value="N" />아니오
+                        <input type="radio" v-model="report.isRequired" :value="true" />예
                     </label>
-                </div> -->
+                    <label
+                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] gap-[10px]">
+                        <input type="radio" v-model="report.isRequired" :value="false" />아니오
+                    </label>
+                </div>
 
                 <div
                     class="input_area content flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
@@ -28,10 +29,23 @@
 
                     <select class="w-[150px] h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white text-sm"
                         v-model="report.answerType">
-                        <option value="text">단답식</option>
-                        <option value="textarea">주관식</option>
-                        <option value="radio">단일선택형</option>
-                        <option value="checkbox">다중선택형</option>
+                        <option value="1">단답식</option>
+                        <option value="2">주관식</option>
+                        <option value="3">단일선택형</option>
+                        <option value="4">다중선택형</option>
+                    </select>
+                </div>
+
+                <div
+                    class="input_area content flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    <label
+                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        질문 카테고리
+                    </label>
+
+                    <select class="w-[150px] h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white text-sm"
+                        v-model="report.repotTitle">
+                        <option v-for="(item, index) in category" :key="index" :value="item">{{ item.titleEn }}</option>
                     </select>
                 </div>
 
@@ -40,12 +54,22 @@
                     <label
                         class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
                         질문</label>
-                    <input type="text" v-model="subjectEn"
+                    <input type="text" v-model="report.questionText.questionTextEn"
                         class="w-[calc(100%-70px)] sm:w-[calc(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] border border-solid border-[#dcdcdc] rounded-[6px] !my-auto !mx-0"
                         placeholder="en" />
-                    <input type="text" v-model="subjectId"
+                    <input type="text" v-model="report.questionText.questionTextId"
                         class="w-[calc(100%-70px)] sm:w-[calc(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] border border-solid border-[#dcdcdc] rounded-[6px] !my-auto !mx-0"
                         placeholder="id" />
+                </div>
+
+                <div
+                    class="input_area board_title flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-t border-[#dcdcdc]">
+                    <label
+                        class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                        질문순서</label>
+                    <input type="text" v-model="report.order"
+                        class="w-[calc(100%-70px)] sm:w-[calc(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] border border-solid border-[#dcdcdc] rounded-[6px] !my-auto !mx-0"
+                        placeholder="en" />
                 </div>
 
                 <div
@@ -54,7 +78,6 @@
                         class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
                         선택지
                     </label>
-
                     <LayerAdminReportRegItem :depth="1" :answerType="report.answerType" v-model="answerOption" />
 
                     <!-- <div
@@ -89,28 +112,22 @@ import { ref, defineProps, defineEmits, onMounted, toRaw } from 'vue';
 import { useReportStore } from '~/stores/admin/reportStore';
 import type { AddQuestion, AnswerOption, Report } from '@/types/report/requestQuestion';
 
-
-const addQuestion = ref<AddQuestion>({
-    questionText: '',
-    answerType: 'text',
-    isRequired: false,
-    placeholder: '',
-    value: '',
-});
-
 const answerOption = ref<AnswerOption[]>([{
-    text: '',
+    text: {
+        titleEn: "",
+        titleId: "",
+    },
     value: '',
     addquestion: [],
 }]);
 
 const report = ref<Report>({
     repotIdx: 0,
-    repotId: '',
-    repotLang: '',
+    repotId: 'report_01',
+    repotLang: 'id',
     repotTitle: '',
-    questionText: '',
-    answerType: 'text',
+    questionText: {},
+    answerType: '1',
     answerData: '',
     isRequired: false,
     useYn: 'Y',
@@ -134,14 +151,14 @@ const contentId = ref('');
 const files = ref<File[]>([]);
 const thumbnails = ref<File[]>([]);
 
-const faqCategory = ref([
-    // { title: "general", value: boardType.general },
-    // { title: "Required documents & Visa", value: boardType.visa },
-    // { title: "Medical Services & Clinics", value: boardType.clinics },
-    // { title: "Tour & Stay", value: boardType.tour },
-    // { title: "Payment & Cancellation", value: boardType.pay },
-    // { title: "Aftercare", value: boardType.after },
-    // { title: "Other Question", value: boardType.other },
+const category = ref([
+    { titleEn: "Basic Information", titleId: "Informasi Dasar" },
+    { titleEn: "Medical Services", titleId: "Layanan Medis" },
+    { titleEn: "Medical History", titleId: "Riwayat Medis" },
+    { titleEn: "Schedule & Accompaniment", titleId: "Jadwal & Pendamping" },
+    { titleEn: "Tour", titleId: "Wisata" },
+    { titleEn: "Additional Information", titleId: "Informasi Tambahan" },
+    { titleEn: "Consultation Preference", titleId: "Preferensi Konsultasi" },
 ]);
 
 const emit = defineEmits();
@@ -176,36 +193,13 @@ const validation = (params: any) => {
 
 // 등록 처리
 const goReg = async () => {
-    const params = toRaw(resData.value);
+    const params = toRaw(report.value);
 
-    params.boardType = params.boardTypeCd;
-    params.processStatus = params.processStatusCd;
-    params.categoryType = params.categoryTypeCd;
-    params.mobileAgency = params.mobileAgencyCd;
+    params.questionText = JSON.stringify(params.questionText);
+    params.repotTitle = JSON.stringify(params.repotTitle);
+    params.answerData = JSON.stringify(answerOption.value);
 
-    const subject = {
-        subjectEn: subjectEn.value,
-        subjectId: subjectId.value,
-    }
-
-    params.subject = JSON.stringify(subject);
-
-    const content = {
-        contentEn: contentEn.value,
-        contentId: contentId.value,
-    }
-
-    params.content = JSON.stringify(content);
-
-    if (files.value.length > 0) {
-        params.file = files.value;
-    }
-
-    if (thumbnails.value.length > 0) {
-        params.thumbnail = thumbnails.value;
-    }
-
-    if (!validation(params)) return;
+    // if (!validation(params)) return;
     const data = common.cleanObject(params);
 
     try {
@@ -221,46 +215,20 @@ const goReg = async () => {
     } catch (error) {
         SysAlert({
             type: 'alert',
-            message: '게시판 등록 중 오류가 발생했습니다.',
+            message: '등록 중 오류가 발생했습니다.',
         });
     }
 };
 
 // 수정 처리
 const goUpdate = async () => {
-    const params = toRaw(resData.value);
+    const params = toRaw(report.value);
 
-    params.boardType = params.boardTypeCd;
-    params.processStatus = params.processStatusCd;
-    params.categoryType = params.categoryTypeCd;
-    params.mobileAgency = params.mobileAgencyCd;
-    params.importantType = params.importantTypeCd;
+    params.questionText = JSON.stringify(params.questionText);
+    params.repotTitle = JSON.stringify(params.repotTitle);
+    params.answerData = JSON.stringify(answerOption.value);
 
-    const subject = {
-        subjectEn: subjectEn.value,
-        subjectId: subjectId.value,
-    }
-
-    params.subject = JSON.stringify(subject);
-
-    const content = {
-        contentEn: contentEn.value,
-        contentId: contentId.value,
-    }
-
-    params.content = JSON.stringify(content);
-
-    if (files.value.length > 0) {
-        params.file = files.value;
-    }
-
-    if (thumbnails.value.length > 0) {
-        if (originThumb.value != thumbnails.value) {
-            params.thumbnail = thumbnails.value;
-        }
-    }
-
-    if (!validation(params)) return;
+    // if (!validation(params)) return;
     const data = common.cleanObject(params);
 
     try {
@@ -276,7 +244,7 @@ const goUpdate = async () => {
     } catch (error) {
         SysAlert({
             type: 'alert',
-            message: '게시판 수정 중 오류가 발생했습니다.',
+            message: '수정 중 오류가 발생했습니다.',
         });
     }
 };
@@ -286,39 +254,23 @@ const goDelete = () => {
     // 삭제 처리 로직 (필요시 구현)
 };
 
-// 내용 변경 처리
-const handleContent = (content: any) => {
-
-    resData.value.content = content;
-}
-
 onMounted(async () => {
     if (props.mode == 'mod') {
         const params = {
-            boardIdx: props.idx,
+            repotIdx: props.idx,
         }
         const response = await reportMngStore.dtlBoard(params);
         if (response) {
 
-            const decodeHtmlEntities = (str: string) => {
-                const txt = document.createElement('textarea');
-                txt.innerHTML = str;
-                return txt.value;
+            report.value = response.resultInfo;
+
+            report.value.answerData = JSON.parse(report.value.answerData);
+            report.value.repotTitle = JSON.parse(report.value.repotTitle);
+            report.value.questionText = JSON.parse(report.value.questionText);
+
+            if (report.value.answerData) {
+                answerOption.value = report.value.answerData
             }
-
-            const subject = decodeHtmlEntities(response.resultInfo.subject);
-            subjectEn.value = JSON.parse(subject).subjectEn ?? '';
-            subjectId.value = JSON.parse(subject).subjectId ?? '';
-
-
-            const content = decodeHtmlEntities(response.resultInfo.content);
-            contentEn.value = JSON.parse(content).contentEn ?? '';
-            contentId.value = JSON.parse(content).contentId ?? '';
-
-            resData.value = response.resultInfo;
-            files.value = response.resultInfo.fileInfo.filter(file => file.originTypeCd == '000');
-            thumbnails.value = response.resultInfo.fileInfo.filter(file => file.originTypeCd == '100');
-            originThumb.value = thumbnails.value;
         }
     }
 });

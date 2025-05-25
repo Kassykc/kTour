@@ -2,7 +2,7 @@
     <!-- news -->
     <AdminCommonBoardTableBoard :list="boardList" :paging="pageInfo" :columns="columns" :columnsWidth="columnsWidth"
         :pageSize="10" @update:currentIndex="handlePageChange" :isDtl="true" @update:selectedRows="handleDeleteItems"
-        :popupComp="ReportReg" :rowKey="'boardIdx'" :getBoardList="setBoardList" :useExcelDown="false"
+        :popupComp="ReportReg" :rowKey="'repotIdx'" :getBoardList="setBoardList" :useExcelDown="false"
         :fileBaseUrl="fileBaseUrl" @excelDown="goExcel" :keyword="searchKeyword" />
 </template>
 
@@ -33,25 +33,15 @@ const pageInfo = ref({} as PageInfo);
 const searchKeyword = ref('');
 
 const columns = ref([
-    { label: 'No.', key: 'boardIdx', type: 'text' },
-    { label: '썸네일', key: 'thumbnail', type: 'img' },
-    { label: '카테고리', key: 'boardType', type: 'text' },
-    { label: '제목(en)', key: 'subjectEn', type: 'text' },
-    { label: '제목(id)', key: 'subjectId', type: 'text' },
-    { label: '등록자', key: 'regUserNameKo', type: 'text' },
-    { label: '등록일', key: 'regDttm', type: 'text' },
-    { label: '노출여부', key: 'showYn', type: 'text' },
+    { label: 'No.', key: 'repotIdx', type: 'text' },
+    { label: '카테고리(en)', key: 'titleEn', type: 'text' },
+    { label: '질문(en)', key: 'questionTextEn', type: 'text' },
 ]);
 
 const columnsWidth = [
     { flex: '5' },
-    { flex: '10' },
-    { flex: '10' },
     { flex: '20' },
     { flex: '20' },
-    { flex: '10' },
-    { flex: '10' },
-    { flex: '10' },
 ];
 
 const handleDeleteItems = async (selectedRows: number[]) => {
@@ -85,7 +75,7 @@ const getBoardList = async (pageNum: number, pageSize: number, word: string) => 
     const data = {
         pageNum: pageNum,
         pageSize: pageSize,
-        reportId: 1,
+        repotId: "report_01",
         searchKeyword: word ? word : searchKeyword.value,
     };
 
@@ -94,9 +84,8 @@ const getBoardList = async (pageNum: number, pageSize: number, word: string) => 
     if (response) {
 
         response.resultInfo.forEach(item => {
-            item.subjectEn = JSON.parse(item.subject)?.subjectEn;
-            item.subjectId = JSON.parse(item.subject)?.subjectId;
-            item.boardType = item.boardTypeCd == '300' ? '뉴스' : '영상';
+            item.titleEn = JSON.parse(item.repotTitle)?.titleEn;
+            item.questionTextEn = JSON.parse(item.questionText)?.questionTextEn;
         })
 
         boardList.value = response.resultInfo;

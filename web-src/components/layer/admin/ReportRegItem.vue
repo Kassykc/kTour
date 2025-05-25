@@ -5,24 +5,24 @@
             <div class="w-full flex justify-start items-center gap-[10px]">
                 <div class="w-fit shrink-0">선택지 값 :</div>
                 <input type="text" class="h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white w-[50%]"
-                    placeholder="en" />
+                    placeholder="en" v-model="item.text.titleEn" />
                 <input type="text" class="h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white w-[50%]"
-                    placeholder="id" />
+                    placeholder="id" v-model="item.text.titleId" />
             </div>
 
             <div class="w-full flex justify-start items-center gap-[10px] flex-wrap">
                 <!-- 단답식 -->
-                <div v-if="props.answerType == 'text'"
+                <div v-if="props.answerType == '1'"
                     class="text_area flex justify-start items-start gap-[10px] flex-wrap w-full">
                 </div>
 
                 <!-- 주관식 -->
-                <div v-if="props.answerType == 'textarea'"
+                <div v-if="props.answerType == '2'"
                     class="textarea_area flex justify-start items-start gap-[10px] flex-wrap w-full">
                 </div>
 
                 <!-- radio/checkbox -->
-                <div v-if="props.answerType == 'radio' || props.answerType == 'checkbox'"
+                <div v-if="props.answerType == '3' || props.answerType == '4'"
                     class="radio_chkbox_area flex justify-start items-start gap-[10px] flex-wrap w-[80%]">
                     <div class="w-full flex justify-start items-center gap-[10px] flex-wrap">
                         <div class="h-[36px] leading-[26px] flex-1 px-2 py-1 border border-[#dcdcdc] rounded cursor-pointer shrink-0 w-[50px]"
@@ -39,18 +39,18 @@
                     </div>
                 </div>
 
-                <div v-if="props.answerType === 'radio' || props.answerType === 'checkbox'"
+                <div v-if="props.answerType == '3' || props.answerType == '4'"
                     class="flex justify-center items-center gap-[10px]">
                     <div class="h-[36px] leading-[26px] flex-1 px-2 py-1 border border-[#dcdcdc] rounded cursor-pointer w-[42px] text-white bg-black"
                         @click="addOption(index)">+</div>
                 </div>
 
                 <!-- 자식 질문 재귀 출력 -->
-                <div v-if="props.answerType === 'radio' || props.answerType === 'checkbox'"
+                <div v-if="(props.answerType == '3' || props.answerType == '4') && props.modelValue[index].addquestion && props.modelValue[index].addquestion.length > 0"
                     v-for="(child, i) in props.modelValue[index].addquestion" :key="i"
                     class="sub_area relative w-full pl-[50px] flex flex-col justify-start items-start">
                     <LayerAdminReportRegItem2 v-model="props.modelValue[index].addquestion[i]"
-                        @remove="() => props.modelValue[index].addquestion.splice(i, 1)" :depth="2" />
+                        @remove="removeItem2(index, i)" :depth="2" />
                 </div>
             </div>
         </div>
@@ -66,25 +66,29 @@ const props = defineProps<{
 }>()
 
 const answerOption = ref<AnswerOption>({
-    text: '',
+    text: {
+        titleEn: "",
+        titleId: "",
+    },
     value: '',
     addquestion: [],
 });
 
 const addQuestion = ref<AddQuestion>({
-    questionText: '',
-    answerType: 'text',
+    questionText: {
+        titleEn: "",
+        titleId: "",
+    },
+    answerType: '1',
     isRequired: false,
     option: [{
-        text: '',
+        text: {
+            titleEn: "",
+            titleId: "",
+        },
         value: '',
     }],
 });
-
-const addQuestionOption = ref<AddQuestionOption>({
-    text: '',
-    value: '',
-})
 
 const emit = defineEmits<{
     (e: 'update:modelValue', value: any): void
@@ -109,6 +113,12 @@ const addChild = (idx: number) => {
     newOptions[idx].addquestion.push({ ...toRaw(addQuestion.value) });
     emit('update:modelValue', newOptions);
 };
+
+const removeItem2 = (index: number, i: number) => {
+    const newOptions = [...toRaw(props.modelValue)];
+    newOptions[index].addquestion.splice(i, 1);
+    emit('update:modelValue', newOptions);
+}
 </script>
 <style lang="">
 

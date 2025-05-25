@@ -1,45 +1,61 @@
 <template>
     <div class="w-full flex flex-col justify-start items-start gap-[10px] p-[20px]">
 
+
+        <div class="w-full flex justify-start items-center gap-[10px]">
+            <label
+                class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
+                응답필수여부
+            </label>
+            <label
+                class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] gap-[10px]">
+                <input type="radio" v-model="props.modelValue.isRequired" :value="true" />예
+            </label>
+            <label
+                class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] gap-[10px]">
+                <input type="radio" v-model="props.modelValue.isRequired" :value="false" />아니오
+            </label>
+        </div>
+
         <div class="w-full flex justify-start items-center gap-[10px]">
             <div class="w-fit shrink-0">질문 :</div>
-            <input v-model="props.modelValue.questionText" type="text"
-                class="h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white w-full" placeholder="질문 내용 입력" />
+            <input v-model="props.modelValue.questionText.titleEn" type="text"
+                class="h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white w-full" placeholder="en" />
+            <input v-model="props.modelValue.questionText.titleId" type="text"
+                class="h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white w-full" placeholder="id" />
         </div>
 
         <select v-model="props.modelValue.answerType"
             class="w-[150px] h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white text-sm">
-            <option value="text">단답식</option>
-            <option value="textarea">주관식</option>
-            <option value="radio">단일선택형</option>
-            <option value="checkbox">다중선택형</option>
+            <option value="1">단답식</option>
+            <option value="2">주관식</option>
+            <option value="3">단일선택형</option>
+            <option value="4">다중선택형</option>
         </select>
-
-        {{ props.modelValue }}
 
         <div class="flex flex-col justify-start items-center w-full gap-[10px]"
             v-for="(item, index) in props.modelValue.option" :key="index">
             <div class="w-full flex justify-start items-center gap-[10px]">
-                <div class="w-fit shrink-0">선택지 값 :</div>
+                <div class="w-fit shrink-0">선택지 값 : </div>
                 <input type="text" class="h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white w-[50%]"
-                    placeholder="en" />
+                    placeholder="en" v-model="item.text.titleEn" />
                 <input type="text" class="h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white w-[50%]"
-                    placeholder="id" />
+                    placeholder="id" v-model="item.text.titleId" />
             </div>
 
             <div class="w-full flex justify-start items-center gap-[10px] flex-wrap">
                 <!-- 단답식 -->
-                <div v-if="props.modelValue.answerType == 'text'"
+                <div v-if="props.modelValue.answerType == '1'"
                     class="text_area flex justify-start items-start gap-[10px] flex-wrap w-full">
                 </div>
 
                 <!-- 주관식 -->
-                <div v-if="props.modelValue.answerType == 'textarea'"
+                <div v-if="props.modelValue.answerType == '2'"
                     class="textarea_area flex justify-start items-start gap-[10px] flex-wrap w-full">
                 </div>
 
                 <!-- radio/checkbox -->
-                <div v-if="props.modelValue.answerType == 'radio' || props.modelValue.answerType == 'checkbox'"
+                <div v-if="props.modelValue.answerType == '3' || props.modelValue.answerType == '4'"
                     class="radio_chkbox_area flex justify-start items-start gap-[10px] flex-wrap w-[80%]">
                     <div class="w-full flex justify-start items-center gap-[10px] flex-wrap">
                         <div class="h-[36px] leading-[26px] px-2 py-1 border border-[#dcdcdc] rounded cursor-pointer w-[42px]"
@@ -47,7 +63,7 @@
                     </div>
                 </div>
 
-                <div v-if="props.modelValue.answerType === 'radio' || props.modelValue.answerType === 'checkbox'"
+                <div v-if="props.modelValue.answerType === '3' || props.modelValue.answerType === '4'"
                     class="flex justify-center items-center gap-[10px]">
                     <div class="h-[36px] leading-[26px] flex-1 px-2 py-1 border border-[#dcdcdc] rounded cursor-pointer w-[42px] text-white bg-black"
                         @click="addOption(index)">+</div>
@@ -69,23 +85,35 @@ const props = defineProps<{
 }>()
 
 const answerOption = ref<AnswerOption>({
-    text: '',
+    text: {
+        titleEn: "",
+        titleId: "",
+    },
     value: '',
     addquestion: [],
 });
 
 const addQuestion = ref<AddQuestion>({
-    questionText: '',
-    answerType: 'text',
+    questionText: {
+        titleEn: "",
+        titleId: "",
+    },
+    answerType: '1',
     isRequired: false,
     option: [{
-        text: '',
+        text: {
+            titleEn: "",
+            titleId: "",
+        },
         value: '',
     }],
 });
 
 const addQuestionOption = ref<AddQuestionOption>({
-    text: '',
+    text: {
+        titleEn: "",
+        titleId: "",
+    },
     value: '',
 })
 
@@ -99,9 +127,9 @@ const addOption = (index: number) => {
 };
 
 const removeOption = (index: number) => {
-    if (props.modelValue.length <= 1) return;
-    const newOptions = [...toRaw(props.modelValue)];
-    newOptions.splice(index, 1);
+    if (props.modelValue.option.length <= 1) return;
+    const newOptions = props.modelValue;
+    newOptions.option.splice(index, 1);
     emit('update:modelValue', newOptions);
 };
 </script>
