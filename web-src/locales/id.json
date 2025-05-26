@@ -579,19 +579,44 @@
     },
     "footer": {
       "koreaBranch": {
-        "name": "Kantor Cabang Korea",
-        "registrated": "Perwakilan: Medi-City Co. Ltd.",
-        "owner": "Nama Pemilik: Park Jong-in",
-        "registNumber": "No. Registrasi Bisnis: 588-86-02555",
-        "address": "Alamat: 43-55, Mugunghwa-ro, Ilsandong-gu, Goyang-si, Gyeonggi-do"
+        "name": "Kantor pusat",
+        "registrated": "Perwakilan",
+        "registratedNm": "Medi-City Co., Ltd.",
+        "owner": "Nama Pemilik",
+        "ownerNm": "Park Jong-In",
+        "registNumber": "No. Registrasi Bisnis",
+        "registNum": "588-86-02555",
+        "address": "Alamat",
+        "addrValue": "43-55, Mugunghwa-ro, Ilsandong-gu, Goyang-si, Gyeonggi-do"
       },
       "inniBranch": {
-        "name": "Kantor Cabang Indonesia",
-        "registrated": "Perwakilan: Medi-City Co. Ltd.",
-        "owner": "Nama Pemilik: Park Sung-min",
-        "registNumber": "No. Registrasi Bisnis: 2305230037834",
-        "address": "Alamat: Prosperity Tower, Lt. 56, KOSME(GBC) Room 4.1, JL. Jend. Sudirman No.Kav. 52-53, Jakarta Selatan 12190"
-      }
+        "name": "Indonesia",
+        "registrated": "Perwakilan",
+        "registratedNm": "PT.Medi City Indonesia",
+        "owner": "Nama Pemilik",
+        "ownerNm": "Park Sung-min",
+        "registNumber": "No. Registrasi Bisnis",
+        "registNum": "2305230037834",
+        "address": "Alamat",
+        "addrValue": "Prosperity Tower, Lt. 56, KOSME(GBC) Room 4.1, JL. Jend. Sudirman No.Kav. 52-53, Jakarta Selatan 12190"
+      },
+      "gangwonBranch": {
+        "name": "Cabang Gangwon",
+        "registrated": "Perwakilan",
+        "registratedNm": "PT.Medi City Gangwon",
+        "owner": "Nama Pemilik",
+        "ownerNm": "Park Jong-In",
+        "registNumber": "No. Registrasi Bisnis",
+        "registNum": "363-86-03256",
+        "address": "Alamat",
+        "addrValue": "3rd Floor, Unit 3, 2165 Gyeonggang-ro, Gangneung-si, Gangwon-do"
+      },
+      "file": {
+        "en": "Profil Perusahaan ENG",
+        "id": "Profil Perusahaan IDN"
+      },
+      "copy": "Copyright Medicity. All rights reserved.",
+      "copy2": "Hak cipta dari semua konten yang diposting di situs kami adalah milik PT. Medi-City. Pengumpulan tidak sah dari situs kami sangat dilarang."
     }
   },
   "board": {

@@ -579,19 +579,44 @@
     },
     "footer": {
       "koreaBranch": {
-        "name": "Korea Branch",
-        "registrated": "Registrated business: Medi-City Co., Ltd.",
-        "owner": "Owner's name: Park Jong-In",
-        "registNumber": "Business Registration Number: 588-86-02555",
-        "address": "Address: 43-55, Mugunghwa-ro, Ilsandong-gu, Goyang-si, Gyeonggi-do"
+        "name": "Head Office",
+        "registrated": "Registrated business",
+        "registratedNm": "Medi-City Co., Ltd.",
+        "owner": "Owner's name",
+        "ownerNm": "Park Jong-In",
+        "registNumber": "Business Registration Number",
+        "registNum": "588-86-02555",
+        "address": "Address",
+        "addrValue": "43-55, Mugunghwa-ro, Ilsandong-gu, Goyang-si, Gyeonggi-do"
       },
       "inniBranch": {
-        "name": "Indonesia Branch",
-        "registrated": "Registrated business: MediCity Co., Ltd.",
-        "owner": "Owner's name: Sungmin Park",
-        "registNumber": "Business Registration Number : 2305230037834",
-        "address": "Address: Prosperity Tower, Lt. 56, KOSME(GBC) Room 4.1. Jl. Jend. Sudirman No.Kav. 52-53, Jakarta Selatan 12190"
-      }
+        "name": "Indonesia",
+        "registrated": "Registrated business",
+        "registratedNm": "PT. Medi City Indonesia",
+        "owner": "Owner's name",
+        "ownerNm": "Park Sung-Min",
+        "registNumber": "Business Registration Number",
+        "registNum": "2305230037834",
+        "address": "Address",
+        "addrValue": "Prosperity Tower, Lt. 56, KOSME(GBC) Room 4.1. Jl. Jend. Sudirman No.Kav. 52-53, Jakarta Selatan 12190"
+      },
+      "gangwonBranch": {
+        "name": "Gangwon Office",
+        "registrated": "Registrated business",
+        "registratedNm": "Medi-City Gangwon Co., Ltd.",
+        "owner": "Owner's name",
+        "ownerNm": "Park Jong-In",
+        "registNumber": "Business Registration Number",
+        "registNum": "363-86-03256",
+        "address": "Address",
+        "addrValue": "3rd Floor, Unit 3, 2165 Gyeonggang-ro, Gangneung-si, Gangwon-do"
+      },
+      "file": {
+        "en": "Company Introduction ENG",
+        "id": "Company Introduction IDN"
+      },
+      "copy": "Copyright Medicity. All rights reserved.",
+      "copy2": "The copyrights of all content posted on our site belong to Medi-City Co., Ltd. Unauthorized collection of our site is strictly prohibited."
     }
   },
   "board": {
