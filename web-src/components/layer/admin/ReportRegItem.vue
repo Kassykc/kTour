@@ -98,10 +98,12 @@ const addOption = (index: number) => {
     const newOptions = [...toRaw(props.modelValue)];
 
     const deepCopy = JSON.parse(JSON.stringify(answerOption.value));
-    newOptions.push(deepCopy);
+
+    newOptions.splice(index + 1, 0, deepCopy);
 
     emit('update:modelValue', newOptions);
 };
+
 
 const removeOption = (index: number) => {
     if (props.modelValue.length <= 1) return;
