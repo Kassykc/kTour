@@ -13,7 +13,9 @@
         <div v-for="(item, idx) in submenus[activeNav]" :key="idx" class="w-[48%] text-left">
           <div
             class="text-black cursor-pointer hover:text-[#F57E1F] text-[13px] md:text-[14px] lg:text-[20px] font-[700] px-[10px]"
-            @click="router.push({ path: item.url, query: { tab: item.tab } })">
+            @click="handleClick(item)"
+            >
+            <!-- @click="router.push({ path: item.url, query: { tab: item.tab } })" -->
             {{ t(item.title) }}
           </div>
         </div>
@@ -72,6 +74,13 @@ const submenus = [
     { title: 'menu.6.2depth.4.name', url: '/inquiry/consultation' }
   ],
 ]
+
+const emit = defineEmits(['submenu-click'])
+
+const handleClick = (item: { url: string; tab: string }) => {
+  emit('submenu-click')
+  router.push({ path: item.url, query: { tab: item.tab } })
+}
 </script>
 
 <style scoped></style>

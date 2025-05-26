@@ -43,6 +43,7 @@
           :visible="activeNav !== null"
           @submenu-enter="handleSubmenuEnter"
           @submenu-leave="handleSubmenuLeave"
+          @submenu-click="handleSubmenuClick"
         />
     </div>
 </template>
@@ -143,7 +144,6 @@ const handleHeaderEnter = () => {
   }
 }
 
-
 // 👇 터치 이벤트 추가 (1024 이상에서 탭 시 헤더 활성화)
 const onTouchStart = () => {
   if (isDesktop.value) {
@@ -152,4 +152,10 @@ const onTouchStart = () => {
   }
 }
 
+const handleSubmenuClick = () => {
+  isHeaderHover.value = false
+  activeNav.value = null
+  isTouchActive.value = false
+  submenuHover.value = false
+}
 </script>
