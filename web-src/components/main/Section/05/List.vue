@@ -9,7 +9,7 @@
                     }}
                 </div>
                 <div class="pt-2 pr-2">
-                    <CommonBtnViewMore />
+                    <CommonBtnViewMore :to="`/inquiry/news/${item.boardIdx}`" />
                 </div>
             </div>
         </div>
@@ -19,6 +19,8 @@
 
 <script setup lang="ts">
 import { t, composer } from '@/plugins/i18n';
+
+const router = useRouter();
 
 const props = defineProps<{
     list: any[];

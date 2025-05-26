@@ -9,7 +9,7 @@
                     {{ item.title }}
                 </div>
                 <div class="pt-2">
-                    <CommonBtnViewMore />
+                    <CommonBtnViewMore :to="item.url"/>
                 </div>
             </div>
         </div>
@@ -21,6 +21,7 @@
 interface Item {
     img: string
     title: string
+    url: string
 }
 
 const props = defineProps<{

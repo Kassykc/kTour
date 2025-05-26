@@ -5,31 +5,37 @@
         </section>
 
         <section>
+            <!-- about service -->
             <MainSection01 />
         </section>
 
         <section>
+            <!-- why korea -->
             <MainSection02 />
         </section>
 
         <section>
+            <!-- medicacl treatment service -->
             <MainSection03 />
         </section>
 
-        <seiction>
+        <section>
+            <!-- affiliated treatment service -->
             <MainSection04-1 />
-        </seiction>
+        </section>
 
         <section>
+            <!-- medi tour -->
             <MainSection04 />
         </section>
 
         <section>
+            <!-- news -->
             <MainSection05 />
         </section>
 
         <section>
-            <!-- <MainSection06 /> -->
+            <!-- partner -->
             <MainSectionSpon />
         </section>
     </div>

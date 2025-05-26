@@ -142,7 +142,7 @@ const setCategories = async () => {
                 };
             });
         }
-    } else if (route.path === '/inquiry/news') {
+    } else if (route.path == '/inquiry/news') {
         categories.value = [
             {
                 category_name: t('board.part1.title'),
@@ -157,7 +157,7 @@ const setCategories = async () => {
                 category_key: { type: boardType.news, key: '100' }
             },
         ];
-    } else if (route.path === '/inquiry/faq') {
+    } else if (route.path == '/inquiry/faq') {
         categories.value = [
             {
                 category_name: "ALL",

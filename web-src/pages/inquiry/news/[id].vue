@@ -76,7 +76,6 @@ const selectedTab = ref('consultation');
 const fileBaseUrl = apiBase.url() + "/_file/000/";
 
 const getFile = (item: any) => {
-    console.log('item : ' + item)
     if (item && item.originTypeCd && item.originTypeCd == '000') {
         return true;
     } else {
@@ -202,12 +201,11 @@ const { data: boardDtlData, pending, error, refresh } = await useAsyncData(
     }
 );
 
-onMounted(async () => {
-    if (!boardDtlData.value) {
-        await refresh();
-    }
-    console.log('mounted: ', boardDtlData.value);
-});
+// onMounted(async () => {
+//     if (!boardDtlData.value) {
+//         await refresh();
+//     }
+// });
 
 </script>
 <style lang="scss">
