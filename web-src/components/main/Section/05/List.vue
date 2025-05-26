@@ -4,7 +4,7 @@
             <div
                 class="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full py-[20px] lg:py-[30px] border-b border-black">
                 <div
-                    class="text-[20px] lg:text-[26px] font-[400] pl-2 w-full sm:w-[400px] lg:w-fit h-[60px] sm:h-auto line-clamp-2">
+                    class="text-[20px] lg:text-[26px] font-[400] pl-2 w-full sm:w-[400px] md:w-[580px] lg:w-[1000px] h-[60px] sm:h-auto line-clamp-2">
                     {{ composer.locale == 'en' ? JSON.parse(item.subject).subjectEn : JSON.parse(item.subject).subjectId
                     }}
                 </div>
