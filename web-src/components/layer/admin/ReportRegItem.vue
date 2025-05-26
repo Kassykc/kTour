@@ -96,7 +96,11 @@ const emit = defineEmits<{
 
 const addOption = (index: number) => {
     const newOptions = [...toRaw(props.modelValue)];
-    newOptions.push({ ...toRaw(answerOption.value) });
+
+    // ✅ 깊은 복사 방식으로 새 항목 추가
+    const deepCopy = JSON.parse(JSON.stringify(answerOption.value));
+    newOptions.push(deepCopy);
+
     emit('update:modelValue', newOptions);
 };
 
