@@ -14,7 +14,7 @@
                         class="absolute top-0 left-0 w-full max-w-full lg:max-w-[926px] h-[80%] lg:h-[524px] bg-[#266BFF] rounded-[38px] pointer-events-none">
                     </div>
                     <Swiper :modules="[Autoplay, Pagination, Navigation]"
-                        :autoplay="{ delay: 300000, disableOnInteraction: false }" :loop="true" :pagination="false"
+                        :autoplay="{ delay: 3000, disableOnInteraction: false }" :loop="true" :pagination="false"
                         :slidesPerView="1" :spaceBetween="30" :navigation="{
                             nextEl: '.swiper-button-next-custom',
                             prevEl: '.swiper-button-prev-custom'
@@ -24,8 +24,8 @@
                             <div class="flex justifiy-center items-center flex-col lg:flex-row pb-[30px] lg:pb-0">
                                 <!-- {{ item }} -->
                                 <div
-                                    class="slide_item relative w-full lg:w-1/2 h-full lg:h-[524px] flex flex-col justify-start items-start gap-[17px] sm:gap-[20px] lg:gap-[35px] px-[30px] pt-[80px] pb-[15px] xl:p-[70px] bg-cover bg-center">
-                                    <div class="font-[800] text-[14px] lg:text-[19px] text-white mb-[13px] sm:mb-[3px]">
+                                    class="slide_item relative min-w-0 w-full lg:w-1/2 h-full lg:h-[524px] flex flex-col justify-start items-start gap-[17px] sm:gap-[20px] lg:gap-[35px] px-[30px] pt-[80px] pb-[15px] xl:p-[70px] bg-cover bg-center">
+                                    <div class="w-full lg:max-w-[400px] !h-[24px] lg:!h-[30px] font-[800] text-[14px] lg:text-[19px] text-white mb-[13px] sm:mb-[3px] truncate shrink-0">
                                         {{ getCategoryLabel(item) }}
                                     </div>
                                     <div
@@ -34,13 +34,13 @@
                                     </div>
 
                                     <div
-                                        class="font-[800] text-[15px] lg:text-[28px] leading-[22px] lg:leading-[31px] text-white mt-0 lg:mt-[35px]">
+                                        class="w-full h-full lg:max-h-[128px] line-clamp-2 lg:line-clamp-4 font-[800] text-[15px] lg:text-[28px] leading-[22px] lg:leading-[31px] text-white mt-0 lg:mt-[35px]">
                                         {{ composer.locale == 'en' ? decodeHtmlEntities(item.peopleMemo).sloganEn :
                                             decodeHtmlEntities(item.peopleMemo).sloganId }}
                                     </div>
 
                                     <div
-                                        class="absolute top-[25px] right-[20px] lg:top-[35px] lg:right-[30px] w-[50px] h-[50px] lg:w-[80px] lg:h-[80px] pointer-event-none">
+                                        class="absolute top-[25px] right-[20px] lg:top-[35px] lg:right-[30px] w-[50px] h-[50px] lg:w-[80px] lg:h-[80px] cursor-pointer">
                                         <img src="@/assets/images/main/section07/slide_arrow.png" alt="화살표"
                                             class="w-full h-full object-cover"
                                             @click="router.push(`/mtc/${item.peopleIdx}`)">
