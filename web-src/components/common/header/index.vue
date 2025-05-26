@@ -117,7 +117,7 @@ const handleSubmenuLeave = () => {
 }
 
 const resetHeaderState = () => {
-  if (isTouchActive.value) return  // 👈 터치 중이면 무시
+  if (isTouchActive.value || submenuHover.value) return
   isHeaderHover.value = false
   activeNav.value = null
 }
