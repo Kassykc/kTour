@@ -48,7 +48,7 @@
                 <!-- 자식 질문 재귀 출력 -->
                 <div v-if="(props.answerType == '3' || props.answerType == '4') && props.modelValue[index].addquestion && props.modelValue[index].addquestion.length > 0"
                     v-for="(child, i) in props.modelValue[index].addquestion" :key="i"
-                    class="sub_area relative w-full ml-[30px] pl-[10px] flex flex-col justify-start items-start border">
+                    class="sub_area relative w-full ml-[30px] flex flex-col justify-start items-start border">
                     <LayerAdminReportRegItem2 v-model="props.modelValue[index].addquestion[i]"
                         @remove="removeItem2(index, i)" :depth="2" />
                 </div>
