@@ -1,7 +1,7 @@
 <template>
     <div class="reg_modal_area">
         <div
-            class="reg_modal_wrap flex justify-start items-start w-full h-[60vh] max-h-[600px] bg-white text-[12px] sm:text-[14px] overflow-y-auto overflow-x-hidden">
+            class="reg_modal_wrap flex justify-start items-start w-full h-[60vh] max-h-[600px] bg-white text-[12px] sm:text-[14px] overflow-y-auto overflow-x-hidden border-t border-b border-[#dcdcdc]">
             <div class="overflow_wrap w-full">
 
                 <div
@@ -27,13 +27,15 @@
                         선택지 유형
                     </label>
 
-                    <select class="w-[150px] h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white text-sm"
+                    <div class="flex items-center justify-start">
+                        <select class="w-[150px] px-2 py-1 border border-[#dcdcdc] rounded bg-white text-sm"
                         v-model="report.answerType">
-                        <option value="1">단답식</option>
-                        <option value="2">주관식</option>
-                        <option value="3">단일선택형</option>
-                        <option value="4">다중선택형</option>
-                    </select>
+                            <option value="1">단답식</option>
+                            <option value="2">주관식</option>
+                            <option value="3">단일선택형</option>
+                            <option value="4">다중선택형</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div
@@ -43,37 +45,39 @@
                         질문 카테고리
                     </label>
 
-                    <select class="w-[150px] h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white text-sm"
-                        v-model="report.repotTitle">
-                        <option v-for="(item, index) in category" :key="index" :value="item">{{ item.titleEn }}</option>
-                    </select>
+                    <div class="flex items-center justify-start"> 
+                        <select class="w-auto h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white text-sm"
+                            v-model="report.repotTitle">
+                            <option v-for="(item, index) in category" :key="index" :value="item">{{ item.titleEn }}</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div
-                    class="input_area board_title flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-t border-[#dcdcdc]">
+                    class="input_area board_title flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
                     <label
                         class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
                         질문</label>
                     <input type="text" v-model="report.questionText.questionTextEn"
-                        class="w-[calc(100%-70px)] sm:w-[calc(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] border border-solid border-[#dcdcdc] rounded-[6px] !my-auto !mx-0"
+                        class="w-[calc(100%-70px)] sm:w-[calc(100%-120px)] h-[36px] bg-white !py-0 !px-[10px] border border-solid border-[#dcdcdc] rounded-[6px] !my-auto !mx-0"
                         placeholder="en" />
                     <input type="text" v-model="report.questionText.questionTextId"
-                        class="w-[calc(100%-70px)] sm:w-[calc(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] border border-solid border-[#dcdcdc] rounded-[6px] !my-auto !mx-0"
+                        class="w-[calc(100%-70px)] sm:w-[calc(100%-120px)] h-[36px] bg-white !py-0 !px-[10px] border border-solid border-[#dcdcdc] rounded-[6px] !my-auto !mx-0"
                         placeholder="id" />
                 </div>
 
                 <div
-                    class="input_area board_title flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-t border-[#dcdcdc]">
+                    class="input_area board_title flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px]">
                     <label
                         class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
                         질문순서</label>
                     <input type="text" v-model="report.order"
-                        class="w-[calc(100%-70px)] sm:w-[calc(100%-120px)] h-[30px] bg-white !py-0 !px-[10px] border border-solid border-[#dcdcdc] rounded-[6px] !my-auto !mx-0"
+                        class="w-[calc(100%-70px)] sm:w-[calc(100%-120px)] h-[36px] bg-white !py-0 !px-[10px] border border-solid border-[#dcdcdc] rounded-[6px] !my-auto !mx-0"
                         placeholder="en" />
                 </div>
 
                 <div
-                    class="input_area content flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    class="input_area content flex items-stretch justify-start gap-[10px] sm:w-full h-auto min-h-[60px] ">
                     <label
                         class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
                         선택지
