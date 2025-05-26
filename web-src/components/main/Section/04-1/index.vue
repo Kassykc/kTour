@@ -13,14 +13,14 @@
                         class="absolute top-0 left-0 w-full max-w-full lg:max-w-[926px] h-[80%] lg:h-[524px] bg-[#266BFF] rounded-[38px] pointer-events-none">
                     </div>
                     <Swiper :modules="[Autoplay, Pagination, Navigation]"
-                        :autoplay="{ delay: 3000, disableOnInteraction: false }" :loop="true" :pagination="false"
+                        :autoplay="{ delay: 300000, disableOnInteraction: false }" :loop="true" :pagination="false"
                         :slidesPerView="1" :spaceBetween="30" :navigation="{
                             nextEl: '.swiper-button-next-custom',
                             prevEl: '.swiper-button-prev-custom'
                         }" @swiper="onSwiperInit" @slideChange="onSlideChange"
                         class="w-full flex justify-center items-center  mx-auto" ref="swiper">
                         <SwiperSlide v-for="(item, idx) in mainPeopleData.resultInfo" :key="idx">
-                            <div class="flex justifiy-center items-center flex-col lg:flex-row">
+                            <div class="flex justifiy-center items-center flex-col lg:flex-row pb-[30px] lg:pb-0">
                                 <!-- {{ item }} -->
                                 <div
                                     class="slide_item relative w-full lg:w-1/2 h-full lg:h-[524px] flex flex-col justify-start items-start gap-[17px] sm:gap-[20px] lg:gap-[35px] px-[30px] pt-[80px] pb-[15px] xl:p-[70px] bg-cover bg-center">
@@ -44,8 +44,8 @@
                                             class="w-full h-full object-cover" @click="router.push(`/mtc/${item.peopleIdx}`)">
                                     </div>
                                 </div>
-                                <div>
-                                    <img :src="fileBaseUrl + getThumbs(item)" alt="슬라이드 이미지">
+                                <div class="w-full max-w-[290px] sm:max-w-[520px] lg:max-w-[660px] h-[210px] sm:h-[360px] lg:h-[446px] rounded-[30px] overflow-hidden shadow-[-20px_14px_20px_rgba(0,0,0,0.15)]">
+                                    <img :src="fileBaseUrl + getThumbs(item)" alt="슬라이드 이미지" class="w-full h-full object-cover">
                                 </div>
                             </div>
                         </SwiperSlide>
@@ -125,11 +125,11 @@ const { data: mainPeopleData, pending, error, refresh } = await useAsyncData(
 const isPrevHover = ref(false)
 const isNextHover = ref(false)
 
-const prevOff = new URL('@/assets/images/main/section07/prev_off.png', import.meta.url).href
-const prevOn = new URL('@/assets/images/main/section07/prev_on.png', import.meta.url).href
+const prevOff = new URL('/public/img/main/prev_off.png', import.meta.url).href
+const prevOn = new URL('/public/img/main/prev_on.png', import.meta.url).href
 
-const nextOff = new URL('@/assets/images/main/section07/next_off.png', import.meta.url).href
-const nextOn = new URL('@/assets/images/main/section07/next_on.png', import.meta.url).href
+const nextOff = new URL('/public/img/main/next_off.png', import.meta.url).href
+const nextOn = new URL('/public/img/main/next_on.png', import.meta.url).href
 
 const slide = [
     { subTitle: 'Varicose Veins Clinic', title: 'Kim Byoung Joon LEDAS Varicose Vein Clinic', desc: 'Global standard in Varicose Vein Treatment', img: img01 },

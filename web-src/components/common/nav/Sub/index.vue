@@ -5,7 +5,7 @@
     <div
       class="px-[20px] flex justify-start items-center w-full mx-auto min-w-[320px] h-[250px] md:h-[280px] lg:h-[320px]">
       <div
-        class="submenu_title_area w-[28%] h-full pr-[100px] font-[700] text-[34px] border-r border-[#ADADAD] flex items-center justify-end bg-[url('/img/common/nav/submenu_bg.png')] bg-[50%] bg-[position:75%_center] bg-no-repeat text-right"
+        class="submenu_title_area w-[28%] h-full pr-[5.5%] font-[700] text-[34px] border-r border-[#ADADAD] flex items-center justify-end bg-[url('/img/common/nav/submenu_bg.png')] bg-[50%] bg-[position:75%_center] bg-no-repeat text-right"
         v-html="menus[activeNav]?.title">
       </div>
       <div
