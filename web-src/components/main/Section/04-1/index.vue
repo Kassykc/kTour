@@ -101,7 +101,7 @@ const { data: mainPeopleData, pending, error, refresh } = await useAsyncData(
             const response = await fetch(PROFILEMNG_API_URLS.SET_PEOPLE_URL2 + "s", {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ pageNum: 1, pageSize: 4, searchKeyword: '', show_yn: 'Y' }),
+                body: JSON.stringify({ pageNum: 1, pageSize: 5, searchKeyword: '', show_yn: 'Y' }),
             });
 
             if (!response.ok) throw new Error('Failed to fetch people data');
@@ -195,7 +195,7 @@ onMounted(() => {
 })
 
 const activeIndex = ref(0)
-const totalSlides = String(slide.length).padStart(2, '0')
+const totalSlides = String(5).padStart(2, '0')
 
 
 const onSlideChange = (swiper: any) => {
