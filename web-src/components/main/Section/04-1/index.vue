@@ -2,7 +2,8 @@
     <div class="flex flex-col py-[100px] items-center" v-if="mainPeopleData">
         <div class="flex flex-col items-start w-[100vw] max-w-[1340px] pb-12 px-6">
             <div class="pb-[2rem]">
-                <MainSectionLinkTitle :title="t('main.section4-1.part1.title')" :color="'#477FF6'" :link="true" @click="router.push('/mtc')"/>
+                <MainSectionLinkTitle :title="t('main.section4-1.part1.title')" :color="'#477FF6'" :link="true"
+                    @click="router.push('/mtc')" />
             </div>
             <div class="font-[400] text-[20px] md:text-[26px] text-[#717171] mb-[42px]">
                 {{ t('main.section4-1.part1.desc') }}
@@ -41,11 +42,14 @@
                                     <div
                                         class="absolute top-[25px] right-[20px] lg:top-[35px] lg:right-[30px] w-[50px] h-[50px] lg:w-[80px] lg:h-[80px] pointer-event-none">
                                         <img src="@/assets/images/main/section07/slide_arrow.png" alt="화살표"
-                                            class="w-full h-full object-cover" @click="router.push(`/mtc/${item.peopleIdx}`)">
+                                            class="w-full h-full object-cover"
+                                            @click="router.push(`/mtc/${item.peopleIdx}`)">
                                     </div>
                                 </div>
-                                <div class="w-full max-w-[290px] sm:max-w-[520px] lg:max-w-[660px] h-[210px] sm:h-[360px] lg:h-[446px] rounded-[30px] overflow-hidden shadow-[-20px_14px_20px_rgba(0,0,0,0.15)]">
-                                    <img :src="fileBaseUrl + getThumbs(item)" alt="슬라이드 이미지" class="w-full h-full object-cover">
+                                <div
+                                    class="w-full max-w-[290px] sm:max-w-[520px] lg:max-w-[660px] h-[210px] sm:h-[360px] lg:h-[446px] rounded-[30px] overflow-hidden shadow-[-20px_14px_20px_rgba(0,0,0,0.15)]">
+                                    <img :src="fileBaseUrl + getThumbs(item)" alt="슬라이드 이미지"
+                                        class="w-full h-full object-cover">
                                 </div>
                             </div>
                         </SwiperSlide>
@@ -125,11 +129,10 @@ const { data: mainPeopleData, pending, error, refresh } = await useAsyncData(
 const isPrevHover = ref(false)
 const isNextHover = ref(false)
 
-const prevOff = new URL('/public/img/main/prev_off.png', import.meta.url).href
-const prevOn = new URL('/public/img/main/prev_on.png', import.meta.url).href
-
-const nextOff = new URL('/public/img/main/next_off.png', import.meta.url).href
-const nextOn = new URL('/public/img/main/next_on.png', import.meta.url).href
+const prevOff = '/img/main/prev_off.png';
+const prevOn = '/img/main/prev_on.png';
+const nextOff = '/img/main/next_off.png';
+const nextOn = '/img/main/next_on.png';
 
 const slide = [
     { subTitle: 'Varicose Veins Clinic', title: 'Kim Byoung Joon LEDAS Varicose Vein Clinic', desc: 'Global standard in Varicose Vein Treatment', img: img01 },

@@ -12,22 +12,37 @@ const common = {
     return authStore.id; // Pinia를 통해 사용자 ID 확인
   },
   getLang() {
-    // 첫 앱화면 진입 시 기기 언어에 따라 초기 설정
-    const cookieLang: "en" | "id" | undefined | null | string =
-      this.getCookie("lang"); // 쿠키에서 언어 가져오기
-    if (!cookieLang) {
-      // 쿠키가 없으면 브라우저에서 언어 가져오기
-      let language: "en" | "id" | undefined | null | string =
-        typeof navigator !== "undefined" ? navigator.language : "en"; // SSR에서 navigator가 undefined일 수 있음
-      // console.log("language : ", language);
-      if (language !== "en" && language !== "id") {
-        // 영어 또는 인도네시아어에 해당하지 않는 언어인 경우 기본값 영문으로 세팅
-        language = "en";
-      }
-      this.setLang(language);
-      return language; // 새로 설정한 언어 반환
+    const cookieLang = this.getCookie("lang");
+    if (cookieLang === "id" || cookieLang === "en") {
+      return cookieLang;
     }
-    return cookieLang; // 쿠키가 있을 경우 해당 언어 반환
+
+    let lang = "en"; // 기본값
+
+    // 브라우저 언어 체크
+    if (typeof navigator !== "undefined") {
+      const browserLang = navigator.language.toLowerCase();
+      if (browserLang.includes("id") || browserLang.includes("in")) {
+        lang = "id";
+      }
+    }
+
+    // 인도네시아 지역 접속자인 경우 lang을 id로 설정 (비동기 처리)
+    if (typeof window !== "undefined" && typeof fetch !== "undefined") {
+      fetch("https://ipapi.co/json/")
+        .then((res) => res.json())
+        .then((data) => {
+          if (data && data.country_code === "ID") {
+            this.setLang("id");
+          }
+        })
+        .catch((err) => {
+          console.warn("IP region check failed:", err);
+        });
+    }
+
+    this.setLang(lang);
+    return lang;
   },
   setLang(lang: string) {
     if (typeof window !== "undefined") {
