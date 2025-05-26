@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="header-wrapper" @mouseenter="handleHeaderEnter" @mouseleave="handleHeaderLeave">
         <div
         :class="[ 
             'border-b',
@@ -18,11 +18,11 @@
             </div>
             <div class="hidden lg:block h-[85px]">
               <CommonNav
-                  :isHoveredHeader="isHeaderHover"
-                  :activeNav="activeNav"
-                  @hover="handleNavHover"
-                  @leave="handleNavLeave"
-                  />
+                :isHoveredHeader="isHeaderHover"
+                :activeNav="activeNav"
+                @hover="handleNavHover"
+                @leave="handleNavLeave"
+              />
             </div>
             
             
@@ -85,14 +85,20 @@ const handleNavHover = (index: number) => {
   isTouchActive.value = false
 }
 
-const handleNavLeave = () => {
+const handleNavLeave = (event: MouseEvent) => {
   if (!isDesktop.value) return
-  hideTimer = window.setTimeout(() => {
-    if (!submenuHover.value) {
-      activeNav.value = null
-      isTouchActive.value = false
-    }
-  }, 200)
+
+  const relatedTarget = event.relatedTarget as HTMLElement | null
+  const headerEl = document.querySelector('.header-wrapper') as HTMLElement
+
+  if (!relatedTarget || !headerEl.contains(relatedTarget)) {
+    hideTimer = window.setTimeout(() => {
+      if (!submenuHover.value) {
+        activeNav.value = null
+        isTouchActive.value = false
+      }
+    }, 200)
+  }
 }
 
 const handleSubmenuEnter = () => {
@@ -115,18 +121,26 @@ const resetHeaderState = () => {
   activeNav.value = null
 }
 
-const handleHeaderLeave = () => {
+const handleHeaderLeave = (event: MouseEvent) => {
   if (!isDesktop.value) return
-  hideTimer = window.setTimeout(() => {
-    if (!submenuHover.value && activeNav.value === null) {
-      resetHeaderState()
-    }
-  }, 200)
-}
 
+  const relatedTarget = event.relatedTarget as HTMLElement | null
+  const headerEl = (event.currentTarget as HTMLElement)
+
+  if (!relatedTarget || !headerEl.contains(relatedTarget)) {
+    hideTimer = window.setTimeout(() => {
+      if (!submenuHover.value) {
+        resetHeaderState()
+      }
+    }, 200)
+  }
+}
 const handleHeaderEnter = () => {
   if (!isDesktop.value) return
   isHeaderHover.value = true
+  if (activeNav.value === null) {
+    activeNav.value = 0 // ← 기본으로 보여줄 서브메뉴 인덱스 (0번 메뉴)
+  }
 }
 
 
