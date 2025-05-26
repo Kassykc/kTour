@@ -110,9 +110,14 @@ const removeOption = (index: number) => {
 const addChild = (idx: number) => {
     const newOptions = [...toRaw(props.modelValue)];
     if (!newOptions[idx].addquestion) newOptions[idx].addquestion = [];
-    newOptions[idx].addquestion.push({ ...toRaw(addQuestion.value) });
+
+    // 깊은 복사
+    const deepCopy = JSON.parse(JSON.stringify(addQuestion.value));
+    newOptions[idx].addquestion.push(deepCopy);
+
     emit('update:modelValue', newOptions);
 };
+
 
 const removeItem2 = (index: number, i: number) => {
     const newOptions = [...toRaw(props.modelValue)];
