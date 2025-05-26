@@ -44,7 +44,7 @@
                         <div v-if="selectedOptions[index] === idx && choose.addquestion?.length"
                             class="mt-2 pl-5 border-l">
                             <div v-for="(sub, subIdx) in choose.addquestion" :key="subIdx" class="mt-[20px]">
-                                <div class="text-sm font-medium mb-1">
+                                <div class="text-sm font-medium mb-[10px]">
                                     <span class="text-[#ff0000]" v-if="sub.isRequired">√</span>
                                     {{ composer.locale == 'en' ? sub.questionText.titleEn : sub.questionText.titleId }}
                                 </div>
@@ -59,7 +59,7 @@
                                         class="w-full h-[100px] border border-[#C8C8C8] rounded px-2 py-1"></textarea>
                                 </div>
                                 <div v-if="sub.answerType == 3">
-                                    <div v-for="(opt, optIdx) in sub.option" :key="optIdx" class="mb-1">
+                                    <div v-for="(opt, optIdx) in sub.option" :key="optIdx" class="mb-[10px]">
                                         <label class="cursor-pointer flex items-center gap-2">
                                             <input type="radio" :name="'subradio_' + index + '_' + subIdx" />
                                             {{ composer.locale == 'en' ? opt.text.titleEn : opt.text.titleId }}
@@ -67,7 +67,7 @@
                                     </div>
                                 </div>
                                 <div v-if="sub.answerType == 4">
-                                    <div v-for="(opt, optIdx) in sub.option" :key="optIdx" class="mb-1">
+                                    <div v-for="(opt, optIdx) in sub.option" :key="optIdx" class="mb-[10px]">
                                         <label class="cursor-pointer">
                                             <input type="checkbox" name="service" value="1" checked />
                                             Health Check-up
@@ -94,7 +94,7 @@
                         class="mt-2 pl-5 border-l">
 
                         <div v-for="(sub, subIdx) in choose.addquestion" :key="subIdx" class="mt-[20px]">
-                            <div class="text-sm font-medium mb-1">
+                            <div class="text-sm font-medium mb-[10px]">
                                 <span class="text-[#ff0000]" v-if="sub.isRequired">√</span>
                                 {{ composer.locale == 'en' ? sub.questionText.titleEn : sub.questionText.titleId }}
                             </div>
@@ -108,7 +108,7 @@
                                 <textarea class="w-full h-[100px] border border-[#C8C8C8] rounded px-2 py-1"></textarea>
                             </div>
                             <div v-if="sub.answerType == 3">
-                                <div v-for="(opt, optIdx) in sub.option" :key="optIdx" class="mb-1">
+                                <div v-for="(opt, optIdx) in sub.option" :key="optIdx" class="mb-[10px]">
                                     <label class="cursor-pointer flex items-center gap-2">
                                         <input type="radio" :name="'subradio_' + index + '_' + subIdx" />
                                         {{ composer.locale == 'en' ? opt.text.titleEn : opt.text.titleId }}
@@ -116,7 +116,7 @@
                                 </div>
                             </div>
                             <div v-if="sub.answerType == 4">
-                                <div v-for="(opt, optIdx) in sub.option" :key="optIdx" class="mb-1">
+                                <div v-for="(opt, optIdx) in sub.option" :key="optIdx" class="mb-[10px]">
                                     <label class="cursor-pointer">
                                         <input type="checkbox" />
                                         {{ composer.locale == 'en' ? opt.text.titleEn : opt.text.titleId }}
