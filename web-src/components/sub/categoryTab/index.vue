@@ -32,6 +32,7 @@ const selectedChildren = ref([]);
 
 // 현재 경로 가져오기
 const route = useRoute();
+const router = useRouter();
 
 // const router = useRouter();
 const emit = defineEmits(); // 부모에게 전달할 이벤트 정의
@@ -47,6 +48,13 @@ const selectCategory = (index: number, categoryName: string, codeKey?: number | 
     if (route.path == '/mtc') {
         const getCodeKey = codeKey ? codeKey : setCodeKey.value ? setCodeKey.value : null;
         setCodeKey.value = getCodeKey;
+
+        router.replace({
+            query:{
+                tab: index ?? -1,
+                key: setCodeKey.value ?? null,
+            }
+        })
 
         if (index == -1) {
             selectedChildren.value = [];
@@ -188,7 +196,9 @@ const setCategories = async () => {
         categories.value = []; // 기본값 설정 (필요에 따라 다른 설정 가능)
     }
     selectedIndex.value = selectedIndex.value != null ? selectedIndex.value : -1;
-    selectCategory(selectedIndex.value, '');
+    selectedIndex.value = route.query.tab ? parseInt(route.query.tab) : -1;
+    const codeKey = route.query.key ? parseInt(route.query.key) : null;
+    selectCategory(selectedIndex.value, '', codeKey);
 };
 
 watch(() => composer.locale, (newLang, oldLang) => {

@@ -8,7 +8,7 @@
                 {{ t('main.section2.part1.subtitle') }}
             </div>
             <div class="mb-[100px]">
-                <CommonBtnViewMore />
+                <CommonBtnViewMore :to="'/about?tab=korea'"/>
             </div>
             <div class="chart_area w-full max-w-[1340px] flex flex-col lg:flex-row justify-start lg:justify-between items-center lg:items-start gap-[70px] mb-[126px] px-[20px]">
                 <div class="rank w-full md:w-[632px] h-fit md:h-[780px] flex flex-col justify-between items-center gap-[20px] md:gap-0">

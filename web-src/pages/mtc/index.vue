@@ -37,6 +37,8 @@ import { useMemberMngStore } from '~/stores/admin/peopleStore';
 
 const memberMngStore = useMemberMngStore('people-mtc');
 
+const route = useRoute();
+
 const bannerTitle = ref('MTC');
 const bannerBgImage = ref(mts_bg); // 배경 이미지 경로
 const category = ref('mtc');
@@ -53,6 +55,8 @@ const encodeHtmlEntities = (str: string): string => {
 
 const updateSelectedCategory = async (categoryName: string, depth2?: any, idx?: any) => {
     selectedCategory.value = categoryName;  // selectedCategory 업데이트
+
+    console.lo
 
     if (depth2 && depth2.length > 0) {
         depth2List.value = [];

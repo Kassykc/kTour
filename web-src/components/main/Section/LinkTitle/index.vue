@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center items-center w-fit">
+    <div class="flex justify-center items-center w-fit cursor-pointer">
         <div class="text-[30px] sm:text-[40px] lg:text-[70px] font-[700]" :style="`color:${props.color}`">
             {{ props.title ?? '' }}
         </div>

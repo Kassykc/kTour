@@ -1,8 +1,8 @@
 <template>
-    <div class="flex flex-col py-[100px] items-center ">
+    <div class="flex flex-col py-[100px] items-center" v-if="mainPeopleData">
         <div class="flex flex-col items-start w-[100vw] max-w-[1340px] pb-12 px-6">
             <div class="pb-[2rem]">
-                <MainSectionLinkTitle :title="t('main.section4-1.part1.title')" :color="'#477FF6'" :link="true" />
+                <MainSectionLinkTitle :title="t('main.section4-1.part1.title')" :color="'#477FF6'" :link="true" @click="router.push('/mtc')"/>
             </div>
             <div class="font-[400] text-[20px] md:text-[26px] text-[#717171] mb-[42px]">
                 {{ t('main.section4-1.part1.desc') }}
@@ -19,34 +19,40 @@
                             prevEl: '.swiper-button-prev-custom'
                         }" @swiper="onSwiperInit" @slideChange="onSlideChange"
                         class="w-full flex justify-center items-center  mx-auto" ref="swiper">
-                        <SwiperSlide v-for="(item, idx) in slide" :key="idx">
+                        <SwiperSlide v-for="(item, idx) in mainPeopleData.resultInfo" :key="idx">
                             <div class="flex justifiy-center items-center flex-col lg:flex-row">
+                                <!-- {{ item }} -->
                                 <div
                                     class="slide_item relative w-full lg:w-1/2 h-full lg:h-[524px] flex flex-col justify-start items-start gap-[17px] sm:gap-[20px] lg:gap-[35px] px-[30px] pt-[80px] pb-[15px] xl:p-[70px] bg-cover bg-center">
                                     <div class="font-[800] text-[14px] lg:text-[19px] text-white mb-[13px] sm:mb-[3px]">
-                                        {{ item.subTitle }}
-
+                                        {{ getCategoryLabel(item) }}
                                     </div>
-                                    <div class="font-[800] text-[22px] sm:text-[30px] lg:text-[45px] leading-[30px] sm:leading-[42px] lg:leading-[58px] text-white uppercase">
-                                        {{ item.title }}
-                                    </div>
-
-                                    <div class="font-[800] text-[15px] lg:text-[28px] leading-[22px] lg:leading-[31px] text-white mt-0 lg:mt-[35px]">
-                                        {{ item.desc }}
+                                    <div
+                                        class="font-[800] text-[22px] sm:text-[30px] lg:text-[45px] leading-[30px] sm:leading-[42px] lg:leading-[58px] text-white uppercase">
+                                        {{ composer.locale == 'en' ? item.nameFirstKo : item.nameFirstEn }}
                                     </div>
 
-                                    <div class="absolute top-[25px] right-[20px] lg:top-[35px] lg:right-[30px] w-[50px] h-[50px] lg:w-[80px] lg:h-[80px] pointer-event-none">
-                                        <img src="@/assets/images/main/section07/slide_arrow.png" alt="화살표" class="w-full h-full object-cover">
+                                    <div
+                                        class="font-[800] text-[15px] lg:text-[28px] leading-[22px] lg:leading-[31px] text-white mt-0 lg:mt-[35px]">
+                                        {{ composer.locale == 'en' ? decodeHtmlEntities(item.peopleMemo).sloganEn :
+                                            decodeHtmlEntities(item.peopleMemo).sloganId }}
+                                    </div>
+
+                                    <div
+                                        class="absolute top-[25px] right-[20px] lg:top-[35px] lg:right-[30px] w-[50px] h-[50px] lg:w-[80px] lg:h-[80px] pointer-event-none">
+                                        <img src="@/assets/images/main/section07/slide_arrow.png" alt="화살표"
+                                            class="w-full h-full object-cover" @click="router.push(`/mtc/${item.peopleIdx}`)">
                                     </div>
                                 </div>
                                 <div>
-                                    <img :src=item.img alt="슬라이드 이미지">
+                                    <img :src="fileBaseUrl + getThumbs(item)" alt="슬라이드 이미지">
                                 </div>
                             </div>
                         </SwiperSlide>
                     </Swiper>
 
-                    <div class="absolute left-[20px] bottom-[-65px] xl:left-[70px] font-[500] text-[16px] text-[#929292]">
+                    <div
+                        class="absolute left-[20px] bottom-[-65px] xl:left-[70px] font-[500] text-[16px] text-[#929292]">
                         {{ String(activeIndex + 1).padStart(2, '0') }}/{{ totalSlides }}
                     </div>
 
@@ -59,11 +65,13 @@
                         class="flex justify-end sm:justify-between items-center w-[150px] mb-4 absolute bottom-[-84px] sm:bottom-[-100px] right-0 xl:right-[100px] gap-[10px]">
                         <div class="swiper-button-prev-custom w-[30px] h-[30px] sm:w-full sm:h-full">
                             <img :src="isPrevHover ? prevOn : prevOff" @mouseover="isPrevHover = true"
-                                @mouseleave="isPrevHover = false" alt="이전 버튼" class="cursor-pointer w-full h-full object-cover" />
+                                @mouseleave="isPrevHover = false" alt="이전 버튼"
+                                class="cursor-pointer w-full h-full object-cover" />
                         </div>
                         <div class="swiper-button-next-custom w-[30px] h-[30px] sm:w-full sm:h-full">
                             <img :src="isNextHover ? nextOn : nextOff" @mouseover="isNextHover = true"
-                                @mouseleave="isNextHover = false" alt="다음 버튼" class="cursor-pointer w-full h-full object-cover" />
+                                @mouseleave="isNextHover = false" alt="다음 버튼"
+                                class="cursor-pointer w-full h-full object-cover" />
                         </div>
                     </div>
                 </div>
@@ -73,12 +81,46 @@
 </template>
 
 <script setup lang="ts">
-import { t } from '@/plugins/i18n';
+import { t, composer } from '@/plugins/i18n';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import { ref, onMounted } from 'vue'
+import { PROFILEMNG_API_URLS } from '@/apis/admin/peopleMng/urls'
 
 import img01 from '@/assets/images/main/section07/slide01.png'
+
+const router = useRouter();
+
+const { data: mainPeopleData, pending, error, refresh } = await useAsyncData(
+    `mainPeopleData`,
+    async () => {
+        try {
+            const response = await fetch(PROFILEMNG_API_URLS.SET_PEOPLE_URL2 + "s", {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ pageNum: 1, pageSize: 4, searchKeyword: '', show_yn: 'Y' }),
+            });
+
+            if (!response.ok) throw new Error('Failed to fetch people data');
+
+            const reader = response.body.getReader();
+            let result = '';
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+                result += new TextDecoder().decode(value);
+            }
+
+            return JSON.parse(result);
+        } catch (err) {
+            console.error('SSR fetch 실패, CSR fallback 준비:', err);
+            return null;
+        }
+    },
+    {
+        server: true,
+        default: () => null,
+    }
+);
 
 const isPrevHover = ref(false)
 const isNextHover = ref(false)
@@ -107,11 +149,42 @@ const restartProgress = () => {
     bar.classList.add('animate-progress')
 }
 
-
 const onSwiperInit = (swiper: any) => {
     swiper.on('slideChange', () => {
         restartProgress()
     })
+}
+
+const getThumbs = (item: any): string => {
+    return item.fileInfo.filter(file => file.fileExt == 'webp')[0].filePathEnc;
+}
+
+const getCategoryLabel = (item: any): string => {
+    if (!item || !item.peopleMemo) return '';
+    try {
+        const decoded = decodeHtmlEntities(item.peopleMemo);
+        if (!decoded || !Array.isArray(decoded.category)) return '';
+        return decoded.category
+            .map(ct => composer.locale === 'en' ? ct.codeValue.categoryNameEn : ct.codeValue.categoryNameId)
+            .join(', ');
+    } catch (e) {
+        console.error('카테고리 파싱 실패:', e);
+        return '';
+    }
+}
+
+const fileBaseUrl = apiBase.url() + "/_file/000/";
+
+const decodeHtmlEntities = (str: string) => {
+    if (!str || typeof str !== 'string') return {}; // 예외 처리
+    try {
+        const txt = document.createElement('textarea');
+        txt.innerHTML = str;
+        return JSON.parse(txt.value);
+    } catch (e) {
+        console.error('decodeHtmlEntities 파싱 실패:', e);
+        return {};
+    }
 }
 
 onMounted(() => {
