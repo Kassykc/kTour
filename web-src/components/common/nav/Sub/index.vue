@@ -1,6 +1,6 @@
 <template>
   <div v-if="visible && activeNav !== null && submenus[activeNav]"
-    class="absolute top-[86px] left-0 w-screen z-50 bg-white/90" @mouseenter="$emit('submenu-enter')"
+    class="absolute top-[87px] left-0 w-screen z-50 bg-white/90" @mouseenter="$emit('submenu-enter')"
     @mouseleave="$emit('submenu-leave')">
     <div
       class="px-[20px] flex justify-start items-center w-full mx-auto min-w-[320px] h-[250px] md:h-[280px] lg:h-[320px]">
