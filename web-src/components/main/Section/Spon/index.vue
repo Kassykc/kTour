@@ -20,7 +20,7 @@
                         1280: { slidesPerView: 5 },
                         1536: { slidesPerView: 6 }
                     }"
-                    class="w-full max-w-[1920px] flex justify-center items-center">
+                    class="w-full flex justify-center items-center">
                         <SwiperSlide v-for="(item, idx) in spon" :key="idx">
                             <div class="text-center flex justify-center items-center w-[130px] h-[100px] sm:w-[200px] sm:h-[150px] mx-auto">
                                 <img :src="item.img" class="w-full object-contain" />
