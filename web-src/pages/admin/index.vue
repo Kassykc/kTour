@@ -2,7 +2,7 @@
     <div class="w-full h-screen bg-gray-100 flex items-center justify-center">
         <div class="bg-white w-[90%] max-w-[600px] p-8 rounded-xl shadow-md">
             <div class="flex flex-col items-center gap-4 mb-10">
-                <img src="@/assets/images/logo_color.png" alt="한국공학대학교 로고" class="w-64 mb-4" />
+                <img src="@/public/img/common/logo/logo_color.png" alt="메디시티 로고" class="w-[220px] mb-4" />
                 <h1 class="text-xl font-semibold">로그인을 해주세요.</h1>
             </div>
 
