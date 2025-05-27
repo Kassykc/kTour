@@ -5,8 +5,10 @@
             <div class="overflow_wrap">
                 <h2 class="registration text-[18px] !mb-[20px] text-left font-[700]">병원 카테고리 관리</h2>
                 <div class="flex justify-start items-center flex-col border-t">
-                    <div class="user_gender input_area flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
-                        <label class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">노출여부</label>
+                    <div
+                        class="user_gender input_area flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                        <label
+                            class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">노출여부</label>
                         <label class="flex justify-start items-center gap-[10px] !mr-[20px]">
                             <input type="radio" v-model="resData.showYn" value="N" />비노출
                         </label>
@@ -14,40 +16,65 @@
                             <input type="radio" v-model="resData.showYn" value="Y" />노출
                         </label>
                     </div>
-                        <div class="user_role input_area flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
-                            <label class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">분류</label>
-                            <select v-model="resData.categoryDivCd" class="!w-fit !min-w-[160px] !px-[10px] !py-[4px] !mt-[10px]">
-                                <option v-for="role in codeOpt1" :key="role.key" :value="role.key">
-                                    {{ role.value }}
-                                </option>
-                            </select>
-                            <select v-model="resData.categoryParentIdx" v-if="resData.categoryDivCd == '100'" class="!w-fit !min-w-[160px] !px-[10px] !py-[4px] !mt-[10px]">
-                                <option value="">대분류를 선택해주세요</option>
-                                <option v-for="cate in codeOpt2" :key="cate.key" :value="cate.key">
-                                    {{ cate.value }}
-                                </option>
-                            </select>
+                    <div
+                        class="user_role input_area flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                        <label
+                            class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">분류</label>
+                        <select v-model="resData.categoryDivCd"
+                            class="!w-fit !min-w-[160px] !px-[10px] !py-[4px] !mt-[10px]">
+                            <option v-for="role in codeOpt1" :key="role.key" :value="role.key">
+                                {{ role.value }}
+                            </option>
+                        </select>
+                        <select v-model="resData.categoryParentIdx" v-if="resData.categoryDivCd == '100'"
+                            class="!w-fit !min-w-[160px] !px-[10px] !py-[4px] !mt-[10px]">
+                            <option value="">대분류를 선택해주세요</option>
+                            <option v-for="cate in codeOpt2" :key="cate.key" :value="cate.key">
+                                {{ cate.value }}
+                            </option>
+                        </select>
+                    </div>
+                    <div
+                        class="flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                        <div
+                            class="user_id input_area flex items-stretch justify-start gap-[10px] w-[50%] h-auto min-h-[60px] border-b-0 border-[#dcdcdc]">
+                            <label
+                                class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">분류명(en)</label>
+                            <input type="text" v-model="categoryNameEn" autocomplete="off"
+                                class="border rounded-[6px] !px-[10px] !block !h-[34px] !py-[4px] !mt-[12px] w-full" />
                         </div>
-                        <div class="flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
-                            <div class="user_id input_area flex items-stretch justify-start gap-[10px] w-[50%] h-auto min-h-[60px] border-b-0 border-[#dcdcdc]">
-                                <label class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">분류명(en)</label>
-                                <input type="text" v-model="categoryNameEn" autocomplete="off" class="border rounded-[6px] !px-[10px] !block !h-[34px] !py-[4px] !mt-[12px] w-full" />
-                            </div>
-                            <div class="user_id input_area flex items-stretch justify-start gap-[10px] w-[50%] h-auto min-h-[60px] border-b-0 border-[#dcdcdc]">
-                                <label class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">분류명(id)</label>
-                                <input type="text" v-model="categoryNameId" autocomplete="off" class="border rounded-[6px] !px-[10px] !block !h-[34px] !py-[4px] !mt-[12px] w-full" />
-                            </div>
+                        <div
+                            class="user_id input_area flex items-stretch justify-start gap-[10px] w-[50%] h-auto min-h-[60px] border-b-0 border-[#dcdcdc]">
+                            <label
+                                class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">분류명(id)</label>
+                            <input type="text" v-model="categoryNameId" autocomplete="off"
+                                class="border rounded-[6px] !px-[10px] !block !h-[34px] !py-[4px] !mt-[12px] w-full" />
                         </div>
+                    </div>
+                    <div
+                        class="flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                        <div
+                            class="user_id input_area flex items-stretch justify-start gap-[10px] w-[50%] h-auto min-h-[60px] border-b-0 border-[#dcdcdc]">
+                            <label
+                                class="flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">노출순서</label>
+                            <input type="text" v-model="resData.categoryType" autocomplete="off"
+                                class="border rounded-[6px] !px-[10px] !block !h-[34px] !py-[4px] !mt-[12px] w-full" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- 버튼 영역 -->
         <div class="btn_wrap flex items-center justify-end gap-[6px]">
-            <div class="common_btn reg_btn text-[14px] !py-[10px] !px-[20px] !mt-[20px] rounded-[10px] cursor-pointer text-white bg-[#0047A0]" @click="goReg" v-if="props.mode == 'reg'">등록</div>
-            <div class="common_btn modify_btn text-[14px] !py-[10px] !px-[20px] !mt-[20px] rounded-[10px] cursor-pointer text-white bg-[#12A0DD]" @click="goUpdate" v-if="props.mode == 'mod'">수정</div>
-            <div class="common_btn delete_btn text-[14px] !py-[10px] !px-[20px] !mt-[20px] rounded-[10px] cursor-pointer text-white bg-[#C93631]" @click="goDelete" v-if="props.mode == 'mod'">삭제</div>
-            <div class="ccommon_btn cancle_btn text-[14px] !py-[10px] !px-[20px] !mt-[20px] rounded-[10px] cursor-pointer text-white bg-[#bfbfbf]" @click="emit('close')">취소</div>
+            <div class="common_btn reg_btn text-[14px] !py-[10px] !px-[20px] !mt-[20px] rounded-[10px] cursor-pointer text-white bg-[#0047A0]"
+                @click="goReg" v-if="props.mode == 'reg'">등록</div>
+            <div class="common_btn modify_btn text-[14px] !py-[10px] !px-[20px] !mt-[20px] rounded-[10px] cursor-pointer text-white bg-[#12A0DD]"
+                @click="goUpdate" v-if="props.mode == 'mod'">수정</div>
+            <div class="common_btn delete_btn text-[14px] !py-[10px] !px-[20px] !mt-[20px] rounded-[10px] cursor-pointer text-white bg-[#C93631]"
+                @click="goDelete" v-if="props.mode == 'mod'">삭제</div>
+            <div class="ccommon_btn cancle_btn text-[14px] !py-[10px] !px-[20px] !mt-[20px] rounded-[10px] cursor-pointer text-white bg-[#bfbfbf]"
+                @click="emit('close')">취소</div>
         </div>
     </div>
 </template>
@@ -110,7 +137,7 @@ const resData = ref({
     categoryNameCn: "",
     categoryNameEn: "",
     categoryMemo: "",
-    categoryType: ""
+    categoryType: "1"
 });
 
 const categoryNameEn = ref('');
