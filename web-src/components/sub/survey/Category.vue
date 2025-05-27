@@ -5,16 +5,25 @@
             {{ composer.locale == 'en' ? list[0].repotTitle.titleEn : list[0].repotTitle.titleId }}
         </div>
         <div v-for="(item, index) in list" :key="index"
-            class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b  border-[#c8c8c8]">
-            <div class="flex flex-col sm:flex-row justify-start items-start sm:items-center gap-[10px] sm:gap-0" v-if="item.answerType == 1">
-                <div class="name w-[200px] flex-0">
+            class="cont text-[15px] sm:text-[18px] font-[700] w-full px-[20px] py-[10px] sm:py-[20px] sm:px-[50px] border-b  border-[#c8c8c8]"
+        >
+            <div 
+                class="flex flex-col justify-start items-start  gap-[10px] sm:gap-0" v-if="item.answerType == 1"
+                :class="isBasicInfo ?  ' sm:flex-row sm:items-center' : 'sm:flex-col'"
+            >
+                <div 
+                    class="name flex-0"
+                    :class="isBasicInfo ? 'w-[200px]' : 'w-full pb-[10px]'"
+                >
                     <span class="text-[#ff0000]" v-if="item.isRequired">√</span>
                     {{ composer.locale == 'en' ? item.questionText.questionTextEn : item.questionText.questionTextId }}
                 </div>
                 <!-- answerType 1: 텍스트 입력 -->
                 <div class="fill flex-1 w-full" v-if="item.answerType == 1">
                     <input type="text"
-                        class="w-full max-w-[500px] h-[50px] border border-[#C8C8C8] font-[400] rounded-[5px] px-[10px]" />
+                        class="w-full  h-[50px] border border-[#C8C8C8] font-[400] rounded-[5px] px-[10px]" 
+                        :class="isBasicInfo ? 'max-w-[500px]' : 'max-w-full'"    
+                    />
                 </div>
             </div>
 
@@ -139,6 +148,12 @@ import { t, composer } from '@/plugins/i18n'
 const props = defineProps({
     list: Array
 })
+
+// ✅ basicInfo 여부 판별
+const isBasicInfo = computed(() =>
+    props.list?.length > 0 && props.list[0].repotTitle?.titleEn === 'Basic Information'
+)
+
 
 const selectedOptions = ref<Record<number, number>>({})
 const selectedCheckboxes = ref<Record<number, number[]>>({})
