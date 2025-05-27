@@ -65,3 +65,29 @@ export const deleteBoard = async (data: any) => {
   const response = await fetchData(params);
   return response;
 };
+
+export const postBoardAnswerList = async (data: any) => {
+  const { fetchData } = useApi();
+  const params: ApiRequest = {
+    url: REPORT_API_URLS.ANSWER_LIST_URL,
+    method: "post",
+    data: data,
+    isAuthRequired: true,
+  };
+
+  const response = await fetchData(params);
+  return response;
+};
+
+export const postAnswerBoard = async (data: any) => {
+  const { fetchData } = useApi();
+  const params: ApiRequest = {
+    url: REPORT_API_URLS.ANSWER_INSERT_URL,
+    method: "post",
+    data: data,
+    isAuthRequired: true,
+  };
+
+  const response = await fetchData(params);
+  return response;
+};

@@ -3,9 +3,6 @@
         <Banner :title="bannerTitle" :category="category" :selectedTab="selectedTab" :videoSrc="'/video/main/banner.webm'" />
 
         <SubSurvey />
-        
-        <SubMoreBtn :label="t('menu.2depth.4.name')" width="w-[260px]" bgColor="bg-[#1F78FF]" :showIcon="false"
-        url="/" />
     </div>
 </template>
 <script setup lang="ts">

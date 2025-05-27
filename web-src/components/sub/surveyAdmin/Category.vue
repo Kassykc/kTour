@@ -39,7 +39,9 @@
                     <div v-for="(choose, idx) in item.answerData" :key="idx" class="mt-[20px]">
                         <label class="cursor-pointer flex items-center gap-2">
                             <input type="radio"
-                                @change="onRadioChange(index, idx)" />
+                                @change="onRadioChange(index, idx)" 
+  :checked="reqData[index].answerData[idx].value == 'selected'" />
+
                             {{ composer.locale == 'en' ? choose.text.titleEn : choose.text.titleId }}
                         </label>
 
@@ -114,7 +116,7 @@
                             <div v-if="sub.answerType == 3">
                                 <div v-for="(opt, optIdx) in sub.option" :key="optIdx" class="mb-[10px]">
                                     <label class="cursor-pointer flex items-center gap-2">
-                                        <input type="radio" />
+                                        <input type="radio"/>
                                         {{ composer.locale == 'en' ? opt.text.titleEn : opt.text.titleId }}
                                     </label>
                                 </div>

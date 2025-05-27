@@ -29,7 +29,7 @@
 
                     <div class="flex items-center justify-start">
                         <select class="w-[150px] px-2 py-1 border border-[#dcdcdc] rounded bg-white text-sm"
-                        v-model="report.answerType">
+                            v-model="report.answerType">
                             <option value="1">단답식</option>
                             <option value="2">주관식</option>
                             <option value="3">단일선택형</option>
@@ -45,10 +45,11 @@
                         질문 카테고리
                     </label>
 
-                    <div class="flex items-center justify-start"> 
+                    <div class="flex items-center justify-start">
                         <select class="w-auto h-[36px] px-2 py-1 border border-[#dcdcdc] rounded bg-white text-sm"
                             v-model="report.repotTitle">
-                            <option v-for="(item, index) in category" :key="index" :value="item">{{ item.titleEn }}</option>
+                            <option v-for="(item, index) in category" :key="index" :value="item">{{ item.titleEn }}
+                            </option>
                         </select>
                     </div>
                 </div>
@@ -261,21 +262,23 @@ const goDelete = () => {
 onMounted(async () => {
     if (props.mode == 'mod') {
         const params = {
-            repotIdx: props.idx,
+            pageNum: 1,
+            pageSize: 9999,
+            uuid: prop.idx,
         }
         const response = await reportMngStore.dtlBoard(params);
-        if (response) {
+        // if (response) {
 
-            report.value = response.resultInfo;
+        //     report.value = response.resultInfo;
 
-            report.value.answerData = JSON.parse(report.value.answerData);
-            report.value.repotTitle = JSON.parse(report.value.repotTitle);
-            report.value.questionText = JSON.parse(report.value.questionText);
+        //     report.value.answerData = JSON.parse(report.value.answerData);
+        //     report.value.repotTitle = JSON.parse(report.value.repotTitle);
+        //     report.value.questionText = JSON.parse(report.value.questionText);
 
-            if (report.value.answerData) {
-                answerOption.value = report.value.answerData
-            }
-        }
+        //     if (report.value.answerData) {
+        //         answerOption.value = report.value.answerData
+        //     }
+        // }
     }
 });
 </script>

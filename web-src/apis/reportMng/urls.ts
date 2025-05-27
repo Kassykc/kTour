@@ -9,4 +9,7 @@ export const REPORT_API_URLS: Record<string, string> = {
   POST_LIST_URL: `${BASE_URL}/_repots`,
   CLIENT_USE_URL: `${BASE_URL}/_repot`,
   ADMIN_USE_URL: `${BASE_URL}/repot`,
+  
+  ANSWER_LIST_URL: `${BASE_URL}/repot/_answers`,  
+  ANSWER_INSERT_URL: `${BASE_URL}/repot/answer`,
 };

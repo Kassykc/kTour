@@ -9,6 +9,8 @@ import {
   getBoard,
   updateBoard,
   deleteBoard,
+  postBoardAnswerList,
+  postAnswerBoard,
 } from "@/apis/reportMng/control";
 import { getCommonFile } from "@/apis/admin/common/control";
 
@@ -39,6 +41,21 @@ export function useReportStore(storeName: string) {
       return common.convertKeysToCamel(response.data);
     };
 
+    const getBoardAnswerList = async (data: any) => {
+      const response = await postBoardAnswerList(data); // API 호출
+      return common.convertKeysToCamel(response.data);
+    };
+
+    const insertBoardAnswer = async (data: any) => {
+      const response = await postAnswerBoard(data); // API 호출
+      return common.convertKeysToCamel(response.data);
+    };
+
+    const uptAnswer = async (data: any) => {
+      const response = await updateBoard(data); // API 호출
+      return common.convertKeysToCamel(response.data);
+    };
+
     // const getFiles = async (data: any) => {
     //   const response = await getCommonFile(data); // API 호출
     //   return common.convertKeysToCamel(response.data);
@@ -55,6 +72,10 @@ export function useReportStore(storeName: string) {
       dtlBoard,
       uptBoard,
       delBoard,
+
+      insertBoardAnswer,
+      uptAnswer,
+      getBoardAnswerList,
       // getFiles,
       // getExcel,
     };

@@ -4,29 +4,36 @@
             <div class="table_wrap max-h-[500px] overflow-y-auto">
                 <!-- 테이블 헤더 -->
                 <div class="table_row table_head flex border font-bold bg-[#f4f4f4] border-t border-[#dcdcdc]">
-                    <div class="table_cell flex justify-center items-center relative !p-[10px] text-center border-r border-[#dcdcdc] whitespace-nowrap overflow-hidden text-ellipsis" :style="{ flex: '2' }">
+                    <div class="table_cell flex justify-center items-center relative !p-[10px] text-center border-r border-[#dcdcdc] whitespace-nowrap overflow-hidden text-ellipsis"
+                        :style="{ flex: '2' }">
                         <input class="w-full !p-[5px]" type="checkbox" @change="(e) => toggleAllRows(e.target.checked)"
                             :checked="allSelected" />
                     </div>
-                    <div v-for="(column, index) in columns" :key="index" class="table_cell flex justify-center items-center relative !p-[10px] text-center border-r border-[#dcdcdc] whitespace-nowrap overflow-hidden text-ellipsis"
+                    <div v-for="(column, index) in columns" :key="index"
+                        class="table_cell flex justify-center items-center relative !p-[10px] text-center border-r border-[#dcdcdc] whitespace-nowrap overflow-hidden text-ellipsis"
                         :style="columnsWidth[index] ?? ''">
                         {{ column.label }}
                     </div>
-                    <div v-if="props.isDtl" class="table_cell flex justify-center items-center relative !p-[10px] text-center border-r border-[#dcdcdc] whitespace-nowrap overflow-hidden text-ellipsis" :style="{ flex: '5' }">
+                    <div v-if="props.isDtl"
+                        class="table_cell flex justify-center items-center relative !p-[10px] text-center border-r border-[#dcdcdc] whitespace-nowrap overflow-hidden text-ellipsis"
+                        :style="{ flex: '5' }">
                         상세
                     </div>
                 </div>
 
                 <!-- 테이블 데이터 -->
-                <div v-for="(item, rowIndex) in list" :key="rowIndex" class="table_row flex border border-t-0 border-[#dcdcdc]"
-                    @click="movePage(item[props.rowKey])">
+                <div v-for="(item, rowIndex) in list" :key="rowIndex"
+                    class="table_row flex border border-t-0 border-[#dcdcdc]" @click="movePage(item[props.rowKey])">
                     <!-- 체크박스 -->
-                    <div class="table_cell flex justify-center items-center relative !p-[10px] text-center border-r border-[#dcdcdc] whitespace-nowrap overflow-hidden text-ellipsis" :style="{ flex: '2' }">
-                        <input class="w-full !p-[5px]" type="checkbox" @change="(e) => updateSelectedRows(e.target.checked, item[props.rowKey])"
+                    <div class="table_cell flex justify-center items-center relative !p-[10px] text-center border-r border-[#dcdcdc] whitespace-nowrap overflow-hidden text-ellipsis"
+                        :style="{ flex: '2' }">
+                        <input class="w-full !p-[5px]" type="checkbox"
+                            @change="(e) => updateSelectedRows(e.target.checked, item[props.rowKey])"
                             :checked="selections.includes(item[props.rowKey])" />
                     </div>
                     <!-- 항목 -->
-                    <div v-for="(column, colIndex) in columns" :key="colIndex" class="table_cell flex justify-center items-center relative !p-[10px] text-center border-r border-[#dcdcdc] whitespace-nowrap overflow-hidden text-ellipsis"
+                    <div v-for="(column, colIndex) in columns" :key="colIndex"
+                        class="table_cell flex justify-center items-center relative !p-[10px] text-center border-r border-[#dcdcdc] whitespace-nowrap overflow-hidden text-ellipsis"
                         :style="columnsWidth[colIndex] ?? ''">
                         <template v-if="column.type === 'text'">
                             <div v-if="column.key == props.rowKey">
@@ -57,7 +64,9 @@
                             </select>
                         </template>
                         <template v-if="column.type === 'button'">
-                            <button class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 max-w-[64px] max-h-[34px] rounded-[8px] cursor-pointer text-white !bg-[#475467]" @click="column.action(item, rowIndex)">{{ column.label }}</button>
+                            <button
+                                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 max-w-[64px] max-h-[34px] rounded-[8px] cursor-pointer text-white !bg-[#475467]"
+                                @click="column.action(item, rowIndex)">{{ column.label }}</button>
                         </template>
                         <template v-if="column.type === 'html'">
                             <div v-html="item[column.key]"></div>
@@ -75,15 +84,19 @@
                                 <!-- 이미지가 하나도 없는 경우 -->
                                 <div v-if="!item.fileInfo.some(set => Number(set.originTypeCd) === 100)"
                                     class="no_thumb flex items-center justify-center w-full max-w-[100px] h-[46px]">
-                                    <img class="w-full h-full object-contain" src="@/assets/images/no_image.png" alt="" />
+                                    <img class="w-full h-full object-contain" src="@/assets/images/no_image.png"
+                                        alt="" />
                                 </div>
                             </div>
                         </template>
                     </div>
                     <!-- 상세 -->
-                    <div class="table_cell flex justify-center items-center relative !p-[10px] text-center border-r border-[#dcdcdc] whitespace-nowrap overflow-hidden text-ellipsis" :style="{ flex: '5' }">
+                    <div class="table_cell flex justify-center items-center relative !p-[10px] text-center border-r border-[#dcdcdc] whitespace-nowrap overflow-hidden text-ellipsis"
+                        :style="{ flex: '5' }">
                         <template v-if="props.isDtl">
-                            <button class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 max-w-[64px] max-h-[34px] rounded-[8px] cursor-pointer text-white !bg-[#475467]" @click="goDetail(item[props.rowKey])">상세</button>
+                            <button
+                                class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 max-w-[64px] max-h-[34px] rounded-[8px] cursor-pointer text-white !bg-[#475467]"
+                                @click="goDetail(props.rowKey == 'repotAnswerIdx' ? item['uuid'] : item[props.rowKey])">상세</button>
                         </template>
                     </div>
                 </div>
@@ -187,7 +200,12 @@ const goDetail = (index: number) => {
             props.getBoardList(props.paging.pageNum, props.paging.pageSize);
         }
     };
-    openPopup(props.popupComp, { idx: index, mode: 'mod', onClose: closeCallback });
+
+    if (props.rowKey == 'repotAnswerIdx') {
+        openPopup(props.popupComp, { idx: index, mode: 'mod', onClose: closeCallback });
+    } else {
+        openPopup(props.popupComp, { idx: index, mode: 'mod', onClose: closeCallback });
+    }
 };
 
 const goReg = () => {
