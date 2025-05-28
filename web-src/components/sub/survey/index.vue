@@ -101,6 +101,7 @@ const goSurvey = async () => {
         if (item.isRequired) {
             const hasValid = answerText.some(ans => isValidValue(ans.value));
             if (!hasValid) {
+                console.log(item);
                 invalidItems.push(item);
                 return { ...item, answerText };
             }
@@ -115,6 +116,7 @@ const goSurvey = async () => {
 
                     const hasValid = (subQ.option || []).some(opt => isValidValue(opt.value));
                     if (!hasValid) {
+                        console.log(subQ);
                         invalidItems.push({
                             ...item,
                             errorType: 'addquestion',
