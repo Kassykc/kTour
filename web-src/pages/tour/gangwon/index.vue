@@ -1,7 +1,8 @@
 <template>
     <div>
-        <Banner :title="bannerTitle" :category="category" :selectedTab="selectedTab" :videoSrc="'/video/sub/tour_gangwon_banner.webm'"/>
-        
+        <Banner :title="bannerTitle" :category="category" :selectedTab="selectedTab"
+            :videoSrc="'/video/sub/tour_gangwon_banner.webm'" />
+
         <div class="content_area">
             <div id="seoul_tour" class="px-[20px]">
                 <div class="main_title w-full max-w-[1340px] pt-[160px] my-0 mx-auto">
@@ -12,10 +13,11 @@
                         {{ t('gangwonTour.subtitle') }}
                     </p>
                     <p class="text-[18px] lg:text-[24px] mb-[43px] lg:mb-[86px]">
-                        {{ t('gangwonTour.desc1') }}<br/>
-                        {{ t('gangwonTour.desc2') }}
+                        {{ t('gangwonTour.desc1') }}<br />
+                        {{ t('gangwonTour.desc2') }}<br />
+                        {{ t('gangwonTour.desc3') }}
                     </p>
-                </div> 
+                </div>
 
                 <div class="hallyu_tour w-full max-w-[1340px] pt-[120px] my-0 mx-auto">
                     <p class="description text-[24px] lg:text-[40px] font-[700] mb-[34px]">
@@ -27,12 +29,10 @@
                     </p>
                     <div class="flex flex-col sm:flex-row justify-between items-center gap-[10px] mb-[42px]">
                         <div class="w-full h-auto sm:w-[49%] sm:h-[370px] overflow-hidden">
-                            <img src="@/assets/images/sub/tour/gangwon01.png" alt=""
-                                class="w-full h-full object-cover">
+                            <img src="@/assets/images/sub/tour/gangwon01.png" alt="" class="w-full h-full object-cover">
                         </div>
                         <div class="w-full h-auto sm:w-[49%] sm:h-[370px] overflow-hidden">
-                            <img src="@/assets/images/sub/tour/gangwon02.png" alt=""
-                                class="w-full h-full object-cover">
+                            <img src="@/assets/images/sub/tour/gangwon02.png" alt="" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
@@ -42,27 +42,18 @@
                         {{ t('gangwonTour.part2.title') }}
                     </p>
 
-                    <SubTourTimeline 
-                        :day="t('gangwonTour.part2.day1.day')"
-                        :dayTitle="t('gangwonTour.part2.day1.title')" 
-                        :dayImage="gangwon_day1_img" 
-                        :dayDesc="day1Desc" 
-                        :dayColor="'day1'"
-                        class="mb-[40px] sm:mb-0"
-                    />
-                    <SubTourTimeline 
-                        :day="t('gangwonTour.part2.day2.day')"
-                        :dayTitle="t('gangwonTour.part2.day2.title')" 
-                        :dayImage="gangwon_day2_img" 
-                        :dayDesc="day2Desc" 
-                        :dayColor="'day2'"
-                    />
+                    <SubTourTimeline :day="t('gangwonTour.part2.day1.day')"
+                        :dayTitle="t('gangwonTour.part2.day1.title')" :dayImage="gangwon_day1_img" :dayDesc="day1Desc"
+                        :dayColor="'day1'" class="mb-[40px] sm:mb-0" />
+                    <SubTourTimeline :day="t('gangwonTour.part2.day2.day')"
+                        :dayTitle="t('gangwonTour.part2.day2.title')" :dayImage="gangwon_day2_img" :dayDesc="day2Desc"
+                        :dayColor="'day2'" />
 
                     <div class="reference_message flex justify-end items-center text-[14px] mt-[40px]">
-                        <i>Images are for reference only.</i>
+                        <i>{{ t('utils.text.sourceImg') }}</i>
                     </div>
                 </div>
-                
+
 
             </div>
         </div>
@@ -126,5 +117,5 @@ const day2Desc = [
 ]
 </script>
 <style lang="">
-    
+
 </style>

@@ -4,7 +4,7 @@
             <div class="category min-w-[40px] md:min-w-[75px] px-[10px] md:px-[30px] py-[8px] md:py-[14px] text-[13px] md:text-[18px] text-center rounded-[18px] md:rounded-[30px] cursor-pointer font-[700] border border-[#AFAFAF]"
                 :class="selectedIndex == -1 ? 'bg-[#1F78FF] text-white' : 'bg-white text-[#AFAFAF]'"
                 @click="selectCategory(-1, '')" v-if="route.path == '/mtc'">
-                <div>ALL</div>
+                <div>{{ composer.locale == 'en' ? 'ALL' : 'Lihat Semua' }}</div>
             </div>
             <div class="category min-w-[40px] md:min-w-[75px] px-[10px] md:px-[30px] py-[8px] md:py-[14px] text-[13px] md:text-[18px] text-center rounded-[18px] md:rounded-[30px] cursor-pointer font-[700] border border-[#AFAFAF]"
                 :class="index === selectedIndex ? 'bg-[#1F78FF] text-white' : 'bg-white text-[#AFAFAF]'"
@@ -50,7 +50,7 @@ const selectCategory = (index: number, categoryName: string, codeKey?: number | 
         setCodeKey.value = getCodeKey;
 
         router.replace({
-            query:{
+            query: {
                 tab: index ?? -1,
                 key: setCodeKey.value ?? null,
             }

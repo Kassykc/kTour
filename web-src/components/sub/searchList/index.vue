@@ -1,7 +1,9 @@
 <template>
-    <div class="search_list w-full max-w-[1340px] mx-auto flex flex-col xl:flex-row justify-start items-center xl:items-start gap-[30px] xl:gap-[8px] mb-[146px]">
+    <div
+        class="search_list w-full max-w-[1340px] mx-auto flex flex-col xl:flex-row justify-start items-center xl:items-start gap-[30px] xl:gap-[8px] mb-[146px]">
         <!-- {{ props.data.fileInfo }} -->
-        <div class="hospital_media flex-0 w-full sm:w-[80%] xl:w-[592px] h-fit flex flex-col justify-between items-center gap-[8px] px-[20px] xl:px-0">
+        <div
+            class="hospital_media flex-0 w-full sm:w-[80%] xl:w-[592px] h-fit flex flex-col justify-between items-center gap-[8px] px-[20px] xl:px-0">
             <!-- 슬라이드 영역  -->
             <div ref="swiperRef" class="swiper_area w-full xl:w-[592px] min-h-[360px] border">
                 <Swiper :modules="[Autoplay, Pagination, Navigation]"
@@ -21,6 +23,15 @@
             <div
                 class="sns flex justify-center sm:justify-start items-center gap-[20px] w-full h-[54px] bg-[#F3F3F3] px-[20px] py-[12px]">
                 <a href="" target="blank" v-if="parsedMemo.instagram && parsedMemo.instagram != ''">
+                    <img src="@/assets/images/sub/mtc/blog.png" alt="" @click="router.push(parsedMemo.blog)">
+                </a>
+                <a href="" target="blank" v-if="parsedMemo.instagram && parsedMemo.instagram != ''">
+                    <img src="@/assets/images/sub/mtc/tiktok.png" alt="" @click="router.push(parsedMemo.tiktok)">
+                </a>
+                <a href="" target="blank" v-if="parsedMemo.instagram && parsedMemo.instagram != ''">
+                    <img src="@/assets/images/sub/mtc/facebook.png" alt="" @click="router.push(parsedMemo.facebook)">
+                </a>
+                <a href="" target="blank" v-if="parsedMemo.instagram && parsedMemo.instagram != ''">
                     <img src="@/assets/images/sub/mtc/insta.png" alt="" @click="router.push(parsedMemo.instagram)">
                 </a>
                 <a href="" target="blank" v-if="parsedMemo.youtube && parsedMemo.youtube != ''">
@@ -29,42 +40,41 @@
                 <a href="" target="blank" class="flex justify-start items-center gap-[20px]"
                     v-if="parsedMemo.site && parsedMemo.site != ''">
                     <img src="@/assets/images/sub/mtc/language.png" alt="" @click="router.push(parsedMemo.site)">
-                    <span class="text-[#313131] hidden sm:block" @click="router.push(parsedMemo.site)">{{ parsedMemo.site }}</span>
+                    <span class="text-[#313131] hidden sm:block" @click="router.push(parsedMemo.site)">{{
+                        parsedMemo.site }}</span>
                 </a>
             </div>
         </div>
 
         <!-- 리스트 정보 -->
-        <div class="info_area flex-1 min-h-[424px] h-full w-full max-w-full sm:max-w-[80%] xl:max-w-[740px] flex flex-col justify-between items-start gap-[8px]">
+        <div
+            class="info_area flex-1 min-h-[424px] h-full w-full max-w-full sm:max-w-[80%] xl:max-w-[740px] flex flex-col justify-between items-start gap-[8px]">
             <div ref="infoRef" class="info w-full px-[26px] flex-1 flex flex-col justify-centr items-start gap-[10px]">
 
                 <!-- 탭 이름 -->
-                <div
-                    ref="tabWrap" 
+                <div ref="tabWrap"
                     class="tab_wrap w-full flex justify-start items-center gap-[10px] mb-[10px] overflow-x-auto scrollbar-hide"
-                    style="-webkit-overflow-scrolling: touch;"
-                >
+                    style="-webkit-overflow-scrolling: touch;">
                     <div v-for="(item, index) in parsedMemo.category" :key="index"
-                    class="tab_name w-fit text-[14px] sm:text-[16px] text-[#1F78FF] font-[700] border-[2px] border-[#1F78FF] py-[6px] px-[14px] sm:py-[14px] sm:px-[20px] rounded-[100px] shrink-0">
+                        class="tab_name w-fit text-[14px] sm:text-[16px] text-[#1F78FF] font-[700] border-[2px] border-[#1F78FF] py-[6px] px-[14px] sm:py-[14px] sm:px-[20px] rounded-[100px] shrink-0">
                         {{ composer.locale == 'en' ? item.codeValue.categoryNameEn : item.codeValue.categoryNameId }}
                     </div>
                 </div>
 
                 <!-- 태그 -->
-                <div 
-                    ref="tagWrap" 
+                <div ref="tagWrap"
                     class="tags flex justify-start items-center gap-[20px] w-full overflow-x-auto scrollbar-hide"
-                    style="-webkit-overflow-scrolling: touch;"
-                >
-                    <div class="tag  text-[13px] sm:text-[15px] text-[#838383] w-fit shrink-0" v-for="(item, index) in parsedMemo.categoryChild"
-                        :key="index">
+                    style="-webkit-overflow-scrolling: touch;">
+                    <div class="tag  text-[13px] sm:text-[15px] text-[#838383] w-fit shrink-0"
+                        v-for="(item, index) in parsedMemo.categoryChild" :key="index">
                         #{{ composer.locale == 'en' ?
                             item.codeValue.categoryNameEn : item.codeValue.categoryNameId }}
                     </div>
                 </div>
 
                 <!-- 타이틀 -->
-                <div class="title text-[24px] sm:text-[36px] font-[700] mb-[20px] text-[#313131]">{{ composer.locale == 'en' ?
+                <div class="title text-[24px] sm:text-[36px] font-[700] mb-[20px] text-[#313131]">{{ composer.locale ==
+                    'en' ?
                     props.data.nameFirstKo : props.data.nameFirstEn }}</div>
 
                 <!-- 슬로건 -->
@@ -79,13 +89,15 @@
                 <!-- 콘택트 -->
                 <div class="contact_info flex flex-col justify-center items-start gap-[8px]">
 
-                    <div class="pone flex justify-start items-center text-[14px] sm:text-[18px] text-[#313131] gap-[20px]">
+                    <div
+                        class="pone flex justify-start items-center text-[14px] sm:text-[18px] text-[#313131] gap-[20px]">
                         <img src="@/assets/images/sub/mtc/phone.png" alt="">
                         +{{ props.data.interPhoneNumber }}){{ props.data.mobile1 }}-{{ props.data.mobile2 }}-{{
                             props.data.mobile3 }}
                     </div>
 
-                    <div class="address flex justify-start items-center text-[14px] sm:text-[18px] text-[#313131] gap-[20px]">
+                    <div
+                        class="address flex justify-start items-center text-[14px] sm:text-[18px] text-[#313131] gap-[20px]">
                         <img src="@/assets/images/sub/mtc/distance.png" alt="">
                         {{ props.data.email }}
                     </div>
@@ -256,11 +268,11 @@ onMounted(() => {
         const walk = (x - startX) * 1.5 // 드래그 감도
         tag_item.scrollLeft = scrollLeft - walk
     })
-    
+
 })
 
 </script>
-<style scoped >
+<style scoped>
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }

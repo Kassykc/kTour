@@ -111,18 +111,25 @@
                     </div>
                 </div>
                 <div
-                    class="name_wrap cont_wrap  flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
+                    class="name_wrap cont_wrap flex items-stretch justify-start gap-[10px] w-full h-auto min-h-[60px] border-b border-[#dcdcdc]">
                     <div
                         class="category_tit flex justify-center items-center w-[70px] min-w-[70px] sm:w-[120px] sm:min-w-[120px] h-auto min-h-auto font-[600] border-r border-[#dcdcdc] bg-[#f5f5f5]">
-                        SNS<span class="necessary text-[#ff0000]">*</span></div>
+                        SNS(주소입력)<span class="necessary text-[#ff0000]">*</span>
+                    </div>
                     <div
-                        class="reg_name_wrap cont_area py-[10px] !px-0 !m-auto w-full flex justify-start items-center gap-[8px]">
+                        class="reg_name_wrap cont_area py-[10px] !px-0 !m-auto w-full flex flex-wrap justify-start items-center gap-[10px]">
+                        <input type="text" placeholder="네이버블로그" v-model="blog"
+                            class="input_firstName input_area border rounded-[6px] px-[10px] py-[4px] w-[32%] min-w-[150px]">
+                        <input type="text" placeholder="틱톡" v-model="tiktok"
+                            class="input_firstName input_area border rounded-[6px] px-[10px] py-[4px] w-[32%] min-w-[150px]">
+                        <input type="text" placeholder="페이스북" v-model="facebook"
+                            class="input_firstName input_area border rounded-[6px] px-[10px] py-[4px] w-[32%] min-w-[150px]">
                         <input type="text" placeholder="인스타그램" v-model="instagram"
-                            class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
+                            class="input_firstName input_area border rounded-[6px] px-[10px] py-[4px] w-[32%] min-w-[150px]">
                         <input type="text" placeholder="유튜브" v-model="youtube"
-                            class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
+                            class="input_firstName input_area border rounded-[6px] px-[10px] py-[4px] w-[32%] min-w-[150px]">
                         <input type="text" placeholder="공식홈페이지" v-model="site"
-                            class="input_firstName input_area  border rounded-[6px] px-[10px] py-[4px] w-[48%]">
+                            class="input_firstName input_area border rounded-[6px] px-[10px] py-[4px] w-[32%] min-w-[150px]">
                     </div>
                 </div>
 
@@ -273,6 +280,9 @@ const updateFiles = (updatedFiles: File[]) => {
 
 const sloganEn = ref('');
 const sloganId = ref('');
+const blog = ref('');
+const tiktok = ref('');
+const facebook = ref('');
 const instagram = ref('');
 const youtube = ref('');
 const site = ref('');
@@ -395,6 +405,9 @@ const goReg = async () => {
     const memo = {
         sloganEn: sloganEn.value,
         sloganId: sloganId.value,
+        blog: blog.value,
+        tiktok: tiktok.value,
+        facebook: facebook.value,
         instagram: instagram.value,
         youtube: youtube.value,
         site: site.value,
@@ -471,6 +484,9 @@ const goUpdate = async () => {
     const memo = {
         sloganEn: sloganEn.value,
         sloganId: sloganId.value,
+        blog: blog.value,
+        tiktok: tiktok.value,
+        facebook: facebook.value,
         instagram: instagram.value,
         youtube: youtube.value,
         site: site.value,
@@ -555,6 +571,9 @@ onMounted(async () => {
 
             sloganEn.value = parsedMemo.sloganEn
             sloganId.value = parsedMemo.sloganId
+            blog.value = parsedMemo.blog
+            tiktok.value = parsedMemo.tiktok
+            facebook.value = parsedMemo.facebook
             instagram.value = parsedMemo.instagram
             youtube.value = parsedMemo.youtube
             site.value = parsedMemo.site

@@ -1,6 +1,7 @@
 <template>
     <div v-if="mtcDtlData">
-        <Banner :title="bannerTitle" :category="category" :selectedTab="selectedTab" :videoSrc="'/video/sub/mtc_banner.webm'" />
+        <Banner :title="bannerTitle" :category="category" :selectedTab="selectedTab"
+            :videoSrc="'/video/sub/mtc_banner.webm'" />
 
         <div class="content_area pb-[160px]">
             <div id="mtc_detail" class="w-full max-w-[1340px] mx-auto px-[20px]">
@@ -14,19 +15,20 @@
                 <div
                     class="info_area flex flex-col justify-start items-start gap-0 sm:gap-[36px] w-full p-[20px] sm:py-[36px] sm:px-[44px] border border-black mb-[118px]">
                     <!-- 탭 이름 -->
-                    <div
-                        ref="tabWrap" 
+                    <div ref="tabWrap"
                         class="tab_wrap w-full flex justify-start items-center gap-[10px] mb-[10px] overflow-x-auto scrollbar-hide"
-                        style="-webkit-overflow-scrolling: touch;"
-                    >
+                        style="-webkit-overflow-scrolling: touch;">
                         <div v-for="(item, index) in parsedMemo.category" :key="index"
                             class="tab_name w-fit text-[14px] sm:text-[16px] text-[#1F78FF] font-[700] border-[2px] border-[#1F78FF] py-[6px] px-[14px] sm:py-[14px] sm:px-[20px] rounded-[100px] shrink-0">
-                            {{ composer.locale == 'en' ? item.codeValue.categoryNameEn : item.codeValue.categoryNameId }}
+                            {{ composer.locale == 'en' ? item.codeValue.categoryNameEn : item.codeValue.categoryNameId
+                            }}
                         </div>
                     </div>
 
-                    <div class="info_wrap flex flex-col-reverse xl:flex-row justify-between items-end w-full gap-[10px]">
-                        <div class="info flex flex-col justify-start items-start gap-[24px] sm:gap-[56px] w-full xl:w-[608px]">
+                    <div
+                        class="info_wrap flex flex-col-reverse xl:flex-row justify-between items-end w-full gap-[10px]">
+                        <div
+                            class="info flex flex-col justify-start items-start gap-[24px] sm:gap-[56px] w-full xl:w-[608px]">
                             <!-- 타이틀 -->
                             <div class="title text-[24px] sm:text-[45px] font-[800] text-[#313131] uppercase">
                                 {{ composer.locale == 'en' ? mtcDtlData.resultInfo.nameFirstKo :
@@ -98,10 +100,23 @@
                                         SNS
                                     </div>
                                     <div class="cont flex-1 flex justify-start items-center gap-[26px]">
+                                        <a :href="parsedMemo.blog" target="blank"
+                                            v-if="parsedMemo.blog && parsedMemo.blog != ''">
+                                            <img src="@/assets/images/sub/mtc/insta.png" alt="">
+                                        </a>
+                                        <a :href="parsedMemo.tiktok" target="blank"
+                                            v-if="parsedMemo.tiktok && parsedMemo.tiktok != ''">
+                                            <img src="@/assets/images/sub/mtc/tiktok.png" alt="">
+                                        </a>
+                                        <a :href="parsedMemo.facebook" target="blank"
+                                            v-if="parsedMemo.facebook && parsedMemo.facebook != ''">
+                                            <img src="@/assets/images/sub/mtc/facebook.png" alt="">
+                                        </a>
                                         <a :href="parsedMemo.instagram" target="blank"
                                             v-if="parsedMemo.instagram && parsedMemo.instagram != ''">
                                             <img src="@/assets/images/sub/mtc/insta.png" alt="">
                                         </a>
+
                                         <a :href="parsedMemo.youtube" target="blank"
                                             v-if="parsedMemo.youtube && parsedMemo.youtube != ''">
                                             <img src="@/assets/images/sub/mtc/youtube.png" alt="">
@@ -312,11 +327,11 @@ onMounted(() => {
         const walk = (x - startX) * 1.5 // 드래그 감도
         tab_item.scrollLeft = scrollLeft - walk
     })
-    
+
 })
 
 </script>
-<style scoped >
+<style scoped>
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }

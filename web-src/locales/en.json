@@ -170,7 +170,32 @@
       },
       "part2": {
         "title": "How It Works",
-        "desc": "From initial consultation to post-treatment follow-up, Medi-City coordinates every detail."
+        "desc": "From initial consultation to post-treatment follow-up, Medi-City coordinates every detail.",
+        "step1": {
+          "step": "STEP 01",
+          "title": "Contact & Consultation",
+          "desc": "Submit your info — we’ll guide you to the right program based on your needs."
+        },
+        "step2": {
+          "step": "STEP 02",
+          "title": "Plan & Confirm",
+          "desc": "Review your personalized schedule and complete your payment."
+        },
+        "step3": {
+          "step": "STEP 03",
+          "title": "Book & Prepare",
+          "desc": "We arrange your visa, flights, hotel and finalize all preparation."
+        },
+        "step4": {
+          "step": "STEP 04",
+          "title": "Travel & Heal",
+          "desc": "Receive treatment and enjoy K-content tours."
+        },
+        "step5": {
+          "step": "STEP 05",
+          "title": "Return & Recover",
+          "desc": "Get aftercare support even after you’re home."
+        }
       }
     },
     "section2": {
@@ -335,7 +360,7 @@
       },
       "content4": {
         "title": "🏞️ Tour(Seoul Tour, Gangwon Tour) Overview",
-        "desc1": "More than just treatment—immerse yourself in the charm of Korea with Drako,",
+        "desc1": "More than just treatment—immerse yourself in the charm of Korea with Drakor,",
         "desc2": "by visiting the most iconic K-drama and K-pop landmarks.",
         "desc3": "- K-drama filming locations: “Business Proposal”, “Our Beloved Summer”, “Guardian: The Lonely and Great God”",
         "desc4": "- K-pop spots: BLACKPINK & BTS MV locations, idol-favorite hot places",
@@ -399,6 +424,45 @@
         "title": "🧭 From Indonesia to Korea—Every Step, Fully Supported",
         "desc1": "We go beyond just medical appointments. Our service offers personalized care before, during, and after treatment,",
         "desc2": "starting from your departure in Indonesia to your safe return—so you can focus on healing while we handle the rest."
+      },
+      "content2": {
+        "1": {
+          "title": "Before Treatment",
+          "subtitle": "(🇮🇩 In Indonesia)",
+          "icon1": "📄",
+          "desc1": "1:1 consultation & Assistance with",
+          "desc2": "document preparation",
+          "desc3": "Visa application support, pre-treatment health",
+          "desc4": "check, appointment scheduling",
+          "icon2": "✈️",
+          "desc5": "VIP Concierge Service",
+          "desc6": "Premium support to begin treatment",
+          "desc7": "immediately upon departure",
+          "desc8": "(Private Jet Available)"
+        },
+        "2": {
+          "title": "During Treatment",
+          "subtitle": "(🇰🇷 In Korea)",
+          "icon1": "🚗",
+          "desc1": "Transportation support",
+          "desc2": "(in partnership with TADA)",
+          "desc3": "Airport pick-up/drop-off, hospital visits, tourism rides",
+          "icon2": "🗣️",
+          "desc4": "Medical interpreter & Coordinator",
+          "desc5": "Fluent in the local language and culture, ensuring smooth communication and patient care",
+          "icon3": "🍽️",
+          "desc6": "Indonesia-specialized Care",
+          "desc7": "Halal meals & seasonal clothing for comfort"
+        },
+        "3": {
+          "title": "After Treatment",
+          "subtitle": "(🇮🇩 Back in Indonesia)",
+          "icon1": "🏥",
+          "desc1": "Comprehensive post-treatment care",
+          "desc2": "- Referral to local clinics & rehabilitation centers",
+          "desc3": "- Remote consultations with Korean doctors",
+          "desc4": "- Progress tracking & appointment support"
+        }
       }
     }
   },
@@ -485,7 +549,7 @@
     }
   },
   "gangwonTour": {
-    "title": "Gangwon,located in eastern South Korea",
+    "title": "Gangwon, located in eastern South Korea",
     "subtitle": "is renowned for its breathtaking landscapes, from majestic mountains to serene beaches.",
     "desc1": "Whether you're seeking relaxation or adventure, Gangwon offers a perfect blend of nature, culture, and Hallyu experiences.",
     "desc2": "Famous for both K-Drama filming locations and as a favorite spot for K-Pop idols, it’s an ideal destination for fans of Korean entertainment and",

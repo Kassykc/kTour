@@ -10,10 +10,10 @@
       }
     },
     "2": {
-      "name": "Medical Treatment Service",
+      "name": "Layanan Pengobatan Medis",
       "2depth": {
         "1": {
-          "name": "Medical Treatment Field",
+          "name": "Pusat Mitra Medis",
           "3depth": {
             "1": { "name": "Pemeriksaan Kesehatan" },
             "2": { "name": "Terapi Sel Punca" },
@@ -170,7 +170,32 @@
       },
       "part2": {
         "title": "Bagaimana Prosesnya",
-        "desc": "Dari konsultasi awal hingga tindak lanjut pasca perawatan, Medi-City mengoordinasikan setiap detailnya."
+        "desc": "Dari konsultasi awal hingga tindak lanjut pasca perawatan, Medi-City mengoordinasikan setiap detailnya.",
+        "step1": {
+          "step": "LANGKAH 01",
+          "title": "Kontak & Konsultasi",
+          "desc": "Kirim informasi Anda – kami akan membantu memilih program yang tepat sesuai kebutuhan Anda."
+        },
+        "step2": {
+          "step": "LANGKAH 02",
+          "title": "Perencanaan & Konfirmasi",
+          "desc": "Tinjau jadwal pribadi Anda dan selesaikan pembayaran."
+        },
+        "step3": {
+          "step": "LANGKAH 03",
+          "title": "Pemesanan & Persiapan",
+          "desc": "Kami mengatur visa, tiket pesawat, hotel, dan semua persiapan lainnya."
+        },
+        "step4": {
+          "step": "LANGKAH 04",
+          "title": "Berobat Sambil Berlibur",
+          "desc": "Terima perawatan dan nikmati tur di Korea."
+        },
+        "step5": {
+          "step": "LANGKAH 05",
+          "title": "Pulang & Pemulihan",
+          "desc": "Dapatkan dukungan pasca perawatan bahkan setelah Anda kembali ke rumah."
+        }
       }
     },
     "section2": {
@@ -208,15 +233,15 @@
     "section4": {
       "part1": {
         "title": "Medi Tour",
-        "desc1": "Our service offers personalized care before, during, and after treatment, starting from your departure",
-        "desc2": "in Indonesia to your safe return—so you can focus on healing while we handle the rest.",
+        "desc1": "Kami menyediakan perawatan pribadi sebelum, selama, dan setelah perawatan – mulai dari keberangkatan",
+        "desc2": "Anda dari Indonesia hingga kepulangan yang aman – sehingga Anda bisa fokus pada penyembuhan, sementara kami mengurus sisanya.",
         "content1": "Tur Seoul",
         "content2": "Tur Gangwon"
       }
     },
     "section4-1": {
       "part1": {
-        "title": "Pusat Perawatan Mitra",
+        "title": "Pusat Mitra Medis",
         "desc": "Jaringan layanan terpercaya di seluruh Korea",
         "content1": "Tur Seoul",
         "content2": "Tur Gangwon"
@@ -271,7 +296,7 @@
       }
     },
     "part2": {
-      "title": "Service",
+      "title": "Layanan",
       "content1": {
         "title": "✈️ Program K-MediTour",
         "desc1": "Program K-MediTour adalah layanan perjalanan medis terpadu yang dirancang untuk membuat perjalanan dan perawatan Anda di Korea Selatan lebih mudah, aman, dan tak terlupakan.]",
@@ -318,7 +343,7 @@
         "desc1": "Kami menyediakan berbagai layanan medis spesialis melalui rumah sakit mitra kami",
         "desc2": "untuk memastikan perawatan yang disesuaikan dengan kebutuhan Anda.",
         "sub": {
-          "title": "Medical Treatment Field",
+          "title": "Pusat Mitra Medis",
           "1": "Pemeriksaan Kesehatan",
           "2": "Terapi Sel Punca",
           "3": "Penyakit Dalam",
@@ -399,11 +424,50 @@
         "title": "🧭 Dari Indonesia ke Korea—Kami Dukung Setiap Langkah Anda",
         "desc1": "Kami bukan hanya mengatur janji medis, kami menemani Anda dari awal keberangkatan di Indonesia hingga kepulangan dengan aman—",
         "desc2": "agar Anda bisa fokus pada proses penyembuhan, sementara kami mengurus semuanya."
+      },
+      "content2": {
+        "1": {
+          "title": "Sebelum Perawatan",
+          "subtitle": "(🇮🇩 Di Indonesia)",
+          "icon1": "📄",
+          "desc1": "Konsultasi 1:1 &",
+          "desc2": "Bantuan persiapan dokumen",
+          "desc3": "Bantuan pengajuan visa, Pemeriksaan kesehatan",
+          "desc4": "pra-keberangkatan, Penjadwalan janji perawatan",
+          "icon2": "✈️",
+          "desc5": "Layanan VIP Concierge",
+          "desc6": "Dukungan premium untuk memulai perawatan",
+          "desc7": "segera setelah keberangkatan",
+          "desc8": "(Tersedia layanan Private Jet)"
+        },
+        "2": {
+          "title": "Selama Perawatan",
+          "subtitle": "(🇰🇷 Di Korea)",
+          "icon1": "🚗",
+          "desc1": "Dukungan Transportasi",
+          "desc2": "(bekerja sama dengan TADA)",
+          "desc3": "Penjemputan & pengantaran bandara, Antar-jemput rumah sakit dan tur",
+          "icon2": "🗣️",
+          "desc4": "Interpreter & Koordinator Medis",
+          "desc5": "Lancar dalam bahasa dan budaya Indonesia, Menjamin komunikasi yang lancar dan perawatan yang nyaman",
+          "icon3": "🍽️",
+          "desc6": "Layanan Spesial untuk Pasien Indonesia",
+          "desc7": "Makanan halal & Pakaian sesuai musim untuk kenyamanan"
+        },
+        "3": {
+          "title": "Setelah Perawatan",
+          "subtitle": "(🇮🇩 Kembali ke Indonesia)",
+          "icon1": "🏥",
+          "desc1": "Perawatan Pasca-Pengobatan yang Komprehensif",
+          "desc2": "- Rujukan ke klinik lokal & pusat rehabilitasi",
+          "desc3": "- Konsultasi jarak jauh dengan dokter Korea",
+          "desc4": "- Pemantauan progres & bantuan penjadwalan lanjutan"
+        }
       }
     }
   },
   "mts": {
-    "title": "Medical Treatment Field",
+    "title": "Pusat Mitra Medis",
     "tab": {
       "1": "Pemeriksaan Kesehatan",
       "2": "Terapi Sel Punca",
@@ -478,7 +542,7 @@
           "4": {
             "time": "🛍️ Malam",
             "title": "The Hyundai Seoul Shopping",
-            "desc": "Sebelum menuju bandara., erbelanja fashion dan produk kecantikan yang juga dikunjungi oleh member BLACKPINK."
+            "desc": "Sebelum menuju bandara, berbelanja fashion dan produk kecantikan yang juga dikunjungi oleh member BLACKPINK."
           }
         }
       }
@@ -486,7 +550,7 @@
   },
   "gangwonTour": {
     "title": "Gangwon terletak di bagian timur Korea Selatan, terkenal dengan pemandangan menakjubkan",
-    "subtitle": "dari pegunungan megah hingga pantai yang tenan",
+    "subtitle": "dari pegunungan megah hingga pantai yang tenang",
     "desc1": "Destinasi ideal untuk relaksasi, petualangan,",
     "desc2": "dan penggemar hiburan Korea.",
     "desc3": "Gangwon juga jadi favorit idol K-Pop dan lokasi K-Drama.",
@@ -504,7 +568,7 @@
           "1": {
             "time": "☕ Pagi",
             "title": "Lokasi MV BTS ‘Spring Day’ & Pantai Anmok",
-            "desc": "VisMengunjungi lokasi syuting MV BTS dan nikmati kopi di tepi pantai."
+            "desc": "Mengunjungi lokasi syuting MV BTS dan nikmati kopi di tepi pantai."
           },
           "2": {
             "time": "🍲 Siang",
@@ -665,8 +729,8 @@
   },
   "tabs": {
     "about": {
-      "company": "Company",
-      "service": "Service",
+      "company": "Perusahaan",
+      "service": "Layanan",
       "korea": "Mengapa Korea",
       "meditour": "K-MediTour"
     },
