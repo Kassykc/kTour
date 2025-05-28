@@ -148,10 +148,10 @@
     "6": {
       "name": "Inquiry",
       "2depth": {
-        "1": { "name": "News & Updates" },
+        "1": { "name": "Berita & Pembaruan" },
         "2": { "name": "FAQ" },
-        "3": { "name": "Contact Us" },
-        "4": { "name": "Request for Consultation" }
+        "3": { "name": "Hubungi Kami" },
+        "4": { "name": "Permintaan Konsultasi" }
       }
     }
   },
@@ -717,6 +717,11 @@
     "part5": { "title": "Pembayaran & Pembatalan" },
     "part6": { "title": "Layanan Setelah Pengobatan" },
     "part7": { "title": "Lainnya" }
+  },
+  "consultation": {
+    "title": "Permintaan Konsultasi",
+    "subtitle": "Silakan isi formulir di bawah ini agar kami dapat membantu perjalanan dan pengobatan Anda di Korea dengan lancar.",
+    "required": "Wajib diisi"
   },
   "utils": {
     "btn": {

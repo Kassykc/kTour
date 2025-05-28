@@ -1,6 +1,6 @@
 <template>
     <div v-if="mtcDtlData">
-        <Banner :title="bannerTitle" :category="category" :selectedTab="selectedTab"
+        <Banner :title="t(bannerTitle)" :category="category" :selectedTab="selectedTab"
             :videoSrc="'/video/sub/mtc_banner.webm'" />
 
         <div class="content_area pb-[160px]">
@@ -130,7 +130,7 @@
                                             v-if="parsedMemo.site && parsedMemo.site !== ''">
                                             <img src="@/assets/images/sub/mtc/language.png" alt="" />
                                         </a>
-                                        
+
                                     </div>
                                 </div>
                             </div>
@@ -202,7 +202,7 @@ const openExternalLink = (url: string) => {
 
 const fileBaseUrl = apiBase.url() + "/_file/000/";
 
-const bannerTitle = ref('MTC');
+const bannerTitle = ref('menu.2.name');
 const bannerBgImage = ref(mts_bg); // 배경 이미지 경로
 const category = ref('mtc');
 const selectedTab = ref('mtc');

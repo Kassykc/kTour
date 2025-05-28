@@ -5,16 +5,15 @@
     <div
       class="px-[20px] flex justify-start items-center w-full mx-auto min-w-[320px] h-[250px] md:h-[280px] lg:h-[320px]">
       <div
-        class="submenu_title_area w-[28%] h-full pr-[5.5%] font-[700] text-[34px] border-r border-[#ADADAD] flex items-center justify-end bg-[url('/img/common/nav/submenu_bg.png')] bg-[50%] bg-[position:75%_center] bg-no-repeat text-right"
-        v-html="menus[activeNav]?.title">
+        class="submenu_title_area w-[28%] h-full pr-[5.5%] font-[700] text-[34px] border-r border-[#ADADAD] flex items-center justify-end bg-[url('/img/common/nav/submenu_bg.png')] bg-[50%] bg-[position:75%_center] bg-no-repeat text-right">
+        {{ t(menus[activeNav]?.title) }}
       </div>
       <div
         class="submenu_area flex flex-wrap items-center min-w-[250px] w-[50%] h-[180px] pl-[20px] gap-x-[8px] gap-y-[4px]">
         <div v-for="(item, idx) in submenus[activeNav]" :key="idx" class="w-[48%] text-left">
           <div
             class="text-black cursor-pointer hover:text-[#F57E1F] text-[13px] md:text-[14px] lg:text-[20px] font-[700] px-[10px]"
-            @click="handleClick(item)"
-            >
+            @click="handleClick(item)">
             <!-- @click="router.push({ path: item.url, query: { tab: item.tab } })" -->
             {{ t(item.title) }}
           </div>
@@ -35,12 +34,12 @@ const props = defineProps<{
 const router = useRouter()
 
 const menus = [
-  { title: t('menu.1.name'), url: '/about' },
-  { title: t('menu.2.name'), url: '/mtc' },
-  { title: t('menu.3.name'), url: '/tour/seoul' },
-  // { title: t('menu.4.name'), url: '/' },
-  // { title: t('menu.5.name'), url: '/' },
-  { title: t('menu.6.name'), url: '/inquiry/news' },
+  { title: 'menu.1.name', url: '/about' },
+  { title: 'menu.2.name', url: '/mtc' },
+  { title: 'menu.3.name', url: '/tour/seoul' },
+  // { title: 'menu.4.name'), url: '/' },
+  // { title: 'menu.5.name'), url: '/' },
+  { title: 'menu.6.name', url: '/inquiry/news' },
 ]
 
 // 각 nav에 대응하는 서브메뉴 데이터

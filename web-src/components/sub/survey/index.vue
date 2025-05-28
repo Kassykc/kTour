@@ -12,7 +12,7 @@
 
                 <div class="input_area w-full max-w-[1340px] px-[20px] mb-[80px] mx-auto">
                     <div class="essential text-right text-[16px] font-[500] mb-[16px]">
-                        <span class="text-[#ff0000]">√</span> Full Name
+                        <span class="text-[#ff0000]">√</span> {{ t('consultation.required') }}
                     </div>
 
                     <SubSurveyCategory :list="basicInfo" @change="updateAnswers('basicInfo', $event)" />

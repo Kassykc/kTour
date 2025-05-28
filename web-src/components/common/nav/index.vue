@@ -10,7 +10,7 @@
                         : 'text-white border-transparent',
                 'hover:text-[#F57E1F] hover:border-[#F57E1F]'
             ]" @click="$emit('select', index)">
-            {{ item.titlePath }}
+            {{ t(item.titlePath) }}
         </div>
     </div>
 </template>
@@ -26,11 +26,11 @@ defineProps<{
 defineEmits(['select'])
 
 const menus = [
-    { titlePath: t('menu.1.name'), url: '/' },
-    { titlePath: t('menu.2.name'), url: '/' },
-    { titlePath: t('menu.3.name'), url: '/' },
-    // { titlePath: t('menu.4.name'), url: '/' },
-    // { titlePath: t('menu.5.name'), url: '/' },
-    { titlePath: t('menu.6.name'), url: '/' },
+    { titlePath: 'menu.1.name', url: '/' },
+    { titlePath: 'menu.2.name', url: '/' },
+    { titlePath: 'menu.3.name', url: '/' },
+    // { titlePath: 'menu.4.name', url: '/' },
+    // { titlePath: 'menu.5.name'), url: '/' },
+    { titlePath: 'menu.6.name', url: '/' },
 ]
 </script>

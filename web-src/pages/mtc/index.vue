@@ -1,10 +1,12 @@
 <template>
     <div>
-        <Banner :title="bannerTitle" :category="category" :selectedTab="selectedTab" :videoSrc="'/video/sub/mtc_banner.webm'"/>
+        <Banner :title="t(bannerTitle)" :category="category" :selectedTab="selectedTab"
+            :videoSrc="'/video/sub/mtc_banner.webm'" />
 
         <div class="content_area">
             <div id="mtc">
-                <div class="main_tit text-[30px] lg:text-[65px] font-[700] w-full max-w-[1340px] pt-[160px] my-0 mx-auto text-center">
+                <div
+                    class="main_tit text-[30px] lg:text-[65px] font-[700] w-full max-w-[1340px] pt-[160px] my-0 mx-auto text-center">
                     {{ t('mts.title') }}
                 </div>
 
@@ -39,7 +41,7 @@ const memberMngStore = useMemberMngStore('people-mtc');
 
 const route = useRoute();
 
-const bannerTitle = ref('MTC');
+const bannerTitle = ref('menu.2.name');
 const bannerBgImage = ref(mts_bg); // 배경 이미지 경로
 const category = ref('mtc');
 const selectedTab = ref('mtc');

@@ -10,10 +10,10 @@
       }
     },
     "2": {
-      "name": "Medical Treatment Service",
+      "name": "Medical Treatment Centers",
       "2depth": {
         "1": {
-          "name": "Medical Treatment Field",
+          "name": "Affiliated Treatment Centers",
           "3depth": {
             "1": { "name": "Health Check-up" },
             "2": { "name": "Stem Cell Therapy" },
@@ -344,7 +344,7 @@
         "desc1": "We offer a wide range of medical specialties through our partnered hospitals,",
         "desc2": "ensuring personalized care tailored to each patient’s needs.",
         "sub": {
-          "title": "Medical Treatment Field",
+          "title": "Affiliated Treatment Centers",
           "1": "Health Check-up",
           "2": "Stem Cell Therapy",
           "3": "Internal Medicine",
@@ -467,7 +467,7 @@
     }
   },
   "mts": {
-    "title": "Medical Treatment Field",
+    "title": "Affiliated Treatment Centers",
     "tab": {
       "1": "Health Check-up",
       "2": "Stem Cell Therapy",
@@ -717,6 +717,11 @@
     "part5": { "title": "Payment & Cancellation" },
     "part6": { "title": "Aftercare" },
     "part7": { "title": "Other Questions" }
+  },
+  "consultation": {
+    "title": "Request for Consultation",
+    "subtitle": "Please fill out the form below to help us arrange your medical treatment and travel in Korea smoothly.",
+    "required" : "Required fields"
   },
   "utils": {
     "btn": {
