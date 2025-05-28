@@ -22,27 +22,39 @@
             <!-- sns 영역 -->
             <div
                 class="sns flex justify-center sm:justify-start items-center gap-[20px] w-full h-[54px] bg-[#F3F3F3] px-[20px] py-[12px]">
-                <a href="" target="blank" v-if="parsedMemo.blog && parsedMemo.blog != ''">
-                    <img src="@/assets/images/sub/mtc/blog.png" alt="" @click="router.push(parsedMemo.blog)">
+
+                <!-- 블로그 -->
+                <a href="#" @click.prevent="openExternalLink(parsedMemo.blog)" v-if="parsedMemo.blog">
+                    <img src="@/assets/images/sub/mtc/blog.png" alt="" />
                 </a>
-                <a href="" target="blank" v-if="parsedMemo.tiktok && parsedMemo.tiktok != ''">
-                    <img src="@/assets/images/sub/mtc/tiktok.png" alt="" @click="router.push(parsedMemo.tiktok)">
+
+                <!-- 틱톡 -->
+                <a href="#" @click.prevent="openExternalLink(parsedMemo.tiktok)" v-if="parsedMemo.tiktok">
+                    <img src="@/assets/images/sub/mtc/tiktok.png" alt="" />
                 </a>
-                <a href="" target="blank" v-if="parsedMemo.facebook && parsedMemo.facebook != ''">
-                    <img src="@/assets/images/sub/mtc/facebook.png" alt="" @click="router.push(parsedMemo.facebook)">
+
+                <!-- 페이스북 -->
+                <a href="#" @click.prevent="openExternalLink(parsedMemo.facebook)" v-if="parsedMemo.facebook">
+                    <img src="@/assets/images/sub/mtc/facebook.png" alt="" />
                 </a>
-                <a href="" target="blank" v-if="parsedMemo.instagram && parsedMemo.instagram != ''">
-                    <img src="@/assets/images/sub/mtc/insta.png" alt="" @click="router.push(parsedMemo.instagram)">
+
+                <!-- 인스타그램 -->
+                <a href="#" @click.prevent="openExternalLink(parsedMemo.instagram)" v-if="parsedMemo.instagram">
+                    <img src="@/assets/images/sub/mtc/insta.png" alt="" />
                 </a>
-                <a href="" target="blank" v-if="parsedMemo.youtube && parsedMemo.youtube != ''">
-                    <img src="@/assets/images/sub/mtc/youtube.png" alt="" @click="router.push(parsedMemo.youtube)">
+
+                <!-- 유튜브 -->
+                <a href="#" @click.prevent="openExternalLink(parsedMemo.youtube)" v-if="parsedMemo.youtube">
+                    <img src="@/assets/images/sub/mtc/youtube.png" alt="" />
                 </a>
-                <a href="" target="blank" class="flex justify-start items-center gap-[20px]"
-                    v-if="parsedMemo.site && parsedMemo.site != ''">
-                    <img src="@/assets/images/sub/mtc/language.png" alt="" @click="router.push(parsedMemo.site)">
-                    <span class="text-[#313131] hidden sm:block" @click="router.push(parsedMemo.site)">{{
-                        parsedMemo.site }}</span>
+
+                <!-- 홈페이지 -->
+                <a href="#" @click.prevent="openExternalLink(parsedMemo.site)"
+                    class="flex justify-start items-center gap-[20px]" v-if="parsedMemo.site">
+                    <img src="@/assets/images/sub/mtc/language.png" alt="" />
+                    <span class="text-[#313131] hidden sm:block">{{ parsedMemo.site }}</span>
                 </a>
+
             </div>
         </div>
 
@@ -164,6 +176,14 @@ const decodeHtmlEntities = (str: string) => {
     txt.innerHTML = str;
     return txt.value;
 }
+
+const openExternalLink = (url: string) => {
+    if (!url) return;
+    const fullUrl = url.startsWith('http://') || url.startsWith('https://')
+        ? url
+        : `https://${url}`;
+    window.open(fullUrl, '_blank', 'noopener,noreferrer');
+};
 
 const parsedMemo = computed(() => {
     try {

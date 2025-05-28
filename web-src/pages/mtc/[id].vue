@@ -100,31 +100,37 @@
                                         SNS
                                     </div>
                                     <div class="cont flex-1 flex justify-start items-center gap-[26px]">
-                                        <a :href="parsedMemo.blog" target="blank"
-                                            v-if="parsedMemo.blog && parsedMemo.blog != ''">
-                                            <img src="@/assets/images/sub/mtc/insta.png" alt="">
-                                        </a>
-                                        <a :href="parsedMemo.tiktok" target="blank"
-                                            v-if="parsedMemo.tiktok && parsedMemo.tiktok != ''">
-                                            <img src="@/assets/images/sub/mtc/tiktok.png" alt="">
-                                        </a>
-                                        <a :href="parsedMemo.facebook" target="blank"
-                                            v-if="parsedMemo.facebook && parsedMemo.facebook != ''">
-                                            <img src="@/assets/images/sub/mtc/facebook.png" alt="">
-                                        </a>
-                                        <a :href="parsedMemo.instagram" target="blank"
-                                            v-if="parsedMemo.instagram && parsedMemo.instagram != ''">
-                                            <img src="@/assets/images/sub/mtc/insta.png" alt="">
+
+                                        <a href="#" @click.prevent="openExternalLink(parsedMemo.blog)"
+                                            v-if="parsedMemo.blog && parsedMemo.blog !== ''">
+                                            <img src="@/assets/images/sub/mtc/insta.png" alt="" />
                                         </a>
 
-                                        <a :href="parsedMemo.youtube" target="blank"
-                                            v-if="parsedMemo.youtube && parsedMemo.youtube != ''">
-                                            <img src="@/assets/images/sub/mtc/youtube.png" alt="">
+                                        <a href="#" @click.prevent="openExternalLink(parsedMemo.tiktok)"
+                                            v-if="parsedMemo.tiktok && parsedMemo.tiktok !== ''">
+                                            <img src="@/assets/images/sub/mtc/tiktok.png" alt="" />
                                         </a>
-                                        <a :href="parsedMemo.site" target="blank">
-                                            <img src="@/assets/images/sub/mtc/language.png" alt=""
-                                                v-if="parsedMemo.site && parsedMemo.site != ''">
+
+                                        <a href="#" @click.prevent="openExternalLink(parsedMemo.facebook)"
+                                            v-if="parsedMemo.facebook && parsedMemo.facebook !== ''">
+                                            <img src="@/assets/images/sub/mtc/facebook.png" alt="" />
                                         </a>
+
+                                        <a href="#" @click.prevent="openExternalLink(parsedMemo.instagram)"
+                                            v-if="parsedMemo.instagram && parsedMemo.instagram !== ''">
+                                            <img src="@/assets/images/sub/mtc/insta.png" alt="" />
+                                        </a>
+
+                                        <a href="#" @click.prevent="openExternalLink(parsedMemo.youtube)"
+                                            v-if="parsedMemo.youtube && parsedMemo.youtube !== ''">
+                                            <img src="@/assets/images/sub/mtc/youtube.png" alt="" />
+                                        </a>
+
+                                        <a href="#" @click.prevent="openExternalLink(parsedMemo.site)"
+                                            v-if="parsedMemo.site && parsedMemo.site !== ''">
+                                            <img src="@/assets/images/sub/mtc/language.png" alt="" />
+                                        </a>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -184,6 +190,14 @@ const router = useRouter();
 const movePage = (page: string) => {
 
     router.push(page);
+};
+
+const openExternalLink = (url: string) => {
+    if (!url) return;
+    const fullUrl = url.startsWith('http://') || url.startsWith('https://')
+        ? url
+        : `https://${url}`;
+    window.open(fullUrl, '_blank', 'noopener,noreferrer');
 };
 
 const fileBaseUrl = apiBase.url() + "/_file/000/";
