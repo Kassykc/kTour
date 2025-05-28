@@ -22,13 +22,13 @@
             <!-- sns 영역 -->
             <div
                 class="sns flex justify-center sm:justify-start items-center gap-[20px] w-full h-[54px] bg-[#F3F3F3] px-[20px] py-[12px]">
-                <a href="" target="blank" v-if="parsedMemo.instagram && parsedMemo.instagram != ''">
+                <a href="" target="blank" v-if="parsedMemo.blog && parsedMemo.blog != ''">
                     <img src="@/assets/images/sub/mtc/blog.png" alt="" @click="router.push(parsedMemo.blog)">
                 </a>
-                <a href="" target="blank" v-if="parsedMemo.instagram && parsedMemo.instagram != ''">
+                <a href="" target="blank" v-if="parsedMemo.tiktok && parsedMemo.tiktok != ''">
                     <img src="@/assets/images/sub/mtc/tiktok.png" alt="" @click="router.push(parsedMemo.tiktok)">
                 </a>
-                <a href="" target="blank" v-if="parsedMemo.instagram && parsedMemo.instagram != ''">
+                <a href="" target="blank" v-if="parsedMemo.facebook && parsedMemo.facebook != ''">
                     <img src="@/assets/images/sub/mtc/facebook.png" alt="" @click="router.push(parsedMemo.facebook)">
                 </a>
                 <a href="" target="blank" v-if="parsedMemo.instagram && parsedMemo.instagram != ''">
