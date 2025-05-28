@@ -38,10 +38,8 @@
                 <div class="fill flex-1 w-full pt-[10px]" v-if="item.answerType == 3">
                     <div v-for="(choose, idx) in item.answerData" :key="idx" class="mt-[20px]">
                         <label class="cursor-pointer flex items-center gap-2">
-                            <input type="radio"
-                                @change="onRadioChange(index, idx)" 
-  :checked="reqData[index].answerData[idx].value == 'selected'" />
-
+                            <input type="radio" :checked="reqData[index].answerData[idx].value == 'selected'"
+                                @change="onRadioChange(index, idx)" />
                             {{ composer.locale == 'en' ? choose.text.titleEn : choose.text.titleId }}
                         </label>
 
@@ -57,16 +55,20 @@
                                 <!-- 하위 질문 타입에 따라 입력 -->
                                 <div v-if="sub.answerType == 1">
                                     <input type="text"
+                                        v-model="reqData[index].answerData[idx].addquestion[subIdx].option[0].value"
                                         class="w-full max-w-[400px] h-[40px] border border-[#C8C8C8] rounded px-2" />
                                 </div>
                                 <div v-if="sub.answerType == 2">
                                     <textarea
+                                        v-model="reqData[index].answerData[idx].addquestion[subIdx].option[0].value"
                                         class="w-full h-[100px] border border-[#C8C8C8] rounded px-2 py-1"></textarea>
                                 </div>
                                 <div v-if="sub.answerType == 3">
                                     <div v-for="(opt, optIdx) in sub.option" :key="optIdx" class="mb-[10px]">
                                         <label class="cursor-pointer flex items-center gap-2">
-                                            <input type="radio" />
+                                            <input type="radio"
+                                                :checked="reqData[index].answerData[idx].addquestion[subIdx].option[optIdx].value == 'selected'"
+                                                @change="onRadioChange(index, idx, subIdx, optIdx)" />
                                             {{ composer.locale == 'en' ? opt.text.titleEn : opt.text.titleId }}
                                         </label>
                                     </div>
@@ -74,7 +76,9 @@
                                 <div v-if="sub.answerType == 4">
                                     <div v-for="(opt, optIdx) in sub.option" :key="optIdx" class="mb-[10px]">
                                         <label class="cursor-pointer">
-                                            <input type="checkbox" />
+                                            <input type="checkbox"
+                                                :checked="reqData[index].answerData[idx].addquestion[subIdx].option[optIdx].value == 'selected'"
+                                                @change="toggleCheckbox(index, idx, subIdx, optIdx)" />
                                             {{ composer.locale == 'en' ? opt.text.titleEn : opt.text.titleId }}
                                         </label>
                                     </div>
@@ -108,15 +112,19 @@
                             <!-- 하위 질문 타입에 따라 입력 -->
                             <div v-if="sub.answerType == 1">
                                 <input type="text"
+                                    v-model="reqData[index].answerData[idx].addquestion[subIdx].option[0].value"
                                     class="w-full max-w-[400px] h-[40px] border border-[#C8C8C8] rounded px-2" />
                             </div>
                             <div v-if="sub.answerType == 2">
-                                <textarea class="w-full h-[100px] border border-[#C8C8C8] rounded px-2 py-1"></textarea>
+                                <textarea class="w-full h-[100px] border border-[#C8C8C8] rounded px-2 py-1"
+                                    v-model="reqData[index].answerData[idx].addquestion[subIdx].option[0].value"></textarea>
                             </div>
                             <div v-if="sub.answerType == 3">
                                 <div v-for="(opt, optIdx) in sub.option" :key="optIdx" class="mb-[10px]">
                                     <label class="cursor-pointer flex items-center gap-2">
-                                        <input type="radio"/>
+                                        <input type="radio"
+                                            :checked="reqData[index].answerData[idx].addquestion[subIdx].option[optIdx].value == 'selected'"
+                                            @change="onRadioChange(index, idx, subIdx, optIdx)" />
                                         {{ composer.locale == 'en' ? opt.text.titleEn : opt.text.titleId }}
                                     </label>
                                 </div>
@@ -124,7 +132,9 @@
                             <div v-if="sub.answerType == 4">
                                 <div v-for="(opt, optIdx) in sub.option" :key="optIdx" class="mb-[10px]">
                                     <label class="cursor-pointer">
-                                        <input type="checkbox" />
+                                        <input type="checkbox"
+                                            :checked="reqData[index].answerData[idx].addquestion[subIdx].option[optIdx].value == 'selected'"
+                                            @change="toggleCheckbox(index, idx, subIdx, optIdx)" />
                                         {{ composer.locale == 'en' ? opt.text.titleEn : opt.text.titleId }}
                                     </label>
                                 </div>
@@ -175,25 +185,34 @@ watch(reqData, () => {
 }, { deep: true })
 
 const isBasicInfo = computed(() =>
-    props.list?.length > 0 && props.list[0].repotTitle?.titleEn === 'Basic Information'
+    props.list?.length > 0 && props.list[0].repotTitle?.titleEn == 'Basic Information'
 )
-
-const onRadioChange = (questionIndex: number, choiceIndex: number) => {
-    reqData.value[questionIndex].answerData.forEach((choice: any, i: number) => {
-        choice.value = i === choiceIndex ? 'selected' : ''
-    })
-}
-
-
 
 const selectedOptions = ref<Record<number, number>>({})
 const selectedCheckboxes = ref<Record<number, number[]>>({})
 
-const toggleCheckbox = (questionIndex: number, optionIndex: number) => {
-    const option = reqData.value[questionIndex].answerData[optionIndex]
-
-    option.value = option.value === 'selected' ? '' : 'selected'
+const toggleCheckbox = (questionIndex: number, optionIndex: number, subIdx?: number, optIdx?: number) => {
+    if (optIdx != null && optIdx != undefined) {
+        const option = reqData.value[questionIndex].answerData[optionIndex].addquestion[subIdx].option[optIdx]
+        option.value = option.value == 'selected' ? '' : 'selected'
+    } else {
+        const option = reqData.value[questionIndex].answerData[optionIndex]
+        option.value = option.value == 'selected' ? '' : 'selected'
+    }
 }
+
+const onRadioChange = (questionIndex: number, choiceIndex: number, subIdx?: number, optIdx?: number) => {
+    if (optIdx != null && optIdx != undefined) {
+        reqData.value[questionIndex].answerData[choiceIndex].addquestion[subIdx].option.forEach((choice: any, i: number) => {
+            choice.value = i == optIdx ? 'selected' : ''
+        })
+    } else {
+        reqData.value[questionIndex].answerData.forEach((choice: any, i: number) => {
+            choice.value = i == choiceIndex ? 'selected' : ''
+        })
+    }
+}
+
 
 
 </script>
