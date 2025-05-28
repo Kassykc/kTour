@@ -31,7 +31,7 @@
 
     <div class="h-[60px] flex justify-center items-center gap-[6px] text-white mx-auto cursor-pointer w-[260px] bg-[#1F78FF]"
         @click="goSurvey()">
-        {{ '등록 버튼' }}
+        {{ t('report.alert.request.btn') }}
         <img src="@/assets/images/sub/about/program_btn.png" alt="화살표 이미지" class="">
     </div>
 </template>
@@ -40,6 +40,7 @@ import { useReportStore } from '~/stores/admin/reportStore';
 import { t, composer } from '@/plugins/i18n'
 
 const reportMngStore = useReportStore('cli-report');
+const router = useRouter();
 
 const boardList = ref([]);
 const basicInfo = ref([]);
@@ -134,18 +135,34 @@ const goSurvey = async () => {
     });
 
     if (invalidItems.length > 0) {
-        alert('필수 응답 항목이 비어 있습니다.');
-        console.warn('유효하지 않은 항목들:', invalidItems);
-        return;
+        SysAlert({
+            type: 'alert',
+            message: t('report.alert.required.text'),
+            okText: t('report.alert.required.btn')
+        });
     }
 
     const params = {
         repotAnswerInfo: transformedAnswers
     };
 
-    const response = await reportMngStore.insertBoardAnswer(params);
-    if (response) {
-        console.log('응답 전송 성공');
+    try {
+        const response = await reportMngStore.insertBoardAnswer(params);
+        if (response) {
+            SysAlert({
+                type: 'alert',
+                message: t('report.alert.finish.text'),
+                okText: t('report.alert.finish.btn'),
+                callback: () => { router.push('/') }
+            });
+        }
+    } catch {
+        SysAlert({
+            type: 'confirm',
+            message: t('report.alert.error.text'),
+            okText: t('report.alert.finish.btn'),
+            callback: () => { window.location.reload() }
+        });
     }
 };
 

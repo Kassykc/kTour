@@ -550,6 +550,26 @@
     "subtitle": "Berbagi berita dari K-MediTour",
     "title": "Berita & Pembaruan"
   },
+  "report": {
+    "alert": {
+      "required": {
+        "text": "Masih ada bagian wajib yang belum diisi. Silakan lengkapi terlebih dahulu.",
+        "btn": "Continue filling out"
+      },
+      "finish": {
+        "text": "Permintaan konsultasi Anda telah berhasil dikirim. Tim kami akan segera menghubungi Anda.",
+        "btn": "Saya Mengerti"
+      },
+      "error": {
+        "text": "Terjadi kesalahan saat mengajukan permintaan Anda.",
+        "btn": "Coba lagi",
+        "btn2": "Batal"
+      },
+      "request": {
+        "btn": "Daftar kosultasi"
+      }
+    }
+  },
   "contactUs": {
     "title": "Hubungi Kami",
     "subtitle": "Jangan ragu untuk menghubungi kami! Kami akan segera membalas pesan Anda.",

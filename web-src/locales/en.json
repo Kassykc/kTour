@@ -550,6 +550,26 @@
     "subtitle": "Sharing news from K-MediTour",
     "title": "News & Updates"
   },
+  "report": {
+    "alert": {
+      "required": {
+        "text": "Some required fields are still empty. Please fill them out completely.",
+        "btn": "Continue filling out"
+      },
+      "finish": {
+        "text": "Your consultation request has been received. Our team will contact you shortly.",
+        "btn": "Got it"
+      },
+      "error": {
+        "text": "An error occurred while submitting your request.",
+        "btn": "Retry",
+        "btn2": "Cancel"
+      },
+      "request": {
+        "btn": "Request consultation"
+      }
+    }
+  },
   "contactUs": {
     "title": "Contact Us",
     "subtitle": "Don’t hesitate to reach out! we’ll get back to you as soon as possible.",
