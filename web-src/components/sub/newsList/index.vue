@@ -5,10 +5,8 @@
             <!-- v-for로 news_list 반복 -->
             <div v-for="(item, index) in list" :key="index"
                 class="new_list w-full sm:w-[428px] h-[528px] shadow-[0_4px_15px_rgba(0,0,0,0.2)]">
-                <div class="img_wrap w-full h-[320px]" v-for="(file, idx) in item.fileInfo" :key="idx"
-                    v-if="item && item.fileInfo">
-                    <img :src="getThumbnailUrl(file)" alt="" class="w-full h-full object-cover"
-                        v-if="getThumbnailUrl(file) != ''">
+                <div class="img_wrap w-full h-[320px]">
+                    <img :src="getThumbnailUrl(item)" alt="" class="w-full h-full object-cover">
                 </div>
 
                 <div
@@ -34,7 +32,8 @@ const props = defineProps({
 })
 
 const getThumbnailUrl = (item: any) => {
-    return item.originTypeCd == '100' ? fileBaseUrl + item.filePathEnc : '';
+    const thumb = item.fileInfo.find(file => file.originTypeCd == '100');
+    return fileBaseUrl + thumb.filePathEnc;
 };
 
 const decodeHtmlEntities = (str: string) => {
