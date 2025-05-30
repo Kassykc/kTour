@@ -12,10 +12,15 @@
 
                 <div class="w-full flex justify-between items-center pb-[20px] border-b-[2px] border-black">
                     <div class="date text-[14px]">{{ boardDtlData.resultInfo.regDttm }}</div>
-                    <div class="attach flex justify-end items-center gap-[10px] text-[16px]"
-                        v-for="(item, index) in boardDtlData.resultInfo.fileInfo" v-if="getFile(item)">
-                        {{ item }}
+                    <div class="flex flex-col justify-end gap-2">
+                    <div class="attach flex justify-start items-center gap-[10px] text-[16px]"
+                        v-for="(item, index) in boardDtlData.resultInfo.fileInfo" 
+                        v-if="boardDtlData.resultInfo.fileInfo && boardDtlData.resultInfo.fileInfo.length > 0">
+                        <div class="flex justify-center gap-1 cursor-pointer" v-if="getFile(item)" @click="getDown(item.filePathEnc)">
                         <img src="@/assets/images/sub/inquiry/attach_file.png" alt="">
+                        {{ item.fileNameOrg }}
+                        </div>
+                    </div>
                     </div>
                 </div>
 
